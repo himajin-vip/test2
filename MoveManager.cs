@@ -11,6 +11,7 @@ public class MoveManager : MonoBehaviour
   public Animator player_animator;
   public AtackManager atackmanager;
   public int playerdirection = 0 ; // 0:前　1:後　2:右　3:左
+  public GameObject MenuCanvas;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,9 @@ public class MoveManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      if(Input.GetKey(KeyCode.M)){
+        MenuCanvas.gameObject.SetActive(true);
+      }
       if(!atackmanager.AtackAnimation){
         // 後ろに移動
         if(Input.GetKey(KeyCode.W)){
