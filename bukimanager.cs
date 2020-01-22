@@ -9,6 +9,7 @@ public class bukimanager : MonoBehaviour
   public AtackManager atackmanager;
   public MoveManager movemanager;
   public bool atack_hit;
+  public EfectManager efectmanager;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,9 +43,13 @@ public class bukimanager : MonoBehaviour
       atack_hit = false;
       this.gameObject.SetActive(false);
     }
-    public int Return_damage(){
-      Debug.Log(damage);
-      atack_hit=true;
-      return this.damage;
+    
+    void OnCollisionEnter2D(Collision2D collision2){//武器が当たったらダメージ
+      if(collision2.gameObject.GetComponent<EnemyHpManager>()&&!atack_hit){
+        collision2.gameObject.GetComponent<EnemyHpManager>().DamageHP(damage);
+        Vector3 enemypos = collision2.gameObject.transform.position;
+        efectmanager.efecton(enemypos.x,enemypos.y);//エフェクト作成
+        atack_hit = true;
+      }
     }
 }
