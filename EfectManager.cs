@@ -19,7 +19,8 @@ public class EfectManager : MonoBehaviour
 
     }
 
-    public void efecton(float efectposx , float efectposy){
-      Instantiate(efect, new Vector3(efectposx,efectposy,0), transform.rotation);
+    public GameObject efecton(float efectposx , float efectposy, GameObject obj_parent){
+      GameObject obj = Instantiate(efect, new Vector3(efectposx,efectposy,0), transform.rotation,obj_parent.transform);
+      return obj;
     }
 }

@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class bukimanager : MonoBehaviour
 {
-  public int damage ;
+  int Damage = 3 ;
+  int NomalDamage = 3;
+  int ChargeDamage = 12 ;
   public Animator buki_animator;
   public AtackManager atackmanager;
   public MoveManager movemanager;
@@ -13,7 +15,7 @@ public class bukimanager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      damage = 3;
+
     }
 
     // Update is called once per frame
@@ -39,17 +41,27 @@ public class bukimanager : MonoBehaviour
     }
   }
     public void end(){
+      atackmanager.atackon = false;
       atackmanager.AtackAnimation = false;
       atack_hit = false;
       this.gameObject.SetActive(false);
+      if(atackmanager.fullcharge){
+        Damage = NomalDamage;
+        atackmanager.fullcharge = false;
+      }
     }
-    
+    public void ChargeDamageSet(){
+      Damage = ChargeDamage;
+    }
+
     void OnCollisionEnter2D(Collision2D collision2){//武器が当たったらダメージ
       if(collision2.gameObject.GetComponent<EnemyHpManager>()&&!atack_hit){
-        collision2.gameObject.GetComponent<EnemyHpManager>().DamageHP(damage);
+        collision2.gameObject.GetComponent<EnemyHpManager>().DamageHP(Damage);
         Vector3 enemypos = collision2.gameObject.transform.position;
-        efectmanager.efecton(enemypos.x,enemypos.y);//エフェクト作成
-        atack_hit = true;
+        efectmanager.efecton(enemypos.x,enemypos.y,collision2.gameObject);//エフェクト作成
+        if(!atackmanager.fullcharge){
+          atack_hit = true;
+        }
       }
     }
 }

@@ -15,7 +15,7 @@ public class efectend : MonoBehaviour
     {
 
     }
-    void end(){
+    public void end(){
       Destroy(this.gameObject);
     }
 }

@@ -81,7 +81,7 @@ public class Enemy : MonoBehaviour
     void OnCollisionStay2D(Collision2D collision2){
       if(collision2.gameObject.GetComponent<MoveManager>()&&!atackon){
         atackon = true;
-        enemyatack.atack(enemypower,collision2.gameObject.GetComponent<MoveManager>().playervector3.x,collision2.gameObject.GetComponent<MoveManager>().playervector3.y,collision2.gameObject.GetComponent<Player_HP_Manager>());
+        enemyatack.atack(enemypower,collision2.gameObject.GetComponent<MoveManager>().playerpos.x,collision2.gameObject.GetComponent<MoveManager>().playerpos.y,collision2.gameObject.GetComponent<Player_HP_Manager>());
       }
     }
 }

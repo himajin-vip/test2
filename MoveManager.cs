@@ -6,7 +6,7 @@ public class MoveManager : MonoBehaviour
 {
   public int playerposx;
   public int playerposy;
-  public Vector3 playervector3;
+  public Vector3 playerpos;
   public int move_speed = 3;
   public Animator player_animator;
   public AtackManager atackmanager;
@@ -15,7 +15,7 @@ public class MoveManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      playervector3 = this.gameObject.transform.position;
+      playerpos = this.gameObject.transform.position;
     }
 
     // Update is called once per frame
@@ -58,9 +58,12 @@ public class MoveManager : MonoBehaviour
           }
           this.transform.Translate (0,-move_speed,0);
         }
-        playervector3 = this.gameObject.transform.position;
+        playerpos = this.gameObject.transform.position;
       }
 
+    }
+    public void SpeedSet(int speed){
+      move_speed = speed ;
     }
 
 }
