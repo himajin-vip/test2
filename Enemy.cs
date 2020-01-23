@@ -74,6 +74,11 @@ public class Enemy : MonoBehaviour
       }
     }
 
+    private IEnumerator atacktime(){
+      yield return new WaitForSeconds(1f);
+      atackon = false;
+    }
+
     void OnTriggerEnter2D(Collider2D collision){//プレイヤーを発見したらstatusを変更
       if(!enemyhpmanager.Deth){
         if(collision.gameObject.GetComponent<MoveManager>()){
@@ -86,6 +91,7 @@ public class Enemy : MonoBehaviour
       if(!enemyhpmanager.Deth){
         if(collision2.gameObject.GetComponent<MoveManager>()&&!atackon){
           atackon = true;
+          StartCoroutine(atacktime());
           enemyatack.atack(enemypower,collision2.gameObject.GetComponent<MoveManager>().playerpos.x,collision2.gameObject.GetComponent<MoveManager>().playerpos.y,collision2.gameObject.GetComponent<Player_HP_Manager>());
         }
       }
