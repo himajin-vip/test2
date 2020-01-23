@@ -32,6 +32,13 @@ public class ControlManager : MonoBehaviour
         if(Input.GetKey(KeyCode.S)){
           movemanager.FrontMove();
         }
+        if(Input.GetKeyDown(KeyCode.Space)){
+          atackmanager.AtackKeyDown();
+        }
+        if(Input.GetKeyUp(KeyCode.Space)){
+          atackmanager.AtackKeyUp();
+        }
+
       }
     }
 }

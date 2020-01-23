@@ -18,20 +18,15 @@ public class AtackManager : MonoBehaviour
   void Start(){
   }
   void Update(){
-
-    AtackKeyDown();
-    AtackKeyUp();
-
-
   }
-  void AtackKeyDown(){
-    if(Input.GetKeyDown(KeyCode.Space) && !atackon){//攻撃キーを押したか判定
+  public void AtackKeyDown(){
+    if(!atackon){//攻撃キーを押したか判定
       atackon = true;
       ChargeC = StartCoroutine(ChargeAtack());
     }
   }
-  void AtackKeyUp(){
-    if(Input.GetKeyUp(KeyCode.Space)&&atackon){//攻撃キーを離したか判定
+  public void AtackKeyUp(){
+    if(atackon){//攻撃キーを離したか判定
       AtackAnimation = true;
       if(ChargeEfectOn){
         ChargeEfect.GetComponent<efectend>().end();
