@@ -7,7 +7,7 @@ public class EnemyHpManager : MonoBehaviour
   public int EnemyMaxHp = 10;
   public int EnemyCurrentHp;
   public bool Deth = false;
-  public GameObject DamageText;
+  public DamageTextManager damagetextmanager;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,12 +25,9 @@ public class EnemyHpManager : MonoBehaviour
     }
     public void DamageHP(int damage){
       EnemyCurrentHp -= damage;
-      Transform mytransform = this.transform;
-      Vector3 mypos = mytransform.position;
-      string str = damage.ToString();
-      GameObject obj = Instantiate(DamageText, new Vector3(mypos.x,mypos.y,0), transform.rotation);
-      obj.GetComponent<TextMesh>().text = str;
-      obj.GetComponent<TextMesh>().color = new Color(255,255,255);
+      float x = this.transform.position.x;
+      float y = this.transform.position.y;
+      damagetextmanager.Make(damage,x,y, new Color(255,255,255),this.transform);
     }
 
     private IEnumerator DestroyEnemy(){
