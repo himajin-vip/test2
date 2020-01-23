@@ -9,18 +9,21 @@ public class EnemyHpManager : MonoBehaviour
   public bool Deth = false;
   [SerializeField]
   DamageTextManager damagetextmanager;
+  EnemyManager EnemyManager;
     // Start is called before the first frame update
     void Start()
     {
       damagetextmanager = GameObject.Find("GameManager").gameObject.GetComponent<DamageTextManager>();
+      EnemyManager = GameObject.Find("GameManager").gameObject.GetComponent<EnemyManager>();
       EnemyCurrentHp = EnemyMaxHp;
     }
 
     // Update is called once per frame
     void Update()
     {
-      if(EnemyCurrentHp<=0){
+      if(EnemyCurrentHp<=0&&!Deth){
         Deth = true;
+        EnemyManager.EnemyCurrentCount--;
         StartCoroutine(DestroyEnemy());
       }
 
