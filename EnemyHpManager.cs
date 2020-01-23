@@ -6,6 +6,7 @@ public class EnemyHpManager : MonoBehaviour
 {
   public int EnemyMaxHp = 10;
   public int EnemyCurrentHp;
+  public bool Deth = false;
   public GameObject DamageText;
     // Start is called before the first frame update
     void Start()
@@ -17,7 +18,8 @@ public class EnemyHpManager : MonoBehaviour
     void Update()
     {
       if(EnemyCurrentHp<=0){
-        Deth();
+        Deth = true;
+        StartCoroutine(DestroyEnemy());
       }
 
     }
@@ -30,7 +32,9 @@ public class EnemyHpManager : MonoBehaviour
       obj.GetComponent<TextMesh>().text = str;
       obj.GetComponent<TextMesh>().color = new Color(255,255,255);
     }
-    void Deth(){
+
+    private IEnumerator DestroyEnemy(){
+        yield return new WaitForSeconds(0.5f);
         Destroy(this.gameObject);//hpが０になったら死ぬ
     }
 }
