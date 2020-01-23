@@ -4,44 +4,52 @@ using UnityEngine;
 
 public class AtackManager : MonoBehaviour
 {
-  public bool AtackAnimation = false;
   public MoveManager movemanager;
   public bukimanager bukimanager;
   public EfectManager efectmanager;
   GameObject ChargeEfect;
-  int ChargeAtackCount = 0;
-  int chargetime = 120;
+  Coroutine ChargeC ;
+  public bool AtackAnimation = false;
   public bool atackon = false;
   public bool ChargeEfectOn = false;
   public bool fullcharge = false;
+  public bool keyup = false;
+
   void Start(){
   }
   void Update(){
-    if(Input.GetKeyDown(KeyCode.Space) && !atackon){
+
+    AtackKeyDown();
+    AtackKeyUp();
+
+
+  }
+  void AtackKeyDown(){
+    if(Input.GetKeyDown(KeyCode.Space) && !atackon){//攻撃キーを押したか判定
       atackon = true;
-      }
-    if(Input.GetKeyUp(KeyCode.Space)&&atackon){
+      ChargeC = StartCoroutine(ChargeAtack());
+    }
+  }
+  void AtackKeyUp(){
+    if(Input.GetKeyUp(KeyCode.Space)&&atackon){//攻撃キーを離したか判定
       AtackAnimation = true;
-      ChargeAtackCount = 0;
       if(ChargeEfectOn){
         ChargeEfect.GetComponent<efectend>().end();
         movemanager.SpeedSet(3);
         ChargeEfectOn = false;
       }
       bukimanager.on();
+      StopCoroutine(ChargeC);
     }
-    if(atackon){
-      ChargeAtackCount++;
-      if(ChargeAtackCount>(chargetime/3)&&!ChargeEfectOn){
-        ChargeEfect = efectmanager.efecton(movemanager.playerpos.x,movemanager.playerpos.y,this.gameObject);
-        movemanager.SpeedSet(1);
-        ChargeEfectOn = true;
-      }
-      if(ChargeAtackCount>chargetime){
-        ChargeEfect.GetComponent<Animator>().SetFloat("Speed", 2.0f);
-        fullcharge = true;
-        bukimanager.ChargeDamageSet();
-      }
-    }
+  }
+  private IEnumerator ChargeAtack(){
+    yield return new WaitForSeconds(1f);
+      ChargeEfect = efectmanager.efecton(movemanager.playerpos.x,movemanager.playerpos.y,this.gameObject);
+      movemanager.SpeedSet(1);
+      ChargeEfectOn = true;
+    yield return new WaitForSeconds(1f);
+      ChargeEfect.GetComponent<Animator>().SetFloat("Speed", 2.0f);
+      fullcharge = true;
+      bukimanager.ChargeDamageSet();
   }
 }
