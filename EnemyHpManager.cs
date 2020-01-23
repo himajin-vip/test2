@@ -7,11 +7,13 @@ public class EnemyHpManager : MonoBehaviour
   public int EnemyMaxHp = 10;
   public int EnemyCurrentHp;
   public bool Deth = false;
-  public DamageTextManager damagetextmanager;
+  [SerializeField]
+  DamageTextManager damagetextmanager;
     // Start is called before the first frame update
     void Start()
     {
-        EnemyCurrentHp = EnemyMaxHp;
+      damagetextmanager = GameObject.Find("GameManager").gameObject.GetComponent<DamageTextManager>();
+      EnemyCurrentHp = EnemyMaxHp;
     }
 
     // Update is called once per frame

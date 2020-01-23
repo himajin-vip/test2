@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-
-  public EfectManager efectmanager;
+  [SerializeField]
+  EfectManager efectmanager;
   public Enemyatack enemyatack;
   public EnemyHpManager enemyhpmanager;
   public bool atackon = false;
@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
   Vector3  enemyvector3;
     // Start is called before the first frame update
     void Start(){
+      efectmanager = GameObject.Find("GameManager").gameObject.GetComponent<EfectManager>();
       enemyvector3 = this.gameObject.transform.position;
     }
 
