@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class EfectManager : MonoBehaviour
 {
-  public MoveManager movemanager;
-  public Enemy enemy;
   public GameObject efect;
     // Start is called before the first frame update
     void Start()
