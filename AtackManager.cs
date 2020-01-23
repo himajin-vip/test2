@@ -39,7 +39,7 @@ public class AtackManager : MonoBehaviour
   }
   private IEnumerator ChargeAtack(){
     yield return new WaitForSeconds(1f);
-      ChargeEfect = efectmanager.efecton(movemanager.playerpos.x,movemanager.playerpos.y,this.gameObject);
+      ChargeEfect = efectmanager.tameefecton(movemanager.playerpos.x,movemanager.playerpos.y,this.gameObject);
       movemanager.SpeedSet(1);
       ChargeEfectOn = true;
     yield return new WaitForSeconds(1f);

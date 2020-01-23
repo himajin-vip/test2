@@ -58,7 +58,7 @@ public class bukimanager : MonoBehaviour
       if(collision2.gameObject.GetComponent<EnemyHpManager>()&&!atack_hit){
         collision2.gameObject.GetComponent<EnemyHpManager>().DamageHP(Damage);
         Vector3 enemypos = collision2.gameObject.transform.position;
-        efectmanager.efecton(enemypos.x,enemypos.y,collision2.gameObject);//エフェクト作成
+        efectmanager.kiriefecton(enemypos.x,enemypos.y,collision2.gameObject);//エフェクト作成
         if(!atackmanager.fullcharge){
           atack_hit = true;
         }

@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class EfectManager : MonoBehaviour
 {
-  public GameObject efect;
+  public GameObject kamitukiefect;
+  public GameObject kiriefect;
+  public GameObject tameefect;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,8 +19,16 @@ public class EfectManager : MonoBehaviour
 
     }
 
-    public GameObject efecton(float efectposx , float efectposy, GameObject obj_parent){
-      GameObject obj = Instantiate(efect, new Vector3(efectposx,efectposy,0), transform.rotation,obj_parent.transform);
+    public GameObject kamitukiefecton(float efectposx , float efectposy, GameObject obj_parent){
+      GameObject obj = Instantiate(kamitukiefect, new Vector3(efectposx,efectposy,0), transform.rotation,obj_parent.transform);
+      return obj;
+    }
+    public GameObject kiriefecton(float efectposx , float efectposy, GameObject obj_parent){
+      GameObject obj = Instantiate(kiriefect, new Vector3(efectposx,efectposy,0), transform.rotation,obj_parent.transform);
+      return obj;
+    }
+    public GameObject tameefecton(float efectposx , float efectposy, GameObject obj_parent){
+      GameObject obj = Instantiate(tameefect, new Vector3(efectposx,efectposy,0), transform.rotation,obj_parent.transform);
       return obj;
     }
 }
