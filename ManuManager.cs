@@ -19,14 +19,12 @@ public class ManuManager : MonoBehaviour
     }
     public void ManuOn(){
       MenuCanvas.gameObject.SetActive(true);
-      Time.timeScale = 0f;
     }
 
     public void OnClick(int num){
       switch(num){
         case 0:
           MenuCanvas.gameObject.SetActive(false);
-          Time.timeScale = 1f;
         break;
       }
     }

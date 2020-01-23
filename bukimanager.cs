@@ -10,7 +10,7 @@ public class bukimanager : MonoBehaviour
   public Animator buki_animator;
   public AtackManager atackmanager;
   public MoveManager movemanager;
-  public bool atack_hit;
+  public bool atack_hit = false;
   public EfectManager efectmanager;
     // Start is called before the first frame update
     void Start()
