@@ -7,6 +7,7 @@ public class EfectManager : MonoBehaviour
   public GameObject kamitukiefect;
   public GameObject kiriefect;
   public GameObject tameefect;
+  public GameObject kaihukuefect;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +30,10 @@ public class EfectManager : MonoBehaviour
     }
     public GameObject tameefecton(float efectposx , float efectposy, GameObject obj_parent){
       GameObject obj = Instantiate(tameefect, new Vector3(efectposx,efectposy,0), transform.rotation,obj_parent.transform);
+      return obj;
+    }
+    public GameObject kaihukuefecton(float efectposx , float efectposy, GameObject obj_parent){
+      GameObject obj = Instantiate(kaihukuefect, new Vector3(efectposx,efectposy,0), transform.rotation,obj_parent.transform);
       return obj;
     }
 }

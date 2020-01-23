@@ -25,13 +25,13 @@ public class EnemyHpManager : MonoBehaviour
     {
       if(EnemyCurrentHp<=0&&!Deth){
         Deth = true;
+        ////////////アイテムドロップ//////////
         int i ;
         i = Random.Range(0,3);
         if(i == 2){
           ItemManager.DropItem(0,this.transform.position.x,this.transform.position.y,CoroutineManager.returnMB());
-        }else{
-          Debug.Log(i);
         }
+        ////////////////////////////////////
         EnemyManager.EnemyCurrentCount--;
         StartCoroutine(DestroyEnemy());
       }
