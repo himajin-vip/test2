@@ -6,13 +6,13 @@ public class EnemyManager : MonoBehaviour
 {
   public GameObject slime;
   int EnemyMaxCount;
-  public int EnemyCurrentCount=0;
+  public int EnemyCurrentCount;
   int MapSizeX = 640;
   int MapSizeY = 480;
     // Start is called before the first frame update
     void Start()
     {
-      SetEnemyMaxCount(4);
+      SetEnemyMaxCount(5);
     }
 
     // Update is called once per frame

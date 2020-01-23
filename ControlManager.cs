@@ -7,6 +7,7 @@ public class ControlManager : MonoBehaviour
   public MoveManager movemanager;
   public AtackManager atackmanager;
   public ManuManager manumanager;
+  public ShortcutManager ShortcutManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +38,9 @@ public class ControlManager : MonoBehaviour
         }
         if(Input.GetKeyUp(KeyCode.Space)){
           atackmanager.AtackKeyUp();
+        }
+        if(Input.GetKeyDown(KeyCode.U)){
+          ShortcutManager.ItemUse();
         }
 
       }

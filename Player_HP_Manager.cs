@@ -27,6 +27,15 @@ public class Player_HP_Manager : MonoBehaviour
       float y = this.transform.position.y;
       damagetextmanager.Make(damage,x,y,new Color(255,0,0),this.transform);
     }
+    public void recoveryHP(int recovery){
+      PlayerCurrentHP += recovery;
+      if(PlayerCurrentHP>PlayerMaxHP){
+        PlayerCurrentHP = PlayerMaxHP;
+      }
+      float x = this.transform.position.x;
+      float y = this.transform.position.y;
+      damagetextmanager.Make(recovery,x,y,new Color(0,255,0),this.transform);
+    }
     public void SetMaxHP(){
       PlayerCurrentHP = PlayerMaxHP;
     }

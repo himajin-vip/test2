@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class efectend : MonoBehaviour
+public class CoroutineManager : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -15,7 +15,7 @@ public class efectend : MonoBehaviour
     {
 
     }
-    public void end(){
-      Destroy(this.gameObject);
+    public MonoBehaviour returnMB(){
+      return this;
     }
 }

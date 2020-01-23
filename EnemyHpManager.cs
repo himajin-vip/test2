@@ -10,11 +10,13 @@ public class EnemyHpManager : MonoBehaviour
   [SerializeField]
   DamageTextManager damagetextmanager;
   EnemyManager EnemyManager;
+  CoroutineManager CoroutineManager;
     // Start is called before the first frame update
     void Start()
     {
       damagetextmanager = GameObject.Find("GameManager").gameObject.GetComponent<DamageTextManager>();
       EnemyManager = GameObject.Find("GameManager").gameObject.GetComponent<EnemyManager>();
+      CoroutineManager = GameObject.Find("GameManager").gameObject.GetComponent<CoroutineManager>();
       EnemyCurrentHp = EnemyMaxHp;
     }
 
@@ -23,6 +25,13 @@ public class EnemyHpManager : MonoBehaviour
     {
       if(EnemyCurrentHp<=0&&!Deth){
         Deth = true;
+        int i ;
+        i = Random.Range(0,3);
+        if(i == 2){
+          ItemManager.DropItem(0,this.transform.position.x,this.transform.position.y,CoroutineManager.returnMB());
+        }else{
+          Debug.Log(i);
+        }
         EnemyManager.EnemyCurrentCount--;
         StartCoroutine(DestroyEnemy());
       }

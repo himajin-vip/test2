@@ -29,7 +29,7 @@ public class AtackManager : MonoBehaviour
     if(atackon){//攻撃キーを離したか判定
       AtackAnimation = true;
       if(ChargeEfectOn){
-        ChargeEfect.GetComponent<efectend>().end();
+        ChargeEfect.GetComponent<ObjectEnd>().end();
         movemanager.SpeedSet(3);
         ChargeEfectOn = false;
       }
