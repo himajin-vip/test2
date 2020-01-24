@@ -6,11 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class Weapon : MonoBehaviour
 {
-  public  int WeaponDamage;
+  public int WeaponDamage;
   public  bool WeaponHit = false;
   public int FinalDamage;
 
-  public void Atack(int PlayerStr){
+  public virtual void Atack(){
   }
   public void end(){
     transform.parent.gameObject.GetComponent<Player>().AtackOn = false;
@@ -18,12 +18,15 @@ public class Weapon : MonoBehaviour
     WeaponHit = false;
     this.gameObject.SetActive(false);
     if(transform.parent.gameObject.GetComponent<Player>().FullCharge){
-      WeaponDamage = WeaponDamage;
       transform.parent.gameObject.GetComponent<Player>().FullCharge = false;
     }
   }
-  public void ChargeDamageSet(int PlayerStr){
+  public virtual void ChargeDamageSet(int PlayerStr){
   }
+  public virtual void NormalDamageSet(int PlayerStr){
+    FinalDamage = WeaponDamage+PlayerStr;
+  }
+
   public void Equipment(int id){
     WeaponDamage = InventoryManager.Equipment(id);
   }

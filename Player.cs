@@ -66,18 +66,26 @@ public class Player : MonoBehaviour
   }
   public void FrontMove(){
     this.transform.Translate (0,-MoveSpeed,0);
+    PosX = this.transform.position.x;
+    PosY = this.transform.position.y;
     FrontDirection();
   }
   public void BackMove(){
     this.transform.Translate (0,MoveSpeed,0);
+    PosX = this.transform.position.x;
+    PosY = this.transform.position.y;
     BackDirection();
   }
   public void RightMove(){
     this.transform.Translate (MoveSpeed,0,0);
+    PosX = this.transform.position.x;
+    PosY = this.transform.position.y;
     RightDirection();
   }
   public void LeftMove(){
     this.transform.Translate (-MoveSpeed,0,0);
+    PosX = this.transform.position.x;
+    PosY = this.transform.position.y;
     LeftDirection();
   }
   public void FrontDirection(){
@@ -103,6 +111,7 @@ public class Player : MonoBehaviour
     if(!AtackOn){//攻撃キーを押したか判定
       AtackOn = true;
       ChargeC = StartCoroutine(ChargeAtack());
+      MyWeapon.GetComponent<Weapon>().NormalDamageSet(this.Str);
     }
   }
   public void AtackKeyUp(){
@@ -113,7 +122,7 @@ public class Player : MonoBehaviour
         SpeedSet(NomalMoveSpeed);
         ChargeEfectOn = false;
       }
-      MyWeapon.GetComponent<Sword>().Atack(this.Str);
+      MyWeapon.GetComponent<Weapon>().Atack();
       StopCoroutine(ChargeC);
     }
   }

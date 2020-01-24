@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      EnemyManager.MakeEnemy("slime");
+      EnemyManager.MakeEnemy("Slime");
     }
 
 }

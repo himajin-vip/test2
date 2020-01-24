@@ -13,5 +13,6 @@ public class PlayerManager : MonoBehaviour
     Player.GetComponent<Player>().PosY = 0;
     Player.GetComponent<Player>().SetMyWeapon();
     Player.GetComponent<Player>().WeaponEqipment(1);
+    //Player.transform.GetChild(0).GetComponent<Weapon>().ChargeDamageSet();
   }
 }

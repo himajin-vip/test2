@@ -21,6 +21,6 @@ public class ShortcutManager : MonoBehaviour
       textShortcut1.text = InventoryManager.ReturnPieces(IDShortcut1)+"個";
     }
     public void ItemUse(){
-      Player.ItemUse(IDShortcut1);
+      PlayerManager.Player.GetComponent<Player>().ItemUse(IDShortcut1);
     }
 }

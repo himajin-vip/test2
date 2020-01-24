@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class Sword : Weapon
 {
-  public new void Atack(int PlayerStr){
-    Debug.Log("atackin");
-    FinalDamage = PlayerStr+WeaponDamage;
+  public override void Atack(){
     AtackDirection();
   }
-  public new void ChargeDamageSet(int PlayerStr){
+  public override void ChargeDamageSet(int PlayerStr){
     FinalDamage = (PlayerStr+WeaponDamage)*2;
   }
 }
