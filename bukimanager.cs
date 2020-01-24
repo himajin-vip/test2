@@ -11,7 +11,6 @@ public class bukimanager : MonoBehaviour
   public AtackManager atackmanager;
   public MoveManager movemanager;
   public bool atack_hit = false;
-  public EfectManager efectmanager;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,7 +57,7 @@ public class bukimanager : MonoBehaviour
       if(collision2.gameObject.GetComponent<EnemyHpManager>()&&!atack_hit){
         collision2.gameObject.GetComponent<EnemyHpManager>().DamageHP(Damage);
         Vector3 enemypos = collision2.gameObject.transform.position;
-        efectmanager.kiriefecton(enemypos.x,enemypos.y,collision2.gameObject);//エフェクト作成
+        EfectManager.efecton("kiriefect",enemypos.x,enemypos.y,collision2.gameObject);//エフェクト作成
         if(!atackmanager.fullcharge){
           atack_hit = true;
         }

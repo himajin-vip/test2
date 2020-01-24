@@ -6,7 +6,6 @@ public class AtackManager : MonoBehaviour
 {
   public MoveManager movemanager;
   public bukimanager bukimanager;
-  public EfectManager efectmanager;
   GameObject ChargeEfect;
   Coroutine ChargeC ;
   public bool AtackAnimation = false;
@@ -29,7 +28,7 @@ public class AtackManager : MonoBehaviour
     if(atackon){//攻撃キーを離したか判定
       AtackAnimation = true;
       if(ChargeEfectOn){
-        ChargeEfect.GetComponent<ObjectEnd>().end();
+        ChargeEfect.GetComponent<Efect>().OnEnd();
         movemanager.SpeedSet(3);
         ChargeEfectOn = false;
       }
@@ -39,7 +38,7 @@ public class AtackManager : MonoBehaviour
   }
   private IEnumerator ChargeAtack(){
     yield return new WaitForSeconds(1f);
-      ChargeEfect = efectmanager.tameefecton(movemanager.playerpos.x,movemanager.playerpos.y,this.gameObject);
+      ChargeEfect = EfectManager.efecton("tameefect",movemanager.playerpos.x,movemanager.playerpos.y,this.gameObject);
       movemanager.SpeedSet(1);
       ChargeEfectOn = true;
     yield return new WaitForSeconds(1f);
