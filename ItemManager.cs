@@ -8,7 +8,7 @@ public class ItemManager : MonoBehaviour
 
     // Start is called before the first frame update
     void Start(){
-      ItemList.Add(0,(GameObject)Resources.Load ("portion"));
+      ItemList.Add(0,(GameObject)Resources.Load ("prefab/portion"));
     }
 
     // Update is called once per frame
