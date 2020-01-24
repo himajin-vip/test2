@@ -22,4 +22,13 @@ public class Potion : MonoBehaviour,IItem
     public int ItemGet(){
       return Id;
     }
+    public void DropItem(){
+      StartCoroutine(StopItem());
+    }
+    private IEnumerator StopItem(){
+      yield return new WaitForSeconds(1f);
+      Debug.Log("stop");
+      GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+      GetComponent<Rigidbody2D>().isKinematic = true;
+    }
 }

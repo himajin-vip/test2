@@ -7,4 +7,5 @@ public interface IItem
   void ItemUse(GameObject obj);
   void ItemSet();
   int ItemGet();
+  void DropItem();
 }
