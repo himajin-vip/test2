@@ -5,9 +5,13 @@ using UnityEngine;
 public class ItemManager : MonoBehaviour
 {
   static Dictionary<int,string> ItemList = new Dictionary<int,string>();
+  static private bool Setend = false;
 
-    public static void SetItemList(){
-      ItemList.Add(0,"portion");
+    public static void SetItemList(){//Excelとかで読み込めないかな
+      if(!Setend){
+        ItemList.Add(0,"portion");
+        Setend = true;
+      }
     }
     public static GameObject returnItemObject(int ItemID){
       return (GameObject)Resources.Load ("prefab/"+ItemList[ItemID]);

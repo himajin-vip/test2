@@ -4,33 +4,32 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-  static bool NewItem = true;
   static Dictionary<int,int> Inventory = new Dictionary<int,int>();
-    // Start is called before the first frame update
-    void Start()
+
+    static public void SetUp()
     {
-      Inventory.Add (0, 3);
+      if(InventoryCheck(0)){
+        Inventory[0] = 3;
+      }else{
+        Inventory.Add (0, 3);
+      }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     static public void ItemGet(int ID){
+      if(InventoryCheck(ID)){
+        Inventory[ID]++;
+      }else{
+        Inventory.Add (ID, 1);
+      }
+    }
+    static bool InventoryCheck(int Checkkey){
       List<int> keyList = new List<int>(Inventory.Keys);
       foreach(int key in keyList) {
-        if(key == ID){
-          Inventory[key]++;
-          NewItem = false;
-          Debug.Log("アイテムをふやしました。数は"+Inventory[key]+"個です。");
+        if(key == Checkkey){
+          return true;
         }
       }
-      if(NewItem){
-        Inventory.Add (ID, 1);
-        Debug.Log("アイテムを新規追加しました。数は1個です。");
-        NewItem = true;
-      }
+      return false;
     }
     static public int ReturnPieces(int key){
       return Inventory[key];

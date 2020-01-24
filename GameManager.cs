@@ -7,7 +7,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      ItemManager.SetItemList();
+      ItemManager.SetItemList();//アイテムリストの登録
+      InventoryManager.SetUp();//インベントリの初期化
+      EnemyManager.EnemyCurrentCount = 0;//モンスターの表示数の初期化
     }
 
     // Update is called once per frame
