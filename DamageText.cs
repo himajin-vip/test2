@@ -4,18 +4,15 @@ using UnityEngine;
 
 public class DamageText : MonoBehaviour {
 
-    // Use this for initialization
-    void Start()
-    {
-      int x = Random.Range(-18000, 18000);
-      int y =  Random.Range(18000, 18000);
-        GetComponent<Rigidbody2D>().AddForce(new Vector2(x,y));
-        StartCoroutine(DestroyObject());
-    }
+  public void go(){
+    int randx = Random.Range(-18000, 18000);
+    int randy = Random.Range(-18000, 18000);
+    GetComponent<Rigidbody2D>().AddForce(new Vector2(randx,randy));
+    StartCoroutine(DestroyObject());
+  }
 
-    private IEnumerator DestroyObject()
-    {
-        yield return new WaitForSeconds(0.6f);
-        Destroy(this.gameObject);
-    }
+  private IEnumerator DestroyObject(){
+      yield return new WaitForSeconds(0.6f);
+      Destroy(this.gameObject);
+  }
 }

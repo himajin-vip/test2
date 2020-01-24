@@ -8,13 +8,11 @@ public class EnemyHpManager : MonoBehaviour
   public int EnemyCurrentHp;
   public bool Deth = false;
   [SerializeField]
-  DamageTextManager damagetextmanager;
   EnemyManager EnemyManager;
   CoroutineManager CoroutineManager;
     // Start is called before the first frame update
     void Start()
     {
-      damagetextmanager = GameObject.Find("GameManager").gameObject.GetComponent<DamageTextManager>();
       EnemyManager = GameObject.Find("GameManager").gameObject.GetComponent<EnemyManager>();
       CoroutineManager = GameObject.Find("GameManager").gameObject.GetComponent<CoroutineManager>();
       EnemyCurrentHp = EnemyMaxHp;
@@ -41,7 +39,7 @@ public class EnemyHpManager : MonoBehaviour
       EnemyCurrentHp -= damage;
       float x = this.transform.position.x;
       float y = this.transform.position.y;
-      damagetextmanager.Make(damage,x,y, new Color(255,255,255),this.transform);
+      DamageTextManager.Make(damage,x,y, new Color(255,255,255),this.transform);
     }
 
     private IEnumerator DestroyEnemy(){

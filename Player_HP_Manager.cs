@@ -7,7 +7,6 @@ public class Player_HP_Manager : MonoBehaviour
 {
   public int PlayerMaxHP;
   public int PlayerCurrentHP;
-  public DamageTextManager damagetextmanager;
   public EfectManager EfectManager;
     // Start is called before the first frame update
     void Start()
@@ -26,7 +25,7 @@ public class Player_HP_Manager : MonoBehaviour
       PlayerCurrentHP -= damage;
       float x = this.transform.position.x;
       float y = this.transform.position.y;
-      damagetextmanager.Make(damage,x,y,new Color(255,0,0),this.transform);
+      DamageTextManager.Make(damage,x,y,new Color(255,0,0),this.transform);
     }
     public void recoveryHP(int recovery){
       PlayerCurrentHP += recovery;
@@ -35,7 +34,7 @@ public class Player_HP_Manager : MonoBehaviour
       }
       float x = this.transform.position.x;
       float y = this.transform.position.y;
-      damagetextmanager.Make(recovery,x,y,new Color(0,255,0),this.transform);
+      DamageTextManager.Make(recovery,x,y,new Color(0,255,0),this.transform);
       EfectManager.kaihukuefecton(this.transform.position.x,this.transform.position.y,this.gameObject);
     }
     public void SetMaxHP(){
