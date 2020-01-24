@@ -5,36 +5,28 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
   public GameObject slime;
-  static int EnemyMaxCount = 5;
-  static int EnemyCurrentCount;
-    // Start is called before the first frame update
-    void Start()
-    {
+  private static int enemyMaxCount = 5;
+  private static int enemyCurrentCount;
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-      MakeEnemy("slime");
-    }
-    static void MakeEnemy(string enemyname){
+  public static void MakeEnemy(string enemyname){
       int MapSizeX = 640;
       int MapSizeY = 480;
       int marge = 64;
-      if(EnemyMaxCount>EnemyCurrentCount){
+      if(enemyMaxCount>enemyCurrentCount){
         GameObject Enemy = (GameObject)Resources.Load ("prefab/Enemy/"+enemyname);
         int x = Random.Range(-MapSizeX/2+marge,MapSizeX/2-marge);
         int y =  Random.Range(-MapSizeY/2+marge,MapSizeY/2-marge);
         Instantiate(Enemy,new Vector3(x,y,0), Quaternion.identity);
-        EnemyCurrentCount++;
+        enemyCurrentCount++;
       }
     }
-    public static void DethEnemy(){
-      EnemyCurrentCount--;
+    public static int EnemyCurrentCount{
+        set { enemyCurrentCount = value; }
+        get { return enemyCurrentCount; }
     }
 
-    static void SetEnemyMaxCount(int count){
-      EnemyMaxCount = count;
+    public static int EnemyMaxCount{
+        set { enemyMaxCount = value; }
+        get { return enemyMaxCount; }
     }
 }

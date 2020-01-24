@@ -25,7 +25,7 @@ public class EnemyHpManager : MonoBehaviour
           ItemManager.DropItem(0,this.transform.position.x,this.transform.position.y);
         }
         ////////////////////////////////////
-        EnemyManager.DethEnemy();
+        EnemyManager.EnemyCurrentCount--;
         StartCoroutine(DestroyEnemy());
       }
 

@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
       int getID = collision.gameObject.GetComponent<IItem>().ItemGet();
       Debug.Log("インベントリに追加するよ");
       InventoryManager.ItemGet(getID);
-      collision.gameObject.GetComponent<ObjectEnd>().end();
+      collision.gameObject.GetComponent<IItem>().DropEnd();
     }
     void OnTriggerEnter2D(Collider2D collision){
       if(collision.gameObject.tag == "Item"){

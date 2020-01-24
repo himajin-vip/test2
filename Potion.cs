@@ -14,7 +14,6 @@ public class Potion : MonoBehaviour,IItem
   }
 
     public void ItemUse(GameObject obj){
-      Debug.Log(recovery);
       obj.gameObject.GetComponent<Player_HP_Manager>().recoveryHP(recovery);
     }
     public void ItemSet(){
@@ -23,7 +22,13 @@ public class Potion : MonoBehaviour,IItem
       return Id;
     }
     public void DropItem(){
+      int rndx = Random.Range(-18000, 18000);
+      int rndy =  Random.Range(-18000, 18000);
+      GetComponent<Rigidbody2D>().AddForce(new Vector2(rndx,rndy));
       StartCoroutine(StopItem());
+    }
+    public void DropEnd(){
+      Destroy(this.gameObject);
     }
     private IEnumerator StopItem(){
       yield return new WaitForSeconds(1f);

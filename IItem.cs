@@ -8,4 +8,5 @@ public interface IItem
   void ItemSet();
   int ItemGet();
   void DropItem();
+  void DropEnd();
 }
