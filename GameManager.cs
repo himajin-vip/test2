@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
       ItemManager.SetItemList();//アイテムリストの登録
       InventoryManager.SetUp();//インベントリの初期化
       EnemyManager.EnemyCurrentCount = 0;//モンスターの表示数の初期化
+      PlayerManager.MakePlayer("Fighter");
     }
 
     // Update is called once per frame

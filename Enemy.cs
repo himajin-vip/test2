@@ -80,18 +80,24 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision){//プレイヤーを発見したらstatusを変更
       if(!enemyhpmanager.Deth){
-        if(collision.gameObject.GetComponent<MoveManager>()){
+        if(collision.gameObject.GetComponent<Player>()){
           status = 1;
         }
       }
     }
 
+    //////////////////ダミー
+    public void  DamageHP(int a){
+
+    }
+    ////////////////////////
+
     void OnCollisionStay2D(Collision2D collision2){
       if(!enemyhpmanager.Deth){
-        if(collision2.gameObject.GetComponent<MoveManager>()&&!atackon){
+        if(collision2.gameObject.GetComponent<Player>()&&!atackon){
           atackon = true;
           StartCoroutine(atacktime());
-          enemyatack.atack(enemypower,collision2.gameObject.GetComponent<MoveManager>().playerpos.x,collision2.gameObject.GetComponent<MoveManager>().playerpos.y,collision2.gameObject.GetComponent<Player_HP_Manager>());
+          enemyatack.atack(enemypower,collision2.gameObject.GetComponent<Player>().PosX,collision2.gameObject.GetComponent<Player>().PosY,collision2.gameObject.GetComponent<Player>());
         }
       }
     }

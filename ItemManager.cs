@@ -10,6 +10,7 @@ public class ItemManager : MonoBehaviour
     public static void SetItemList(){//Excelとかで読み込めないかな
       if(!Setend){
         ItemList.Add(0,"portion");
+        ItemList.Add(1,"IronSword");
         Setend = true;
       }
     }

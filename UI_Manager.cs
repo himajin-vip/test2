@@ -6,7 +6,6 @@ public class UI_Manager : MonoBehaviour
 {
   public Slider hpSlider;
   public Text hpText;
-  public Player_HP_Manager player_hp_manager;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,8 +15,8 @@ public class UI_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      hpSlider.maxValue = player_hp_manager.PlayerMaxHP;
-      hpSlider.value = player_hp_manager.PlayerCurrentHP;
-      hpText.text = player_hp_manager.PlayerCurrentHP+"/"+player_hp_manager.PlayerMaxHP;
+      hpSlider.maxValue = PlayerManager.Player.GetComponent<Player>().MaxHp;
+      hpSlider.value = PlayerManager.Player.GetComponent<Player>().CurrentHp;
+      hpText.text = PlayerManager.Player.GetComponent<Player>().CurrentHp+"/"+PlayerManager.Player.GetComponent<Player>().MaxHp;
     }
 }
