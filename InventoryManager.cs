@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryManager : MonoBehaviour
+public static class InventoryManager
 {
-  static Dictionary<int,int> Inventory = new Dictionary<int,int>();
-  static bool SetEnd = false;
+  private static Dictionary<int,int> Inventory = new Dictionary<int,int>();
+  private static bool SetEnd = false;
     static public void SetUp()
     {
       if(!SetEnd){

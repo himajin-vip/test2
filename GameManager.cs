@@ -12,8 +12,7 @@ public class GameManager : MonoBehaviour
       CameraManager.SetUp();
       UI_Manager.SetUp();
       ShortcutManager.SetUp();
-      EnemyManager.EnemyCurrentCount = 0;//モンスターの表示数の初期化
-      PlayerManager.MakePlayer("Fighter");
+      PlayerManager.SetUp("Fighter");
 
     }
 

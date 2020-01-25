@@ -100,7 +100,7 @@ public class Enemy : MonoBehaviour
     DeathCheck = true;
     ItemDrop();
     StartCoroutine(DestroyEnemy());
-    EnemyManager.EnemyCurrentCount--;
+    EnemyManager.EnemyCurrentCountDown();
   }
   public void ItemDrop(){
     int i ;

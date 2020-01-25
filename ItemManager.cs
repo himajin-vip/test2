@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemManager : MonoBehaviour
+public static class ItemManager
 {
-  static Dictionary<int,string> ItemList = new Dictionary<int,string>();
-  static private bool Setend = false;
+  private static Dictionary<int,string> ItemList = new Dictionary<int,string>();
+  private static bool Setend = false;
 
     public static void SetUp(){//Excelとかで読み込めないかな
       if(!Setend){
@@ -19,7 +19,7 @@ public class ItemManager : MonoBehaviour
     }
     public static void DropItem(int key,float x,float y){
       GameObject obj = (GameObject)Resources.Load ("prefab/"+ItemList[key]);
-      GameObject obj2 = Instantiate(obj, new Vector3(x,y,0), Quaternion.identity);
+      GameObject obj2 = GameManager.Instantiate(obj, new Vector3(x,y,0), Quaternion.identity);
       obj2.GetComponent<IItem>().DropItem();
     }
 
