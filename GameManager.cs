@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
       CameraManager.PlayerCheck();
       ControlManager.KeyCheck();
       UI_Manager.UiStatusUpdate();
+      ShortcutManager.update();
       EnemyManager.MakeEnemy("Slime");
     }
 

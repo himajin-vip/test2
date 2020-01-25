@@ -15,4 +15,7 @@ public static class ShortcutManager
         break;
     }
   }
+  public static void update(){
+    ShortCut1.GetComponent<ShortCut>().update();
+  }
 }

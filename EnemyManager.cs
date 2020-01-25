@@ -5,7 +5,7 @@ using UnityEngine;
 public static class EnemyManager
 {
   private static GameObject Slime;
-  private static int EnemyMaxCount = 30;
+  private static int EnemyMaxCount = 10;
   private static int EnemyCurrentCount = 0;
 
 

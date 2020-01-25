@@ -50,15 +50,12 @@ public static class CameraManager
       CameraMoveOn = false;
       CameraMoveX = 0;
       count = 0;
-      Debug.Log("test");
     }
     if(count > CameraSizeY&&!(CameraMoveY == 0)){
       CameraMoveOn = false;
       CameraMoveY = 0;
       count = 0;
-      Debug.Log("test2");
     }
-    Debug.Log("loop");
     if(CameraMoveOn){
       if(CameraMoveX > 0){
         Vector3 Camerapos = MainCamera.transform.position;
@@ -80,9 +77,7 @@ public static class CameraManager
         Camerapos.y-=10;
         MainCamera.transform.position = Camerapos;
       }
-      Debug.Log("loop2");
       count+=10;
-      Debug.Log(count);
       }
   }
 }
