@@ -5,12 +5,12 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
   public static GameObject Slime;
-  public static int EnemyMaxCount = 0;
+  public static int EnemyMaxCount = 30;
   public static int EnemyCurrentCount;
 
   public static void MakeEnemy(string enemyname){
-      int MapSizeX = 640;
-      int MapSizeY = 480;
+      int MapSizeX = 640*3;
+      int MapSizeY = 480*3;
       int marge = 64;
       if(EnemyMaxCount>=EnemyCurrentCount){
         int x = Random.Range(-MapSizeX/2+marge,MapSizeX/2-marge);

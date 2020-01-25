@@ -8,7 +8,7 @@ public  static class ControlManager
   public static void KeyCheck()
   {
     if(!PlayerManager.Player.GetComponent<Player>().AtackAnimation){
-      if(Input.GetKey(KeyCode.M)){
+      if(Input.GetKeyDown(KeyCode.M)){
         UI_Manager.MenuOn();
       }
       if(Input.GetKey(KeyCode.W)){

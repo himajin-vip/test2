@@ -10,11 +10,18 @@ public class UI_Menu : MonoBehaviour
     public void MenuOn(){
       MainMenuCanvas.gameObject.SetActive(true);
     }
-
-    public void CloseMenu(){
+    public void MenuOff(){
       MainMenuCanvas.gameObject.SetActive(false);
     }
-    public void EndGame(){
-      SceneManager.LoadScene("title");
+    public void OnClick(string button){
+      Debug.Log("push");
+      switch(button){
+        case "Close":
+          MainMenuCanvas.gameObject.SetActive(false);
+        break;
+        case "End":
+          SceneManager.LoadScene("title");
+        break;
+      }
     }
 }
