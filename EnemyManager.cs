@@ -7,6 +7,7 @@ public static class EnemyManager
   private static GameObject Slime;
   private static int EnemyMaxCount = 10;
   private static int EnemyCurrentCount = 0;
+  private static GameObject SlimePlefab;
 
 
   public static void MakeEnemy(string enemyname){

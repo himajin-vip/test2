@@ -8,7 +8,8 @@ public static class PlayerManager
 
   public static void SetUp(string Job){
     GameObject obj = (GameObject)Resources.Load("Player/"+Job);
-    Player = obj.GetComponent<Player>();
+    GameObject obj2 = GameManager.Instantiate(obj, new Vector3(0,0,0), Quaternion.identity);
+    Player = obj2.GetComponent<Player>();
     Player.SetUp();
   }
   public static void PlayerMove(int direction){

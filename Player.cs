@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
 
   public void SetUp(){
     Debug.Log("Playerを初期化します");
-    Instantiate(this.gameObject, new Vector3(0,0,0), Quaternion.identity);
+    
     AtackAnimation = false;
     animator = GetComponent<Animator>();
     SetWeapon(100);

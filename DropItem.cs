@@ -7,7 +7,6 @@ public class DropItem : MonoBehaviour
   public int ItemId;
 
   public void SetUp(int itemid,float x,float y){
-    Instantiate(this, new Vector3(x,y,0), Quaternion.identity);
     int rndx = Random.Range(-18000, 18000);
     int rndy =  Random.Range(-18000, 18000);
     GetComponent<Rigidbody2D>().AddForce(new Vector2(rndx,rndy));
