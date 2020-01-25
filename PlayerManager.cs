@@ -11,7 +11,7 @@ public static class PlayerManager
     Player = obj.GetComponent<Player>();
     Player.SetUp();
   }
-  public void PlayerMove(){
-    
+  public static void PlayerMove(int direction){
+    Player.Move(direction);
   }
 }

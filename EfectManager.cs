@@ -5,10 +5,10 @@ using UnityEngine;
 public static class EfectManager
 {
 
-    public static GameObject efecton(string efectname ,float efectposx , float efectposy, GameObject obj_parent){
-      GameObject efect = (GameObject)Resources.Load ("prefab/Efect/"+efectname);
-      GameObject obj = GameManager.Instantiate(efect, new Vector3(efectposx,efectposy,0), Quaternion.identity);
-      obj.GetComponent<Efect>().SetParent(obj_parent);
-      return obj;
+    public static Efect efecton(string efectname ,float efectposx , float efectposy, GameObject obj_parent){
+      GameObject obj = (GameObject)Resources.Load ("prefab/Efect/"+efectname);
+      Efect efect = obj.GetComponent<Efect>();
+      efect.SetUp(efectposx,efectposy,obj_parent);
+      return efect;
     }
 }

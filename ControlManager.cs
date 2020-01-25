@@ -7,21 +7,23 @@ public  static class ControlManager
 
   public static void KeyCheck()
   {
-    if(!PlayerManager.Player.GetComponent<Player>().AtackAnimation){
+    Debug.Log(PlayerManager.Player.AtackAnimation);
+    if(!PlayerManager.Player.AtackAnimation){
+      Debug.Log("KeyCheck");
       if(Input.GetKeyDown(KeyCode.M)){
         UI_Manager.MenuOn();
       }
-      if(Input.GetKey(KeyCode.W)){
-        PlayerManager.Player.GetComponent<Player>().BackMove();
+      if(Input.GetKey(KeyCode.S)){
+        PlayerManager.PlayerMove(0);
       }
-      if(Input.GetKey(KeyCode.A)){
-        PlayerManager.Player.GetComponent<Player>().LeftMove();
+      if(Input.GetKey(KeyCode.W)){
+        PlayerManager.PlayerMove(1);
       }
       if(Input.GetKey(KeyCode.D)){
-        PlayerManager.Player.GetComponent<Player>().RightMove();
+        PlayerManager.PlayerMove(2);
       }
-      if(Input.GetKey(KeyCode.S)){
-        PlayerManager.Player.GetComponent<Player>().FrontMove();
+      if(Input.GetKey(KeyCode.A)){
+        PlayerManager.PlayerMove(3);
       }
       if(Input.GetKeyDown(KeyCode.Space)){
         PlayerManager.Player.GetComponent<Player>().AtackKeyDown();

@@ -106,7 +106,7 @@ public class Enemy : MonoBehaviour
     int i ;
     i = Random.Range(0,3);
     if(i == 2){
-      ItemManager.DropItem(DropItem,this.transform.position.x,this.transform.position.y);
+      ItemManager.DropItemMake(DropItem,this.transform.position.x,this.transform.position.y);
     }
   }
   void OnTriggerEnter2D(Collider2D collision){//プレイヤーを発見したらMoveStatusを変更

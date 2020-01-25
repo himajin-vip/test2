@@ -5,52 +5,60 @@ using UnityEngine;
 public static class InventoryManager
 {
   private static Dictionary<int,int> Inventory = new Dictionary<int,int>();
-  private static bool SetEnd = false;
     static public void SetUp()
     {
-      if(!SetEnd){
-        Inventory.Add (0, 3);
-        Inventory.Add (1, 1);
-        SetEnd = true;
-      }
+      Debug.Log("InventoryManagerを初期化します");
+      Inventory.Add (0, 3);
+      Inventory.Add (100, 1);
+      Debug.Log("InventoryManagerを初期化完了");
     }
-    static public int Equipment(int ItemID){
+    static public void WeaponEquipment(int ItemID,Weapon weapon){
       if(InventoryKeyCheck(ItemID)){
-        if(InventoryPiecesCheck(ItemID,1)){
-          GameObject ItemObj = ItemManager.returnItemObject(ItemID);
-          return ItemObj.GetComponent<IItem>().ItemSet();
-        }
-        return 0;
+        WeaponItem Item = ItemManager.returnWeaponItem(ItemID);
+        Item.WeaponEquipment(weapon);
       }
-      return 0;
     }
-    static public void ItemGet(int ID){
-      if(InventoryKeyCheck(ID)){
-        Inventory[ID]++;
+    static public void ItemGet(int ItemID){
+      if(InventoryKeyCheck(ItemID)){
+        Inventory[ItemID]++;
       }else{
-        Inventory.Add (ID, 1);
+        Inventory.Add (ItemID, 1);
       }
     }
-    static bool InventoryKeyCheck(int Checkkey){
-      List<int> keyList = new List<int>(Inventory.Keys);
-      foreach(int key in keyList) {
-        if(key == Checkkey){
+    static public void RemoveInventory(int ItemID){
+      if(InventoryKeyCheck(ItemID)){
+        Inventory.Remove(ItemID);
+      }
+    }
+    static bool InventoryKeyCheck(int CheckID){
+      List<int> ItemList = new List<int>(Inventory.Keys);
+      foreach(int ItemID in ItemList) {
+        if(ItemID == CheckID){
           return true;
         }
       }
       return false;
     }
-    static bool InventoryPiecesCheck(int key,int pieces){
-      if(Inventory[key]>=pieces){
+    static bool InventoryPiecesCheck(int key){
+      if(Inventory[key]>0){
         return true;
       }else{
         return false;
       }
     }
-    static public int ReturnPieces(int key){
-      return Inventory[key];
+    static public int ReturnPieces(int ItemID){
+      if(InventoryKeyCheck(ItemID)){
+        return Inventory[ItemID];
+      }else{
+        return 0;
+      }
     }
-    static public void ItemReduce(int key){
-      Inventory[key]--;
+    static public void ItemReduce(int ItemID){
+      if(InventoryKeyCheck(ItemID)){
+        Inventory[ItemID]--;
+        if(Inventory[ItemID] == 0){
+          RemoveInventory(ItemID);
+        }
+      }
     }
 }

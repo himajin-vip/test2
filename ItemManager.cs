@@ -4,23 +4,28 @@ using UnityEngine;
 
 public static class ItemManager
 {
-  private static Dictionary<int,string> ItemList = new Dictionary<int,string>();
-  private static bool Setend = false;
+  private static Dictionary<int,UseItem> UseItemList = new Dictionary<int,UseItem>();
+  private static Dictionary<int,WeaponItem> WeaponItemList = new Dictionary<int,WeaponItem>();
+
 
     public static void SetUp(){//Excelとかで読み込めないかな
-      if(!Setend){
-        ItemList.Add(0,"portion");
-        ItemList.Add(1,"IronSword");
-        Setend = true;
-      }
+      Debug.Log("ItemManagerを初期化します");
+      UseItem item = new Potion();
+      UseItemList.Add(0,item);
+      WeaponItem weaponitem = new IronSword();
+      WeaponItemList.Add(100,weaponitem);
+      Debug.Log("ItemManagerを初期化完了");
     }
-    public static GameObject returnItemObject(int ItemID){
-      return (GameObject)Resources.Load ("prefab/"+ItemList[ItemID]);
+    public static UseItem returnUseItem(int ItemID){
+      return UseItemList[ItemID];
     }
-    public static void DropItem(int key,float x,float y){
-      GameObject obj = (GameObject)Resources.Load ("prefab/"+ItemList[key]);
-      GameObject obj2 = GameManager.Instantiate(obj, new Vector3(x,y,0), Quaternion.identity);
-      obj2.GetComponent<IItem>().DropItem();
+    public static WeaponItem returnWeaponItem(int ItemID){
+      return WeaponItemList[ItemID];
+    }
+    public static void DropItemMake(int ItemID,float x,float y){
+      GameObject obj = (GameObject)Resources.Load ("prefab/DropItem");
+      DropItem DropItem = obj.GetComponent<DropItem>();
+      DropItem.SetUp(ItemID,x,y);
     }
 
 }
