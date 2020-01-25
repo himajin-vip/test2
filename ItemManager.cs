@@ -7,7 +7,7 @@ public class ItemManager : MonoBehaviour
   static Dictionary<int,string> ItemList = new Dictionary<int,string>();
   static private bool Setend = false;
 
-    public static void SetItemList(){//Excelとかで読み込めないかな
+    public static void SetUp(){//Excelとかで読み込めないかな
       if(!Setend){
         ItemList.Add(0,"portion");
         ItemList.Add(1,"IronSword");

@@ -2,23 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraManager : MonoBehaviour
+public static class CameraManager
 {
-  public GameObject MainCamera;
-  public int CameraSizeX = 640;
-  public int CameraSizeY = 480;
-  public int CameraMoveX = 0;
-  public int CameraMoveY = 0;
-  public int count = 0;
-  public bool CameraMoveOn;
-  public int CameraMoveXCount = 0;
-  public int CameraMoveYCount = 0;
-    void Update()
-    {
-      PlayerCheck();
-      CameraMoveStart();
-    }
-  public void PlayerCheck(){
+  private static GameObject MainCamera;
+  private static int CameraSizeX = 640;
+  private static int CameraSizeY = 480;
+  private static int CameraMoveX = 0;
+  private static int CameraMoveY = 0;
+  private static int count = 0;
+  private static bool CameraMoveOn;
+  private static int CameraMoveXCount = 0;
+  private static int CameraMoveYCount = 0;
+
+  public static void SetUp(){
+    MainCamera = Camera.main.gameObject;
+  }
+  public static void PlayerCheck(){
     if(!CameraMoveOn){
       Vector3 Camerapos = MainCamera.transform.position;
       Vector3 Playerpos = PlayerManager.Player.transform.position;
@@ -43,9 +42,10 @@ public class CameraManager : MonoBehaviour
         CameraMoveOn = true;
       }
     }
+    CameraMoveStart();
   }
 
-　public void CameraMoveStart(){
+　public static void CameraMoveStart(){
     if(count > CameraSizeX&&!(CameraMoveX == 0)){
       CameraMoveOn = false;
       CameraMoveX = 0;

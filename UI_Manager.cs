@@ -1,22 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-public class UI_Manager : MonoBehaviour
+
+public static class UI_Manager
 {
-  public Slider hpSlider;
-  public Text hpText;
-    // Start is called before the first frame update
-    void Start()
-    {
+  private static UI_Status UiStatus;
+  private static UI_Menu UiMenu;
 
-    }
+  public static void SetUp(){
+    UiStatus = GameObject.Find("StatusCanvas").GetComponent<UI_Status>();
+    UiMenu = GameObject.Find("MenuCanvas").GetComponent<UI_Menu>();
+  }
+  public static void UiStatusUpdate(){
+    UiStatus.update();
+  }
+  public static void MenuOn(){
+    UiMenu.MenuOn();
+  }
 
-    // Update is called once per frame
-    void Update()
-    {
-      hpSlider.maxValue = PlayerManager.Player.GetComponent<Player>().MaxHp;
-      hpSlider.value = PlayerManager.Player.GetComponent<Player>().CurrentHp;
-      hpText.text = PlayerManager.Player.GetComponent<Player>().CurrentHp+"/"+PlayerManager.Player.GetComponent<Player>().MaxHp;
-    }
+
 }
