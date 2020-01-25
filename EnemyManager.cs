@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
   public static GameObject Slime;
-  public static int EnemyMaxCount = 4;
+  public static int EnemyMaxCount = 0;
   public static int EnemyCurrentCount;
 
   public static void MakeEnemy(string enemyname){

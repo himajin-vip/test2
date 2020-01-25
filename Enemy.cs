@@ -20,7 +20,6 @@ public class Enemy : MonoBehaviour
   public bool MoveOn;
   public int MoveOnX;
   public int MoveOnY;
-  public int MoveCount;
 
   public void Update(){
     Move();
@@ -69,30 +68,33 @@ public class Enemy : MonoBehaviour
     if(MoveStatus == 0&&!DeathCheck){//自由に動く
       int action = Random.Range(0,20);
       if(action == 1&&!MoveOn){
+        MoveOn = true;
         MoveOnX = Random.Range(-1,2);
         MoveOnY = Random.Range(-1,2);
-        MoveOn = true;
-      }
-      if(MoveOn){
-        if(MoveOnX == 1){
-          this.transform.Translate(MoveSpeed,0,0);
-        }
-        if(MoveOnX == -1){
-          this.transform.Translate(-MoveSpeed,0,0);
-        }
-        if(MoveOnY == 1){
-          this.transform.Translate(0,MoveSpeed,0);
-        }
-        if(MoveOnY == -1){
-          this.transform.Translate(0,-MoveSpeed,0);
-        }
-        MoveCount++;
-      }
-      if(MoveCount>=32){
-      MoveCount = 0;
-      MoveOn = false;
+        StartCoroutine(MoveWait(32));
       }
     }
+  }
+  private IEnumerator MoveWait(int frame){
+    while (frame > 0) {
+       yield return null;
+           if(MoveOn){
+         if(MoveOnX == 1){
+           this.transform.Translate(MoveSpeed,0,0);
+         }
+         if(MoveOnX == -1){
+           this.transform.Translate(-MoveSpeed,0,0);
+         }
+         if(MoveOnY == 1){
+           this.transform.Translate(0,MoveSpeed,0);
+         }
+         if(MoveOnY == -1){
+           this.transform.Translate(0,-MoveSpeed,0);
+         }
+       }
+       frame--;
+     }
+     MoveOn = false;
   }
   public void Death(){
     DeathCheck = true;
