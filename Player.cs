@@ -28,6 +28,14 @@ public class Player : MonoBehaviour
   GameObject ChargeEfect;
   GameObject MyWeapon;
 
+  public void SetUp(){
+    Instantiate(this.gameObject, new Vector3(0,0,0), Quaternion.identity);
+    PosX = 0;
+    PosY = 0;
+    SetMyWeapon();
+    WeaponEqipment(1);
+  }
+
   public void SetMyWeapon(){
     MyWeapon = transform.GetChild(0).gameObject;
   }
