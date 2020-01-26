@@ -14,6 +14,8 @@ public static class UpdateManager
     StateList.Add("First",Firststate);
     UpdateState Menustate = new StateMenu();
     StateList.Add("Menu",Menustate);
+    UpdateState MapMoveState = new StateMapMove();
+    StateList.Add("MapMove",MapMoveState);
 
     UpdateState = StateList["First"];
     UpdateState.Start();
