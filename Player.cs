@@ -42,6 +42,7 @@ public class Player : MonoBehaviour
     float x = this.transform.position.x;
     float y = this.transform.position.y;
     DamageTextManager.Make(damage,x,y,new Color(255,0,0),this.transform);
+    LogManager.MakeDamageLog(Name,damage);
   }
   public void RecoveryHp(int recovery){
     CurrentHp += recovery;
@@ -65,7 +66,7 @@ public class Player : MonoBehaviour
   public void ItemUse(int ItemID){
     UseItem Item = ItemManager.returnUseItem(ItemID);
     if(InventoryManager.ReturnPieces(ItemID)>0){
-      Item.ItemUse();
+      Item.ItemUse(Name);
       InventoryManager.ItemReduce(ItemID);
     }
   }
@@ -162,6 +163,7 @@ public class Player : MonoBehaviour
   void ItemGet(Collider2D collision){
     DropItem getItem = collision.gameObject.GetComponent<DropItem>();
     InventoryManager.ItemGet(getItem.ItemId);
+    LogManager.MakeItemGetLog(Name,getItem.ItemId);
     getItem.DropEnd();
   }
   public void SetWeapon(int ItemID){

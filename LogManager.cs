@@ -35,7 +35,7 @@ public static class LogManager
 
   }
   public static void MakeLog(string NewText){
-    if(!(LogCount == 7)){
+    if(LogCount <= 7){
       LogList[LogCount].text = NewText;
       LogCount++;
     }else{
@@ -46,5 +46,21 @@ public static class LogManager
       }
       LogList[7].text = NewText;
     }
+  }
+  public static void MakeDamageLog(string Name,int damage){
+    string newlog = (Name+"は"+damage+"のダメージを受けた");
+    MakeLog(newlog);
+  }
+  public static void RecoveryHpLog(string Name,int recovery){
+    string newlog = (Name+"はHPを"+recovery+"回復した");
+    MakeLog(newlog);
+  }
+  public static void MakeItemGetLog(string Name ,int ItemID){
+    string newlog = (Name+"は"+ItemManager.returnItemName(ItemID)+"を手に入れた");
+    MakeLog(newlog);
+  }
+  public static void UseItemLog(string Name,int ItemID){
+    string newlog = (Name+"は"+ItemManager.returnItemName(ItemID)+"を使った");
+    MakeLog(newlog);
   }
 }

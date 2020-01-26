@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+  public string Name;
   public int MaxHp;
   public int CurrentHp;
   public int Mp;
@@ -28,6 +29,7 @@ public class Enemy : MonoBehaviour
     float x = this.transform.position.x;
     float y = this.transform.position.y;
     DamageTextManager.Make(damage,x,y,new Color(255,255,255),this.transform);
+    LogManager.MakeDamageLog(Name,damage);
   }
   public void RecoveryHp(int recovery){
     CurrentHp += recovery;
