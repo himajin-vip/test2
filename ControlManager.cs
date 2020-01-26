@@ -39,4 +39,9 @@ public  static class ControlManager
       UI_Manager.MenuOn();
     }
   }
+  public static void AtackKeyUpCheck(){
+    if(Input.GetKeyUp(KeyCode.Space)){
+      PlayerManager.Player.GetComponent<Player>().AtackKeyUp();
+    }
+  }
 }

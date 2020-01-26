@@ -13,7 +13,7 @@ public static class CameraManager
   private static bool CameraMoveOn = false;
   private static int CameraMoveXCount = 0;
   private static int CameraMoveYCount = 0;
-  private static int PlayerMoveCount = 5;
+  private static int PlayerMoveCount = 10;
 
   public static void SetUp(){
     MainCamera = Camera.main.gameObject;

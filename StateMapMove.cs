@@ -10,6 +10,7 @@ public class StateMapMove : UpdateState
     public void Update()
     {
       CameraManager.PlayerPosCheck();
+      ControlManager.AtackKeyUpCheck();
     }
 
     public void End(){
