@@ -12,6 +12,14 @@ public class Weapon : MonoBehaviour
 
   public virtual void Atack(){
   }
+  public virtual void ChargeDamageSet(int PlayerStr){
+  }
+  public void NormalDamageSet(int PlayerStr){
+    FinalDamage = WeaponDamage+PlayerStr;
+  }
+  public void DamageSet(int Damage){
+    WeaponDamage = Damage;
+  }
   public void end(){
     transform.parent.gameObject.GetComponent<Player>().AtackOn = false;
     transform.parent.gameObject.GetComponent<Player>().AtackAnimation = false;
@@ -20,15 +28,6 @@ public class Weapon : MonoBehaviour
     if(transform.parent.gameObject.GetComponent<Player>().FullCharge){
       transform.parent.gameObject.GetComponent<Player>().FullCharge = false;
     }
-  }
-  public virtual void ChargeDamageSet(int PlayerStr){
-  }
-  public virtual void NormalDamageSet(int PlayerStr){
-    FinalDamage = WeaponDamage+PlayerStr;
-  }
-
-  public void Equipment(int id){
-    WeaponDamage = InventoryManager.Equipment(id);
   }
   // void unEquipment();
   public void AtackDirection(){

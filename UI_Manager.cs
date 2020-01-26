@@ -9,9 +9,11 @@ public static class UI_Manager
   private static bool MainMenuOn;
 
   public static void SetUp(){
+    Debug.Log("UIManagerを初期化します");
     UiStatus = GameObject.Find("StatusCanvas").GetComponent<UI_Status>();
     UiMenu = GameObject.Find("MenuCanvas").GetComponent<UI_Menu>();
     MainMenuOn = false;
+    Debug.Log("UIManagerを初期化完了");
   }
   public static void UiStatusUpdate(){
     UiStatus.update();

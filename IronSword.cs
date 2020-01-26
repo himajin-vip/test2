@@ -2,23 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IronSword : MonoBehaviour,IItem
+public class IronSword : WeaponItem
 {
-  private int Id = 1;
-  private int Str = 5;
-  public void ItemUse(){
-
-  }
-  public int ItemSet(){
-    return Str;
-  }
-  public int ItemGet(){
-    return Id;
-  }
-  public void DropItem(){
-
-  }
-  public void DropEnd(){
-
+  public IronSword(){
+    SetId(2);
+    SetStr(5);
   }
 }

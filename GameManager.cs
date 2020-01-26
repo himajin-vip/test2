@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
       UI_Manager.SetUp();
       ShortcutManager.SetUp();
       PlayerManager.SetUp("Fighter");
-
     }
 
     // Update is called once per frame

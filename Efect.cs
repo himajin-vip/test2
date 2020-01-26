@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Efect : MonoBehaviour
 {
+  public void SetUp(float efectposx , float efectposy,GameObject obj_parent){
+    GetComponent<Efect>().SetParent(obj_parent);
+  }
   public void OnEnd(){
     Destroy(this.gameObject);
   }

@@ -15,7 +15,9 @@ public static class CameraManager
   private static int CameraMoveYCount = 0;
 
   public static void SetUp(){
+    Debug.Log("CameraManagerを初期化します");
     MainCamera = Camera.main.gameObject;
+    Debug.Log("CameraManagerを初期化完了");
   }
   public static void PlayerCheck(){
     if(!CameraMoveOn){

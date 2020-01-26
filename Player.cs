@@ -25,19 +25,18 @@ public class Player : MonoBehaviour
   public bool FullCharge = false;
   public bool KeyUp = false;
   Coroutine ChargeC ;
-  GameObject ChargeEfect;
-  GameObject MyWeapon;
+  Efect ChargeEfect;
+  Weapon MyWeapon;
+  Animator animator;
 
   public void SetUp(){
-    Instantiate(this.gameObject, new Vector3(0,0,0), Quaternion.identity);
+    Debug.Log("Playerを初期化します");
+    
+    AtackAnimation = false;
+    animator = GetComponent<Animator>();
+    SetWeapon(100);
     PosX = 0;
     PosY = 0;
-    SetMyWeapon();
-    WeaponEqipment(1);
-  }
-
-  public void SetMyWeapon(){
-    MyWeapon = transform.GetChild(0).gameObject;
   }
 
   public void DamageHp(int damage){
@@ -63,54 +62,64 @@ public class Player : MonoBehaviour
     SceneManager.LoadScene("end");
   }
   public void ItemUse(int ItemID){
-    GameObject Item = ItemManager.returnItemObject(ItemID);
+    UseItem Item = ItemManager.returnUseItem(ItemID);
     if(InventoryManager.ReturnPieces(ItemID)>0){
-      Item.GetComponent<IItem>().ItemUse();
+      Item.ItemUse();
       InventoryManager.ItemReduce(ItemID);
     }
   }
   public void WeaponEqipment(int ItemID){
-    MyWeapon.GetComponent<Weapon>().Equipment(ItemID);
+    InventoryManager.WeaponEquipment(ItemID,MyWeapon);
   }
-  public void FrontMove(){
-    this.transform.Translate (0,-MoveSpeed,0);
-    PosX = this.transform.position.x;
-    PosY = this.transform.position.y;
-    FrontDirection();
+
+  public void Move(int direction){
+    switch(direction){
+      case 0:
+        this.transform.Translate (0,-MoveSpeed,0);
+        PosX = this.transform.position.x;
+        PosY = this.transform.position.y;
+        DirectionChenge(direction);
+      break;
+      case 1:
+        this.transform.Translate (0,MoveSpeed,0);
+        PosX = this.transform.position.x;
+        PosY = this.transform.position.y;
+        DirectionChenge(direction);
+      break;
+      case 2:
+        this.transform.Translate (MoveSpeed,0,0);
+        PosX = this.transform.position.x;
+        PosY = this.transform.position.y;
+        DirectionChenge(direction);
+      break;
+      case 3:
+        this.transform.Translate (-MoveSpeed,0,0);
+        PosX = this.transform.position.x;
+        PosY = this.transform.position.y;
+        DirectionChenge(direction);
+      break;
+    }
   }
-  public void BackMove(){
-    this.transform.Translate (0,MoveSpeed,0);
-    PosX = this.transform.position.x;
-    PosY = this.transform.position.y;
-    BackDirection();
-  }
-  public void RightMove(){
-    this.transform.Translate (MoveSpeed,0,0);
-    PosX = this.transform.position.x;
-    PosY = this.transform.position.y;
-    RightDirection();
-  }
-  public void LeftMove(){
-    this.transform.Translate (-MoveSpeed,0,0);
-    PosX = this.transform.position.x;
-    PosY = this.transform.position.y;
-    LeftDirection();
-  }
-  public void FrontDirection(){
-    GetComponent<Animator>().SetInteger("move_direction", 0);
-    Direction = 0;
-  }
-  public void BackDirection(){
-    GetComponent<Animator>().SetInteger("move_direction", 1);
-    Direction = 1;
-  }
-  public void RightDirection(){
-    GetComponent<Animator>().SetInteger("move_direction", 2);
-    Direction = 2;
-  }
-  public void LeftDirection(){
-    GetComponent<Animator>().SetInteger("move_direction", 3);
-    Direction = 3;
+
+  public void DirectionChenge(int direction){
+    switch(direction){
+      case 0:
+        GetComponent<Animator>().SetInteger("move_direction", 0);
+        Direction = 0;
+      break;
+      case 1:
+        GetComponent<Animator>().SetInteger("move_direction", 1);
+        Direction = 1;
+      break;
+      case 2:
+        GetComponent<Animator>().SetInteger("move_direction", 2);
+        Direction = 2;
+      break;
+      case 3:
+        GetComponent<Animator>().SetInteger("move_direction", 3);
+        Direction = 3;
+      break;
+    }
   }
   public void SpeedSet(int speed){
     MoveSpeed = speed ;
@@ -119,18 +128,18 @@ public class Player : MonoBehaviour
     if(!AtackOn){//攻撃キーを押したか判定
       AtackOn = true;
       ChargeC = StartCoroutine(ChargeAtack());
-      MyWeapon.GetComponent<Weapon>().NormalDamageSet(this.Str);
+      MyWeapon.NormalDamageSet(this.Str);
     }
   }
   public void AtackKeyUp(){
     if(AtackOn){//攻撃キーを離したか判定
       AtackAnimation = true;
       if(ChargeEfectOn){
-        ChargeEfect.GetComponent<Efect>().OnEnd();
+        ChargeEfect.OnEnd();
         SpeedSet(NomalMoveSpeed);
         ChargeEfectOn = false;
       }
-      MyWeapon.GetComponent<Weapon>().Atack();
+      MyWeapon.Atack();
       StopCoroutine(ChargeC);
     }
   }
@@ -142,7 +151,7 @@ public class Player : MonoBehaviour
     yield return new WaitForSeconds(1f);
       ChargeEfect.GetComponent<Animator>().SetFloat("Speed", 2.0f);
       FullCharge = true;
-      MyWeapon.GetComponent<Weapon>().ChargeDamageSet(this.Str);
+      MyWeapon.ChargeDamageSet(this.Str);
   }
   void OnTriggerEnter2D(Collider2D collision){
     if(collision.gameObject.tag == "Item"){
@@ -150,9 +159,13 @@ public class Player : MonoBehaviour
     }
   }
   void ItemGet(Collider2D collision){
-    int getID = collision.gameObject.GetComponent<IItem>().ItemGet();
-    InventoryManager.ItemGet(getID);
-    collision.gameObject.GetComponent<IItem>().DropEnd();
+    DropItem getItem = collision.gameObject.GetComponent<DropItem>();
+    InventoryManager.ItemGet(getItem.ItemId);
+    getItem.DropEnd();
+  }
+  public void SetWeapon(int ItemID){
+    MyWeapon = transform.GetChild(0).gameObject.GetComponent<Weapon>();
+    InventoryManager.WeaponEquipment(ItemID,MyWeapon);
   }
 
 
