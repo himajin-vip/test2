@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class UI_Menu : MonoBehaviour
 {
@@ -21,7 +20,7 @@ public class UI_Menu : MonoBehaviour
           MenuOff();
         break;
         case "End":
-          SceneManager.LoadScene("title");
+          UpdateManager.StateSet("End");
         break;
       }
     }

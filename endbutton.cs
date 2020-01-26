@@ -6,5 +6,6 @@ public class endbutton : MonoBehaviour
 {
     public void OnClick(){
       SceneManager.LoadScene("title");
+      UpdateManager.StateSet("First");
     }
 }

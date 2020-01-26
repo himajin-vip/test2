@@ -5,12 +5,12 @@ using UnityEngine;
 public class Fighter :Player
 {
   Fighter(){
-    Name = "TestPlayer";
+    Name = "まみお";
     Level = 1;
     MaxHp = 50;
     CurrentHp = 50;
-    MaxMp = 0;
-    CurrentMp = 0;
+    MaxMp = 10;
+    CurrentMp = 10;
     Str = 1;
     Def = 0;
     MoveSpeed = 3;

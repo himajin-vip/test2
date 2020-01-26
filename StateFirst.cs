@@ -1,16 +1,14 @@
-﻿
+﻿using UnityEngine.SceneManagement;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 public class StateFirst : UpdateState
 {
+  bool LoadEnd;
     // Start is called before the first frame update
     public void Start()
     {
-      ItemManager.SetUp();
-      InventoryManager.SetUp();
-      LogManager.SetUp();
-      CameraManager.SetUp();
-      UI_Manager.SetUp();
-      ShortcutManager.SetUp();
-      PlayerManager.SetUp("Fighter");
+
     }
 
     // Update is called once per frame
@@ -19,6 +17,13 @@ public class StateFirst : UpdateState
 
     }
     public void End(){
+      UpdateManager.StartOff();
+      UpdateManager.UpdateOff();
+      SceneManager.sceneLoaded += SceneLoaded;
+      SceneManager.LoadScene("Main");
+    }
 
+    public void SceneLoaded (Scene nextScene, LoadSceneMode mode) {
+      UpdateManager.StartOn();
     }
 }

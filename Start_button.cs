@@ -5,12 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Start_button : MonoBehaviour
 {
-    // Start is called before the first frame update
     public void OnClick()
     {
-      SceneManager.LoadScene("Main");
+      UpdateManager.StateSet("SetUp");
     }
-
-    // Update is called once per frame
 
 }
