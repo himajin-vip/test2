@@ -57,8 +57,11 @@ public class Player : MonoBehaviour
     CurrentHp = MaxHp;
   }
   public void Death(){
-    SceneManager.LoadScene("end");
+    if(CurrentHp<0){
+      SceneManager.LoadScene("end");
+    }
   }
+
   public void ItemUse(int ItemID){
     UseItem Item = ItemManager.returnUseItem(ItemID);
     if(InventoryManager.ReturnPieces(ItemID)>0){

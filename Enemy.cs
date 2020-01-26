@@ -21,13 +21,6 @@ public class Enemy : MonoBehaviour
   public int MoveOnX;
   public int MoveOnY;
 
-  public void Update(){
-    Move();
-    if(CurrentHp<=0&&!DeathCheck){
-      Death();
-    }
-  }
-
   public virtual void Atack(GameObject Playerobj){
   }
   public void DamageHP(int damage){
@@ -99,7 +92,6 @@ public class Enemy : MonoBehaviour
     DeathCheck = true;
     ItemDrop();
     StartCoroutine(DestroyEnemy());
-    EnemyManager.EnemyCurrentCountDown();
   }
   public void ItemDrop(){
     int i ;

@@ -15,4 +15,7 @@ public static class PlayerManager
   public static void PlayerMove(int direction){
     Player.Move(direction);
   }
+  public static void PlayerDeathCheck(){
+    Player.Death();
+  }
 }

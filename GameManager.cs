@@ -18,7 +18,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      CameraManager.PlayerCheck();
+      PlayerManager.PlayerDeathCheck();
+      EnemyManager.EnemyUpdate();
+      CameraManager.PlayerPosCheck();
       ControlManager.KeyCheck();
       UI_Manager.UiStatusUpdate();
       ShortcutManager.update();

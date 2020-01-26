@@ -17,7 +17,7 @@ public static class CameraManager
   public static void SetUp(){
     MainCamera = Camera.main.gameObject;
   }
-  public static void PlayerCheck(){
+  public static void PlayerPosCheck(){
     if(!CameraMoveOn){
       Vector3 Camerapos = MainCamera.transform.position;
       Vector3 Playerpos = PlayerManager.Player.transform.position;
