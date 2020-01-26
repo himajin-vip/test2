@@ -9,14 +9,16 @@ public class UI_Menu : MonoBehaviour
 
     public void MenuOn(){
       MainMenuCanvas.gameObject.SetActive(true);
+      UpdateManager.StateSet("Menu");
     }
     public void MenuOff(){
       MainMenuCanvas.gameObject.SetActive(false);
+      UpdateManager.StateSet("Main");
     }
     public void OnClick(string button){
       switch(button){
         case "Close":
-          MainMenuCanvas.gameObject.SetActive(false);
+          MenuOff();
         break;
         case "End":
           SceneManager.LoadScene("title");

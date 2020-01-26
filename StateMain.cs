@@ -1,15 +1,10 @@
 
-public class MainState : UpdateState
+public class StateMain : UpdateState
 {
 
     public void Start()
     {
-      ItemManager.SetUp();
-      InventoryManager.SetUp();
-      CameraManager.SetUp();
-      UI_Manager.SetUp();
-      ShortcutManager.SetUp();
-      PlayerManager.SetUp("Fighter");
+  
     }
 
     public void Update()

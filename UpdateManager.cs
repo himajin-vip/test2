@@ -8,11 +8,20 @@ public static class UpdateManager
   private static UpdateState UpdateState;
 
   public static void SetUp(){
-    UpdateState Mainstate = new MainState();
+    UpdateState Mainstate = new StateMain();
     StateList.Add("Main",Mainstate);
+    UpdateState Firststate = new StateFirst();
+    StateList.Add("First",Firststate);
+    UpdateState Menustate = new StateMenu();
+    StateList.Add("Menu",Menustate);
+
+    UpdateState = StateList["First"];
+    UpdateState.Start();
   }
   public static void StateSet(string state){
+    UpdateState.End();
     UpdateState = StateList[state];
+    Debug.Log("NextState:"+UpdateState);
     UpdateState.Start();
   }
   public static void StateUpdate(){
