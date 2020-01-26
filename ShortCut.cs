@@ -5,16 +5,17 @@ using UnityEngine.UI;
 
 public class ShortCut : MonoBehaviour
 {
-  public Image imgShortcut1;
-  public Text textShortcut1;
-  public GameObject objShortcut1;
-  public int IDShortcut1 = 0;
+  public Image imgShortcut;
+  public Text textShortcut;
+  private int IDShortcut = 0;
 
-    public void update()
-    {
-      textShortcut1.text = InventoryManager.ReturnPieces(IDShortcut1)+"個";
-    }
     public void ItemUse(){
-      PlayerManager.Player.GetComponent<Player>().ItemUse(IDShortcut1);
+      PlayerManager.Player.ItemUse(IDShortcut);
+    }
+    public void Reset(){
+      textShortcut.text = InventoryManager.ReturnPieces(IDShortcut)+"個";
+    }
+    public void SetIDShortcut(int ID){
+      IDShortcut = ID;
     }
 }

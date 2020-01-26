@@ -4,18 +4,19 @@ using UnityEngine;
 
 public static class ShortcutManager
 {
-  private static GameObject ShortCut1;
+  private static ShortCut[]　ShortcutList;
+  private static int ShortCutCurrent = 1;
   public static void SetUp(){
-    ShortCut1 = GameObject.Find("ShortCut1").gameObject;
+    ShortcutList = new ShortCut[ShortCutCurrent+1];
+    GameObject obj = GameObject.Find("ShortCut1").gameObject;
+    ShortcutList[1] = obj.GetComponent<ShortCut>();
   }
   public static void ShortCutOn(int ShortCutNo){
-    switch(ShortCutNo){
-      case 1:
-        ShortCut1.gameObject.GetComponent<ShortCut>().ItemUse();
-        break;
-    }
+    ShortcutList[ShortCutNo].ItemUse();
   }
   public static void update(){
-    ShortCut1.GetComponent<ShortCut>().update();
+    for(int i = 1;i < ShortCutCurrent+1;i++){
+      ShortcutList[i].Reset();
+    }
   }
 }
