@@ -6,6 +6,7 @@ public class StateFirst : UpdateState
     {
       ItemManager.SetUp();
       InventoryManager.SetUp();
+      LogManager.SetUp();
       CameraManager.SetUp();
       UI_Manager.SetUp();
       ShortcutManager.SetUp();

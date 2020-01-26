@@ -4,7 +4,7 @@ public class StateMain : UpdateState
 
     public void Start()
     {
-  
+
     }
 
     public void Update()
