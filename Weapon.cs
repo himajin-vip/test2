@@ -31,7 +31,6 @@ public class Weapon : MonoBehaviour
   }
   // void unEquipment();
   public void AtackDirection(){
-    Debug.Log("AtackDirectionIN");
     this.gameObject.SetActive(true);
     switch(transform.parent.gameObject.GetComponent<Player>().Direction){
       case 0:

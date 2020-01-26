@@ -7,10 +7,8 @@ public static class InventoryManager
   private static Dictionary<int,int> Inventory = new Dictionary<int,int>();
     static public void SetUp()
     {
-      Debug.Log("InventoryManagerを初期化します");
       Inventory.Add (0, 3);
       Inventory.Add (100, 1);
-      Debug.Log("InventoryManagerを初期化完了");
     }
     static public void WeaponEquipment(int ItemID,Weapon weapon){
       if(InventoryKeyCheck(ItemID)){

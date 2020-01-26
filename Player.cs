@@ -30,8 +30,6 @@ public class Player : MonoBehaviour
   Animator animator;
 
   public void SetUp(){
-    Debug.Log("Playerを初期化します");
-    
     AtackAnimation = false;
     animator = GetComponent<Animator>();
     SetWeapon(100);

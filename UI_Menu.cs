@@ -14,7 +14,6 @@ public class UI_Menu : MonoBehaviour
       MainMenuCanvas.gameObject.SetActive(false);
     }
     public void OnClick(string button){
-      Debug.Log("push");
       switch(button){
         case "Close":
           MainMenuCanvas.gameObject.SetActive(false);

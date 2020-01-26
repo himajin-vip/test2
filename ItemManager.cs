@@ -11,13 +11,11 @@ public static class ItemManager
 
 
     public static void SetUp(){//Excelとかで読み込めないかな
-      Debug.Log("ItemManagerを初期化します");
       UseItem item = new Potion();
       UseItemList.Add(0,item);
       WeaponItem weaponitem = new IronSword();
       WeaponItemList.Add(100,weaponitem);
       DropItemprefab = (GameObject)Resources.Load ("prefab/DropItem");
-      Debug.Log("ItemManagerを初期化完了");
     }
     public static UseItem returnUseItem(int ItemID){
       return UseItemList[ItemID];

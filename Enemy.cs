@@ -29,7 +29,6 @@ public class Enemy : MonoBehaviour
   }
 
   public virtual void Atack(GameObject Playerobj){
-    Debug.Log("Enemy");
   }
   public void DamageHP(int damage){
     CurrentHp -= damage;

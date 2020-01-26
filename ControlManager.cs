@@ -7,9 +7,7 @@ public  static class ControlManager
 
   public static void KeyCheck()
   {
-    Debug.Log(PlayerManager.Player.AtackAnimation);
     if(!PlayerManager.Player.AtackAnimation){
-      Debug.Log("KeyCheck");
       if(Input.GetKeyDown(KeyCode.M)){
         UI_Manager.MenuOn();
       }
