@@ -5,7 +5,7 @@ using UnityEngine;
 public class Fighter :Player
 {
   Fighter(){
-    Name = "まみお";
+    Name = "Player";
     Level = 1;
     MaxHp = 50;
     CurrentHp = 50;
