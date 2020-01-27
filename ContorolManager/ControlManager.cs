@@ -9,7 +9,7 @@ public  static class ControlManager
   {
     if(!PlayerManager.Player.AtackAnimation){
       if(Input.GetKeyDown(KeyCode.M)){
-        UI_Manager.MenuOn();
+        MenuManager.SetMenuState("Main");
       }
       if(Input.GetKey(KeyCode.S)){
         PlayerManager.PlayerMove(0);
@@ -36,7 +36,16 @@ public  static class ControlManager
   }
   public static void MenuKey(){
     if(Input.GetKeyDown(KeyCode.M)){
-      UI_Manager.MenuOn();
+      //UI_Manager.MenuOn();
+    }
+    if(Input.GetKeyDown(KeyCode.W)){
+      MenuManager.MenuCursolMove(1);
+    }
+    if(Input.GetKeyDown(KeyCode.S)){
+      MenuManager.MenuCursolMove(0);
+    }
+    if(Input.GetKeyDown(KeyCode.Space)){
+      MenuManager.CursolOn();
     }
   }
   public static void AtackKeyUpCheck(){

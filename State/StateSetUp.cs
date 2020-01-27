@@ -15,6 +15,7 @@ public class StateSetUp : UpdateState
       ItemManager.SetUp();
       ShortcutManager.SetUp();
       UI_Manager.SetUp();
+      MenuManager.SetUp();
     }
 
     public void Update()
