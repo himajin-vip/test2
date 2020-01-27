@@ -31,7 +31,7 @@ public static class CameraManager
           PlayerManager.PlayerMove(2);
           i--;
         }
-        UpdateManager.StateSet("MapMove");
+        GameManager.StateSet("MapMove");
       }
       if(Camerapos.x-CameraSizeX/2>Playerpos.x){//カメラを左に移動する
         CameraMoveX = -1;
@@ -42,7 +42,7 @@ public static class CameraManager
           PlayerManager.PlayerMove(3);
           i--;
         }
-        UpdateManager.StateSet("MapMove");
+        GameManager.StateSet("MapMove");
       }
       if(Camerapos.y+CameraSizeY/2<Playerpos.y){//カメラを上に移動する
         CameraMoveY = 1;
@@ -53,7 +53,7 @@ public static class CameraManager
           PlayerManager.PlayerMove(1);
           i--;
         }
-        UpdateManager.StateSet("MapMove");
+        GameManager.StateSet("MapMove");
       }
       if(Camerapos.y-CameraSizeY/2>Playerpos.y){//カメラを下に移動する
         CameraMoveY = -1;
@@ -64,7 +64,7 @@ public static class CameraManager
           PlayerManager.PlayerMove(0);
           i--;
         }
-        UpdateManager.StateSet("MapMove");
+        GameManager.StateSet("MapMove");
       }
     }
     CameraMoveStart();
@@ -72,13 +72,13 @@ public static class CameraManager
 
 　public static void CameraMoveStart(){
     if(count > CameraSizeX&&!(CameraMoveX == 0)&&CameraMoveOn){
-      UpdateManager.StateSet("Main");
+      GameManager.StateSet("Main");
       CameraMoveOn = false;
       CameraMoveX = 0;
       count = 0;
     }
     if(count > CameraSizeY&&!(CameraMoveY == 0)&&CameraMoveOn){
-      UpdateManager.StateSet("Main");
+      GameManager.StateSet("Main");
       CameraMoveOn = false;
       CameraMoveY = 0;
       count = 0;

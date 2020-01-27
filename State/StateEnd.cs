@@ -4,7 +4,7 @@ public class StateEnd : UpdateState
     // Start is called before the first frame update
     public void Start()
     {
-
+      SceneManager.LoadScene("end");
     }
 
     // Update is called once per frame
@@ -13,6 +13,6 @@ public class StateEnd : UpdateState
 
     }
     public void End(){
-      
+
     }
 }

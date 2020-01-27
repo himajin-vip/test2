@@ -8,11 +8,11 @@ public class UI_Menu : MonoBehaviour
 
     public void MenuOn(){
       MainMenuCanvas.gameObject.SetActive(true);
-      UpdateManager.StateSet("Menu");
+      GameManager.StateSet("Menu");
     }
     public void MenuOff(){
       MainMenuCanvas.gameObject.SetActive(false);
-      UpdateManager.StateSet("Main");
+      GameManager.StateSet("Main");
     }
     public void OnClick(string button){
       switch(button){
@@ -20,7 +20,7 @@ public class UI_Menu : MonoBehaviour
           MenuOff();
         break;
         case "End":
-          UpdateManager.StateSet("End");
+          GameManager.StateSet("End");
         break;
       }
     }

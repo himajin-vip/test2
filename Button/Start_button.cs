@@ -7,7 +7,7 @@ public class Start_button : MonoBehaviour
 {
     public void OnClick()
     {
-      UpdateManager.StateSet("SetUp");
+      SceneManager.LoadScene("Main");
     }
 
 }

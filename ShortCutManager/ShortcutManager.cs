@@ -6,11 +6,13 @@ public static class ShortcutManager
 {
   private static ShortCut[]　ShortcutList;
   private static int ShortCutCurrent = 1;
+
   public static void SetUp(){
     ShortcutList = new ShortCut[ShortCutCurrent+1];
     GameObject obj = GameObject.Find("ShortCut1").gameObject;
     ShortcutList[1] = obj.GetComponent<ShortCut>();
   }
+
   public static void ShortCutOn(int ShortCutNo){
     ShortcutList[ShortCutNo].ItemUse();
   }
