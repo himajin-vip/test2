@@ -7,7 +7,6 @@ public  static class ControlManager
 
   public static void KeyCheck()
   {
-    if(!PlayerManager.Player.AtackAnimation){
       if(Input.GetKeyDown(KeyCode.M)){
         MenuManager.SetMenuState("Main");
       }
@@ -24,15 +23,14 @@ public  static class ControlManager
         PlayerManager.PlayerMove(3);
       }
       if(Input.GetKeyDown(KeyCode.Space)){
-        PlayerManager.Player.GetComponent<Player>().AtackKeyDown();
+        PlayerManager.AtackKeyDown();
       }
       if(Input.GetKeyUp(KeyCode.Space)){
-        PlayerManager.Player.GetComponent<Player>().AtackKeyUp();
+        PlayerManager.AtackKeyUp();
       }
       if(Input.GetKeyDown(KeyCode.U)){
         ShortcutManager.ShortCutOn(1);
       }
-    }
   }
   public static void MenuKey(){
     if(Input.GetKeyDown(KeyCode.M)){
@@ -50,7 +48,7 @@ public  static class ControlManager
   }
   public static void AtackKeyUpCheck(){
     if(Input.GetKeyUp(KeyCode.Space)){
-      PlayerManager.Player.GetComponent<Player>().AtackKeyUp();
+      PlayerManager.AtackKeyUp();
     }
   }
 }

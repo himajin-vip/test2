@@ -24,7 +24,7 @@ public class Slime :Enemy
     MoveOnY = 0;
   }
   public override void Atack(GameObject Playerobj){
-      Playerobj.gameObject.GetComponent<Player>().DamageHp(Str);
+      PlayerManager.DamageHp(Str);
       Vector3 Playerpos = Playerobj.gameObject.transform.position;
       EfectManager.efecton("Kamitukiefect",Playerpos.x,Playerpos.y,Playerobj);//エフェクト作成
   }

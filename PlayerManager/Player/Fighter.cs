@@ -4,18 +4,25 @@ using UnityEngine;
 
 public class Fighter :Player
 {
-  Fighter(){
-    Name = "Player";
-    Level = 1;
+  public override void SetUp(){
+    Name = "TestPlayer";
+    Lv = 1;
     MaxHp = 50;
     CurrentHp = 50;
     MaxMp = 10;
     CurrentMp = 10;
     Str = 1;
-    Def = 0;
+    Vit = 2;
+    Dex = 3;
+    Int = 4;
+    NextExp = 50;
+    CurrentExp = 0;
     MoveSpeed = 3;
     ChargeMoveSpeed = 1;
     Direction = 0;
     NomalMoveSpeed = 3;
+    AtackAnimation = false;
+    animator = GetComponent<Animator>();
+    SetWeapon(100);
   }
 }

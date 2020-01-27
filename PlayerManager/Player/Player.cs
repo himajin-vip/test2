@@ -6,17 +6,19 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
   public string Name;
-  public int Level;
+  public int Lv;
   public int MaxHp;
   public int CurrentHp;
   public int MaxMp;
   public int CurrentMp;
   public int Str;
-  public int Def;
+  public int Vit;
+  public int Dex;
+  public int Int;
+  public int NextExp;
+  public int CurrentExp;
   public int MoveSpeed;
   public int Direction;
-  public float PosX;
-  public float PosY;
   public int ChargeMoveSpeed;
   public int NomalMoveSpeed;
   public bool AtackAnimation = false;
@@ -24,105 +26,15 @@ public class Player : MonoBehaviour
   public bool ChargeEfectOn = false;
   public bool FullCharge = false;
   public bool KeyUp = false;
-  Coroutine ChargeC ;
-  Efect ChargeEfect;
-  Weapon MyWeapon;
-  Animator animator;
+  public Coroutine ChargeC ;
+  public Efect ChargeEfect;
+  public Weapon MyWeapon;
+  public Animator animator;
 
-  public void SetUp(){
-    AtackAnimation = false;
-    animator = GetComponent<Animator>();
-    SetWeapon(100);
-    PosX = 0;
-    PosY = 0;
+  public virtual void SetUp(){
+
   }
 
-  public void DamageHp(int damage){
-    CurrentHp -= damage;
-    float x = this.transform.position.x;
-    float y = this.transform.position.y;
-    DamageTextManager.Make(damage,x,y,new Color(255,0,0),this.transform);
-    LogManager.MakeDamageLog(Name,damage);
-  }
-  public void RecoveryHp(int recovery){
-    CurrentHp += recovery;
-    if(CurrentHp>MaxHp){
-      CurrentHp = MaxHp;
-    }
-    float x = this.transform.position.x;
-    float y = this.transform.position.y;
-    DamageTextManager.Make(recovery,x,y,new Color(0,255,0),this.transform);
-    EfectManager.efecton("kaihukuefect",this.transform.position.x,this.transform.position.y,this.gameObject);
-  }
-  public void SetMaxHp(){
-    CurrentHp = MaxHp;
-  }
-  public void Death(){
-    if(CurrentHp<=0){
-      GameManager.StateSet("End");
-    }
-  }
-
-  public void ItemUse(int ItemID){
-    UseItem Item = ItemManager.returnUseItem(ItemID);
-    if(InventoryManager.ReturnPieces(ItemID)>0){
-      Item.ItemUse(Name);
-      InventoryManager.ItemReduce(ItemID);
-    }
-  }
-  public void WeaponEqipment(int ItemID){
-    InventoryManager.WeaponEquipment(ItemID,MyWeapon);
-  }
-
-  public void Move(int direction){
-    switch(direction){
-      case 0:
-        this.transform.Translate (0,-MoveSpeed,0);
-        PosX = this.transform.position.x;
-        PosY = this.transform.position.y;
-        DirectionChenge(direction);
-      break;
-      case 1:
-        this.transform.Translate (0,MoveSpeed,0);
-        PosX = this.transform.position.x;
-        PosY = this.transform.position.y;
-        DirectionChenge(direction);
-      break;
-      case 2:
-        this.transform.Translate (MoveSpeed,0,0);
-        PosX = this.transform.position.x;
-        PosY = this.transform.position.y;
-        DirectionChenge(direction);
-      break;
-      case 3:
-        this.transform.Translate (-MoveSpeed,0,0);
-        PosX = this.transform.position.x;
-        PosY = this.transform.position.y;
-        DirectionChenge(direction);
-      break;
-    }
-  }
-
-  public void DirectionChenge(int direction){
-    switch(direction){
-      case 0:
-        GetComponent<Animator>().SetInteger("move_direction", 0);
-        Direction = 0;
-      break;
-      case 1:
-        GetComponent<Animator>().SetInteger("move_direction", 1);
-        Direction = 1;
-      break;
-      case 2:
-        GetComponent<Animator>().SetInteger("move_direction", 2);
-        Direction = 2;
-      break;
-      case 3:
-        GetComponent<Animator>().SetInteger("move_direction", 3);
-        Direction = 3;
-      break;
-    }
-  }
   public void SpeedSet(int speed){
     MoveSpeed = speed ;
   }
@@ -147,7 +59,7 @@ public class Player : MonoBehaviour
   }
   private IEnumerator ChargeAtack(){
     yield return new WaitForSeconds(1f);
-      ChargeEfect = EfectManager.efecton("tameefect",PosX,PosY,this.gameObject);
+      ChargeEfect = EfectManager.efecton("tameefect",transform.position.x,transform.position.y,this.gameObject);
       SpeedSet(ChargeMoveSpeed);
       ChargeEfectOn = true;
     yield return new WaitForSeconds(1f);

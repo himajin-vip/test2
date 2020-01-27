@@ -10,7 +10,7 @@ public class ShortCut : MonoBehaviour
   private int IDShortcut = 0;
 
     public void ItemUse(){
-      PlayerManager.Player.ItemUse(IDShortcut);
+      PlayerManager.ItemUse(IDShortcut);
     }
     public void Reset(){
       textShortcut.text = InventoryManager.ReturnPieces(IDShortcut)+"個";

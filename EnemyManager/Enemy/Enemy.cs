@@ -43,7 +43,7 @@ public class Enemy : MonoBehaviour
   }
   public void Move(){
     if(MoveStatus == 1&&!DeathCheck){//プレイヤーを追いかける
-      Vector3 player_pos = PlayerManager.Player.transform.position;
+      Vector3 player_pos = PlayerManager.ReturnPosition();
       Vector3 this_pos = this.transform.position;
       if(player_pos.x>this_pos.x){
       this.transform.Translate(MoveSpeed,0,0);

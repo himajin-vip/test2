@@ -6,7 +6,7 @@ public class Potion : UseItem
     SetRecovery(30);
   }
   public override void ItemUse(string Name){
-    PlayerManager.Player.GetComponent<Player>().RecoveryHp(ReturnRecovery());
+    PlayerManager.RecoveryHp(ReturnRecovery());
     LogManager.UseItemLog(Name,ReturnID());
     LogManager.RecoveryHpLog(Name,ReturnRecovery());
 
