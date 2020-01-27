@@ -7,6 +7,7 @@ public static class InventoryManager
   private static Dictionary<int,int> Inventory = new Dictionary<int,int>();
     public static void SetUp()
     {
+      Inventory.Clear();
       Inventory.Add (0, 3);
       Inventory.Add (100, 1);
     }

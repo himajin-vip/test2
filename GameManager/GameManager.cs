@@ -7,14 +7,11 @@ public class GameManager : MonoBehaviour
 {
   private static Dictionary<string,UpdateState> StateList = new Dictionary<string,UpdateState>();
   private static UpdateState UpdateState;
-  private static bool StartTrigger = true;
-  private static bool UpdateTrigger = true;
-  private static bool First = true;
 
     void Start()
     {
       Debug.Log("GameManagerStart");
-      if(First){
+      StateList.Clear();
       StateList.Add("Main",new StateMain());
       StateList.Add("First",new StateFirst());
       StateList.Add("Menu",new StateMenu());
@@ -23,18 +20,12 @@ public class GameManager : MonoBehaviour
       StateList.Add("Load",new StateLoad());
       StateList.Add("SetUp",new StateSetUp());
       StateList.Add("Title",new StateTitle());
-        UpdateState = StateList["First"];
-        First = false;
-      }else{
-        UpdateState = StateList["Main"];
-      }
+      UpdateState = StateList["First"];
     }
 
     void Update()
     {
-      if(UpdateTrigger){
-        UpdateState.Update();
-      }
+      UpdateState.Update();
     }
 
     public static void StateSet(string state){
@@ -42,20 +33,6 @@ public class GameManager : MonoBehaviour
       Debug.Log("NextState->"+state);
       UpdateState = StateList[state];
       UpdateState.Start();
-    }
-    public static void StartOn(){
-      StartTrigger = true;
-      UpdateState.Start();
-      UpdateTrigger = true;
-    }
-    public static void StartOff(){
-      StartTrigger = false;
-    }
-    public static void UpdateOn(){
-      UpdateTrigger = true;
-    }
-    public static void UpdateOff(){
-      UpdateTrigger = false;
     }
 
 }

@@ -12,6 +12,9 @@ public static class ItemManager
 
 
     public static void SetUp(){//Excelとかで読み込めないかな
+      UseItemList.Clear();
+      WeaponItemList.Clear();
+      ItemNameList.Clear();
       UseItem item = new Potion();
       UseItemList.Add(0,item);
       ItemNameList.Add(0,"ポーション");

@@ -1,4 +1,3 @@
-﻿
 interface UpdateState{
     void Start();
     void Update();

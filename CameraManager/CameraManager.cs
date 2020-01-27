@@ -5,18 +5,27 @@ using UnityEngine;
 public static class CameraManager
 {
   private static GameObject MainCamera;
-  private static int CameraSizeX = 640;
-  private static int CameraSizeY = 480;
-  private static int CameraMoveX = 0;
-  private static int CameraMoveY = 0;
-  private static int count = 0;
-  private static bool CameraMoveOn = false;
-  private static int CameraMoveXCount = 0;
-  private static int CameraMoveYCount = 0;
-  private static int PlayerMoveCount = 10;
+  private static int CameraSizeX ;
+  private static int CameraSizeY ;
+  private static int CameraMoveX ;
+  private static int CameraMoveY ;
+  private static int count;
+  private static bool CameraMoveOn ;
+  private static int CameraMoveXCount ;
+  private static int CameraMoveYCount ;
+  private static int PlayerMoveCount ;
 
   public static void SetUp(){
     MainCamera = Camera.main.gameObject;
+    CameraSizeX = 640;
+    CameraSizeY = 480;
+    CameraMoveX = 0;
+    CameraMoveY = 0;
+    count = 0;
+    CameraMoveOn = false;
+    CameraMoveXCount = 0;
+    CameraMoveYCount = 0;
+    PlayerMoveCount = 10;
   }
   public static void PlayerPosCheck(){
     if(!CameraMoveOn){

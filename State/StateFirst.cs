@@ -6,7 +6,6 @@ public class StateFirst : UpdateState
 {
     public void Start()
     {
-
     }
 
     public void Update()

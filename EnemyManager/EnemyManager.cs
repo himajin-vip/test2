@@ -6,11 +6,15 @@ public static class EnemyManager
 {
   private static List<Enemy> EnemyList = new List<Enemy>();
   private static GameObject Slime;
-  private static int EnemyMaxCount = 10;
-  private static int EnemyCurrentCount = 0;
+  private static int EnemyMaxCount;
+  private static int EnemyCurrentCount;
   private static GameObject SlimePlefab;
 
-
+  public static void SetUp(){
+    EnemyList.Clear();
+    EnemyMaxCount = 10;
+    EnemyCurrentCount = 0;
+  }
   public static void MakeEnemy(string enemyname){
     int MapSizeX = 640*3;
     int MapSizeY = 480*3;
