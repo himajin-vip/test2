@@ -58,8 +58,8 @@ public class Player : MonoBehaviour
     CurrentHp = MaxHp;
   }
   public void Death(){
-    if(CurrentHp<0){
-      SceneManager.LoadScene("end");
+    if(CurrentHp<=0){
+      GameManager.StateSet("End");
     }
   }
 
