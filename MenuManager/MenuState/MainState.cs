@@ -49,6 +49,7 @@ public class MainState : MenuState
           MenuManager.SetMenuState("Status");
         break;
         case 1:
+          MenuManager.SetMenuState("InventorySelect");
         break;
         case 2:
         break;

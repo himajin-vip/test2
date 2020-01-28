@@ -10,12 +10,10 @@ public class UI_Status : MonoBehaviour
   public Slider mpSlider;
   public Text mpText;
   public Text LVText;
-  public Text NameText;
 
   public void update()
   {
-    NameText.text = PlayerManager.ReturnName();
-    LVText.text = "Lv:"+PlayerManager.ReturnLv();
+    LVText.text = "Lv:"+PlayerManager.ReturnLv()+" "+PlayerManager.ReturnName();;
     hpSlider.maxValue = PlayerManager.ReturnMaxHp();
     hpSlider.value = PlayerManager.ReturnCurrentHp();
     hpText.text = PlayerManager.ReturnCurrentHp()+"/"+PlayerManager.ReturnMaxHp();

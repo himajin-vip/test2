@@ -34,7 +34,7 @@ public  static class ControlManager
   }
   public static void MenuKey(){
     if(Input.GetKeyDown(KeyCode.M)){
-      //UI_Manager.MenuOn();
+      MenuManager.MenuOff();
     }
     if(Input.GetKeyDown(KeyCode.W)){
       MenuManager.MenuCursolMove(1);
