@@ -24,6 +24,8 @@ public static class ItemManager
       UseItemList.Clear();
       WeaponItemList.Clear();
       ItemNameList.Clear();
+      ItemImageList.Clear();
+
 
       UseItemList.Add(0,new Potion());
       ItemNameList.Add(0,"ポーション");
