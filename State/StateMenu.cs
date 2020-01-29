@@ -9,6 +9,7 @@ public class StateMenu : UpdateState
     public void Update(){
       ControlManager.MenuKey();
       UI_Manager.UiStatusUpdate();
+      ShortcutManager.AllPiecesReset();
     }
     public void End(){
 

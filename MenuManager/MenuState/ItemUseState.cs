@@ -9,6 +9,7 @@ public class ItemUseState : MenuState
   public List<int> InventoryList = new List<int>();
   public GameObject ItemWindow;
   public GameObject InfoWindow;
+  public Text InfoWindowText;
   public GameObject Curesol;
   public RectTransform CursolTransform;
   public float CursolPosition = -10;
@@ -22,6 +23,7 @@ public class ItemUseState : MenuState
     GameObject InventoryCanvas = GameObject.Find("MenuCanvas").transform.Find("InventoryPanel").gameObject;
     ItemWindow = InventoryCanvas.transform.Find("ItemWindow").gameObject;
     InfoWindow = InventoryCanvas.transform.Find("InfoWindow").gameObject;
+    InfoWindowText = InventoryCanvas.transform.Find("InfoWindow").transform.Find("InfoText").GetComponent<Text>();
     Curesol = ItemWindow.transform.Find("SelectCursol").gameObject;
     CursolTransform = Curesol.GetComponent<RectTransform>();
     GameObject ItemPanel = ItemWindow.transform.Find("ItemPanel").gameObject;
@@ -55,6 +57,7 @@ public class ItemUseState : MenuState
     for(int i = 0; i<=19; i++){
       ItemTextList[i].text = "";
     }
+    InfoWindowText.text = "";
     InventoryList = InventoryManager.ReturnInventoryList("UseItem");
     foreach(int ItemID in InventoryList) {
       ItemTextList[Inventorycount].text = ItemManager.returnItemName(ItemID)+" / "+InventoryManager.ReturnPieces(ItemID)+"個";
@@ -81,19 +84,27 @@ public class ItemUseState : MenuState
         }
       break;
     }
+    if(!(CursolPos==0)){
+      InfoWindowText.text = ItemManager.ReturnInfo(InventoryList[CursolPos-1]);
+    }else{
+      InfoWindowText.text = "";
+    }
   }
   public void CursolOn(){
 
     if(CursolPos == 0){
+        MenuManager.InventoryEndFragToggle(true);
         MenuManager.SetMenuState("InventorySelect");
       }else{
-        PlayerManager.ItemUse(InventoryList[CursolPos-1]);
-        Start();
+        InventoryManager.SelectItem(InventoryList[CursolPos-1]);
+        MenuManager.SetMenuState("UseComand");
       }
   }
   public void End(){
     Curesol.SetActive(false);
-    ItemWindow.SetActive(false);
-    InfoWindow.SetActive(false);
+    if(MenuManager.ReturnInventoryEndfrag()){
+      ItemWindow.SetActive(false);
+      InfoWindow.SetActive(false);
+    }
   }
 }

@@ -18,7 +18,7 @@ public class StateMain : UpdateState
       CameraManager.PlayerPosCheck();
       ControlManager.KeyCheck();
       UI_Manager.UiStatusUpdate();
-      ShortcutManager.update();
+      ShortcutManager.AllPiecesReset();
       EnemyManager.MakeEnemy("Slime");
     }
     public void End(){

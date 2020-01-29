@@ -28,8 +28,17 @@ public  static class ControlManager
       if(Input.GetKeyUp(KeyCode.Space)){
         PlayerManager.AtackKeyUp();
       }
-      if(Input.GetKeyDown(KeyCode.U)){
+      if(Input.GetKeyDown(KeyCode.Alpha1)){
         ShortcutManager.ShortCutOn(1);
+      }
+      if(Input.GetKeyDown(KeyCode.Alpha2)){
+        ShortcutManager.ShortCutOn(2);
+      }
+      if(Input.GetKeyDown(KeyCode.Alpha3)){
+        ShortcutManager.ShortCutOn(3);
+      }
+      if(Input.GetKeyDown(KeyCode.Alpha4)){
+        ShortcutManager.ShortCutOn(4);
       }
   }
   public static void MenuKey(){

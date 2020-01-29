@@ -1,14 +1,15 @@
 
 public class HiPotion : UseItem
 {
+  private int Recovery = 50;
   public HiPotion(){
     SetId(1);
-    SetRecovery(50);
+    SetInfo("HPを50回復します");
   }
   public override void ItemUse(string Name){
-    PlayerManager.RecoveryHp(ReturnRecovery());
+    PlayerManager.RecoveryHp(Recovery);
     LogManager.UseItemLog(Name,ReturnID());
-    LogManager.RecoveryHpLog(Name,ReturnRecovery());
+    LogManager.RecoveryHpLog(Name,50);
 
   }
 }

@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class InventorySelectState: MenuState{
-  public GameObject InventoryCanvas;
-  public Text[] ItemText;
+public class UseComandState : MenuState
+{
+  public GameObject UseComandWindow;
   public GameObject Curesol;
   public RectTransform CursolTransform;
   public float CursolPosition = -10;
@@ -13,25 +12,21 @@ public class InventorySelectState: MenuState{
   public int CursolPos;
 
   public void SetUp(){
-    InventoryCanvas = GameObject.Find("MenuCanvas").transform.Find("InventoryPanel").gameObject;
-    Debug.Log(InventoryCanvas);
-    Curesol = InventoryCanvas.transform.Find("SelectWindow").transform.Find("SelectCursol").gameObject;
+    UseComandWindow = GameObject.Find("MenuCanvas").transform.Find("InventoryPanel").transform.Find("UseComandWindow").gameObject;
+    Curesol = UseComandWindow.transform.Find("SelectCursol").gameObject;
     CursolTransform = Curesol.GetComponent<RectTransform>();
-
   }
   public void Start(){
-    MenuManager.InventoryEndFragToggle(false);
+    UseComandWindow.SetActive(true);
+    Curesol.SetActive(true);
     CursolPos = 0;
     CursolPosition = -10;
     CursolTransform.anchoredPosition = new Vector2(10,-10);
-    Debug.Log(InventoryCanvas);
-    InventoryCanvas.SetActive(true);
-    Curesol.SetActive(true);
   }
   public void CursolMove(int direction){
     switch(direction){
       case 0:
-        if(CursolPosition > -250){
+        if(CursolPosition > -100){
           newPosy = CursolPosition -= 30;
           CursolTransform.anchoredPosition = new Vector2(10,newPosy);
           CursolPos++;
@@ -49,39 +44,23 @@ public class InventorySelectState: MenuState{
   public void CursolOn(){
     switch(CursolPos){
       case 0:
+        PlayerManager.ItemUse(InventoryManager.ReturnSelectItem());
         MenuManager.SetMenuState("UseItem");
       break;
       case 1:
-
+        MenuManager.SetMenuState("SelectShortCut");
       break;
       case 2:
-
+        InventoryManager.ItemReduce(InventoryManager.ReturnSelectItem());
+        MenuManager.SetMenuState("UseItem");
       break;
       case 3:
-
-      break;
-      case 4:
-
-      break;
-      case 5:
-
-      break;
-      case 6:
-
-      break;
-      case 7:
-
-      break;
-      case 8:
-        MenuManager.InventoryEndFragToggle(true);
-        MenuManager.SetMenuState("Main");
+        MenuManager.SetMenuState("UseItem");
       break;
     }
   }
   public void End(){
-    if(MenuManager.ReturnInventoryEndfrag()){
-      InventoryCanvas.SetActive(false);
-    }
+    UseComandWindow.SetActive(false);
     Curesol.SetActive(false);
   }
 }

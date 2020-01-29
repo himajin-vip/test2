@@ -2,20 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor;
 
 public class ShortCut : MonoBehaviour
 {
+  public GameObject ImgObj;
   public Image imgShortcut;
   public Text textShortcut;
-  private int IDShortcut = 0;
-
+  public int IDShortcut=9999;
+    public void SetUp(){
+      imgShortcut = ImgObj.GetComponent<Image>();
+      textShortcut.text = "";
+    }
     public void ItemUse(){
       PlayerManager.ItemUse(IDShortcut);
     }
-    public void Reset(){
-      textShortcut.text = InventoryManager.ReturnPieces(IDShortcut)+"個";
+
+    public void PiecesReset(){
+      textShortcut.text = InventoryManager.ReturnPieces(IDShortcut).ToString();
     }
-    public void SetIDShortcut(int ID){
+
+    public void SetId(int ID){
       IDShortcut = ID;
+      imgShortcut.color = new Color(1, 1, 1, 1);
+      imgShortcut.sprite = ItemManager.ReturnImage(ID);
     }
 }

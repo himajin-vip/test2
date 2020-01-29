@@ -11,6 +11,7 @@ public static class InventoryManager
     private static Dictionary<int,int> HandItemInventory = new Dictionary<int,int>();
     private static Dictionary<int,int> FootItemInventory = new Dictionary<int,int>();
     private static Dictionary<int,int> AccesuryItemInventory = new Dictionary<int,int>();
+    private static int SelectItemNo;
 
     public static void SetUp(){
       UseItemInventory.Clear();
@@ -24,7 +25,6 @@ public static class InventoryManager
       UseItemInventory.Add (0, 3);
       UseItemInventory.Add (1,99);
       WeaponItemInventory.Add (100, 1);
-
     }
     static public void WeaponEquipment(int ItemID,Weapon weapon){
       if(InventoryKeyCheck(ItemID)){
@@ -85,7 +85,6 @@ public static class InventoryManager
         }
       }
     }
-
     static public List<int> ReturnInventoryList(string ItemType){
       switch(ItemType){
         case "UseItem":
@@ -205,7 +204,6 @@ public static class InventoryManager
       }
       return false;
     }
-
     static public int ReturnPieces(int ItemID){
       string ItemType = ItemManager.returnItemType(ItemID);
       if(InventoryKeyCheck(ItemID)){
@@ -280,5 +278,12 @@ public static class InventoryManager
           break;
         }
       }
+    }
+    /////////////////インベントリで選択したアイテムの保存
+    static public void SelectItem(int ItemID){
+      SelectItemNo = ItemID;
+    }
+    static public int ReturnSelectItem(){
+      return SelectItemNo;
     }
 }
