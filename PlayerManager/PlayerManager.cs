@@ -80,8 +80,8 @@ public static class PlayerManager
     }
   }
 
-  public static void WeaponEqipment(int ItemID){
-    InventoryManager.WeaponEquipment(ItemID,Player.MyWeapon);
+  public static void WeaponEqip(int ItemID){
+    InventoryManager.WeaponEquip(ItemID,Player.MyWeapon);
   }
 
   public static void AtackKeyDown(){

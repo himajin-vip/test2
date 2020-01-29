@@ -80,7 +80,7 @@ public class Player : MonoBehaviour
   }
   public void SetWeapon(int ItemID){
     MyWeapon = transform.GetChild(0).gameObject.GetComponent<Weapon>();
-    InventoryManager.WeaponEquipment(ItemID,MyWeapon);
+    InventoryManager.WeaponEquip(ItemID,MyWeapon);
   }
 
 

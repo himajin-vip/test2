@@ -26,10 +26,10 @@ public static class InventoryManager
       UseItemInventory.Add (1,99);
       WeaponItemInventory.Add (100, 1);
     }
-    static public void WeaponEquipment(int ItemID,Weapon weapon){
+    static public void WeaponEquip(int ItemID,Weapon weapon){
       if(InventoryKeyCheck(ItemID)){
         WeaponItem Item = ItemManager.returnWeaponItem(ItemID);
-        Item.WeaponEquipment(weapon);
+        Item.WeaponEquip(weapon);
       }
     }
     static public void ItemGet(int ItemID){

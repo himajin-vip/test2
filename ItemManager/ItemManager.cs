@@ -33,7 +33,7 @@ public static class ItemManager
 
       UseItemList.Add(1,new HiPotion());
       ItemNameList.Add(1,"ハイポーション");
-      ItemImageList.Add(1,Resources.Load<Sprite>("ItemImage/Potion"));
+      ItemImageList.Add(1,Resources.Load<Sprite>("ItemImage/HiPotion"));
 
       WeaponItemList.Add(100,new IronSword());
       ItemNameList.Add(100,"鉄の剣");
