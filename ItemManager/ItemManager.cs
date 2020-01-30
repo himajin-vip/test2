@@ -11,11 +11,11 @@ public static class ItemManager
 
   private static Dictionary<int,UseItem> UseItemList = new Dictionary<int,UseItem>();
   private static Dictionary<int,WeaponItem> WeaponItemList = new Dictionary<int,WeaponItem>();
-  //private static Dictionary<int,HeadItem> HeadItemList = new Dictionary<int,HeadItem>();
-  //private static Dictionary<int,BodyItem> BodyItemList = new Dictionary<int,BodyItem>();
-  //private static Dictionary<int,HandItem> HandItemList = new Dictionary<int,HandItem>();
-  //private static Dictionary<int,FootItem> FootItemList = new Dictionary<int,FootItem>();
-  //private static Dictionary<int,AccesuryItem> AccesuryItemList = new Dictionary<int,AccesuryItem>();
+  private static Dictionary<int,HeadItem> HeadItemList = new Dictionary<int,HeadItem>();
+  private static Dictionary<int,BodyItem> BodyItemList = new Dictionary<int,BodyItem>();
+  private static Dictionary<int,HandItem> HandItemList = new Dictionary<int,HandItem>();
+  private static Dictionary<int,FootItem> FootItemList = new Dictionary<int,FootItem>();
+  private static Dictionary<int,AccessoryItem> AccessoryItemList = new Dictionary<int,AccessoryItem>();
   private static GameObject DropItemprefab;
 
 
@@ -43,11 +43,11 @@ public static class ItemManager
     public static string returnItemType(int CheckID){
       List<int> UseItemKeys = new List<int>(UseItemList.Keys);
       List<int> WeaponItemKeys = new List<int>(WeaponItemList.Keys);
-      //List<int> HandItemKeys = new List<int>(HeadItemList.Keys);
-      //List<int> BodyItemKeys = new List<int>(BodyItemList.Keys);
-      //List<int> HandItemKeys = new List<int>(HandItemList.Keys);
-      //List<int> FootItemKeys = new List<int>(FootItemList.Keys);
-      //List<int> AccesuryItemKeys = new List<int>(AccesuryItemList.Keys);
+      List<int> HeadItemKeys = new List<int>(HeadItemList.Keys);
+      List<int> BodyItemKeys = new List<int>(BodyItemList.Keys);
+      List<int> HandItemKeys = new List<int>(HandItemList.Keys);
+      List<int> FootItemKeys = new List<int>(FootItemList.Keys);
+      List<int> AccessoryItemKeys = new List<int>(AccessoryItemList.Keys);
 
       foreach(int ItemID in UseItemKeys) {
         if(ItemID == CheckID){
@@ -59,31 +59,31 @@ public static class ItemManager
           return "WeaponItem";
         }
       }
-      // foreach(int ItemID in HandItemKeys) {
-      //   if(ItemID == CheckID){
-      //     return "HandItem";
-      //   }
-      // }
-      // foreach(int ItemID in BodyItemKeys) {
-      //   if(ItemID == CheckID){
-      //     return "BodyItem";
-      //   }
-      // }
-      // foreach(int ItemID in HandItemKeys) {
-      //   if(ItemID == CheckID){
-      //     return "HandItem";
-      //   }
-      // }
-      // foreach(int ItemID in FootItemKeys) {
-      //   if(ItemID == CheckID){
-      //     return "FootItem";
-      //   }
-      // }
-      // foreach(int ItemID in AccesuryItemKeys) {
-      //   if(ItemID == CheckID){
-      //     return "AccesuryItem";
-      //   }
-      // }
+      foreach(int ItemID in HandItemKeys) {
+        if(ItemID == CheckID){
+          return "HandItem";
+        }
+      }
+      foreach(int ItemID in BodyItemKeys) {
+        if(ItemID == CheckID){
+          return "BodyItem";
+        }
+      }
+      foreach(int ItemID in HandItemKeys) {
+        if(ItemID == CheckID){
+          return "HandItem";
+        }
+      }
+      foreach(int ItemID in FootItemKeys) {
+        if(ItemID == CheckID){
+          return "FootItem";
+        }
+      }
+      foreach(int ItemID in AccessoryItemKeys) {
+        if(ItemID == CheckID){
+          return "AccessoryItem";
+        }
+      }
 
       return "";
     }
@@ -94,16 +94,16 @@ public static class ItemManager
         return UseItemList[ItemID].ReturnInfo();
         case "WeaponItem":
         return WeaponItemList[ItemID].ReturnInfo();
-        // case "HeadItem":
-        // return HeadItemList[ItemID].ReturnInfo();
-        // case "BodyItem":
-        // return BodyItemList[ItemID].ReturnInfo();
-        // case "HandItem":
-        // return HandItemList[ItemID].ReturnInfo();
-        // case "FootItem":
-        // return FootItemList[ItemID].ReturnInfo();
-        // case "AccesuryItem":
-        // return AccesuryItemList[ItemID].ReturnInfo();
+        case "HeadItem":
+        return HeadItemList[ItemID].ReturnInfo();
+        case "BodyItem":
+        return BodyItemList[ItemID].ReturnInfo();
+        case "HandItem":
+        return HandItemList[ItemID].ReturnInfo();
+        case "FootItem":
+        return FootItemList[ItemID].ReturnInfo();
+        case "AccessoryItem":
+        return AccessoryItemList[ItemID].ReturnInfo();
       }
       return "";
     }
@@ -119,6 +119,21 @@ public static class ItemManager
     }
     public static WeaponItem returnWeaponItem(int ItemID){
       return WeaponItemList[ItemID];
+    }
+    public static HeadItem returnHeadItem(int ItemID){
+      return HeadItemList[ItemID];
+    }
+    public static BodyItem returnBodyItem(int ItemID){
+      return BodyItemList[ItemID];
+    }
+    public static HandItem returnHandItem(int ItemID){
+      return HandItemList[ItemID];
+    }
+    public static FootItem returnFootItem(int ItemID){
+      return FootItemList[ItemID];
+    }
+    public static AccessoryItem returnAccessoryItem(int ItemID){
+      return AccessoryItemList[ItemID];
     }
     public static void DropItemMake(int ItemID,float x,float y){
       GameObject DropItem = GameObject.Instantiate(DropItemprefab, new Vector3(x,y,0), Quaternion.identity);

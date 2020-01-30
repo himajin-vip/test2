@@ -36,6 +36,46 @@ public static class MenuManager
     MenuStateList.Add("SelectShortCut", new SelectShortCutState());
     MenuStateList["SelectShortCut"].SetUp();
 
+    MenuStateList.Add("WeaponEquip", new WeaponEquipState());
+    MenuStateList["WeaponEquip"].SetUp();
+
+    MenuStateList.Add("WeaponEquipComand", new WeaponEquipComandState());
+    MenuStateList["WeaponEquipComand"].SetUp();
+
+    MenuStateList.Add("HeadEquip", new HeadEquipState());
+    MenuStateList["HeadEquip"].SetUp();
+
+    MenuStateList.Add("HeadEquipComand", new HeadEquipComandState());
+    MenuStateList["HeadEquipComand"].SetUp();
+
+    MenuStateList.Add("BodyEquip", new BodyEquipState());
+    MenuStateList["BodyEquip"].SetUp();
+
+    MenuStateList.Add("BodyEquipComand", new BodyEquipComandState());
+    MenuStateList["BodyEquipComand"].SetUp();
+
+    MenuStateList.Add("HandEquip", new HandEquipState());
+    MenuStateList["HandEquip"].SetUp();
+
+    MenuStateList.Add("HandEquipComand", new HandEquipComandState());
+    MenuStateList["HandEquipComand"].SetUp();
+
+    MenuStateList.Add("FootEquip", new FootEquipState());
+    MenuStateList["FootEquip"].SetUp();
+
+    MenuStateList.Add("FootEquipComand", new FootEquipComandState());
+    MenuStateList["FootEquipComand"].SetUp();
+
+    MenuStateList.Add("AccessoryEquip", new AccessoryEquipState());
+    MenuStateList["AccessoryEquip"].SetUp();
+
+    MenuStateList.Add("AccessoryEquipComand", new AccessoryEquipComandState());
+    MenuStateList["AccessoryEquipComand"].SetUp();
+
+
+
+
+
 
     MenuState = MenuStateList["Null"];
   }

@@ -25,7 +25,5 @@ public class Fighter :Player
     NormalAtack = new SwordNomalAtack();
     Skill = NormalAtack;
     ChargeSkill = new SwordChargeAtack();
-
-    InventoryManager.WeaponEquip(100);
   }
 }

@@ -26,16 +26,7 @@ public static class InventoryManager
       UseItemInventory.Add (1,99);
       WeaponItemInventory.Add (100, 1);
     }
-    static public void WeaponEquip(int ItemID){
-      if(InventoryKeyCheck(ItemID)){
-        WeaponItem Item = ItemManager.returnWeaponItem(ItemID);
-        Item.Equip();
-      }
-    }
-    static public void WeaponUnEquip(int ItemID){
-        WeaponItem Item = ItemManager.returnWeaponItem(ItemID);
-        Item.UnEquip();
-    }
+
     static public void ItemGet(int ItemID){
       string ItemType = ItemManager.returnItemType(ItemID);
 

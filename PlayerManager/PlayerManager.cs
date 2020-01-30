@@ -82,9 +82,6 @@ public static class PlayerManager
     }
   }
 
-  public static void WeaponEqip(int ItemID){
-    InventoryManager.WeaponEquip(ItemID);
-  }
 
   public static void AtackKeyDown(){
     if(!PlayerAtackOn&&!AtackKeyPush){
@@ -169,6 +166,55 @@ public static class PlayerManager
   public static int ReturnFinalDamage(){
     return Player.Str+Player.EquipStr;
   }
+  static public void WeaponEquip(int ItemID){
+      WeaponItem Item = ItemManager.returnWeaponItem(ItemID);
+      Item.Equip();
+  }
+  static public void WeaponUnEquip(int ItemID){
+      WeaponItem Item = ItemManager.returnWeaponItem(ItemID);
+      Item.UnEquip();
+  }
+  static public void HeadEquip(int ItemID){
+      HeadItem Item = ItemManager.returnHeadItem(ItemID);
+      Item.Equip();
+  }
+  static public void HeadUnEquip(int ItemID){
+      HeadItem Item = ItemManager.returnHeadItem(ItemID);
+      Item.UnEquip();
+  }
+  static public void BodyEquip(int ItemID){
+      BodyItem Item = ItemManager.returnBodyItem(ItemID);
+      Item.Equip();
+  }
+  static public void BodyUnEquip(int ItemID){
+      BodyItem Item = ItemManager.returnBodyItem(ItemID);
+      Item.UnEquip();
+  }
+  static public void HandEquip(int ItemID){
+      HandItem Item = ItemManager.returnHandItem(ItemID);
+      Item.Equip();
+  }
+  static public void HandUnEquip(int ItemID){
+      HandItem Item = ItemManager.returnHandItem(ItemID);
+      Item.UnEquip();
+  }
+  static public void FootEquip(int ItemID){
+      FootItem Item = ItemManager.returnFootItem(ItemID);
+      Item.Equip();
+  }
+  static public void FootUnEquip(int ItemID){
+      FootItem Item = ItemManager.returnFootItem(ItemID);
+      Item.UnEquip();
+  }
+  static public void AccessoryEquip(int ItemID){
+      AccessoryItem Item = ItemManager.returnAccessoryItem(ItemID);
+      Item.Equip();
+  }
+  static public void AccessoryUnEquip(int ItemID){
+      AccessoryItem Item = ItemManager.returnAccessoryItem(ItemID);
+      Item.UnEquip();
+  }
+
   public static void SetEquipStr(int str){
     Player.EquipStr+=str;
   }
