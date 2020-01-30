@@ -6,54 +6,37 @@ using UnityEngine.SceneManagement;
 
 public class Weapon : MonoBehaviour
 {
-  public int WeaponDamage;
-  public  bool WeaponHit = false;
-  public int FinalDamage;
+  public int Damage;
+  public static Dictionary<int,Enemy> HitEnemyList = new Dictionary<int,Enemy>();
+  public int HitCount = 0;
 
-  public virtual void Atack(){
+
+  public void OnEnd(){
+    Destroy (this.gameObject);
+    PlayerManager.AtackOff();
+    PlayerManager.AtackDamageCheck(HitEnemyList);
+    HitEnemyList.Clear();
   }
-  public virtual void ChargeDamageSet(int PlayerStr){
-  }
-  public void NormalDamageSet(int PlayerStr){
-    FinalDamage = WeaponDamage+PlayerStr;
-  }
-  public void DamageSet(int Damage){
-    WeaponDamage = Damage;
-  }
-  public void end(){
-    transform.parent.gameObject.GetComponent<Player>().AtackOn = false;
-    transform.parent.gameObject.GetComponent<Player>().AtackAnimation = false;
-    WeaponHit = false;
-    this.gameObject.SetActive(false);
-    if(transform.parent.gameObject.GetComponent<Player>().FullCharge){
-      transform.parent.gameObject.GetComponent<Player>().FullCharge = false;
-    }
-  }
-  // void unEquipment();
-  public void AtackDirection(){
-    this.gameObject.SetActive(true);
-    switch(transform.parent.gameObject.GetComponent<Player>().Direction){
-      case 0:
-        GetComponent<Animator>().SetInteger("WeaponDirection",0);
-      break;
-      case 1:
-        GetComponent<Animator>().SetInteger("WeaponDirection",1);
-      break;
-      case 2:
-        GetComponent<Animator>().SetInteger("WeaponDirection",2);
-      break;
-      case 3:
-        GetComponent<Animator>().SetInteger("WeaponDirection",3);
-      break;
-    }
-  }
-  void OnCollisionEnter2D(Collision2D collision2){//武器が当たったらダメージ
-    if(collision2.gameObject.GetComponent<Enemy>()&&!WeaponHit){
-      collision2.gameObject.GetComponent<Enemy>().DamageHP(FinalDamage);
-      Vector3 enemypos = collision2.gameObject.transform.position;
-      EfectManager.efecton("kiriefect",enemypos.x,enemypos.y,collision2.gameObject);//エフェクト作成
-      if(!transform.parent.GetComponent<Player>().FullCharge){
-        WeaponHit = true;
+
+  void OnTriggerEnter2D(Collider2D collision2){
+    if(collision2.gameObject.GetComponent<Enemy>()){
+
+      Enemy HitEnemy = collision2.gameObject.GetComponent<Enemy>();
+      bool NewEnemy = false;
+
+      if(HitCount == 0){
+        HitCount++;
+        Debug.Log("AddList:"+HitEnemy.EnemyId);
+        HitEnemyList.Add(HitEnemy.EnemyId,HitEnemy);
+      }
+
+      foreach(Enemy enemy in HitEnemyList.Values){
+        if(enemy.EnemyId!=HitEnemy.EnemyId){
+          NewEnemy = true;
+        }
+      }
+      if(NewEnemy){
+        HitEnemyList.Add(HitEnemy.EnemyId,HitEnemy);
       }
     }
   }

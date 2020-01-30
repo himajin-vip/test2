@@ -4,8 +4,8 @@ public class WeaponItem
   private int Id;
   private int Str;
   private string Info;
-  public void WeaponEquip(Weapon weapon){
-    weapon.DamageSet(Str);
+  public void WeaponEquip(){
+    //weapon.DamageSet(Str);
   }
   public void SetStr(int str){
     Str = str;

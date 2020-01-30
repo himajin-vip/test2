@@ -21,51 +21,55 @@ public class Player : MonoBehaviour
   public int Direction;
   public int ChargeMoveSpeed;
   public int NomalMoveSpeed;
-  public bool AtackAnimation = false;
-  public bool AtackOn = false;
-  public bool ChargeEfectOn = false;
+  public float ChargeTime;
+  public bool ChargeNow;
   public bool FullCharge = false;
-  public bool KeyUp = false;
   public Coroutine ChargeC ;
   public Efect ChargeEfect;
-  public Weapon MyWeapon;
-  public Animator animator;
+  public GameObject Weapon;
+  public Skill Skill;
+  public Skill NormalAtack;
+  public Skill ChargeSkill;
 
   public virtual void SetUp(){
 
   }
 
-  public void SpeedSet(int speed){
-    MoveSpeed = speed ;
+  public void SetWeapon(string name){
+
   }
-  public void AtackKeyDown(){
-    if(!AtackOn){//攻撃キーを押したか判定
-      AtackOn = true;
-      ChargeC = StartCoroutine(ChargeAtack());
-      MyWeapon.NormalDamageSet(this.Str);
-    }
-  }
-  public void AtackKeyUp(){
-    if(AtackOn){//攻撃キーを離したか判定
-      AtackAnimation = true;
-      if(ChargeEfectOn){
-        ChargeEfect.OnEnd();
-        SpeedSet(NomalMoveSpeed);
-        ChargeEfectOn = false;
-      }
-      MyWeapon.Atack();
+
+  public void Atack(){
+    if(ChargeNow){
+      ChargeNow = false;
+      ChargeEfect.OnEnd();
       StopCoroutine(ChargeC);
+      Skill.AtackOn();
+    }else{
+      StopCoroutine(ChargeC);
+      Skill.AtackOn();
     }
   }
-  private IEnumerator ChargeAtack(){
+
+  public void AtackDamageCheck(Dictionary<int,Enemy> EnemyList){
+    Skill.Damage(EnemyList);
+    Skill = NormalAtack;
+  }
+
+  public void ChargeStart(){
+    ChargeC = StartCoroutine(Charge());
+  }
+
+  public  IEnumerator Charge(){
     yield return new WaitForSeconds(1f);
+      ChargeNow = true;
       ChargeEfect = EfectManager.efecton("tameefect",transform.position.x,transform.position.y,this.gameObject);
-      SpeedSet(ChargeMoveSpeed);
-      ChargeEfectOn = true;
+      MoveSpeed = ChargeMoveSpeed;
+
     yield return new WaitForSeconds(1f);
       ChargeEfect.GetComponent<Animator>().SetFloat("Speed", 2.0f);
+      Skill = ChargeSkill;
       FullCharge = true;
-      MyWeapon.ChargeDamageSet(this.Str);
   }
   void OnTriggerEnter2D(Collider2D collision){
     if(collision.gameObject.tag == "Item"){
@@ -78,10 +82,4 @@ public class Player : MonoBehaviour
     LogManager.MakeItemGetLog(Name,getItem.ItemId);
     getItem.DropEnd();
   }
-  public void SetWeapon(int ItemID){
-    MyWeapon = transform.GetChild(0).gameObject.GetComponent<Weapon>();
-    InventoryManager.WeaponEquip(ItemID,MyWeapon);
-  }
-
-
 }

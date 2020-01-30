@@ -21,8 +21,9 @@ public class Fighter :Player
     ChargeMoveSpeed = 1;
     Direction = 0;
     NomalMoveSpeed = 3;
-    AtackAnimation = false;
-    animator = GetComponent<Animator>();
-    SetWeapon(100);
+    Weapon = (GameObject)Resources.Load("prefab/Weapon/Sword");
+    NormalAtack = new SwordNomalAtack();
+    Skill = NormalAtack;
+    ChargeSkill = new SwordChargeAtack();
   }
 }

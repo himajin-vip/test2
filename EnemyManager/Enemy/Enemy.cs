@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
   public string Name;
+  public int EnemyId;
   public int MaxHp;
   public int CurrentHp;
   public int Mp;
@@ -24,12 +25,14 @@ public class Enemy : MonoBehaviour
 
   public virtual void Atack(GameObject Playerobj){
   }
-  public void DamageHP(int damage){
-    CurrentHp -= damage;
-    float x = this.transform.position.x;
-    float y = this.transform.position.y;
-    DamageTextManager.Make(damage,x,y,new Color(255,255,255),this.transform);
-    LogManager.MakeDamageLog(Name,damage);
+  public void DamageHp(int damage){
+    if(!DeathCheck){
+      CurrentHp -= damage;
+      float x = this.transform.position.x;
+      float y = this.transform.position.y;
+      DamageTextManager.Make(damage,x,y,new Color(255,255,255),this.transform);
+      LogManager.MakeDamageLog(Name,damage);
+    }
   }
   public void RecoveryHp(int recovery){
     CurrentHp += recovery;
@@ -102,13 +105,7 @@ public class Enemy : MonoBehaviour
       ItemManager.DropItemMake(DropItem,this.transform.position.x,this.transform.position.y);
     }
   }
-  void OnTriggerEnter2D(Collider2D collision){//プレイヤーを発見したらMoveStatusを変更
-    if(!DeathCheck){
-      if(collision.gameObject.GetComponent<Player>()){
-        MoveStatus = 1;
-      }
-    }
-  }
+
   void OnCollisionStay2D(Collision2D collision2){
     if(!DeathCheck){
       if(collision2.gameObject.GetComponent<Player>()&&!AtackOn){

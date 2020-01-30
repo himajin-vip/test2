@@ -6,6 +6,7 @@ public static class PlayerManager
 {
   private static Player Player;
   private static Animator PlayerAnimator;
+  private static bool PlayerAtackOn;
 
   public static void SetUp(string Job){
     GameObject obj = (GameObject)Resources.Load("Player/"+Job);
@@ -29,7 +30,7 @@ public static class PlayerManager
   }
 
   public static void PlayerMove(int direction){
-    if(!Player.AtackAnimation){
+    if(!PlayerAtackOn){
       switch(direction){
         case 0:
           Player.transform.Translate (0,-Player.MoveSpeed,0);
@@ -81,20 +82,31 @@ public static class PlayerManager
   }
 
   public static void WeaponEqip(int ItemID){
-    InventoryManager.WeaponEquip(ItemID,Player.MyWeapon);
+    InventoryManager.WeaponEquip(ItemID);
   }
 
   public static void AtackKeyDown(){
-    if(!Player.AtackAnimation){
-      Player.AtackKeyDown();
+    if(!PlayerAtackOn){
+      Player.ChargeStart();
     }
   }
 
   public static void AtackKeyUp(){
-    if(!Player.AtackAnimation){
-      Player.AtackKeyUp();
+    if(!PlayerAtackOn){
+      PlayerAtackOn = true;
+      Player.MoveSpeed = Player.NomalMoveSpeed;
+      Player.Atack();
     }
   }
+  public static void AtackOff(){
+    PlayerAtackOn = false;
+  }
+
+  public static void AtackDamageCheck(Dictionary<int,Enemy> EnemyList){
+    Player.AtackDamageCheck(EnemyList);
+  }
+
+
   public static void PlayerDeathCheck(){
     if(Player.CurrentHp<=0){
       GameManager.StateSet("End");
@@ -138,6 +150,18 @@ public static class PlayerManager
   }
   public static Vector3 ReturnPosition(){
     return Player.transform.position;
+  }
+  public static int ReturnDirection(){
+    return Player.Direction;
+  }
+  public static bool ReturnFullCharge(){
+    return Player.FullCharge;
+  }
+  public static GameObject ReturnWeapon(){
+    return Player.Weapon;
+  }
+  public static GameObject ReturnPlayerObject(){
+    return Player.gameObject;
   }
 
 }
