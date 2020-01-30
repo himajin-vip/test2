@@ -7,6 +7,7 @@ public static class PlayerManager
   private static Player Player;
   private static Animator PlayerAnimator;
   private static bool PlayerAtackOn;
+  public  static bool AtackKeyPush = false;
 
   public static void SetUp(string Job){
     GameObject obj = (GameObject)Resources.Load("Player/"+Job);
@@ -86,8 +87,9 @@ public static class PlayerManager
   }
 
   public static void AtackKeyDown(){
-    if(!PlayerAtackOn){
+    if(!PlayerAtackOn&&!AtackKeyPush){
       Player.ChargeStart();
+      AtackKeyPush = true;
     }
   }
 
@@ -97,6 +99,7 @@ public static class PlayerManager
       Player.MoveSpeed = Player.NomalMoveSpeed;
       Player.Atack();
     }
+    AtackKeyPush = false;
   }
   public static void AtackOff(){
     PlayerAtackOn = false;

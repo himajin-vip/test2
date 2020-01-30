@@ -22,7 +22,7 @@ public  static class ControlManager
       if(Input.GetKey(KeyCode.A)){
         PlayerManager.PlayerMove(3);
       }
-      if(Input.GetKeyDown(KeyCode.Space)){
+      if(Input.GetKey(KeyCode.Space)){
         PlayerManager.AtackKeyDown();
       }
       if(Input.GetKeyUp(KeyCode.Space)){

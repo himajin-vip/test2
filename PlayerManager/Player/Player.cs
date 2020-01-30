@@ -80,7 +80,7 @@ public class Player : MonoBehaviour
   }
 
   public void ChargeStart(){
-    ChargeC = StartCoroutine(Charge());
+      ChargeC = StartCoroutine(Charge());
   }
 
   public  IEnumerator Charge(){
