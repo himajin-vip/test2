@@ -22,20 +22,20 @@ public class Weapon : MonoBehaviour
     if(collision2.gameObject.GetComponent<Enemy>()){
 
       Enemy HitEnemy = collision2.gameObject.GetComponent<Enemy>();
-      bool NewEnemy = false;
+      bool NewEnemy = true;
 
       if(HitCount == 0){
         HitCount++;
         HitEnemyList.Add(HitEnemy.EnemyId,HitEnemy);
-      }
-
-      foreach(Enemy enemy in HitEnemyList.Values){
-        if(enemy.EnemyId!=HitEnemy.EnemyId){
-          NewEnemy = true;
+      }else{
+        foreach(Enemy enemy in HitEnemyList.Values){
+          if(enemy.EnemyId==HitEnemy.EnemyId){
+            NewEnemy = false;
+          }
         }
-      }
-      if(NewEnemy){
-        HitEnemyList.Add(HitEnemy.EnemyId,HitEnemy);
+        if(NewEnemy){
+          HitEnemyList.Add(HitEnemy.EnemyId,HitEnemy);
+        }
       }
     }
   }
