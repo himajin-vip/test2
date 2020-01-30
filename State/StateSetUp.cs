@@ -7,7 +7,6 @@ public class StateSetUp : UpdateState
 {
     public void Start()
     {
-      PlayerManager.SetUp("Fighter");
       LogManager.SetUp();
       CameraManager.SetUp();
       EnemyManager.SetUp();
@@ -16,6 +15,7 @@ public class StateSetUp : UpdateState
       ShortcutManager.SetUp();
       UI_Manager.SetUp();
       MenuManager.SetUp();
+      PlayerManager.SetUp("Fighter");
     }
 
     public void Update()

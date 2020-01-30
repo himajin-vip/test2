@@ -14,7 +14,6 @@ public class InventorySelectState: MenuState{
 
   public void SetUp(){
     InventoryCanvas = GameObject.Find("MenuCanvas").transform.Find("InventoryPanel").gameObject;
-    Debug.Log(InventoryCanvas);
     Curesol = InventoryCanvas.transform.Find("SelectWindow").transform.Find("SelectCursol").gameObject;
     CursolTransform = Curesol.GetComponent<RectTransform>();
 
@@ -24,7 +23,6 @@ public class InventorySelectState: MenuState{
     CursolPos = 0;
     CursolPosition = -10;
     CursolTransform.anchoredPosition = new Vector2(10,-10);
-    Debug.Log(InventoryCanvas);
     InventoryCanvas.SetActive(true);
     Curesol.SetActive(true);
   }

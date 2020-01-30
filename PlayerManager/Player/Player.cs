@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+  //////////ステータス///////
   public string Name;
   public int Lv;
   public int MaxHp;
@@ -17,16 +18,38 @@ public class Player : MonoBehaviour
   public int Int;
   public int NextExp;
   public int CurrentExp;
+
+  ////////装備品//////
+  public int EquipWeapon;
+  public int EquipHead;
+  public int EquipBody;
+  public int EquipHand;
+  public int EquipFoot;
+  public int EquipAccesury;
+
+  //////装備品によるステータス上昇///////
+  public int EquipStr = 0;
+  public int EquipVit = 0;
+  public int EquipDex = 0;
+  public int EquipInt = 0;
+
+  ////////移動///////
   public int MoveSpeed;
   public int Direction;
   public int ChargeMoveSpeed;
   public int NomalMoveSpeed;
+
+  ///////チャージ////////
   public float ChargeTime;
   public bool ChargeNow;
   public bool FullCharge = false;
   public Coroutine ChargeC ;
   public Efect ChargeEfect;
+
+  //////使用武器/////////
   public GameObject Weapon;
+
+  ///////スキル//////////
   public Skill Skill;
   public Skill NormalAtack;
   public Skill ChargeSkill;

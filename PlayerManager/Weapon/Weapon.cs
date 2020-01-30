@@ -26,7 +26,6 @@ public class Weapon : MonoBehaviour
 
       if(HitCount == 0){
         HitCount++;
-        Debug.Log("AddList:"+HitEnemy.EnemyId);
         HitEnemyList.Add(HitEnemy.EnemyId,HitEnemy);
       }
 

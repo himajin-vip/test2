@@ -2,13 +2,10 @@
 public class WeaponItem
 {
   private int Id;
-  private int Str;
   private string Info;
-  public void WeaponEquip(){
-    //weapon.DamageSet(Str);
+  public virtual void Equip(){
   }
-  public void SetStr(int str){
-    Str = str;
+  public virtual void UnEquip(){
   }
   public void SetId(int id){
     Id = id;

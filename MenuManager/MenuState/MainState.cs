@@ -14,7 +14,6 @@ public class MainState : MenuState
     public void SetUp(){
       MainMenuCanvas = GameObject.Find("MenuCanvas").transform.Find("MainMenuPanel").gameObject;
       MainMenuCursol = MainMenuCanvas.transform.Find("MainMenuCursol").gameObject;
-      Debug.Log(MainMenuCursol);
       MainMenuCursolTransform = MainMenuCursol.GetComponent<RectTransform>();
     }
     public void Start(){

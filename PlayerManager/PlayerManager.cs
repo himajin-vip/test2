@@ -163,5 +163,20 @@ public static class PlayerManager
   public static GameObject ReturnPlayerObject(){
     return Player.gameObject;
   }
+  public static int ReturnFinalDamage(){
+    return Player.Str+Player.EquipStr;
+  }
+  public static void SetEquipStr(int str){
+    Player.EquipStr+=str;
+  }
+  public static void SetEquipVit(int vit){
+    Player.EquipVit+=vit;
+  }
+  public static void SetEquipDex(int dex){
+    Player.EquipDex+=dex;
+  }
+  public static void SetEquipInt(int Int){
+    Player.EquipInt+=Int;
+  }
 
 }

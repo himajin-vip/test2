@@ -6,7 +6,8 @@ public class SwordNomalAtack : Skill
 {
     public void Damage(Dictionary<int,Enemy> EnemyList){
       foreach(Enemy enemy in EnemyList.Values){
-        enemy.DamageHp(100);
+        enemy.DamageHp(PlayerManager.ReturnFinalDamage());
+        EfectManager.efecton("kiriefect",enemy.transform.position.x,enemy.transform.position.y,enemy.gameObject);
         break;
       }
     }

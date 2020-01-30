@@ -60,7 +60,6 @@ public class Enemy : MonoBehaviour
       if(player_pos.y<this_pos.y){
       this.transform.Translate(0,-MoveSpeed,0);
       }
-      //enemyvector3 = this.gameObject.transform.position;
     }
     if(MoveStatus == 0&&!DeathCheck){//自由に動く
       int action = Random.Range(0,20);

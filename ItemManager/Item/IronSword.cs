@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class IronSword : WeaponItem
 {
+  public override void Equip(){
+    PlayerManager.SetEquipStr(5);
+  }
+  public override void UnEquip(){
+    PlayerManager.SetEquipStr(-5);
+  }
   public IronSword(){
-    SetId(2);
-    SetStr(5);
+    SetId(100);
+    SetInfo("Strを5上げます");
   }
 }
