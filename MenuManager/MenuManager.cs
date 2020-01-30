@@ -7,14 +7,24 @@ public static class MenuManager
 {
   private static Dictionary<string,MenuState> MenuStateList = new Dictionary<string,MenuState>();
   private static MenuState MenuState;
+  private static Text EquipWeaponText;
+  private static Text EquipHeadText;
+  private static Text EquipBodyText;
+  private static Text EquipHandText;
+  private static Text EquipFootText;
+  private static Text EquipAccessoryText;
   private static bool InventoryEndfrag;
 
   public static void SetUp(){
     MenuStateList.Clear();
     InventoryEndfrag = true;
-
-
-
+    GameObject EquipWindow = GameObject.Find("MenuCanvas").transform.Find("InventoryPanel").transform.Find("EquipWindow").transform.Find("EquipItemPanel").gameObject;
+    EquipWeaponText = EquipWindow.transform.Find("WeaponText").GetComponent<Text>();
+    EquipHeadText = EquipWindow.transform.Find("HeadText").GetComponent<Text>();
+    EquipBodyText = EquipWindow.transform.Find("BodyText").GetComponent<Text>();
+    EquipHandText = EquipWindow.transform.Find("HandText").GetComponent<Text>();
+    EquipFootText = EquipWindow.transform.Find("FootText").GetComponent<Text>();
+    EquipAccessoryText = EquipWindow.transform.Find("AccessoryText").GetComponent<Text>();
 
     MenuStateList.Add("Null",new NullState());
 
@@ -127,5 +137,14 @@ public static class MenuManager
   }
   public static bool ReturnInventoryEndfrag(){
     return InventoryEndfrag;
+  }
+  public static void EquipWindowReset(){
+    EquipWeaponText.text = ItemManager.returnItemName(PlayerManager.ReturnEquipWeapon());
+    EquipHeadText.text = ItemManager.returnItemName(PlayerManager.ReturnEquipHead());
+    EquipBodyText.text = ItemManager.returnItemName(PlayerManager.ReturnEquipBody());
+    EquipHandText.text = ItemManager.returnItemName(PlayerManager.ReturnEquipHand());
+    EquipFootText.text = ItemManager.returnItemName(PlayerManager.ReturnEquipFoot());
+    EquipAccessoryText.text = ItemManager.returnItemName(PlayerManager.ReturnEquipAccessory());
+
   }
 }

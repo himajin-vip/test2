@@ -122,7 +122,13 @@ public static class ItemManager
       return "";
     }
     public static string returnItemName(int ItemID){
-      return ItemNameList[ItemID];
+      string ItemName = "";
+      foreach(int id in ItemNameList.Keys){
+        if(id == ItemID){
+          ItemName = ItemNameList[ItemID];
+        }
+      }
+      return ItemName;
     }
     public static Sprite ReturnImage(int ItemID){
       return ItemImageList[ItemID];

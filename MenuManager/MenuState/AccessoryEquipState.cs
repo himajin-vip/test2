@@ -49,6 +49,7 @@ public class AccessoryEquipState : MenuState
     ItemTextList.Add(ItemPanel.transform.Find("ItemNameText19").GetComponent<Text>());
   }
   public void Start(){
+    MenuManager.EquipWindowReset();
     InventoryList.Clear();
     Inventorycount = 0;
     CursolPos = 0;

@@ -20,12 +20,12 @@ public class Player : MonoBehaviour
   public int CurrentExp;
 
   ////////装備品//////
-  public int EquipWeapon;
-  public int EquipHead;
-  public int EquipBody;
-  public int EquipHand;
-  public int EquipFoot;
-  public int EquipAccesury;
+  public int EquipWeapon = 9999;
+  public int EquipHead = 9999;
+  public int EquipBody = 9999;
+  public int EquipHand = 9999;
+  public int EquipFoot = 9999;
+  public int EquipAccessory = 9999;
 
   //////装備品によるステータス上昇///////
   public int EquipStr = 0;

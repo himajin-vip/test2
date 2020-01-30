@@ -25,6 +25,7 @@ public class InventorySelectState: MenuState{
     CursolTransform.anchoredPosition = new Vector2(10,-10);
     InventoryCanvas.SetActive(true);
     Curesol.SetActive(true);
+    MenuManager.EquipWindowReset();
   }
   public void CursolMove(int direction){
     switch(direction){

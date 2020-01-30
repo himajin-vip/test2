@@ -168,51 +168,75 @@ public static class PlayerManager
   }
   static public void WeaponEquip(int ItemID){
       WeaponItem Item = ItemManager.returnWeaponItem(ItemID);
+      Player.EquipWeapon = ItemID;
       Item.Equip();
   }
   static public void WeaponUnEquip(int ItemID){
       WeaponItem Item = ItemManager.returnWeaponItem(ItemID);
       Item.UnEquip();
   }
+  static public int ReturnEquipWeapon(){
+    return Player.EquipWeapon;
+  }
   static public void HeadEquip(int ItemID){
       HeadItem Item = ItemManager.returnHeadItem(ItemID);
+      Player.EquipHead = ItemID;
       Item.Equip();
   }
   static public void HeadUnEquip(int ItemID){
       HeadItem Item = ItemManager.returnHeadItem(ItemID);
       Item.UnEquip();
   }
+  static public int ReturnEquipHead(){
+    return Player.EquipHead;
+  }
   static public void BodyEquip(int ItemID){
       BodyItem Item = ItemManager.returnBodyItem(ItemID);
+      Player.EquipBody = ItemID;
       Item.Equip();
   }
   static public void BodyUnEquip(int ItemID){
       BodyItem Item = ItemManager.returnBodyItem(ItemID);
       Item.UnEquip();
   }
+  static public int ReturnEquipBody(){
+    return Player.EquipBody;
+  }
   static public void HandEquip(int ItemID){
       HandItem Item = ItemManager.returnHandItem(ItemID);
+      Player.EquipHand = ItemID;
       Item.Equip();
   }
   static public void HandUnEquip(int ItemID){
       HandItem Item = ItemManager.returnHandItem(ItemID);
       Item.UnEquip();
   }
+  static public int ReturnEquipHand(){
+    return Player.EquipHand;
+  }
   static public void FootEquip(int ItemID){
       FootItem Item = ItemManager.returnFootItem(ItemID);
+      Player.EquipFoot = ItemID;
       Item.Equip();
   }
   static public void FootUnEquip(int ItemID){
       FootItem Item = ItemManager.returnFootItem(ItemID);
       Item.UnEquip();
   }
+  static public int ReturnEquipFoot(){
+    return Player.EquipFoot;
+  }
   static public void AccessoryEquip(int ItemID){
       AccessoryItem Item = ItemManager.returnAccessoryItem(ItemID);
+      Player.EquipAccessory = ItemID;
       Item.Equip();
   }
   static public void AccessoryUnEquip(int ItemID){
       AccessoryItem Item = ItemManager.returnAccessoryItem(ItemID);
       Item.UnEquip();
+  }
+  static public int ReturnEquipAccessory(){
+    return Player.EquipAccessory;
   }
 
   public static void SetEquipStr(int str){
