@@ -1,6 +1,7 @@
 
 public class UseItem
 {
+  /////ID 0~
   private int Id;
   private string Info;
     public virtual void ItemUse(string Name){

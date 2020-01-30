@@ -1,6 +1,7 @@
 
-public class WeaponItem
+public class FootItem
 {
+  ////ID500~
   private int Id;
   private string Info;
   public virtual void Equip(){

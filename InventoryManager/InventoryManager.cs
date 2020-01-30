@@ -25,6 +25,10 @@ public static class InventoryManager
       UseItemInventory.Add (0, 3);
       UseItemInventory.Add (1,99);
       WeaponItemInventory.Add (100, 1);
+      HeadItemInventory.Add(200,1);
+      BodyItemInventory.Add(300,1);
+      HandItemInventory.Add(400,1);
+      FootItemInventory.Add(500,1);
     }
 
     static public void ItemGet(int ItemID){
@@ -243,8 +247,8 @@ public static class InventoryManager
           break;
           case "HeadItem":
             HeadItemInventory[ItemID]--;
-            if(HandItemInventory[ItemID]<=0){
-              HandItemInventory.Remove(ItemID);
+            if(HeadItemInventory[ItemID]<=0){
+              HeadItemInventory.Remove(ItemID);
             }
           break;
           case "BodyItem":

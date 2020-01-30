@@ -1,6 +1,7 @@
 
 public class HandItem
 {
+  ///////ID400~
   private int Id;
   private string Info;
   public virtual void Equip(){

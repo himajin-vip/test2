@@ -97,7 +97,7 @@ public class FootEquipState : MenuState
         MenuManager.SetMenuState("InventorySelect");
       }else{
         InventoryManager.SelectItem(InventoryList[CursolPos-1]);
-        MenuManager.SetMenuState("EquipComand");
+        MenuManager.SetMenuState("FootEquipComand");
       }
   }
   public void End(){

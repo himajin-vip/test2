@@ -38,6 +38,20 @@ public static class ItemManager
       WeaponItemList.Add(100,new IronSword());
       ItemNameList.Add(100,"鉄の剣");
 
+      HeadItemList.Add(200,new LeatherCap());
+      ItemNameList.Add(200,"皮の帽子");
+
+      BodyItemList.Add(300,new LeatherBody());
+      ItemNameList.Add(300,"皮の服");
+
+      HandItemList.Add(400,new LeatherHand());
+      ItemNameList.Add(400,"皮の手袋");
+
+      FootItemList.Add(500,new LeatherFoot());
+      ItemNameList.Add(500,"皮の靴");
+
+
+
       DropItemprefab = (GameObject)Resources.Load ("prefab/DropItem");
     }
     public static string returnItemType(int CheckID){
@@ -59,9 +73,9 @@ public static class ItemManager
           return "WeaponItem";
         }
       }
-      foreach(int ItemID in HandItemKeys) {
+      foreach(int ItemID in HeadItemKeys) {
         if(ItemID == CheckID){
-          return "HandItem";
+          return "HeadItem";
         }
       }
       foreach(int ItemID in BodyItemKeys) {

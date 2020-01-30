@@ -97,7 +97,7 @@ public class AccessoryEquipState : MenuState
         MenuManager.SetMenuState("InventorySelect");
       }else{
         InventoryManager.SelectItem(InventoryList[CursolPos-1]);
-        MenuManager.SetMenuState("EquipComand");
+        MenuManager.SetMenuState("AccessoryEquipComand");
       }
   }
   public void End(){

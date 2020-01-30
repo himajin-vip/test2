@@ -97,7 +97,7 @@ public class HeadEquipState : MenuState
         MenuManager.SetMenuState("InventorySelect");
       }else{
         InventoryManager.SelectItem(InventoryList[CursolPos-1]);
-        MenuManager.SetMenuState("EquipComand");
+        MenuManager.SetMenuState("HeadEquipComand");
       }
   }
   public void End(){

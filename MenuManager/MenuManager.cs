@@ -100,6 +100,19 @@ public static class MenuManager
     MenuStateList["UseItem"].End();
     MenuStateList["UseComand"].End();
     MenuStateList["SelectShortCut"].End();
+    MenuStateList["WeaponEquip"].End();
+    MenuStateList["WeaponEquipComand"].End();
+    MenuStateList["HeadEquip"].End();
+    MenuStateList["HeadEquipComand"].End();
+    MenuStateList["BodyEquip"].End();
+    MenuStateList["BodyEquipComand"].End();
+    MenuStateList["HandEquip"].End();
+    MenuStateList["HandEquipComand"].End();
+    MenuStateList["FootEquip"].End();
+    MenuStateList["FootEquipComand"].End();
+    MenuStateList["AccessoryEquip"].End();
+    MenuStateList["AccessoryEquipComand"].End();
+
 
     GameManager.StateSet("Main");
 

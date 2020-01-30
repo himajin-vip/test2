@@ -1,6 +1,7 @@
 
 public class BodyItem
 {
+  ///ID300~
   private int Id;
   private string Info;
   public virtual void Equip(){
