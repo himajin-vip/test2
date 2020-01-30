@@ -22,6 +22,7 @@ public static class PlayerManager
     LogManager.MakeDamageLog(Player.Name,damage);
   }
   public static void RecoveryHp(int recovery){
+    AudioManager.AudioON(6);
     Player.CurrentHp += recovery;
     if(Player.CurrentHp>Player.MaxHp){
       Player.CurrentHp = Player.MaxHp;
@@ -97,6 +98,7 @@ public static class PlayerManager
       Player.Atack();
     }
     AtackKeyPush = false;
+
   }
   public static void AtackOff(){
     PlayerAtackOn = false;

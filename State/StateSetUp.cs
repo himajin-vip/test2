@@ -8,6 +8,7 @@ public class StateSetUp : UpdateState
     public void Start()
     {
       LogManager.SetUp();
+      AudioManager.SetUp();
       CameraManager.SetUp();
       EnemyManager.SetUp();
       InventoryManager.SetUp();

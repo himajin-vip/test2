@@ -21,11 +21,15 @@ public static class ItemManager
 
 
     public static void SetUp(){//Excelとかで読み込めないかな
-      UseItemList.Clear();
-      WeaponItemList.Clear();
       ItemNameList.Clear();
       ItemImageList.Clear();
-
+      UseItemList.Clear();
+      WeaponItemList.Clear();
+      HeadItemList.Clear();
+      BodyItemList.Clear();
+      HandItemList.Clear();
+      FootItemList.Clear();
+      AccessoryItemList.Clear();
 
       UseItemList.Add(0,new Potion());
       ItemNameList.Add(0,"ポーション");

@@ -66,11 +66,14 @@ public class Player : MonoBehaviour
     if(ChargeNow){
       ChargeNow = false;
       ChargeEfect.OnEnd();
+      AudioManager.AudioOFF(4);
+      AudioManager.AudioON(5);
       StopCoroutine(ChargeC);
       Skill.AtackOn();
     }else{
       StopCoroutine(ChargeC);
       Skill.AtackOn();
+      AudioManager.AudioON(2);
     }
   }
 
@@ -85,6 +88,7 @@ public class Player : MonoBehaviour
 
   public  IEnumerator Charge(){
     yield return new WaitForSeconds(1f);
+      AudioManager.AudioON(4);
       ChargeNow = true;
       ChargeEfect = EfectManager.efecton("tameefect",transform.position.x,transform.position.y,this.gameObject);
       MoveSpeed = ChargeMoveSpeed;
@@ -97,6 +101,7 @@ public class Player : MonoBehaviour
   void OnTriggerEnter2D(Collider2D collision){
     if(collision.gameObject.tag == "Item"){
       ItemGet(collision);
+      AudioManager.AudioON(7);
     }
   }
   void ItemGet(Collider2D collision){

@@ -61,8 +61,13 @@ public class HandEquipState : MenuState
     InfoWindowText.text = "";
     InventoryList = InventoryManager.ReturnInventoryList("HandItem");
     foreach(int ItemID in InventoryList) {
-      ItemTextList[Inventorycount].text = ItemManager.returnItemName(ItemID)+" / "+InventoryManager.ReturnPieces(ItemID)+"個";
-      Inventorycount++;
+      if(ItemID == PlayerManager.ReturnEquipHand()){
+        ItemTextList[Inventorycount].text = "E:"+ItemManager.returnItemName(ItemID)+" / "+InventoryManager.ReturnPieces(ItemID)+"個";
+        Inventorycount++;
+      }else{
+        ItemTextList[Inventorycount].text = ItemManager.returnItemName(ItemID)+" / "+InventoryManager.ReturnPieces(ItemID)+"個";
+        Inventorycount++;
+      }
     }
     Curesol.SetActive(true);
     ItemWindow.SetActive(true);
