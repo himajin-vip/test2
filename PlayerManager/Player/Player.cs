@@ -67,13 +67,11 @@ public class Player : MonoBehaviour
       ChargeNow = false;
       ChargeEfect.OnEnd();
       AudioManager.AudioOFF(4);
-      AudioManager.AudioON(5);
       StopCoroutine(ChargeC);
       Skill.AtackOn();
     }else{
       StopCoroutine(ChargeC);
       Skill.AtackOn();
-      AudioManager.AudioON(2);
     }
   }
 

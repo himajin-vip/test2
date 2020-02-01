@@ -12,6 +12,7 @@ public class SwordChargeAtack : Skill
     }
 
     public void AtackOn(){
+      AudioManager.AudioON(5);
       int Direction = PlayerManager.ReturnDirection();
       GameObject Weapon = PlayerManager.ReturnWeapon();
       Vector3 PlayerPos = PlayerManager.ReturnPosition();

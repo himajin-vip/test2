@@ -13,6 +13,7 @@ public class SwordNomalAtack : Skill
     }
 
     public void AtackOn(){
+      AudioManager.AudioON(2);
       int Direction = PlayerManager.ReturnDirection();
       GameObject Weapon = PlayerManager.ReturnWeapon();
       Vector3 PlayerPos = PlayerManager.ReturnPosition();
@@ -20,7 +21,6 @@ public class SwordNomalAtack : Skill
       Animator Animator ;
         switch(Direction){
           case 0:
-          //WeaponObject.transform.parent = PlayerManager.ReturnPlayerObject().transform;
             WeaponObject = GameManager.Instantiate(Weapon, new Vector3(PlayerPos.x+20,PlayerPos.y-32,0), Quaternion.identity);
             WeaponObject.transform.Rotate (0, 0,20);
             WeaponObject.transform.Find("Sword0").gameObject.SetActive(true);
