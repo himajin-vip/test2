@@ -14,7 +14,7 @@ public class StateTown : UpdateState
       {
         PlayerManager.PlayerDeathCheck();
         CameraManager.PlayerPosCheck();
-        ControlManager.KeyCheck();
+        ControlManager.TownKey();
         UI_Manager.UiStatusUpdate();
         ShortcutManager.AllPiecesReset();
       }

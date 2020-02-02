@@ -58,6 +58,26 @@ public  static class ControlManager
       AudioManager.AudioON(3);
     }
   }
+  public static void TownKey(){
+    if(Input.GetKeyDown(KeyCode.M)){
+      MenuManager.SetMenuState("Main");
+    }
+    if(Input.GetKey(KeyCode.S)){
+      PlayerManager.PlayerMove(0);
+    }
+    if(Input.GetKey(KeyCode.W)){
+      PlayerManager.PlayerMove(1);
+    }
+    if(Input.GetKey(KeyCode.D)){
+      PlayerManager.PlayerMove(2);
+    }
+    if(Input.GetKey(KeyCode.A)){
+      PlayerManager.PlayerMove(3);
+    }
+    if(Input.GetKeyDown(KeyCode.Space)){
+      //喋る
+    }
+  }
   public static void AtackKeyUpCheck(){
     if(Input.GetKeyUp(KeyCode.Space)){
       PlayerManager.AtackKeyUp();
