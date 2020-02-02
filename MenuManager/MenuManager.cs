@@ -124,7 +124,7 @@ public static class MenuManager
     MenuStateList["AccessoryEquipComand"].End();
 
 
-    GameManager.StateSet("Main");
+    GameManager.StateSet(GameManager.ReturnLastState());
 
   }
 

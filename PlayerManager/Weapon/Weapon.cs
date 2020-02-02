@@ -12,10 +12,10 @@ public class Weapon : MonoBehaviour
 
 
   public void OnEnd(){
-    Destroy (this.gameObject);
     PlayerManager.AtackOff();
     PlayerManager.AtackDamageCheck(HitEnemyList);
     HitEnemyList.Clear();
+    Destroy (this.gameObject);
   }
 
   void OnTriggerEnter2D(Collider2D collision2){

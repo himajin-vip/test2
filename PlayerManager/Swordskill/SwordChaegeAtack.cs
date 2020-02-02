@@ -6,8 +6,10 @@ public class SwordChargeAtack : Skill
 {
     public void Damage(Dictionary<int,Enemy> EnemyList){
       foreach(Enemy enemy in EnemyList.Values){
-        enemy.DamageHp(PlayerManager.ReturnFinalDamage()*3);
-        EfectManager.efecton("kiriefect",enemy.transform.position.x,enemy.transform.position.y,enemy.gameObject);
+        if(!enemy.DeathCheck){
+          EfectManager.efecton("kiriefect",enemy.transform.position.x,enemy.transform.position.y,enemy.gameObject);
+          enemy.DamageHp(PlayerManager.ReturnFinalDamage()*3);
+        }
       }
     }
 

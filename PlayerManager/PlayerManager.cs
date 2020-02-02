@@ -17,9 +17,10 @@ public static class PlayerManager
     Player.SetUp();
   }
   public static void DamageHp(int damage){
-    Player.CurrentHp -= damage;
-    DamageTextManager.Make(damage,Player.transform.position.x,Player.transform.position.y,new Color(255,0,0),Player.transform);
-    LogManager.MakeDamageLog(Player.Name,damage);
+    int FinalDamage = damage-(Player.Vit+Player.EquipVit);
+    Player.CurrentHp -= FinalDamage;
+    DamageTextManager.Make(FinalDamage,Player.transform.position.x,Player.transform.position.y,new Color(255,0,0),Player.transform);
+    LogManager.MakeDamageLog(Player.Name,FinalDamage);
   }
   public static void RecoveryHp(int recovery){
     AudioManager.AudioON(6);

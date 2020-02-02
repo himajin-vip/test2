@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 {
   private static Dictionary<string,UpdateState> StateList = new Dictionary<string,UpdateState>();
   private static UpdateState UpdateState;
+  private static string NowState;
+  private static string LastState;
 
     void Start()
     {
@@ -20,7 +22,9 @@ public class GameManager : MonoBehaviour
       StateList.Add("Load",new StateLoad());
       StateList.Add("SetUp",new StateSetUp());
       StateList.Add("Title",new StateTitle());
+      StateList.Add("Town",new StateTown());
       UpdateState = StateList["First"];
+      NowState = "First";
     }
 
     void Update()
@@ -33,6 +37,12 @@ public class GameManager : MonoBehaviour
       Debug.Log("NextState->"+state);
       UpdateState = StateList[state];
       UpdateState.Start();
+      LastState = NowState;
+      NowState = state;
+    }
+
+    public static string ReturnLastState(){
+      return LastState;
     }
 
 }

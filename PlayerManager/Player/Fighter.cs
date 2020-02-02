@@ -12,9 +12,9 @@ public class Fighter :Player
     MaxMp = 10;
     CurrentMp = 10;
     Str = 1;
-    Vit = 2;
-    Dex = 3;
-    Int = 4;
+    Vit = 1;
+    Dex = 1;
+    Int = 0;
     NextExp = 50;
     CurrentExp = 0;
     MoveSpeed = 3;

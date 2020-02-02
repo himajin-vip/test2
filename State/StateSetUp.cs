@@ -17,11 +17,12 @@ public class StateSetUp : UpdateState
       UI_Manager.SetUp();
       MenuManager.SetUp();
       PlayerManager.SetUp("Fighter");
+      MapManager.SetUp();
     }
 
     public void Update()
     {
-      GameManager.StateSet("Main");
+      GameManager.StateSet("Town");
     }
 
     public void End(){

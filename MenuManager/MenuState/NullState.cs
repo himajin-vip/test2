@@ -6,7 +6,7 @@ public class NullState : MenuState
 {
   public void SetUp(){}
   public void Start(){
-    GameManager.StateSet("Main");
+    GameManager.StateSet(GameManager.ReturnLastState());
   }
   public void CursolMove(int direction){}
   public void CursolOn(){}

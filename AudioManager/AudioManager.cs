@@ -6,6 +6,8 @@ public static class AudioManager
 {
   private static Dictionary<int,AudioSource> AudioList = new Dictionary<int,AudioSource>();
     public static void SetUp(){
+      AudioList.Clear();
+
       AudioList.Add(1,GameObject.Find("AudioPlayer").transform.Find("AudioCursolmove").GetComponent<AudioSource>());
       AudioList.Add(2,GameObject.Find("AudioPlayer").transform.Find("KiriSE").GetComponent<AudioSource>());
       AudioList.Add(3,GameObject.Find("AudioPlayer").transform.Find("select").GetComponent<AudioSource>());
@@ -13,6 +15,7 @@ public static class AudioManager
       AudioList.Add(5,GameObject.Find("AudioPlayer").transform.Find("ChargeAtack").GetComponent<AudioSource>());
       AudioList.Add(6,GameObject.Find("AudioPlayer").transform.Find("kaihuku").GetComponent<AudioSource>());
       AudioList.Add(7,GameObject.Find("AudioPlayer").transform.Find("ItemGet").GetComponent<AudioSource>());
+      AudioList.Add(8,GameObject.Find("AudioPlayer").transform.Find("kamituki").GetComponent<AudioSource>());
     }
     public static void AudioON(int AudioNo){
       AudioList[AudioNo].Play();

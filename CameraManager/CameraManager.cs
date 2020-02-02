@@ -27,6 +27,9 @@ public static class CameraManager
     CameraMoveYCount = 0;
     PlayerMoveCount = 10;
   }
+  public static Vector3 ReturnPosition(){
+    return MainCamera.transform.position;
+  }
   public static void PlayerPosCheck(){
     if(!CameraMoveOn){
       Vector3 Camerapos = MainCamera.transform.position;
@@ -80,19 +83,20 @@ public static class CameraManager
   }
 
 　public static void CameraMoveStart(){
-    if(count > CameraSizeX&&!(CameraMoveX == 0)&&CameraMoveOn){
+    if(count >= CameraSizeX&&!(CameraMoveX == 0)&&CameraMoveOn){
       GameManager.StateSet("Main");
       CameraMoveOn = false;
       CameraMoveX = 0;
       count = 0;
     }
-    if(count > CameraSizeY&&!(CameraMoveY == 0)&&CameraMoveOn){
+    if(count >= CameraSizeY&&!(CameraMoveY == 0)&&CameraMoveOn){
       GameManager.StateSet("Main");
       CameraMoveOn = false;
       CameraMoveY = 0;
       count = 0;
     }
     if(CameraMoveOn){
+      EnemyManager.AllDestroy();
       if(CameraMoveX > 0){
         Vector3 Camerapos = MainCamera.transform.position;
         Camerapos.x+=10;
@@ -115,5 +119,11 @@ public static class CameraManager
       }
       count+=10;
       }
+  }
+  public static void PotisionSet(float x,float y){
+    Vector3 Camerapos = MainCamera.transform.position;
+    Camerapos.x = x;
+    Camerapos.y = y;
+    MainCamera.transform.position = Camerapos;
   }
 }

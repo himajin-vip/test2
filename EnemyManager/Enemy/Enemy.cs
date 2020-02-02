@@ -26,13 +26,11 @@ public class Enemy : MonoBehaviour
   public virtual void Atack(GameObject Playerobj){
   }
   public void DamageHp(int damage){
-    if(!DeathCheck){
       CurrentHp -= damage;
       float x = this.transform.position.x;
       float y = this.transform.position.y;
       DamageTextManager.Make(damage,x,y,new Color(255,255,255),this.transform);
       LogManager.MakeDamageLog(Name,damage);
-    }
   }
   public void RecoveryHp(int recovery){
     CurrentHp += recovery;
@@ -72,20 +70,32 @@ public class Enemy : MonoBehaviour
     }
   }
   private IEnumerator MoveWait(int frame){
+    float CameraposX = CameraManager.ReturnPosition().x;
+    float CameraposY = CameraManager.ReturnPosition().y;
+    int CameraSizeX = 640;
+    int CameraSizeY = 480;
     while (frame > 0) {
        yield return null;
            if(MoveOn){
          if(MoveOnX == 1){
-           this.transform.Translate(MoveSpeed,0,0);
+           if(this.transform.position.x+MoveSpeed<CameraposX+CameraSizeX/2){
+             this.transform.Translate(MoveSpeed,0,0);
+           }
          }
          if(MoveOnX == -1){
-           this.transform.Translate(-MoveSpeed,0,0);
+           if(this.transform.position.x+MoveSpeed>CameraposX-CameraSizeX/2){
+             this.transform.Translate(-MoveSpeed,0,0);
+           }
          }
          if(MoveOnY == 1){
-           this.transform.Translate(0,MoveSpeed,0);
+           if(this.transform.position.y+MoveSpeed<CameraposY+CameraSizeY/2){
+             this.transform.Translate(0,MoveSpeed,0);
+           }
          }
          if(MoveOnY == -1){
-           this.transform.Translate(0,-MoveSpeed,0);
+           if(this.transform.position.y-MoveSpeed>CameraposY-CameraSizeY/2){
+             this.transform.Translate(0,-MoveSpeed,0);
+           }
          }
        }
        frame--;
@@ -123,4 +133,7 @@ public class Enemy : MonoBehaviour
     Destroy(this.gameObject);//hpが０になったら死ぬ
   }
 
+  public void DestroyMapMove(){
+    Destroy(this.gameObject);
+  }
 }
