@@ -5,42 +5,67 @@ using UnityEngine;
 public static class EnemyManager
 {
   private static Dictionary<int,Enemy> EnemyList = new Dictionary<int,Enemy>();
+  private static Dictionary<int,GameObject> EnemyTypeList = new Dictionary<int ,GameObject>();
   private static List<int> EnemyIdList =new List<int>();
   private static int EnemyMaxCount;
   private static int EnemyCurrentCount;
   private static GameObject SlimePlefab;
+  private static int MapEnemyTypeCount;
 
   public static void SetUp(){
     EnemyList.Clear();
     EnemyIdList.Clear();
-    EnemyMaxCount = 3;
+    EnemyTypeList.Clear();
+
+    EnemyTypeList.Add(0,(GameObject)Resources.Load("prefab/Enemy/Slime"));
+    EnemyTypeList.Add(1,(GameObject)Resources.Load("prefab/Enemy/RedSlime"));
+
     EnemyCurrentCount = 0;
 
+
+
+  }
+
+  public static void MapEnemyDataSet(){
+    MapEnemyList MapEnemyList = MapManager.ReturnEnemyList();
+    EnemyMaxCount = MapEnemyList.EnemyCount;
+    List<int> MapEnemyTypeList = MapEnemyList.EnemyType;
+    MapEnemyTypeCount = MapEnemyTypeList.Count;
     for(int i = 0 ;i<=EnemyMaxCount;i++){
       EnemyIdList.Add(i);
     }
-
   }
-  public static void MakeEnemy(string enemyname){
+
+  public static void MakeEnemy(){
     float CameraposX = CameraManager.ReturnPosition().x;
     float CameraposY = CameraManager.ReturnPosition().y;
     int CameraSizeX = 640;
     int CameraSizeY = 480;
     int marge = 64;
 
-    if(EnemyMaxCount>=EnemyCurrentCount){
+    if(EnemyMaxCount>EnemyCurrentCount){
+      ///////出現する敵の決定
+      int EnemyType = Random.Range(0,MapEnemyTypeCount);
+      GameObject EnemyObject = EnemyTypeList[EnemyType];
+
+      ///////座標の決定
       int x = Random.Range(-CameraSizeX/2+marge,CameraSizeX/2-marge);
       int y =  Random.Range(-CameraSizeY/2+marge,CameraSizeY/2-marge);
-      GameObject Enemyobj = (GameObject)Resources.Load("prefab/Enemy/"+enemyname);
-      GameObject Enemyobj2= GameManager.Instantiate(Enemyobj,new Vector3(CameraposX+x,CameraposY+y,0), Quaternion.identity);
-      Enemy Slime = Enemyobj2.GetComponent<Enemy>();
+
+      ///////オブジェクトの作成;
+      GameObject Enemyobj2= GameManager.Instantiate(EnemyObject,new Vector3(CameraposX+x,CameraposY+y,0), Quaternion.identity);
+      Enemy Enemy = Enemyobj2.GetComponent<Enemy>();
+      ////////ID決め
       int useid = 0;
       foreach(int id in EnemyIdList){
-        Slime.EnemyId = id;
+        Debug.Log(Enemy);
+        Enemy.EnemyId = id;
         useid = id;
       }
       EnemyIdList.Remove(useid);
-      EnemyList.Add(useid,Slime);
+      EnemyList.Add(useid,Enemy);
+
+      /////最後の処理
       EnemyCurrentCount++;
     }
   }

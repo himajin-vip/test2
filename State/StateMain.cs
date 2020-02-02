@@ -19,7 +19,7 @@ public class StateMain : UpdateState
       ControlManager.KeyCheck();
       UI_Manager.UiStatusUpdate();
       ShortcutManager.AllPiecesReset();
-      EnemyManager.MakeEnemy("Slime");
+      EnemyManager.MakeEnemy();
     }
     public void End(){
 

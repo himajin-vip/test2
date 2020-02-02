@@ -44,6 +44,7 @@ public static class CameraManager
           i--;
         }
         GameManager.StateSet("MapMove");
+        MapManager.MapMove(2);
       }
       if(Camerapos.x-CameraSizeX/2>Playerpos.x){//カメラを左に移動する
         CameraMoveX = -1;
@@ -55,6 +56,7 @@ public static class CameraManager
           i--;
         }
         GameManager.StateSet("MapMove");
+        MapManager.MapMove(3);
       }
       if(Camerapos.y+CameraSizeY/2<Playerpos.y){//カメラを上に移動する
         CameraMoveY = 1;
@@ -66,6 +68,7 @@ public static class CameraManager
           i--;
         }
         GameManager.StateSet("MapMove");
+        MapManager.MapMove(1);
       }
       if(Camerapos.y-CameraSizeY/2>Playerpos.y){//カメラを下に移動する
         CameraMoveY = -1;
@@ -77,6 +80,7 @@ public static class CameraManager
           i--;
         }
         GameManager.StateSet("MapMove");
+        MapManager.MapMove(0);
       }
     }
     CameraMoveStart();

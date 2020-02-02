@@ -5,7 +5,10 @@ using UnityEngine;
 public class TestMap1 : Map
 {
   public GameObject MapObject;
+  public MapEnemyList EnemyList;
 
+  public void SetUp(){
+  }
   public void Start(int LastMap)
   {
     GameObject obj;
@@ -29,6 +32,21 @@ public class TestMap1 : Map
         MapObject.SetActive(false);
       break;
     }
+  }
+  public void MapMove(int Direction){
+    switch (Direction){
+      case 0:
+      break;
+      case 1:
+      break;
+      case 2:
+      break;
+      case 3:
+      break;
+    }
+  }
+  public MapEnemyList ReturnEnemyList(){
+    return EnemyList;
   }
 
   public void End(){

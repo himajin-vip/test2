@@ -13,6 +13,7 @@ public static class MapManager
 
     MapList.Add(0,new TestMap1());
     MapList.Add(1,new SougenMap());
+    MapList[1].SetUp();
 
     Map = MapList[0];
     LastMap = 0;
@@ -34,5 +35,12 @@ public static class MapManager
   public static int ReturnLastMap(){
     return LastMap;
   }
-  
+  public static void MapMove(int Direction){
+    Map.MapMove(Direction);
+  }
+
+  public static MapEnemyList ReturnEnemyList(){
+    return Map.ReturnEnemyList();
+  }
+
 }
