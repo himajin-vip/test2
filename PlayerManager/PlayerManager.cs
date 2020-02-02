@@ -20,9 +20,14 @@ public static class PlayerManager
   }
   public static void DamageHp(int damage){
     int FinalDamage = damage-(Player.Vit+Player.EquipVit);
-    Player.CurrentHp -= FinalDamage;
-    DamageTextManager.Make(FinalDamage,Player.transform.position.x,Player.transform.position.y,new Color(255,0,0),Player.transform);
-    LogManager.MakeDamageLog(Player.Name,FinalDamage);
+    if(FinalDamage>=0){
+      Player.CurrentHp -= FinalDamage;
+      DamageTextManager.Make(FinalDamage,Player.transform.position.x,Player.transform.position.y,new Color(255,0,0),Player.transform);
+      LogManager.MakeDamageLog(Player.Name,FinalDamage);
+    }else{
+      DamageTextManager.Make(0,Player.transform.position.x,Player.transform.position.y,new Color(255,0,0),Player.transform);
+      LogManager.MakeDamageLog(Player.Name,0);
+    }
   }
   public static void RecoveryHp(int recovery){
     AudioManager.AudioON(6);
@@ -33,7 +38,13 @@ public static class PlayerManager
     DamageTextManager.Make(recovery,Player.transform.position.x,Player.transform.position.y,new Color(0,255,0),Player.transform);
     EfectManager.efecton("kaihukuefect",Player.transform.position.x,Player.transform.position.y,Player.gameObject);
   }
-
+  public static void GetExp(int Exp){
+    Player.CurrentExp += Exp;
+    LogManager.GetExp(Player.Name,Exp);
+    if(Player.CurrentExp >= Player.NextExp){
+      Player.LvUp();
+    }
+  }
   public static void PlayerMove(int direction){
     if(!PlayerAtackOn){
       switch(direction){

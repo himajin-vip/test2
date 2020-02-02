@@ -62,4 +62,14 @@ public static class LogManager
     string newlog = (Name+"は"+ItemManager.returnItemName(ItemID)+"を使った");
     MakeLog(newlog);
   }
+
+  public static void GetExp(string Name ,int Exp){
+    string newlog = (Name+"は"+Exp+"の経験値を手に入れた");
+    MakeLog(newlog);
+  }
+
+  public static void LvUp(string Name){
+    string newlog = (Name+"はLVが上がった");
+    MakeLog(newlog);
+  }
 }

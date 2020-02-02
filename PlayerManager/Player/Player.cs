@@ -61,6 +61,10 @@ public class Player : MonoBehaviour
 
   }
 
+  public virtual void LvUp(){
+    
+  }
+
   public void Atack(){
     if(ChargeNow){
       ChargeNow = false;

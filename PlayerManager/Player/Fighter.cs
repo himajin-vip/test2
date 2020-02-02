@@ -15,7 +15,7 @@ public class Fighter :Player
     Vit = 1;
     Dex = 1;
     Int = 0;
-    NextExp = 50;
+    NextExp = 10;
     CurrentExp = 0;
     MoveSpeed = 3;
     ChargeMoveSpeed = 1;
@@ -25,5 +25,20 @@ public class Fighter :Player
     NormalAtack = new SwordNomalAtack();
     Skill = NormalAtack;
     ChargeSkill = new SwordChargeAtack();
+  }
+
+  public override void LvUp(){
+    NextExp += NextExp;
+    CurrentExp = 0;
+    Lv++;
+    Str += 2;
+    Vit += 2;
+    Dex += 1;
+    Int += 1;
+    MaxHp += 20;
+    MaxMp += 10;
+    CurrentHp = MaxHp;
+    CurrentMp = MaxMp;
+    LogManager.LvUp(Name);
   }
 }
