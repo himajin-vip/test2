@@ -10,5 +10,7 @@ public class NullState : MenuState
   }
   public void CursolMove(int direction){}
   public void CursolOn(){}
-  public void End(){}
+  public void End(){
+    GameManager.StateSet("Menu");
+  }
 }

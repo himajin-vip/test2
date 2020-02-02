@@ -10,6 +10,9 @@ public class Weapon : MonoBehaviour
   public static Dictionary<int,Enemy> HitEnemyList = new Dictionary<int,Enemy>();
   public int HitCount = 0;
 
+  public void SetUp(){
+    HitEnemyList.Clear();
+  }
 
   public void OnEnd(){
     PlayerManager.AtackOff();

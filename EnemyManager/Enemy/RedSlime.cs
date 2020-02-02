@@ -9,8 +9,8 @@ public class RedSlime : Enemy
       MaxHp = 20;
       CurrentHp = 20;
       Mp = 0;
-      Str = 15;
-      Def = 0;
+      Str = 10;
+      Def = 5;
       Exp = 5;
       Gold = 10;
       DropItem = 0;

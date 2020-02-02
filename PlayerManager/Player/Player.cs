@@ -55,7 +55,6 @@ public class Player : MonoBehaviour
   public Skill ChargeSkill;
 
   public virtual void SetUp(){
-
   }
 
   public void SetWeapon(string name){
@@ -82,6 +81,11 @@ public class Player : MonoBehaviour
 
   public void ChargeStart(){
       ChargeC = StartCoroutine(Charge());
+  }
+  public void ChargeEnd(){
+    if(ChargeNow){
+      StopCoroutine(ChargeC);
+    }
   }
 
   public  IEnumerator Charge(){

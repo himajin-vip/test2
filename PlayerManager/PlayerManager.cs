@@ -10,6 +10,8 @@ public static class PlayerManager
   public  static bool AtackKeyPush = false;
 
   public static void SetUp(string Job){
+    PlayerAtackOn = false;
+    AtackKeyPush = false;
     GameObject obj = (GameObject)Resources.Load("Player/"+Job);
     GameObject obj2 = GameManager.Instantiate(obj, new Vector3(0,0,0), Quaternion.identity);
     Player = obj2.GetComponent<Player>();
@@ -112,6 +114,7 @@ public static class PlayerManager
 
   public static void PlayerDeathCheck(){
     if(Player.CurrentHp<=0){
+      Player.ChargeEnd();
       GameManager.StateSet("End");
     }
   }
@@ -167,7 +170,12 @@ public static class PlayerManager
     return Player.gameObject;
   }
   public static int ReturnFinalDamage(){
-    return Player.Str+Player.EquipStr;
+    int Damage1 = Random.Range(0,7);
+    if(Damage1 == 6){
+      Damage1 += Random.Range(0,7);
+    }
+
+    return Damage1+Player.Str+Player.EquipStr;
   }
   static public void WeaponEquip(int ItemID){
       WeaponItem Item = ItemManager.returnWeaponItem(ItemID);

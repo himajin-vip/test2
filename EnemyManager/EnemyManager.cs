@@ -10,6 +10,7 @@ public static class EnemyManager
   private static int EnemyMaxCount;
   private static int EnemyCurrentCount;
   private static GameObject SlimePlefab;
+  private static List<int> MapEnemyTypeList = new List<int>();
   private static int MapEnemyTypeCount;
 
   public static void SetUp(){
@@ -29,7 +30,7 @@ public static class EnemyManager
   public static void MapEnemyDataSet(){
     MapEnemyList MapEnemyList = MapManager.ReturnEnemyList();
     EnemyMaxCount = MapEnemyList.EnemyCount;
-    List<int> MapEnemyTypeList = MapEnemyList.EnemyType;
+    MapEnemyTypeList = MapEnemyList.EnemyType;
     MapEnemyTypeCount = MapEnemyTypeList.Count;
     for(int i = 0 ;i<=EnemyMaxCount;i++){
       EnemyIdList.Add(i);
@@ -45,7 +46,8 @@ public static class EnemyManager
 
     if(EnemyMaxCount>EnemyCurrentCount){
       ///////出現する敵の決定
-      int EnemyType = Random.Range(0,MapEnemyTypeCount);
+      int EnemyTypeNo = Random.Range(0,MapEnemyTypeCount);
+      int EnemyType = MapEnemyTypeList[EnemyTypeNo];
       GameObject EnemyObject = EnemyTypeList[EnemyType];
 
       ///////座標の決定

@@ -11,32 +11,32 @@ public class SougenMap : Map
 
   public void SetUp(){
 
-    List<int> EnemyTypeList00 = new List<int>{0};
-    MapEnemyList EnemyList00 = new MapEnemyList(EnemyTypeList00,1);
+    List<int> EnemyTypeList00 = new List<int>{0,1};
+    MapEnemyList EnemyList00 = new MapEnemyList(EnemyTypeList00,3);
 
-    List<int> EnemyTypeList10 = new List<int>{0,1};
+    List<int> EnemyTypeList10 = new List<int>{0};
     Debug.Log(EnemyTypeList10.Count);
     MapEnemyList EnemyList10 = new MapEnemyList(EnemyTypeList10,2);
 
-    List<int> EnemyTypeList20 = new List<int>{0};
+    List<int> EnemyTypeList20 = new List<int>{1};
     MapEnemyList EnemyList20 = new MapEnemyList(EnemyTypeList20,3);
 
     List<int> EnemyTypeList01 = new List<int>{0};
     MapEnemyList EnemyList01 = new MapEnemyList(EnemyTypeList01,4);
 
-    List<int> EnemyTypeList11 = new List<int>{0};
+    List<int> EnemyTypeList11 = new List<int>{1};
     MapEnemyList EnemyList11 = new MapEnemyList(EnemyTypeList11,5);
 
     List<int> EnemyTypeList21 = new List<int>{0};
-    MapEnemyList EnemyList21 = new MapEnemyList(EnemyTypeList21,6);
+    MapEnemyList EnemyList21 = new MapEnemyList(EnemyTypeList21,3);
 
     List<int> EnemyTypeList02 = new List<int>{0};
-    MapEnemyList EnemyList02 = new MapEnemyList(EnemyTypeList02,7);
+    MapEnemyList EnemyList02 = new MapEnemyList(EnemyTypeList02,2);
 
-    List<int> EnemyTypeList12 = new List<int>{0};
+    List<int> EnemyTypeList12 = new List<int>{1};
     MapEnemyList EnemyList12 = new MapEnemyList(EnemyTypeList12,8);
 
-    List<int> EnemyTypeList22 = new List<int>{0};
+    List<int> EnemyTypeList22 = new List<int>{0,1};
     MapEnemyList EnemyList22 = new MapEnemyList(EnemyTypeList22,9);
 
     EnemyList = new MapEnemyList[3,3]{

@@ -21,7 +21,6 @@ public class MainState : MenuState
       MainMenuCursolPosition = -10;
       MainMenuCursolTransform.anchoredPosition = new Vector2(10,-10);
       MainMenuCanvas.gameObject.SetActive(true);
-      GameManager.StateSet("Menu");
     }
 
     public void CursolMove(int direction){

@@ -6,12 +6,12 @@ public class IronSword : WeaponItem
 {
   public IronSword(){
     SetId(100);
-    SetInfo("Strを5上げます");
+    SetInfo("Strを1上げます");
   }
   public override void Equip(){
-    PlayerManager.SetEquipStr(5);
+    PlayerManager.SetEquipStr(1);
   }
   public override void UnEquip(){
-    PlayerManager.SetEquipStr(-5);
+    PlayerManager.SetEquipStr(-1);
   }
 }

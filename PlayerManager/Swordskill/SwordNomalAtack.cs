@@ -8,7 +8,11 @@ public class SwordNomalAtack : Skill
       foreach(Enemy enemy in EnemyList.Values){
         if(!enemy.DeathCheck){
           EfectManager.efecton("kiriefect",enemy.transform.position.x,enemy.transform.position.y,enemy.gameObject);
-          enemy.DamageHp(PlayerManager.ReturnFinalDamage());
+          if(PlayerManager.ReturnFinalDamage()-enemy.Def>0){
+            enemy.DamageHp(PlayerManager.ReturnFinalDamage()-enemy.Def);
+          }else{
+            enemy.DamageHp(0);
+          }
           break;
         }
       }
@@ -28,6 +32,7 @@ public class SwordNomalAtack : Skill
             WeaponObject.transform.Find("Sword0").gameObject.SetActive(true);
             Animator = WeaponObject.GetComponent<Animator>();
             Animator.SetInteger("Direction",0);
+            WeaponObject.GetComponent<Weapon>().SetUp();
           break;
           case 1:
             WeaponObject = GameManager.Instantiate(Weapon, new Vector3(PlayerPos.x-20,PlayerPos.y+32,0), Quaternion.identity);
@@ -35,6 +40,7 @@ public class SwordNomalAtack : Skill
             WeaponObject.transform.Find("Sword1").gameObject.SetActive(true);
             Animator = WeaponObject.GetComponent<Animator>();
             Animator.SetInteger("Direction",1);
+            WeaponObject.GetComponent<Weapon>().SetUp();
           break;
           case 2:
             WeaponObject = GameManager.Instantiate(Weapon, new Vector3(PlayerPos.x+20,PlayerPos.y+20,0), Quaternion.identity);
@@ -42,6 +48,7 @@ public class SwordNomalAtack : Skill
             WeaponObject.transform.Find("Sword2").gameObject.SetActive(true);
             Animator = WeaponObject.GetComponent<Animator>();
             Animator.SetInteger("Direction",2);
+            WeaponObject.GetComponent<Weapon>().SetUp();
           break;
           case 3:
             WeaponObject = GameManager.Instantiate(Weapon, new Vector3(PlayerPos.x-20,PlayerPos.y+20,0), Quaternion.identity);
@@ -49,8 +56,10 @@ public class SwordNomalAtack : Skill
             WeaponObject.transform.Find("Sword3").gameObject.SetActive(true);
             Animator = WeaponObject.GetComponent<Animator>();
             Animator.SetInteger("Direction",3);
+            WeaponObject.GetComponent<Weapon>().SetUp();
           break;
         }
+
     }
 
 

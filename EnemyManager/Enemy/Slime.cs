@@ -10,7 +10,7 @@ public class Slime :Enemy
     CurrentHp = 10;
     Mp = 0;
     Str = 5;
-    Def = 0;
+    Def = 3;
     Exp = 1;
     Gold = 1;
     DropItem = 0;
