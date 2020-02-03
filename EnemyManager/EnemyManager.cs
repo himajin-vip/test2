@@ -46,7 +46,7 @@ public static class EnemyManager
     int marge = 64;
 
     if(EnemyMaxCount>EnemyCurrentCount){
-      Debug.Log("MakeEnemy");
+
       ///////出現する敵の決定
       int EnemyTypeNo = Random.Range(0,MapEnemyTypeCount);
       int EnemyType = MapEnemyTypeList[EnemyTypeNo];
@@ -65,7 +65,6 @@ public static class EnemyManager
         Enemy.EnemyId = id;
         useid = id;
       }
-      Debug.Log(useid);
       EnemyIdList.Remove(useid);
       EnemyList.Add(useid,Enemy);
 
@@ -99,7 +98,6 @@ public static class EnemyManager
       EnemyCurrentCount = 0;
 
       for(int i = 0 ;i<EnemyMaxCount;i++){
-        Debug.Log("Id追加"+i);
         EnemyIdList.Add(i);
       }
 
