@@ -83,6 +83,7 @@ public static class InventoryManager
           break;
         }
       }
+      DataManager.Save();
     }
     static public List<int> ReturnInventoryList(string ItemType){
       switch(ItemType){
@@ -303,6 +304,7 @@ public static class InventoryManager
           break;
         }
       }
+      DataManager.Save();
     }
     /////////////////インベントリで選択したアイテムの保存
     static public void SelectItem(int ItemID){

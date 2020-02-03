@@ -92,7 +92,6 @@ public static class DataManager
   public static void Save(){
     SaveData.Update();
     string SaveDatastr = JsonUtility.ToJson(SaveData);
-    Debug.Log(SaveDatastr );
     int count = 0;
     foreach(string Playername in AccountData.Account){
       if(Playername == Name){

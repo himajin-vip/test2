@@ -214,10 +214,12 @@ public static class PlayerManager
       WeaponItem Item = ItemManager.returnWeaponItem(ItemID);
       Player.EquipWeapon = ItemID;
       Item.Equip();
+      DataManager.Save();
   }
   static public void WeaponUnEquip(int ItemID){
       WeaponItem Item = ItemManager.returnWeaponItem(ItemID);
       Item.UnEquip();
+      DataManager.Save();
   }
   static public int ReturnEquipWeapon(){
     return Player.EquipWeapon;
@@ -226,10 +228,12 @@ public static class PlayerManager
       HeadItem Item = ItemManager.returnHeadItem(ItemID);
       Player.EquipHead = ItemID;
       Item.Equip();
+      DataManager.Save();
   }
   static public void HeadUnEquip(int ItemID){
       HeadItem Item = ItemManager.returnHeadItem(ItemID);
       Item.UnEquip();
+      DataManager.Save();
   }
   static public int ReturnEquipHead(){
     return Player.EquipHead;
@@ -238,10 +242,12 @@ public static class PlayerManager
       BodyItem Item = ItemManager.returnBodyItem(ItemID);
       Player.EquipBody = ItemID;
       Item.Equip();
+      DataManager.Save();
   }
   static public void BodyUnEquip(int ItemID){
       BodyItem Item = ItemManager.returnBodyItem(ItemID);
       Item.UnEquip();
+      DataManager.Save();
   }
   static public int ReturnEquipBody(){
     return Player.EquipBody;
@@ -250,10 +256,12 @@ public static class PlayerManager
       HandItem Item = ItemManager.returnHandItem(ItemID);
       Player.EquipHand = ItemID;
       Item.Equip();
+      DataManager.Save();
   }
   static public void HandUnEquip(int ItemID){
       HandItem Item = ItemManager.returnHandItem(ItemID);
       Item.UnEquip();
+      DataManager.Save();
   }
   static public int ReturnEquipHand(){
     return Player.EquipHand;
@@ -262,10 +270,12 @@ public static class PlayerManager
       FootItem Item = ItemManager.returnFootItem(ItemID);
       Player.EquipFoot = ItemID;
       Item.Equip();
+      DataManager.Save();
   }
   static public void FootUnEquip(int ItemID){
       FootItem Item = ItemManager.returnFootItem(ItemID);
       Item.UnEquip();
+      DataManager.Save();
   }
   static public int ReturnEquipFoot(){
     return Player.EquipFoot;
@@ -274,10 +284,12 @@ public static class PlayerManager
       AccessoryItem Item = ItemManager.returnAccessoryItem(ItemID);
       Player.EquipAccessory = ItemID;
       Item.Equip();
+      DataManager.Save();
   }
   static public void AccessoryUnEquip(int ItemID){
       AccessoryItem Item = ItemManager.returnAccessoryItem(ItemID);
       Item.UnEquip();
+      DataManager.Save();
   }
   static public int ReturnEquipAccessory(){
     return Player.EquipAccessory;
@@ -310,11 +322,38 @@ public static class PlayerManager
     Player.NextExp = SaveData.NextExp;
     Player.CurrentExp = SaveData.CurrentExp;
     Player.EquipWeapon = SaveData.EquipWeapon;
+    if(!(Player.EquipWeapon == 9999)){
+      WeaponItem Item = ItemManager.returnWeaponItem(Player.EquipWeapon);
+      Item.Equip();
+    }
     Player.EquipHead = SaveData.EquipHead;
+    if(!(Player.EquipHead == 9999)){
+      HeadItem Item = ItemManager.returnHeadItem(Player.EquipHead);
+      Item.Equip();
+    }
     Player.EquipBody = SaveData.EquipBody;
+    if(!(Player.EquipBody == 9999)){
+      BodyItem Item = ItemManager.returnBodyItem(Player.EquipBody);
+      Item.Equip();
+    }
     Player.EquipHand = SaveData.EquipHand;
+    if(!(Player.EquipHand == 9999)){
+      HandItem Item = ItemManager.returnHandItem(Player.EquipHand);
+      Item.Equip();
+    }
+
     Player.EquipFoot = SaveData.EquipFoot;
+    if(!(Player.EquipFoot == 9999)){
+      FootItem Item = ItemManager.returnFootItem(Player.EquipFoot);
+      Item.Equip();
+    }
+
     Player.EquipAccessory = SaveData.EquipAccessory;
+    if(!(Player.EquipAccessory  == 9999)){
+      AccessoryItem Item = ItemManager.returnAccessoryItem(Player.EquipAccessory);
+      Item.Equip();
+    }
+
   }
 
   public static void NewGame(string name){
