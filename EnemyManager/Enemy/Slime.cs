@@ -10,8 +10,8 @@ public class Slime :Enemy
     CurrentHp = 10;
     Mp = 0;
     Str = 5;
-    Def = 3;
-    Exp = 1;
+    Def = 1;
+    Exp = 5;
     Gold = 1;
     DropItem = 0;
     MoveSpeed = 1;
@@ -24,7 +24,19 @@ public class Slime :Enemy
     MoveOnY = 0;
   }
   public override void Atack(GameObject Playerobj){
-      PlayerManager.DamageHp(Str);
+    int Damage = 0;
+    int DamageDice1 = 0;
+    int DamageDice2 = 0;
+    for(int i = 0; i <= 0 ; i++){
+      DamageDice1 = Random.Range(0,7);
+      DamageDice2 = Random.Range(0,7);
+      if(DamageDice1+DamageDice2 == 12){
+        i--;
+      }
+      Damage += (DamageDice1+DamageDice2)/2+Str;
+    }
+
+      PlayerManager.DamageHp(Damage);
       Vector3 Playerpos = Playerobj.gameObject.transform.position;
       EfectManager.efecton("Kamitukiefect",Playerpos.x,Playerpos.y,Playerobj);//エフェクト作成
       AudioManager.AudioON(8);

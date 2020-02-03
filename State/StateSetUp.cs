@@ -17,7 +17,9 @@ public class StateSetUp : UpdateState
       UI_Manager.SetUp();
       MenuManager.SetUp();
       PlayerManager.SetUp("Fighter");
+      DataManager.SetPlayerStatus();
       MapManager.SetUp();
+      DataManager.Save();
     }
 
     public void Update()

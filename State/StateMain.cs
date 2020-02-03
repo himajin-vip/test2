@@ -22,6 +22,5 @@ public class StateMain : UpdateState
       EnemyManager.MakeEnemy();
     }
     public void End(){
-
     }
 }

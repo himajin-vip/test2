@@ -135,6 +135,7 @@ public class Enemy : MonoBehaviour
   }
 
   public void DestroyMapMove(){
+    Debug.Log("Destroy");
     Destroy(this.gameObject);
   }
 }

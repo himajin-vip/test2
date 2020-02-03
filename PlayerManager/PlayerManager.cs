@@ -19,7 +19,15 @@ public static class PlayerManager
     Player.SetUp();
   }
   public static void DamageHp(int damage){
-    int FinalDamage = damage-(Player.Vit+Player.EquipVit);
+    int DamageBlock = 0;
+    int BlockDice1 = 0;
+    int BlockDice2 = 0;
+    for(int i = 0; i <= 0 ; i++){
+      BlockDice1 = Random.Range(0,7);
+      BlockDice2 = Random.Range(0,7);
+      DamageBlock += (BlockDice1+BlockDice2)/2;
+    }
+    int FinalDamage = damage-DamageBlock;
     if(FinalDamage>=0){
       Player.CurrentHp -= FinalDamage;
       DamageTextManager.Make(FinalDamage,Player.transform.position.x,Player.transform.position.y,new Color(255,0,0),Player.transform);
@@ -28,6 +36,7 @@ public static class PlayerManager
       DamageTextManager.Make(0,Player.transform.position.x,Player.transform.position.y,new Color(255,0,0),Player.transform);
       LogManager.MakeDamageLog(Player.Name,0);
     }
+    DataManager.Save();
   }
   public static void RecoveryHp(int recovery){
     AudioManager.AudioON(6);
@@ -37,6 +46,7 @@ public static class PlayerManager
     }
     DamageTextManager.Make(recovery,Player.transform.position.x,Player.transform.position.y,new Color(0,255,0),Player.transform);
     EfectManager.efecton("kaihukuefect",Player.transform.position.x,Player.transform.position.y,Player.gameObject);
+    DataManager.Save();
   }
   public static void GetExp(int Exp){
     Player.CurrentExp += Exp;
@@ -44,6 +54,7 @@ public static class PlayerManager
     if(Player.CurrentExp >= Player.NextExp){
       Player.LvUp();
     }
+    DataManager.Save();
   }
   public static void PlayerMove(int direction){
     if(!PlayerAtackOn){
@@ -126,9 +137,12 @@ public static class PlayerManager
   public static void PlayerDeathCheck(){
     if(Player.CurrentHp<=0){
       Player.ChargeEnd();
+      Player.CurrentHp = Player.MaxHp;
+      DataManager.Save();
       GameManager.StateSet("End");
     }
   }
+
   public static string ReturnName(){
     return Player.Name;
   }
@@ -181,12 +195,20 @@ public static class PlayerManager
     return Player.gameObject;
   }
   public static int ReturnFinalDamage(){
-    int Damage1 = Random.Range(0,7);
-    if(Damage1 == 6){
-      Damage1 += Random.Range(0,7);
+    int Damage = 0;
+    int DamageDice1 = 0;
+    int DamageDice2 = 0;
+    int ExDamage = (Player.Str+Player.EquipStr)/10;
+    for(int i = 0; i <= 0+ExDamage ; i++){
+      DamageDice1 = Random.Range(0,7);
+      DamageDice2 = Random.Range(0,7);
+      if(DamageDice1+DamageDice2 == 12){
+        i--;
+      }
+      Damage += (DamageDice1+DamageDice2)/2;
     }
 
-    return Damage1+Player.Str+Player.EquipStr;
+    return Damage;
   }
   static public void WeaponEquip(int ItemID){
       WeaponItem Item = ItemManager.returnWeaponItem(ItemID);
@@ -272,6 +294,31 @@ public static class PlayerManager
   }
   public static void SetEquipInt(int Int){
     Player.EquipInt+=Int;
+  }
+
+  public static void LoadStatus(SaveData SaveData){
+    Player.Name = SaveData.Name;
+    Player.Lv = SaveData.Lv;
+    Player.MaxHp = SaveData.MaxHp;
+    Player.CurrentHp = SaveData.CurrentHp;
+    Player.MaxMp = SaveData.MaxMp;
+    Player.CurrentMp = SaveData.CurrentMp;
+    Player.Str = SaveData.Str;
+    Player.Vit = SaveData.Vit;
+    Player.Dex = SaveData.Dex;
+    Player.Int = SaveData.Int;
+    Player.NextExp = SaveData.NextExp;
+    Player.CurrentExp = SaveData.CurrentExp;
+    Player.EquipWeapon = SaveData.EquipWeapon;
+    Player.EquipHead = SaveData.EquipHead;
+    Player.EquipBody = SaveData.EquipBody;
+    Player.EquipHand = SaveData.EquipHand;
+    Player.EquipFoot = SaveData.EquipFoot;
+    Player.EquipAccessory = SaveData.EquipAccessory;
+  }
+
+  public static void NewGame(string name){
+    Player.Name = name;
   }
 
 }

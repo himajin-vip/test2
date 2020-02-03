@@ -15,7 +15,6 @@ public class SougenMap : Map
     MapEnemyList EnemyList00 = new MapEnemyList(EnemyTypeList00,3);
 
     List<int> EnemyTypeList10 = new List<int>{0};
-    Debug.Log(EnemyTypeList10.Count);
     MapEnemyList EnemyList10 = new MapEnemyList(EnemyTypeList10,2);
 
     List<int> EnemyTypeList20 = new List<int>{1};
@@ -85,7 +84,6 @@ public class SougenMap : Map
         MapPositionX -= 1;
       break;
     }
-    Debug.Log("MapPos:X:"+MapPositionX+",Y:"+MapPositionY);
     EnemyManager.MapEnemyDataSet();
   }
   public MapEnemyList ReturnEnemyList(){
@@ -93,7 +91,7 @@ public class SougenMap : Map
   }
 
   public void End(){
-    GameManager.Destroy (MapObject);
     EnemyManager.AllDestroy();
+    GameManager.Destroy (MapObject);
   }
 }

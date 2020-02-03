@@ -110,6 +110,32 @@ public static class InventoryManager
       }
       return new List<int>(0);
     }
+    static public List<int> ReturnInventoryNumberList(string ItemType){
+      switch(ItemType){
+        case "UseItem":
+          return new List<int>(UseItemInventory.Values);
+
+        case "WeaponItem":
+          return new List<int>(WeaponItemInventory.Values);
+
+        case "HeadItem":
+          return new List<int>(HeadItemInventory.Values);
+
+        case "BodyItem":
+          return new List<int>(BodyItemInventory.Values);
+
+        case "HandItem":
+          return new List<int>(HandItemInventory.Values);
+
+        case "FootItem":
+          return new List<int>(FootItemInventory.Values);
+
+        case "AccesuryItem":
+          return new List<int>(AccesuryItemInventory.Values);
+
+      }
+      return new List<int>(0);
+    }
     static bool InventoryKeyCheck(int CheckID){
       List<int> UseItemList = new List<int>(UseItemInventory.Keys);
       List<int> WeaponItemList = new List<int>(WeaponItemInventory.Keys);
@@ -284,5 +310,45 @@ public static class InventoryManager
     }
     static public int ReturnSelectItem(){
       return SelectItemNo;
+    }
+
+    public static void InventoryLoad(SaveData SaveData){
+
+      UseItemInventory.Clear();
+      WeaponItemInventory.Clear();
+      HeadItemInventory.Clear();
+      BodyItemInventory.Clear();
+      HandItemInventory.Clear();
+      FootItemInventory.Clear();
+      AccesuryItemInventory.Clear();
+
+      int count = SaveData.UseItemList.Count;
+      for(int i = 0; i < count ; i++){
+        UseItemInventory.Add(SaveData.UseItemList[i],SaveData.UseItemNumberList[i]);
+      }
+      count = SaveData.WeaponItemList.Count;
+      for(int i = 0; i < count ; i++){
+        WeaponItemInventory.Add(SaveData.WeaponItemList[i],SaveData.WeaponItemNumberList[i]);
+      }
+      count = SaveData.HeadItemList.Count;
+      for(int i = 0; i < count ; i++){
+       HeadItemInventory.Add(SaveData.HeadItemList[i],SaveData.HeadItemNumberList[i]);
+      }
+      count = SaveData.BodyItemList.Count;
+      for(int i = 0; i < count ; i++){
+       BodyItemInventory.Add(SaveData.BodyItemList[i],SaveData.BodyItemNumberList[i]);
+      }
+      count = SaveData.HandItemList.Count;
+      for(int i = 0; i < count ; i++){
+       HandItemInventory.Add(SaveData.HandItemList[i],SaveData.HandItemNumberList[i]);
+      }
+      count = SaveData.FootItemList.Count;
+      for(int i = 0; i < count ; i++){
+       FootItemInventory.Add(SaveData.FootItemList[i],SaveData.FootItemNumberList[i]);
+      }
+      count = SaveData.AccesuryItemList.Count;
+      for(int i = 0; i < count ; i++){
+       AccesuryItemInventory.Add(SaveData.AccesuryItemList[i],SaveData.AccesuryItemNumberList[i]);
+      }
     }
 }

@@ -60,7 +60,6 @@ public static class EnemyManager
       ////////ID決め
       int useid = 0;
       foreach(int id in EnemyIdList){
-        Debug.Log(Enemy);
         Enemy.EnemyId = id;
         useid = id;
       }

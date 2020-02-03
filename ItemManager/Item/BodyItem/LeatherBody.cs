@@ -6,13 +6,13 @@ public class LeatherBody : BodyItem
 {
   public LeatherBody(){
     SetId(300);
-    SetInfo("Vitを１上げます");
+    SetInfo("Vitを5上げます");
   }
   public override void Equip(){
-    PlayerManager.SetEquipVit(1);
+    PlayerManager.SetEquipVit(5);
   }
   public override void UnEquip(){
-    PlayerManager.SetEquipVit(-1);
+    PlayerManager.SetEquipVit(-5);
   }
 
 }
