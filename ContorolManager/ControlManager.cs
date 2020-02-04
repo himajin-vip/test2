@@ -8,6 +8,9 @@ public  static class ControlManager
   public static void KeyCheck()
   {
       if(Input.GetKeyDown(KeyCode.M)){
+        if(PlayerManager.Player.Atack.KeyPush){
+          PlayerManager.Player.Atack.KeyUp();
+        }
         MenuManager.SetMenuState("Main");
       }
       if(Input.GetKey(KeyCode.S)){

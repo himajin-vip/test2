@@ -46,17 +46,17 @@ public class Player
     }
   }
 
-  public void LoadStatus(SaveData SaveData){
+  public void LoadStatus(SaveData LoadData){
 
-    Name = new Name(SaveData.Name);
-    Lv = new Lv(SaveData.Lv);
-    Hp = new Hp(SaveData.MaxHp,SaveData.CurrentHp);
-    Mp = new Mp(SaveData.MaxMp,SaveData.CurrentMp);
-    Str = new Str(SaveData.Str);
-    Vit = new Vit(SaveData.Vit);
-    Dex = new Dex(SaveData.Dex);
-    Int = new Int(SaveData.Int);
-    Exp = new Exp(SaveData.NextExp,SaveData.CurrentExp);
+    Name = new Name(LoadData.Name);
+    Lv = new Lv(LoadData.Lv);
+    Hp = new Hp(LoadData.MaxHp,LoadData.CurrentHp);
+    Mp = new Mp(LoadData.MaxMp,LoadData.CurrentMp);
+    Str = new Str(LoadData.Str);
+    Vit = new Vit(LoadData.Vit);
+    Dex = new Dex(LoadData.Dex);
+    Int = new Int(LoadData.Int);
+    Exp = new Exp(LoadData.NextExp,LoadData.CurrentExp);
     MoveSpeed = new MoveSpeed(3,1);
 
     Direction = new Direction(Animator);
@@ -68,35 +68,35 @@ public class Player
     Weapon = (GameObject)Resources.Load("prefab/Weapon/Sword");
     Equip = new Equip();
 
-    if(Equip.Weapon.ItemId != 9999){
-      Equip.Weapon.Set(SaveData.EquipWeapon);
+    if(LoadData.EquipWeapon != 9999){
+      Equip.Weapon.Set(LoadData.EquipWeapon);
       WeaponItem Item = ItemManager.returnWeaponItem(Equip.Weapon.ItemId);
       Item.Equip();
     }
-    if(Equip.Head.ItemId != 9999){
-      Equip.Head.Set(SaveData.EquipHead);
+    if(LoadData.EquipHead != 9999){
+      Equip.Head.Set(LoadData.EquipHead);
       HeadItem Item = ItemManager.returnHeadItem(Equip.Head.ItemId);
       Item.Equip();
     }
-    if(Equip.Body.ItemId != 9999){
-      Equip.Body.Set(SaveData.EquipBody);
+    if(LoadData.EquipBody != 9999){
+      Equip.Body.Set(LoadData.EquipBody);
       BodyItem Item = ItemManager.returnBodyItem(Equip.Body.ItemId);
       Item.Equip();
     }
-    if(Equip.Hand.ItemId != 9999){
-      Equip.Hand.Set(SaveData.EquipHand);
+    if(LoadData.EquipHand != 9999){
+      Equip.Hand.Set(LoadData.EquipHand);
       HandItem Item = ItemManager.returnHandItem(Equip.Hand.ItemId);
       Item.Equip();
     }
 
-    if(Equip.Foot.ItemId != 9999){
-      Equip.Foot.Set(SaveData.EquipFoot);
+    if(LoadData.EquipFoot != 9999){
+      Equip.Foot.Set(LoadData.EquipFoot);
       FootItem Item = ItemManager.returnFootItem(Equip.Foot.ItemId);
       Item.Equip();
     }
 
-    if(Equip.Accessory.ItemId  != 9999){
-      Equip.Accessory.Set(SaveData.EquipAccessory);
+    if(LoadData.EquipAccessory  != 9999){
+      Equip.Accessory.Set(LoadData.EquipAccessory);
       AccessoryItem Item = ItemManager.returnAccessoryItem(Equip.Accessory.ItemId);
       Item.Equip();
     }

@@ -7,6 +7,7 @@ public static class DataManager
   public static string Name{get; private set;}
   private static string PassWord;
   public static SaveData SaveData{get; private set;} = new SaveData();
+  public static SaveData LoadData{get; private set;} = new SaveData();
   public static bool NewGame{get ;private set;} = true;
   private static AccountData AccountData = new AccountData();
 
@@ -67,7 +68,7 @@ public static class DataManager
     if(PlayingPlayer){
       if(PlayerPrefs.GetString(AccountName) == password){
         string savedatastr = AccountData.SaveData[count];
-        SaveData = JsonUtility.FromJson<SaveData> (savedatastr);
+        LoadData = JsonUtility.FromJson<SaveData> (savedatastr);
         Name = name;
         PassWord = password;
         NewGame = false;

@@ -11,8 +11,8 @@ public static class PlayerManager
     GameObject obj2 = GameManager.Instantiate(obj, new Vector3(0,0,0), Quaternion.identity);
     Player.SetObjecct(obj2,obj2.GetComponent<Animator>());
     if(!DataManager.NewGame){
-      Player.LoadStatus(DataManager.SaveData);
-      InventoryManager.InventoryLoad(DataManager.SaveData);
+      Player.LoadStatus(DataManager.LoadData);
+      InventoryManager.InventoryLoad(DataManager.LoadData);
     }else{
       Player.NewGame(DataManager.Name);
     }
@@ -20,7 +20,6 @@ public static class PlayerManager
 
   public static void PlayerDeathCheck(){
     if(Player.Hp.currentValue<=0){
-      Player.Charge.Stop();
       Player.Hp.Reset();
       DataManager.Save();
       GameManager.StateSet("End");
