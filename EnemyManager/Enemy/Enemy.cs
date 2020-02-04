@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-  public string Name;
   public int EnemyId;
-  public int MaxHp;
-  public int CurrentHp;
-  public int Mp;
-  public int Str;
-  public int Def;
+  public Name Name{get; protected set;}
+  public Lv Lv{get; protected set;}
+  public Hp Hp{get; protected set;}
+  public Mp Mp{get; protected set;}
+  public Str Str{get; protected set;}
+  public Vit Vit{get; protected set;}
+  public Dex Dex{get; protected set;}
+  public Int Int{get; protected set;}
   public int Exp;
   public int Gold;
   public int DropItem;
@@ -24,24 +26,17 @@ public class Enemy : MonoBehaviour
   public int MoveOnY;
 
   public virtual void Atack(GameObject Playerobj){
+    Damage Damage = new Damage();
+    int FinalDamage = Damage.Check(Str.Value,PlayerManager.Player.Vit.Value);
+    DamageTextManager.Make(FinalDamage,Playerobj.transform.position.x,Playerobj.transform.position.y,new Color(255,0,0),Playerobj.transform);
+    LogManager.MakeDamageLog(PlayerManager.Player.Name.Value,FinalDamage);
+    PlayerManager.Player.Hp.Damage(FinalDamage);
+
+    Vector3 Playerpos = Playerobj.gameObject.transform.position;
+    EfectManager.efecton("Kamitukiefect",Playerpos.x,Playerpos.y,Playerobj);//エフェクト作成
+    AudioManager.AudioON(8);
   }
-  public void DamageHp(int damage){
-      CurrentHp -= damage;
-      float x = this.transform.position.x;
-      float y = this.transform.position.y;
-      DamageTextManager.Make(damage,x,y,new Color(255,255,255),this.transform);
-      LogManager.MakeDamageLog(Name,damage);
-  }
-  public void RecoveryHp(int recovery){
-    CurrentHp += recovery;
-    if(CurrentHp>MaxHp){
-      CurrentHp = MaxHp;
-    }
-    float x = this.transform.position.x;
-    float y = this.transform.position.y;
-    DamageTextManager.Make(recovery,x,y,new Color(0,255,0),this.transform);
-    EfectManager.efecton("kaihukuefect",this.transform.position.x,this.transform.position.y,this.gameObject);
-  }
+
   public void Move(){
     if(MoveStatus == 1&&!DeathCheck){//プレイヤーを追いかける
       Vector3 player_pos = PlayerManager.Player.GameObject.transform.position;

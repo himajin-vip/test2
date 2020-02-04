@@ -5,12 +5,11 @@ using UnityEngine;
 public class RedSlime : Enemy
 {
     RedSlime(){
-      Name = "レッドスライム";
-      MaxHp = 20;
-      CurrentHp = 20;
-      Mp = 0;
-      Str = 10;
-      Def = 3;
+      Name = new Name("レッドスライム");
+      Hp = new Hp(20,20);
+      Mp = new Mp(0,0);
+      Str = new Str(30);
+      Vit = new Vit(10);
       Exp = 10;
       Gold = 10;
       DropItem = 0;
@@ -22,22 +21,5 @@ public class RedSlime : Enemy
       MoveOn = false;
       MoveOnX = 0;
       MoveOnY = 0;
-    }
-    public override void Atack(GameObject Playerobj){
-      int Damage = 0;
-      int DamageDice1 = 0;
-      int DamageDice2 = 0;
-      for(int i = 0; i <= 0 ; i++){
-        DamageDice1 = Random.Range(0,7);
-        DamageDice2 = Random.Range(0,7);
-        if(DamageDice1+DamageDice2 == 12){
-          i--;
-        }
-        Damage += (DamageDice1+DamageDice2)/2+Str;
-      }
-        PlayerManager.Player.Hp.Damage(Damage);
-        Vector3 Playerpos = Playerobj.gameObject.transform.position;
-        EfectManager.efecton("Kamitukiefect",Playerpos.x,Playerpos.y,Playerobj);//エフェクト作成
-        AudioManager.AudioON(8);
     }
 }

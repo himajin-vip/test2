@@ -75,7 +75,7 @@ public static class EnemyManager
   public static void EnemyUpdate(){
     List<Enemy> DeathList = new List<Enemy>();
     foreach (Enemy enemy in EnemyList.Values){
-        if(enemy.CurrentHp<=0&&!enemy.DeathCheck){
+        if(enemy.Hp.currentValue<=0&&!enemy.DeathCheck){
           DeathList.Add(enemy);
       }else{
         enemy.Move();

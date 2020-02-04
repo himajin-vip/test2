@@ -8,7 +8,11 @@ public class SwordChargeAtack : Skill
       foreach(Enemy enemy in EnemyList.Values){
         if(!enemy.DeathCheck){
           EfectManager.efecton("kiriefect",enemy.transform.position.x,enemy.transform.position.y,enemy.gameObject);
-          enemy.DamageHp(PlayerManager.Player.Atack.ReturnFinalDamage()*2);
+          Damage Damage = new Damage();
+          int FinalDamage = Damage.Check(PlayerManager.Player.Str.Value,enemy.Vit.Value);
+          DamageTextManager.Make(FinalDamage,enemy.transform.position.x,enemy.transform.position.y,new Color(255,255,255),enemy.transform);
+          LogManager.MakeDamageLog(enemy.Name.Value,FinalDamage);
+          enemy.Hp.Damage(FinalDamage);
         }
       }
     }

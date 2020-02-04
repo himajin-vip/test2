@@ -7,13 +7,12 @@ public class SwordNomalAtack : Skill
     public void Damage(Dictionary<int,Enemy> EnemyList){
       foreach(Enemy enemy in EnemyList.Values){
         if(!enemy.DeathCheck){
-          int AtackDamage = PlayerManager.Player.Atack.ReturnFinalDamage();
           EfectManager.efecton("kiriefect",enemy.transform.position.x,enemy.transform.position.y,enemy.gameObject);
-          if((AtackDamage-enemy.Def)>0){
-            enemy.DamageHp(AtackDamage-enemy.Def);
-          }else{
-            enemy.DamageHp(0);
-          }
+          Damage Damage = new Damage();
+          int FinalDamage = Damage.Check(PlayerManager.Player.Str.Value,enemy.Vit.Value);
+          DamageTextManager.Make(FinalDamage,enemy.transform.position.x,enemy.transform.position.y,new Color(255,255,255),enemy.transform);
+          LogManager.MakeDamageLog(enemy.Name.Value,FinalDamage);
+          enemy.Hp.Damage(FinalDamage);
           break;
         }
       }

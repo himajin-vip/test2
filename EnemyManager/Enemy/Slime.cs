@@ -5,12 +5,11 @@ using UnityEngine;
 public class Slime :Enemy
 {
   Slime(){
-    Name = "スライム";
-    MaxHp = 10;
-    CurrentHp = 10;
-    Mp = 0;
-    Str = 5;
-    Def = 1;
+    Name = new Name("スライム");
+    Hp = new Hp(10,10);
+    Mp = new Mp(0,0);
+    Str = new Str(20);
+    Vit = new Vit(10);
     Exp = 5;
     Gold = 1;
     DropItem = 0;
@@ -22,27 +21,5 @@ public class Slime :Enemy
     MoveOn = false;
     MoveOnX = 0;
     MoveOnY = 0;
-  }
-  public override void Atack(GameObject Playerobj){
-    int damage = 0;
-    int DamageDice1 = 0;
-    int DamageDice2 = 0;
-    for(int i = 0; i <= 0 ; i++){
-      DamageDice1 = Random.Range(0,7);
-      DamageDice2 = Random.Range(0,7);
-      if(DamageDice1+DamageDice2 == 12){
-        i--;
-      }
-      damage += (DamageDice1+DamageDice2)/2+Str;
-    }
-      Damage Damage = new Damage();
-      int FinalDamage = Damage.Check(damage);
-      DamageTextManager.Make(FinalDamage,Playerobj.transform.position.x,Playerobj.transform.position.y,new Color(255,0,0),Playerobj.transform);
-      LogManager.MakeDamageLog(PlayerManager.Player.Name.Value,FinalDamage);
-      PlayerManager.Player.Hp.Damage(FinalDamage);
-      
-      Vector3 Playerpos = Playerobj.gameObject.transform.position;
-      EfectManager.efecton("Kamitukiefect",Playerpos.x,Playerpos.y,Playerobj);//エフェクト作成
-      AudioManager.AudioON(8);
   }
 }
