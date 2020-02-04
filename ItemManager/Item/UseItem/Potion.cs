@@ -7,7 +7,7 @@ public class Potion : UseItem
     SetInfo("HPを30回復します");
   }
   public override void ItemUse(string Name){
-    PlayerManager.RecoveryHp(Recovery);
+    PlayerManager.Player.Hp.Recovery(Recovery);
     LogManager.UseItemLog(Name,ReturnID());
     LogManager.RecoveryHpLog(Name,Recovery);
 

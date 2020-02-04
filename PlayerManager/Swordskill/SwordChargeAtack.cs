@@ -15,9 +15,9 @@ public class SwordChargeAtack : Skill
 
     public void AtackOn(){
       AudioManager.AudioON(5);
-      int Direction = PlayerManager.ReturnDirection();
-      GameObject Weapon = PlayerManager.ReturnWeapon();
-      Vector3 PlayerPos = PlayerManager.ReturnPosition();
+      int Direction = PlayerManager.Player.Direction;
+      GameObject Weapon = PlayerManager.Player.Weapon;
+      Vector3 PlayerPos = PlayerManager.Player.GameObject.transform.position;
       GameObject WeaponObject;
       Animator Animator ;
         switch(Direction){
@@ -28,7 +28,7 @@ public class SwordChargeAtack : Skill
             WeaponObject.transform.Find("Sword0").gameObject.SetActive(true);
             Animator = WeaponObject.GetComponent<Animator>();
             Animator.SetInteger("Direction",0);
-            WeaponObject.GetComponent<Weapon>().SetUp();
+            WeaponObject.GetComponent<WeaponObject>().SetUp();
           break;
           case 1:
             WeaponObject = GameManager.Instantiate(Weapon, new Vector3(PlayerPos.x-20,PlayerPos.y+32,0), Quaternion.identity);
@@ -36,7 +36,7 @@ public class SwordChargeAtack : Skill
             WeaponObject.transform.Find("Sword1").gameObject.SetActive(true);
             Animator = WeaponObject.GetComponent<Animator>();
             Animator.SetInteger("Direction",1);
-            WeaponObject.GetComponent<Weapon>().SetUp();
+            WeaponObject.GetComponent<WeaponObject>().SetUp();
           break;
           case 2:
             WeaponObject = GameManager.Instantiate(Weapon, new Vector3(PlayerPos.x+20,PlayerPos.y+20,0), Quaternion.identity);
@@ -44,7 +44,7 @@ public class SwordChargeAtack : Skill
             WeaponObject.transform.Find("Sword2").gameObject.SetActive(true);
             Animator = WeaponObject.GetComponent<Animator>();
             Animator.SetInteger("Direction",2);
-            WeaponObject.GetComponent<Weapon>().SetUp();
+            WeaponObject.GetComponent<WeaponObject>().SetUp();
           break;
           case 3:
             WeaponObject = GameManager.Instantiate(Weapon, new Vector3(PlayerPos.x-20,PlayerPos.y+20,0), Quaternion.identity);
@@ -52,7 +52,7 @@ public class SwordChargeAtack : Skill
             WeaponObject.transform.Find("Sword3").gameObject.SetActive(true);
             Animator = WeaponObject.GetComponent<Animator>();
             Animator.SetInteger("Direction",3);
-            WeaponObject.GetComponent<Weapon>().SetUp();
+            WeaponObject.GetComponent<WeaponObject>().SetUp();
           break;
         }
     }

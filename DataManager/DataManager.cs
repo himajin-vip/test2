@@ -51,10 +51,10 @@ public static class DataManager
 
   public static void SetPlayerStatus(){
     if(!NewGame){
-      PlayerManager.LoadStatus(SaveData);
+      PlayerManager.Player.LoadStatus(SaveData);
       InventoryManager.InventoryLoad(SaveData);
     }else{
-      PlayerManager.NewGame(Name);
+      PlayerManager.Player.NewGame(Name);
     }
   }
 

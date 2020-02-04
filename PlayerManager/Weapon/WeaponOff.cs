@@ -6,6 +6,6 @@ public class WeaponOff : MonoBehaviour
 {
   public  void OnEnd(){
      Destroy (this.gameObject);
-    PlayerManager.AtackOff();
+    PlayerManager.Player.AtackOff();
     }
 }

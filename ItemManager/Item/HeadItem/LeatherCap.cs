@@ -9,10 +9,10 @@ public class LeatherCap : HeadItem
     SetInfo("Vitを5上げます");
   }
   public override void Equip(){
-    PlayerManager.SetEquipVit(5);
+    PlayerManager.Player.Equip.SetVit(5);
   }
   public override void UnEquip(){
-    PlayerManager.SetEquipVit(-5);
+    PlayerManager.Player.Equip.SetVit(-5);
   }
 
 }

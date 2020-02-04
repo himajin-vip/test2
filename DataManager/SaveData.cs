@@ -39,24 +39,24 @@ public class SaveData
   public List<int> AccesuryItemNumberList = new List<int>();
 
   public void Update(){
-     Name = PlayerManager.ReturnName();
-     Lv = PlayerManager.ReturnLv();
-     MaxHp = PlayerManager.ReturnMaxHp();
-     CurrentHp = PlayerManager.ReturnCurrentHp();
-     MaxMp = PlayerManager.ReturnMaxMp();
-     CurrentMp = PlayerManager.ReturnCurrentMp();
-     Str = PlayerManager.ReturnStr();
-     Vit = PlayerManager.ReturnVit();
-     Dex = PlayerManager.ReturnDex();
-     Int = PlayerManager.ReturnInt();
-     NextExp = PlayerManager.ReturnNextExp();
-     CurrentExp = PlayerManager.ReturnCurrentExp();
-     EquipWeapon = PlayerManager.ReturnEquipWeapon();
-     EquipHead = PlayerManager.ReturnEquipHead();
-     EquipBody = PlayerManager.ReturnEquipBody();
-     EquipHand = PlayerManager.ReturnEquipHand();
-     EquipFoot = PlayerManager.ReturnEquipFoot();
-     EquipAccessory = PlayerManager.ReturnEquipAccessory();
+     Name = PlayerManager.Player.Name.Value;
+     Lv = PlayerManager.Player.Lv.Value;
+     MaxHp = PlayerManager.Player.Hp.maxValue;
+     CurrentHp = PlayerManager.Player.Hp.currentValue;
+     MaxMp = PlayerManager.Player.Mp.maxValue;
+     CurrentMp = PlayerManager.Player.Mp.currentValue;
+     Str = PlayerManager.Player.Str.Value;
+     Vit = PlayerManager.Player.Vit.Value;
+     Dex = PlayerManager.Player.Dex.Value;
+     Int = PlayerManager.Player.Int.Value;
+     NextExp = PlayerManager.Player.Exp.currentValue;
+     CurrentExp = PlayerManager.Player.Exp.maxValue;
+     EquipWeapon = PlayerManager.Player.Equip.Weapon.ItemId;
+     EquipHead = PlayerManager.Player.Equip.Head.ItemId;
+     EquipBody = PlayerManager.Player.Equip.Body.ItemId;
+     EquipHand = PlayerManager.Player.Equip.Hand.ItemId;
+     EquipFoot = PlayerManager.Player.Equip.Foot.ItemId;
+     EquipAccessory = PlayerManager.Player.Equip.Accessory.ItemId;
 
      UseItemList = InventoryManager.ReturnInventoryList("UseItem");
      UseItemNumberList = InventoryManager.ReturnInventoryNumberList("UseItem");

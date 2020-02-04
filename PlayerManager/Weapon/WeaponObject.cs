@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Weapon : MonoBehaviour
+public class WeaponObject : MonoBehaviour
 {
   public int Damage;
   public static Dictionary<int,Enemy> HitEnemyList = new Dictionary<int,Enemy>();
@@ -15,7 +15,7 @@ public class Weapon : MonoBehaviour
   }
 
   public void OnEnd(){
-    PlayerManager.AtackOff();
+    PlayerManager.Player.AtackOff();
     PlayerManager.AtackDamageCheck(HitEnemyList);
     HitEnemyList.Clear();
     Destroy (this.gameObject);

@@ -44,7 +44,7 @@ public class AccessoryEquipComandState : MenuState
   public void CursolOn(){
     switch(CursolPos){
       case 0:
-        PlayerManager.AccessoryEquip(InventoryManager.ReturnSelectItem());
+        PlayerManager.Player.Equip.Accessory.Set(InventoryManager.ReturnSelectItem());
         MenuManager.SetMenuState("AccessoryEquip");
       break;
       case 1:

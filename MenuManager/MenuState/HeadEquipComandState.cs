@@ -44,7 +44,7 @@ public class HeadEquipComandState : MenuState
   public void CursolOn(){
     switch(CursolPos){
       case 0:
-        PlayerManager.HeadEquip(InventoryManager.ReturnSelectItem());
+        PlayerManager.Player.Equip.Head.Set(InventoryManager.ReturnSelectItem());
         MenuManager.SetMenuState("HeadEquip");
       break;
       case 1:

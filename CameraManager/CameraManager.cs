@@ -33,14 +33,14 @@ public static class CameraManager
   public static void PlayerPosCheck(){
     if(!CameraMoveOn){
       Vector3 Camerapos = MainCamera.transform.position;
-      Vector3 Playerpos = PlayerManager.ReturnPosition();
+      Vector3 Playerpos = PlayerManager.Player.GameObject.transform.position;
       if(Camerapos.x+CameraSizeX/2<Playerpos.x){//カメラを右に移動する
         CameraMoveX = 1;
         CameraMoveXCount++;
         CameraMoveOn = true;
         int i = PlayerMoveCount;
         while(i>0){
-          PlayerManager.PlayerMove(2);
+          PlayerManager.Player.MoveRight();
           i--;
         }
         GameManager.StateSet("MapMove");
@@ -52,7 +52,7 @@ public static class CameraManager
         CameraMoveOn = true;
         int i = PlayerMoveCount;
         while(i>0){
-          PlayerManager.PlayerMove(3);
+          PlayerManager.Player.MoveLeft();
           i--;
         }
         GameManager.StateSet("MapMove");
@@ -64,7 +64,7 @@ public static class CameraManager
         CameraMoveOn = true;
         int i = PlayerMoveCount;
         while(i>0){
-          PlayerManager.PlayerMove(1);
+          PlayerManager.Player.MoveUp();
           i--;
         }
         GameManager.StateSet("MapMove");
@@ -76,7 +76,7 @@ public static class CameraManager
         CameraMoveOn = true;
         int i = PlayerMoveCount;
         while(i>0){
-          PlayerManager.PlayerMove(0);
+          PlayerManager.Player.MoveDown();
           i--;
         }
         GameManager.StateSet("MapMove");

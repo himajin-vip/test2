@@ -61,7 +61,7 @@ public class WeaponEquipState : MenuState
     InfoWindowText.text = "";
     InventoryList = InventoryManager.ReturnInventoryList("WeaponItem");
     foreach(int ItemID in InventoryList) {
-      if(ItemID == PlayerManager.ReturnEquipWeapon()){
+      if(ItemID == PlayerManager.Player.Equip.Weapon.ItemId){
         ItemTextList[Inventorycount].text = "E:"+ItemManager.returnItemName(ItemID)+" / "+InventoryManager.ReturnPieces(ItemID)+"個";
         Inventorycount++;
       }else{

@@ -7,7 +7,7 @@ public class HiPotion : UseItem
     SetInfo("HPを50回復します");
   }
   public override void ItemUse(string Name){
-    PlayerManager.RecoveryHp(Recovery);
+    PlayerManager.Player.Hp.Recovery(Recovery);
     LogManager.UseItemLog(Name,ReturnID());
     LogManager.RecoveryHpLog(Name,50);
 

@@ -36,7 +36,7 @@ public class Slime :Enemy
       Damage += (DamageDice1+DamageDice2)/2+Str;
     }
 
-      PlayerManager.DamageHp(Damage);
+      PlayerManager.Player.Hp.Damage(Damage);
       Vector3 Playerpos = Playerobj.gameObject.transform.position;
       EfectManager.efecton("Kamitukiefect",Playerpos.x,Playerpos.y,Playerobj);//エフェクト作成
       AudioManager.AudioON(8);

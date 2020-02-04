@@ -9,10 +9,10 @@ public class LeatherFoot : FootItem
     SetInfo("Dexを１上げます");
   }
   public override void Equip(){
-    PlayerManager.SetEquipDex(1);
+    PlayerManager.Player.Equip.SetDex(1);
   }
   public override void UnEquip(){
-    PlayerManager.SetEquipDex(-1);
+    PlayerManager.Player.Equip.SetDex(-1);
   }
 
 }

@@ -16,7 +16,7 @@ public class StateSetUp : UpdateState
       ShortcutManager.SetUp();
       UI_Manager.SetUp();
       MenuManager.SetUp();
-      PlayerManager.SetUp("Fighter");
+      PlayerManager.SetUp();
       DataManager.SetPlayerStatus();
       MapManager.SetUp();
       DataManager.Save();

@@ -44,7 +44,7 @@ public class Enemy : MonoBehaviour
   }
   public void Move(){
     if(MoveStatus == 1&&!DeathCheck){//プレイヤーを追いかける
-      Vector3 player_pos = PlayerManager.ReturnPosition();
+      Vector3 player_pos = PlayerManager.Player.GameObject.transform.position;
       Vector3 this_pos = this.transform.position;
       if(player_pos.x>this_pos.x){
       this.transform.Translate(MoveSpeed,0,0);
@@ -118,7 +118,7 @@ public class Enemy : MonoBehaviour
 
   void OnCollisionStay2D(Collision2D collision2){
     if(!DeathCheck){
-      if(collision2.gameObject.GetComponent<Player>()&&!AtackOn){
+      if(collision2.gameObject.GetComponent<PlayerObj>()&&!AtackOn){
         AtackOn = true;
         StartCoroutine(AtackWait());
         Atack(collision2.gameObject);

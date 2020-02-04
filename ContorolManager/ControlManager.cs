@@ -11,22 +11,22 @@ public  static class ControlManager
         MenuManager.SetMenuState("Main");
       }
       if(Input.GetKey(KeyCode.S)){
-        PlayerManager.PlayerMove(0);
+        PlayerManager.Player.MoveDown();
       }
       if(Input.GetKey(KeyCode.W)){
-        PlayerManager.PlayerMove(1);
+        PlayerManager.Player.MoveUp();
       }
       if(Input.GetKey(KeyCode.D)){
-        PlayerManager.PlayerMove(2);
+        PlayerManager.Player.MoveRight();
       }
       if(Input.GetKey(KeyCode.A)){
-        PlayerManager.PlayerMove(3);
+        PlayerManager.Player.MoveLeft();
       }
       if(Input.GetKey(KeyCode.Space)){
-        PlayerManager.AtackKeyDown();
+        PlayerManager.Player.AtackKeyDown();
       }
       if(Input.GetKeyUp(KeyCode.Space)){
-        PlayerManager.AtackKeyUp();
+        PlayerManager.Player.AtackKeyUp();
       }
       if(Input.GetKeyDown(KeyCode.Alpha1)){
         ShortcutManager.ShortCutOn(1);
@@ -63,16 +63,16 @@ public  static class ControlManager
       MenuManager.SetMenuState("Main");
     }
     if(Input.GetKey(KeyCode.S)){
-      PlayerManager.PlayerMove(0);
+      PlayerManager.Player.MoveDown();
     }
     if(Input.GetKey(KeyCode.W)){
-      PlayerManager.PlayerMove(1);
+      PlayerManager.Player.MoveUp();
     }
     if(Input.GetKey(KeyCode.D)){
-      PlayerManager.PlayerMove(2);
+      PlayerManager.Player.MoveRight();
     }
     if(Input.GetKey(KeyCode.A)){
-      PlayerManager.PlayerMove(3);
+      PlayerManager.Player.MoveLeft();
     }
     if(Input.GetKeyDown(KeyCode.Space)){
       //喋る
@@ -80,7 +80,7 @@ public  static class ControlManager
   }
   public static void AtackKeyUpCheck(){
     if(Input.GetKeyUp(KeyCode.Space)){
-      PlayerManager.AtackKeyUp();
+      PlayerManager.Player.AtackKeyUp();
     }
   }
 }
