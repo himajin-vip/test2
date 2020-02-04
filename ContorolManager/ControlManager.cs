@@ -11,16 +11,16 @@ public  static class ControlManager
         MenuManager.SetMenuState("Main");
       }
       if(Input.GetKey(KeyCode.S)){
-        PlayerManager.Player.MoveDown();
+        PlayerManager.Player.Move.Down();
       }
       if(Input.GetKey(KeyCode.W)){
-        PlayerManager.Player.MoveUp();
+        PlayerManager.Player.Move.Up();
       }
       if(Input.GetKey(KeyCode.D)){
-        PlayerManager.Player.MoveRight();
+        PlayerManager.Player.Move.Right();
       }
       if(Input.GetKey(KeyCode.A)){
-        PlayerManager.Player.MoveLeft();
+        PlayerManager.Player.Move.Left();
       }
       if(Input.GetKey(KeyCode.Space)){
         PlayerManager.Player.Atack.KeyDown();
@@ -63,16 +63,16 @@ public  static class ControlManager
       MenuManager.SetMenuState("Main");
     }
     if(Input.GetKey(KeyCode.S)){
-      PlayerManager.Player.MoveDown();
+      PlayerManager.Player.Move.Down();
     }
     if(Input.GetKey(KeyCode.W)){
-      PlayerManager.Player.MoveUp();
+      PlayerManager.Player.Move.Up();
     }
     if(Input.GetKey(KeyCode.D)){
-      PlayerManager.Player.MoveRight();
+      PlayerManager.Player.Move.Right();
     }
     if(Input.GetKey(KeyCode.A)){
-      PlayerManager.Player.MoveLeft();
+      PlayerManager.Player.Move.Left();
     }
     if(Input.GetKeyDown(KeyCode.Space)){
       //喋る

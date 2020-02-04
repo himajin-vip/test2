@@ -40,7 +40,7 @@ public static class CameraManager
         CameraMoveOn = true;
         int i = PlayerMoveCount;
         while(i>0){
-          PlayerManager.Player.MoveRight();
+          PlayerManager.Player.Move.Right();
           i--;
         }
         GameManager.StateSet("MapMove");
@@ -52,7 +52,7 @@ public static class CameraManager
         CameraMoveOn = true;
         int i = PlayerMoveCount;
         while(i>0){
-          PlayerManager.Player.MoveLeft();
+          PlayerManager.Player.Move.Left();
           i--;
         }
         GameManager.StateSet("MapMove");
@@ -64,7 +64,7 @@ public static class CameraManager
         CameraMoveOn = true;
         int i = PlayerMoveCount;
         while(i>0){
-          PlayerManager.Player.MoveUp();
+          PlayerManager.Player.Move.Up();
           i--;
         }
         GameManager.StateSet("MapMove");
@@ -76,7 +76,7 @@ public static class CameraManager
         CameraMoveOn = true;
         int i = PlayerMoveCount;
         while(i>0){
-          PlayerManager.Player.MoveDown();
+          PlayerManager.Player.Move.Down();
           i--;
         }
         GameManager.StateSet("MapMove");

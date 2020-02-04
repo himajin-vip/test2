@@ -22,12 +22,12 @@ public class SwordNomalAtack : Skill
     public void AtackOn(){
 
       AudioManager.AudioON(2);
-      int Direction = PlayerManager.Player.Direction;
+      int Direction = PlayerManager.Player.Direction.Value;
       GameObject Weapon = PlayerManager.Player.Weapon;
       Vector3 PlayerPos = PlayerManager.Player.GameObject.transform.position;
       GameObject WeaponObject;
       Animator Animator ;
-      
+
         switch(Direction){
           case 0:
             WeaponObject = GameManager.Instantiate(Weapon, new Vector3(PlayerPos.x+20,PlayerPos.y-32,0), Quaternion.identity);

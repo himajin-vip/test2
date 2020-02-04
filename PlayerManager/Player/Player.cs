@@ -8,23 +8,23 @@ public class Player
   public GameObject GameObject{get; private set;}
   public Animator Animator{get; private set;}
 
-  public  Name Name{get; private set;}
-  public  Lv Lv{get; private set;}
-  public  Hp Hp{get; private set;}
-  public  Mp Mp{get; private set;}
-  public  Str Str{get; private set;}
-  public  Vit Vit{get; private set;}
-  public  Dex Dex{get; private set;}
-  public  Int Int{get; private set;}
-  public  Exp Exp{get; private set;}
-  public  MoveSpeed MoveSpeed{get; private set;}
+  public Name Name{get; private set;}
+  public Lv Lv{get; private set;}
+  public Hp Hp{get; private set;}
+  public Mp Mp{get; private set;}
+  public Str Str{get; private set;}
+  public Vit Vit{get; private set;}
+  public Dex Dex{get; private set;}
+  public Int Int{get; private set;}
+  public Exp Exp{get; private set;}
 
-  public int Direction{get; private set;} = 0;
+  public Move Move{get; private set;} = new Move();
+  public MoveSpeed MoveSpeed{get; private set;}
+  public Direction Direction{get; private set;} = new Direction();
 
   public  Equip Equip{get; private set;}
   ///////チャージ////////
   public Charge Charge{get; private set;}
-  public float ChargeTime{get; private set;} = 2f;
 
   //////使用武器/////////
   public GameObject Weapon{get; private set;}
@@ -38,47 +38,6 @@ public class Player
   public Atack Atack{get; private set;} = new Atack();
 
 
-  public void MoveDown(){
-    if(!Atack.On){
-      GameObject.transform.Translate (0,-PlayerManager.Player.MoveSpeed.Value,0);
-      DirectionDown();
-    }
-  }
-  public void MoveUp(){
-    if(!Atack.On){
-      GameObject.transform.Translate (0,PlayerManager.Player.MoveSpeed.Value,0);
-      DirectionUp();
-    }
-  }
-  public void MoveRight(){
-    if(!Atack.On){
-      GameObject.transform.Translate (PlayerManager.Player.MoveSpeed.Value,0,0);
-      DirectionRight();
-    }
-  }
-  public void MoveLeft(){
-    if(!Atack.On){
-      GameObject.transform.Translate (-PlayerManager.Player.MoveSpeed.Value,0,0);
-      DirectionLeft();
-    }
-  }
-
-  public void DirectionDown(){
-    Animator.SetInteger("move_direction", 0);
-    Direction = 0;
-  }
-  public void DirectionUp(){
-    Animator.SetInteger("move_direction", 1);
-    Direction = 1;
-  }
-  public void DirectionRight(){
-    Animator.SetInteger("move_direction", 2);
-    Direction = 2;
-  }
-  public void DirectionLeft(){
-    Animator.SetInteger("move_direction", 3);
-    Direction = 3;
-  }
 
   public void LoadStatus(SaveData SaveData){
 
@@ -97,38 +56,38 @@ public class Player
     NormalAtack = new SwordNomalAtack();
     Skill = NormalAtack;
     Charge = GameObject.transform.Find("tame").GetComponent<Charge>();
-
+    Weapon = (GameObject)Resources.Load("prefab/Weapon/Sword");
     Equip = new Equip();
 
-    Equip.Weapon.Set(SaveData.EquipWeapon);
-    if(!(Equip.Weapon.ItemId == 9999)){
+    if(Equip.Weapon.ItemId != 9999){
+      Equip.Weapon.Set(SaveData.EquipWeapon);
       WeaponItem Item = ItemManager.returnWeaponItem(Equip.Weapon.ItemId);
       Item.Equip();
     }
-    Equip.Head.Set(SaveData.EquipHead);
-    if(!(Equip.Head.ItemId == 9999)){
+    if(Equip.Head.ItemId != 9999){
+      Equip.Head.Set(SaveData.EquipHead);
       HeadItem Item = ItemManager.returnHeadItem(Equip.Head.ItemId);
       Item.Equip();
     }
-    Equip.Body.Set(SaveData.EquipBody);
-    if(!(Equip.Body.ItemId == 9999)){
+    if(Equip.Body.ItemId != 9999){
+      Equip.Body.Set(SaveData.EquipBody);
       BodyItem Item = ItemManager.returnBodyItem(Equip.Body.ItemId);
       Item.Equip();
     }
-    Equip.Hand.Set(SaveData.EquipHand);
-    if(!(Equip.Hand.ItemId == 9999)){
+    if(Equip.Hand.ItemId != 9999){
+      Equip.Hand.Set(SaveData.EquipHand);
       HandItem Item = ItemManager.returnHandItem(Equip.Hand.ItemId);
       Item.Equip();
     }
 
-    Equip.Foot.Set(SaveData.EquipFoot);
-    if(!(Equip.Foot.ItemId == 9999)){
+    if(Equip.Foot.ItemId != 9999){
+      Equip.Foot.Set(SaveData.EquipFoot);
       FootItem Item = ItemManager.returnFootItem(Equip.Foot.ItemId);
       Item.Equip();
     }
 
-    Equip.Accessory.Set(SaveData.EquipAccessory);
-    if(!(Equip.Accessory.ItemId  == 9999)){
+    if(Equip.Accessory.ItemId  != 9999){
+      Equip.Accessory.Set(SaveData.EquipAccessory);
       AccessoryItem Item = ItemManager.returnAccessoryItem(Equip.Accessory.ItemId);
       Item.Equip();
     }
