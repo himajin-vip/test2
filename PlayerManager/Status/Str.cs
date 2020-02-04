@@ -8,4 +8,7 @@ public class Str
     public Str(int value){
       Value = value;
     }
+    public void LvUp(int value){
+      Value  += value;
+    }
 }

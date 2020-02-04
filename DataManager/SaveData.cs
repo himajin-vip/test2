@@ -49,8 +49,8 @@ public class SaveData
      Vit = PlayerManager.Player.Vit.Value;
      Dex = PlayerManager.Player.Dex.Value;
      Int = PlayerManager.Player.Int.Value;
-     NextExp = PlayerManager.Player.Exp.currentValue;
-     CurrentExp = PlayerManager.Player.Exp.maxValue;
+     NextExp = PlayerManager.Player.Exp.maxValue;
+     CurrentExp = PlayerManager.Player.Exp.currentValue;
      EquipWeapon = PlayerManager.Player.Equip.Weapon.ItemId;
      EquipHead = PlayerManager.Player.Equip.Head.ItemId;
      EquipBody = PlayerManager.Player.Equip.Body.ItemId;

@@ -8,4 +8,7 @@ public class Dex
     public Dex(int value){
       Value = value;
     }
+    public void LvUp(int value){
+      Value  += value;
+    }
 }

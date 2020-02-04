@@ -11,4 +11,8 @@ public class Mp
       maxValue = max;
       currentValue = current;
     }
+    public void LvUp(int value){
+      maxValue  += value;
+      currentValue = maxValue;
+    }
 }

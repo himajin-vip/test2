@@ -12,20 +12,6 @@ public static class PlayerManager
     Player.SetObjecct(obj2,obj2.GetComponent<Animator>());
   }
 
-
-
-  public static void GetExp(int exp){
-    // Exp.Get(exp);
-    // LogManager.GetExp(Name.Value,exp);
-    // if(Exp.currentValue >= Exp.maxValue){
-    //   LvUp();
-    // }
-    // DataManager.Save();
-  }
-
-  public static void LvUp(){
-  }
-
   public static void ItemGet(Collider2D collision){
     DropItem getItem = collision.gameObject.GetComponent<DropItem>();
     InventoryManager.ItemGet(getItem.ItemId);

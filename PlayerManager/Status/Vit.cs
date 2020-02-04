@@ -8,4 +8,7 @@ public class Vit
     public Vit(int value){
       Value = value;
     }
+    public void LvUp(int value){
+      Value  += value;
+    }
 }

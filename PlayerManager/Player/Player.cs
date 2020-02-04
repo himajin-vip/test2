@@ -102,7 +102,7 @@ public class Player
     Vit = new Vit(1);
     Dex = new Dex(1);
     Int = new Int(1);
-    Exp = new Exp(50,0);
+    Exp = new Exp(10,0);
     MoveSpeed = new MoveSpeed(3,1);
 
     Equip = new Equip();
@@ -113,9 +113,17 @@ public class Player
     NormalAtack = new SwordNomalAtack();
     Skill = NormalAtack;
     Charge = GameObject.transform.Find("tame").GetComponent<Charge>();
-
   }
-
+  public void LvUp(){
+    Lv.LvUp();
+    Hp.LvUp(10);
+    Mp.LvUp(5);
+    Str.LvUp(5);
+    Vit.LvUp(5);
+    Dex.LvUp(3);
+    Int.LvUp(1);
+    DataManager.Save();
+  }
 
   public void SetObjecct(GameObject obj ,Animator ani){
     GameObject = obj;

@@ -105,7 +105,7 @@ public class Enemy : MonoBehaviour
   public void Death(){
     DeathCheck = true;
     ItemDrop();
-    PlayerManager.GetExp(Exp);
+    PlayerManager.Player.Exp.Get(Exp);
     StartCoroutine(DestroyEnemy());
   }
   public void ItemDrop(){

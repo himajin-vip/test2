@@ -6,6 +6,7 @@ public class Exp
 {
   public int currentValue{get; private set;}
   public int maxValue{get; private set;}
+
   public Exp(int max ,int current){
     maxValue = max;
     currentValue = current;
@@ -13,6 +14,12 @@ public class Exp
 
   public void Get(int value){
     currentValue += value;
+    if(currentValue >= maxValue){
+      PlayerManager.Player.LvUp();
+      maxValue += maxValue;
+      currentValue = 0;
+    }
+    DataManager.Save();
   }
 
 }

@@ -54,8 +54,8 @@ public class Hp
   public void SetCurrent(int currenthp){
     currentValue = currenthp;
   }
-  public void LvUp(int UpHp){
-    maxValue += UpHp;
+  public void LvUp(int value){
+    maxValue += value;
     currentValue = maxValue;
   }
 
