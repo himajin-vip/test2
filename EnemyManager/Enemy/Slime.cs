@@ -24,7 +24,7 @@ public class Slime :Enemy
     MoveOnY = 0;
   }
   public override void Atack(GameObject Playerobj){
-    int Damage = 0;
+    int damage = 0;
     int DamageDice1 = 0;
     int DamageDice2 = 0;
     for(int i = 0; i <= 0 ; i++){
@@ -33,10 +33,14 @@ public class Slime :Enemy
       if(DamageDice1+DamageDice2 == 12){
         i--;
       }
-      Damage += (DamageDice1+DamageDice2)/2+Str;
+      damage += (DamageDice1+DamageDice2)/2+Str;
     }
-
-      PlayerManager.Player.Hp.Damage(Damage);
+      Damage Damage = new Damage();
+      int FinalDamage = Damage.Check(damage);
+      DamageTextManager.Make(FinalDamage,Playerobj.transform.position.x,Playerobj.transform.position.y,new Color(255,0,0),Playerobj.transform);
+      LogManager.MakeDamageLog(PlayerManager.Player.Name.Value,FinalDamage);
+      PlayerManager.Player.Hp.Damage(FinalDamage);
+      
       Vector3 Playerpos = Playerobj.gameObject.transform.position;
       EfectManager.efecton("Kamitukiefect",Playerpos.x,Playerpos.y,Playerobj);//エフェクト作成
       AudioManager.AudioON(8);

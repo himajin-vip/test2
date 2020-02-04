@@ -31,7 +31,13 @@ public static class InventoryManager
       FootItemInventory.Add(500,1);
     }
 
-    static public void ItemGet(int ItemID){
+    static public void ItemGet(Collider2D collision){
+
+      DropItem getItem = collision.gameObject.GetComponent<DropItem>();
+      int ItemID = getItem.ItemId;
+      LogManager.MakeItemGetLog(PlayerManager.Player.Name.Value,ItemID);
+      getItem.DropEnd();
+
       string ItemType = ItemManager.returnItemType(ItemID);
 
       if(InventoryKeyCheck(ItemID)){

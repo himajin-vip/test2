@@ -4,10 +4,10 @@ using UnityEngine;
 
 public static class DataManager
 {
-  private static string Name;
+  public static string Name{get; private set;}
   private static string PassWord;
-  private static SaveData SaveData = new SaveData();
-  private static bool NewGame = true;
+  public static SaveData SaveData{get; private set;} = new SaveData();
+  public static bool NewGame{get ;private set;} = true;
   private static AccountData AccountData = new AccountData();
 
 
@@ -46,15 +46,6 @@ public static class DataManager
       Name = name;
       PassWord = password;
       return true;
-    }
-  }
-
-  public static void SetPlayerStatus(){
-    if(!NewGame){
-      PlayerManager.Player.LoadStatus(SaveData);
-      InventoryManager.InventoryLoad(SaveData);
-    }else{
-      PlayerManager.Player.NewGame(Name);
     }
   }
 

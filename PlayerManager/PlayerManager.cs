@@ -10,29 +10,17 @@ public static class PlayerManager
     GameObject obj = (GameObject)Resources.Load("Player/Fighter");
     GameObject obj2 = GameManager.Instantiate(obj, new Vector3(0,0,0), Quaternion.identity);
     Player.SetObjecct(obj2,obj2.GetComponent<Animator>());
-  }
-
-  public static void ItemGet(Collider2D collision){
-    DropItem getItem = collision.gameObject.GetComponent<DropItem>();
-    InventoryManager.ItemGet(getItem.ItemId);
-    LogManager.MakeItemGetLog(Player.Name.Value,getItem.ItemId);
-    getItem.DropEnd();
-  }
-
-
-  public static void ItemUse(int ItemID){
-    UseItem Item = ItemManager.returnUseItem(ItemID);
-    if(InventoryManager.ReturnPieces(ItemID)>0){
-      Item.ItemUse(Player.Name.Value);
-      InventoryManager.ItemReduce(ItemID);
+    if(!DataManager.NewGame){
+      Player.LoadStatus(DataManager.SaveData);
+      InventoryManager.InventoryLoad(DataManager.SaveData);
+    }else{
+      Player.NewGame(DataManager.Name);
     }
   }
 
-
-
   public static void PlayerDeathCheck(){
     if(Player.Hp.currentValue<=0){
-      //Player.ChargeEnd();
+      Player.Charge.Stop();
       Player.Hp.Reset();
       DataManager.Save();
       GameManager.StateSet("End");
@@ -40,20 +28,4 @@ public static class PlayerManager
   }
 
 
-  public static int ReturnFinalDamage(){
-    int Damage = 0;
-    int DamageDice1 = 0;
-    int DamageDice2 = 0;
-    int ExDamage = (Player.Str.Value+Player.Equip.Str)/10;
-    for(int i = 0; i <= 0+ExDamage ; i++){
-      DamageDice1 = Random.Range(0,7);
-      DamageDice2 = Random.Range(0,7);
-      if(DamageDice1+DamageDice2 == 12){
-        i--;
-      }
-      Damage += (DamageDice1+DamageDice2)/2;
-    }
-
-    return Damage;
-  }
 }

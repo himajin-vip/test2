@@ -20,7 +20,7 @@ public class Player
 
   public Move Move{get; private set;} = new Move();
   public MoveSpeed MoveSpeed{get; private set;}
-  public Direction Direction{get; private set;} = new Direction();
+  public Direction Direction{get; private set;}
 
   public  Equip Equip{get; private set;}
   ///////チャージ////////
@@ -38,6 +38,13 @@ public class Player
   public Atack Atack{get; private set;} = new Atack();
 
 
+  public void ItemUse(int ItemID){
+    UseItem Item = ItemManager.returnUseItem(ItemID);
+    if(InventoryManager.ReturnPieces(ItemID)>0){
+      Item.ItemUse(Name.Value);
+      InventoryManager.ItemReduce(ItemID);
+    }
+  }
 
   public void LoadStatus(SaveData SaveData){
 
@@ -51,6 +58,8 @@ public class Player
     Int = new Int(SaveData.Int);
     Exp = new Exp(SaveData.NextExp,SaveData.CurrentExp);
     MoveSpeed = new MoveSpeed(3,1);
+
+    Direction = new Direction(Animator);
 
     ChargeSkill = new SwordChargeAtack();
     NormalAtack = new SwordNomalAtack();
@@ -106,6 +115,8 @@ public class Player
     MoveSpeed = new MoveSpeed(3,1);
 
     Equip = new Equip();
+
+    Direction = new Direction(Animator);
 
     Weapon = (GameObject)Resources.Load("prefab/Weapon/Sword");
 

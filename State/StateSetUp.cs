@@ -17,7 +17,6 @@ public class StateSetUp : UpdateState
       UI_Manager.SetUp();
       MenuManager.SetUp();
       PlayerManager.SetUp();
-      DataManager.SetPlayerStatus();
       MapManager.SetUp();
       DataManager.Save();
     }
