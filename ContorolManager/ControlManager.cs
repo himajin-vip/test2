@@ -23,10 +23,10 @@ public  static class ControlManager
         PlayerManager.Player.MoveLeft();
       }
       if(Input.GetKey(KeyCode.Space)){
-        PlayerManager.Player.AtackKeyDown();
+        PlayerManager.Player.Atack.KeyDown();
       }
       if(Input.GetKeyUp(KeyCode.Space)){
-        PlayerManager.Player.AtackKeyUp();
+        PlayerManager.Player.Atack.KeyUp();
       }
       if(Input.GetKeyDown(KeyCode.Alpha1)){
         ShortcutManager.ShortCutOn(1);
@@ -80,7 +80,7 @@ public  static class ControlManager
   }
   public static void AtackKeyUpCheck(){
     if(Input.GetKeyUp(KeyCode.Space)){
-      PlayerManager.Player.AtackKeyUp();
+      PlayerManager.Player.Atack.KeyUp();
     }
   }
 }

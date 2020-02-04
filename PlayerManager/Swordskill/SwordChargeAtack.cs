@@ -22,7 +22,6 @@ public class SwordChargeAtack : Skill
       Animator Animator ;
         switch(Direction){
           case 0:
-          //WeaponObject.transform.parent = PlayerManager.ReturnPlayerObject().transform;
             WeaponObject = GameManager.Instantiate(Weapon, new Vector3(PlayerPos.x+20,PlayerPos.y-32,0), Quaternion.identity);
             WeaponObject.transform.Rotate (0, 0,20);
             WeaponObject.transform.Find("Sword0").gameObject.SetActive(true);

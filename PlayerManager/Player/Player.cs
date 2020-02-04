@@ -23,42 +23,41 @@ public class Player
 
   public  Equip Equip{get; private set;}
   ///////チャージ////////
-  Charge Charge;
-  public float ChargeTime = 2f;
+  public Charge Charge{get; private set;}
+  public float ChargeTime{get; private set;} = 2f;
 
   //////使用武器/////////
   public GameObject Weapon{get; private set;}
 
   ///////スキル//////////
-  public Skill Skill;
-  public Skill NormalAtack;
-  public Skill ChargeSkill;
+  public Skill Skill{get; private set;}
+  public Skill NormalAtack{get; private set;}
+  public Skill ChargeSkill{get; private set;}
 
-  ///////いろいろ///////
-  private bool AtackOn = false;
-  private  bool AtackKeyPush = false;
+  ///////攻撃////////////
+  public Atack Atack{get; private set;} = new Atack();
 
 
   public void MoveDown(){
-    if(!AtackOn){
+    if(!Atack.On){
       GameObject.transform.Translate (0,-PlayerManager.Player.MoveSpeed.Value,0);
       DirectionDown();
     }
   }
   public void MoveUp(){
-    if(!AtackOn){
+    if(!Atack.On){
       GameObject.transform.Translate (0,PlayerManager.Player.MoveSpeed.Value,0);
       DirectionUp();
     }
   }
   public void MoveRight(){
-    if(!AtackOn){
+    if(!Atack.On){
       GameObject.transform.Translate (PlayerManager.Player.MoveSpeed.Value,0,0);
       DirectionRight();
     }
   }
   public void MoveLeft(){
-    if(!AtackOn){
+    if(!Atack.On){
       GameObject.transform.Translate (-PlayerManager.Player.MoveSpeed.Value,0,0);
       DirectionLeft();
     }
@@ -134,6 +133,7 @@ public class Player
       Item.Equip();
     }
   }
+
   public void NewGame(string name){
     Name = new Name(name);
     Lv = new Lv(1);
@@ -157,35 +157,6 @@ public class Player
 
   }
 
-  public void Atack(){
-    Charge.Stop();
-    Skill.AtackOn();
-  }
-
-  public void AtackKeyDown(){
-    if(!AtackOn&&!AtackKeyPush){
-      Charge.Set();
-      AtackKeyPush = true;
-    }
-  }
-
-  public void AtackKeyUp(){
-    if(!AtackOn){
-      AtackOn = true;
-      MoveSpeed.ReSetSpeed();
-      Atack();
-    }
-    AtackKeyPush = false;
-
-  }
-  public void AtackOff(){
-    AtackOn = false;
-  }
-
-  public void AtackDamageCheck(Dictionary<int,Enemy> EnemyList){
-    Skill.Damage(EnemyList);
-    SetNormalAtack();
-  }
 
   public void SetObjecct(GameObject obj ,Animator ani){
     GameObject = obj;

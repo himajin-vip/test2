@@ -44,12 +44,6 @@ public static class PlayerManager
 
 
 
-
-  public static void AtackDamageCheck(Dictionary<int,Enemy> EnemyList){
-    Player.AtackDamageCheck(EnemyList);
-  }
-
-
   public static void PlayerDeathCheck(){
     if(Player.Hp.currentValue<=0){
       //Player.ChargeEnd();

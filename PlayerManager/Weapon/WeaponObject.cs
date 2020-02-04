@@ -15,9 +15,9 @@ public class WeaponObject : MonoBehaviour
   }
 
   public void OnEnd(){
-    PlayerManager.Player.AtackOff();
-    PlayerManager.AtackDamageCheck(HitEnemyList);
+    PlayerManager.Player.Skill.Damage(HitEnemyList);
     HitEnemyList.Clear();
+    PlayerManager.Player.Atack.Off();
     Destroy (this.gameObject);
   }
 
