@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-
+//test
 public class CameraController : MonoBehaviour {
 
     public float x_aspect = 4f;
