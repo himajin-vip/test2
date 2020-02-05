@@ -70,35 +70,23 @@ public class Player
 
     if(LoadData.EquipWeapon != 9999){
       Equip.Weapon.Set(LoadData.EquipWeapon);
-      WeaponItem Item = ItemManager.returnWeaponItem(Equip.Weapon.ItemId);
-      Item.Equip();
     }
     if(LoadData.EquipHead != 9999){
       Equip.Head.Set(LoadData.EquipHead);
-      HeadItem Item = ItemManager.returnHeadItem(Equip.Head.ItemId);
-      Item.Equip();
     }
     if(LoadData.EquipBody != 9999){
       Equip.Body.Set(LoadData.EquipBody);
-      BodyItem Item = ItemManager.returnBodyItem(Equip.Body.ItemId);
-      Item.Equip();
     }
     if(LoadData.EquipHand != 9999){
       Equip.Hand.Set(LoadData.EquipHand);
-      HandItem Item = ItemManager.returnHandItem(Equip.Hand.ItemId);
-      Item.Equip();
     }
 
     if(LoadData.EquipFoot != 9999){
       Equip.Foot.Set(LoadData.EquipFoot);
-      FootItem Item = ItemManager.returnFootItem(Equip.Foot.ItemId);
-      Item.Equip();
     }
 
     if(LoadData.EquipAccessory  != 9999){
       Equip.Accessory.Set(LoadData.EquipAccessory);
-      AccessoryItem Item = ItemManager.returnAccessoryItem(Equip.Accessory.ItemId);
-      Item.Equip();
     }
   }
 

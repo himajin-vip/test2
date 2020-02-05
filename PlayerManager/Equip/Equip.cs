@@ -11,22 +11,4 @@ public class Equip
   public Foot Foot{get; private set;} = new Foot();
   public Accessory Accessory{get; private set;} = new Accessory();
 
-  public int Str {get; private set;}
-  public int Vit {get; private set;}
-  public int Dex {get; private set;}
-  public int Int {get; private set;}
-
-  public void SetStr(int str){
-    Str+=str;
-  }
-  public void SetVit(int vit){
-    Vit+=vit;
-  }
-  public void SetDex(int dex){
-    Dex+=dex;
-  }
-  public void SetInt(int iint){
-    Int+=iint;
-  }
-
 }

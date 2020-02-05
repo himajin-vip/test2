@@ -45,10 +45,10 @@ public class SaveData
      CurrentHp = PlayerManager.Player.Hp.currentValue;
      MaxMp = PlayerManager.Player.Mp.maxValue;
      CurrentMp = PlayerManager.Player.Mp.currentValue;
-     Str = PlayerManager.Player.Str.Value;
-     Vit = PlayerManager.Player.Vit.Value;
-     Dex = PlayerManager.Player.Dex.Value;
-     Int = PlayerManager.Player.Int.Value;
+     Str = PlayerManager.Player.Str.NomalValue;
+     Vit = PlayerManager.Player.Vit.NomalValue;
+     Dex = PlayerManager.Player.Dex.NomalValue;
+     Int = PlayerManager.Player.Int.NomalValue;
      NextExp = PlayerManager.Player.Exp.maxValue;
      CurrentExp = PlayerManager.Player.Exp.currentValue;
      EquipWeapon = PlayerManager.Player.Equip.Weapon.ItemId;

@@ -9,9 +9,9 @@ public class IronSword : WeaponItem
     SetInfo("Strを10上げます");
   }
   public override void Equip(){
-    PlayerManager.Player.Equip.SetStr(10);
+    PlayerManager.Player.Str.Equip(10);
   }
   public override void UnEquip(){
-    PlayerManager.Player.Equip.SetStr(-10);
+    PlayerManager.Player.Str.UnEquip(10);
   }
 }
