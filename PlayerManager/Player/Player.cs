@@ -67,27 +67,13 @@ public class Player
     Charge = GameObject.transform.Find("tame").GetComponent<Charge>();
     Weapon = (GameObject)Resources.Load("prefab/Weapon/Sword");
     Equip = new Equip();
-
-    if(LoadData.EquipWeapon != 9999){
-      Equip.Weapon.Set(LoadData.EquipWeapon);
-    }
-    if(LoadData.EquipHead != 9999){
-      Equip.Head.Set(LoadData.EquipHead);
-    }
-    if(LoadData.EquipBody != 9999){
-      Equip.Body.Set(LoadData.EquipBody);
-    }
-    if(LoadData.EquipHand != 9999){
-      Equip.Hand.Set(LoadData.EquipHand);
-    }
-
-    if(LoadData.EquipFoot != 9999){
-      Equip.Foot.Set(LoadData.EquipFoot);
-    }
-
-    if(LoadData.EquipAccessory  != 9999){
-      Equip.Accessory.Set(LoadData.EquipAccessory);
-    }
+    Equip.Weapon(LoadData.EquipWeapon);
+    Equip.Head(LoadData.EquipHead);
+    Equip.Body(LoadData.EquipBody);
+    Equip.Hand(LoadData.EquipHand);
+    Equip.Foot(LoadData.EquipFoot);
+    Equip.Accessory(LoadData.EquipAccessory);
+    
   }
 
   public void NewGame(string name){

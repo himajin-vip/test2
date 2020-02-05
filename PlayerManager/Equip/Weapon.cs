@@ -12,8 +12,10 @@ public class Weapon
 
   public void Set(int itemid){
     ItemId = itemid;
-    WeaponItem Item = ItemManager.returnWeaponItem(itemid);
-    Item.Equip();
+    if(itemid != 9999){
+      WeaponItem Item = ItemManager.returnWeaponItem(itemid);
+      Item.Equip();
+    }
     DataManager.Save();
   }
 

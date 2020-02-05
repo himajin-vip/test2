@@ -61,7 +61,7 @@ public class HeadEquipState : MenuState
     InfoWindowText.text = "";
     InventoryList = InventoryManager.ReturnInventoryList("HeadItem");
     foreach(int ItemID in InventoryList) {
-      if(ItemID == PlayerManager.Player.Equip.Head.ItemId){
+      if(ItemID == PlayerManager.Player.Equip.head.ItemId){
         ItemTextList[Inventorycount].text = "E:"+ItemManager.returnItemName(ItemID)+" / "+InventoryManager.ReturnPieces(ItemID)+"個";
         Inventorycount++;
       }else{

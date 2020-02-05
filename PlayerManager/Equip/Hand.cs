@@ -10,9 +10,11 @@ public class Hand
     ItemId = 9999;
   }
   public void Set(int itemid){
-    HandItem Item = ItemManager.returnHandItem(itemid);
     ItemId = itemid;
-    Item.Equip();
+    if(itemid != 9999){
+      HandItem Item = ItemManager.returnHandItem(itemid);
+      Item.Equip();
+    }
     DataManager.Save();
   }
 

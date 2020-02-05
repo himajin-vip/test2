@@ -11,9 +11,11 @@ public class Head
   }
 
   public void Set(int itemid){
-    HeadItem Item = ItemManager.returnHeadItem(itemid);
     ItemId = itemid;
-    Item.Equip();
+    if( itemid != 9999){
+      HeadItem Item = ItemManager.returnHeadItem(itemid);
+      Item.Equip();
+    }
     DataManager.Save();
   }
 

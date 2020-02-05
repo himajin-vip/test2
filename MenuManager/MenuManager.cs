@@ -139,12 +139,12 @@ public static class MenuManager
     return InventoryEndfrag;
   }
   public static void EquipWindowReset(){
-    EquipWeaponText.text = ItemManager.returnItemName(PlayerManager.Player.Equip.Weapon.ItemId);
-    EquipHeadText.text = ItemManager.returnItemName(PlayerManager.Player.Equip.Head.ItemId);
-    EquipBodyText.text = ItemManager.returnItemName(PlayerManager.Player.Equip.Body.ItemId);
-    EquipHandText.text = ItemManager.returnItemName(PlayerManager.Player.Equip.Hand.ItemId);
-    EquipFootText.text = ItemManager.returnItemName(PlayerManager.Player.Equip.Foot.ItemId);
-    EquipAccessoryText.text = ItemManager.returnItemName(PlayerManager.Player.Equip.Accessory.ItemId);
+    EquipWeaponText.text = ItemManager.returnItemName(PlayerManager.Player.Equip.weapon.ItemId);
+    EquipHeadText.text = ItemManager.returnItemName(PlayerManager.Player.Equip.head.ItemId);
+    EquipBodyText.text = ItemManager.returnItemName(PlayerManager.Player.Equip.body.ItemId);
+    EquipHandText.text = ItemManager.returnItemName(PlayerManager.Player.Equip.hand.ItemId);
+    EquipFootText.text = ItemManager.returnItemName(PlayerManager.Player.Equip.foot.ItemId);
+    EquipAccessoryText.text = ItemManager.returnItemName(PlayerManager.Player.Equip.accessory.ItemId);
 
   }
 }

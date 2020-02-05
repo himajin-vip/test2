@@ -44,7 +44,7 @@ public class BodyEquipComandState : MenuState
   public void CursolOn(){
     switch(CursolPos){
       case 0:
-        PlayerManager.Player.Equip.Body.Set(InventoryManager.ReturnSelectItem());
+        PlayerManager.Player.Equip.Body(InventoryManager.ReturnSelectItem());
         MenuManager.SetMenuState("BodyEquip");
       break;
       case 1:

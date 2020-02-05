@@ -44,7 +44,7 @@ public class WeaponEquipComandState : MenuState
   public void CursolOn(){
     switch(CursolPos){
       case 0:
-        PlayerManager.Player.Equip.Weapon.Set(InventoryManager.ReturnSelectItem());
+        PlayerManager.Player.Equip.Weapon(InventoryManager.ReturnSelectItem());
         MenuManager.SetMenuState("WeaponEquip");
       break;
       case 1:

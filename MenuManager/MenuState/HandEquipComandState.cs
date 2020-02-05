@@ -44,7 +44,7 @@ public class HandEquipComandState : MenuState
   public void CursolOn(){
     switch(CursolPos){
       case 0:
-        PlayerManager.Player.Equip.Hand.Set(InventoryManager.ReturnSelectItem());
+        PlayerManager.Player.Equip.Hand(InventoryManager.ReturnSelectItem());
         MenuManager.SetMenuState("HandEquip");
       break;
       case 1:

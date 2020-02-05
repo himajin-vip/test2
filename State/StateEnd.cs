@@ -10,7 +10,6 @@ public class StateEnd : UpdateState
     // Update is called once per frame
     public void Update()
     {
-
     }
     public void End(){
 

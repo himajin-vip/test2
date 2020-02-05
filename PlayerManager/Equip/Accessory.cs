@@ -9,13 +9,15 @@ public class Accessory
     ItemId = 9999;
   }
   public void Set(int itemid){
-    AccessoryItem Item = ItemManager.returnAccessoryItem(itemid);
     ItemId = itemid;
-    Item.Equip();
+    if(itemid != 9999){
+      AccessoryItem Item = ItemManager.returnAccessoryItem(itemid);
+      Item.Equip();
+    }
     DataManager.Save();
   }
 
-  static public void UnSet(int ItemID){
+  public void UnSet(int ItemID){
       AccessoryItem Item = ItemManager.returnAccessoryItem(ItemID);
       Item.UnEquip();
       DataManager.Save();

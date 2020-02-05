@@ -10,9 +10,11 @@ public class Body
     ItemId = 9999;
   }
   public void Set(int itemid){
-    BodyItem Item = ItemManager.returnBodyItem(itemid);
     ItemId = itemid;
-    Item.Equip();
+    if(itemid != 9999){
+      BodyItem Item = ItemManager.returnBodyItem(itemid);
+      Item.Equip();
+    }
     DataManager.Save();
   }
 

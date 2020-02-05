@@ -44,7 +44,7 @@ public class FootEquipComandState : MenuState
   public void CursolOn(){
     switch(CursolPos){
       case 0:
-        PlayerManager.Player.Equip.Foot.Set(InventoryManager.ReturnSelectItem());
+        PlayerManager.Player.Equip.Foot(InventoryManager.ReturnSelectItem());
         MenuManager.SetMenuState("FootEquip");
       break;
       case 1:
