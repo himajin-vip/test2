@@ -6,11 +6,12 @@ public class RedSlime : Enemy
 {
     RedSlime(){
       Name = new Name("レッドスライム");
+      Lv = new Lv(5);
       Hp = new Hp(20,20);
       Mp = new Mp(0,0);
-      Str = new Str(30);
-      Vit = new Vit(10);
-      Exp = 10;
+      Str = new Str(50);
+      Vit = new Vit(50);
+      Exp = 30;
       Gold = 10;
       DropItem = 0;
       MoveSpeed = 1;

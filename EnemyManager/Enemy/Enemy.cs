@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
   public virtual void Atack(GameObject Playerobj){
 
     Damage Damage = new Damage();
-    int FinalDamage = Damage.Check(Str.Value,PlayerManager.Player.Vit.Value);
+    int FinalDamage = Damage.Check(Lv.Value,Str.Value,PlayerManager.Player.Lv.Value,PlayerManager.Player.Vit.Value);
     DamageTextManager.Make(FinalDamage,Playerobj.transform.position.x,Playerobj.transform.position.y,new Color(255,0,0),Playerobj.transform);
     LogManager.MakeDamageLog(PlayerManager.Player.Name.Value,FinalDamage);
     PlayerManager.Player.Hp.Damage(FinalDamage);

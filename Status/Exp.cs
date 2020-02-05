@@ -17,7 +17,7 @@ public class Exp
     if(currentValue >= maxValue){
       PlayerManager.Player.LvUp();
       currentValue = currentValue - maxValue;
-      maxValue = (int)(maxValue * 0.1);
+      maxValue = (int)(maxValue * 1.1);
     }
     DataManager.Save();
   }

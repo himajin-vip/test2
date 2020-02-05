@@ -9,7 +9,7 @@ public class SwordChargeAtack : Skill
         if(!enemy.DeathCheck){
           EfectManager.efecton("kiriefect",enemy.transform.position.x,enemy.transform.position.y,enemy.gameObject);
           Damage Damage = new Damage();
-          int FinalDamage = Damage.Check(PlayerManager.Player.Str.Value,enemy.Vit.Value);
+          int FinalDamage = Damage.Check(PlayerManager.Player.Lv.Value,PlayerManager.Player.Str.Value,enemy.Lv.Value,enemy.Vit.Value);
           DamageTextManager.Make(FinalDamage,enemy.transform.position.x,enemy.transform.position.y,new Color(255,255,255),enemy.transform);
           LogManager.MakeDamageLog(enemy.Name.Value,FinalDamage);
           enemy.Hp.Damage(FinalDamage);
