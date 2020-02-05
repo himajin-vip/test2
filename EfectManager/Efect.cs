@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//aaaaa
 public class Efect : MonoBehaviour
 {
   public void SetUp(float efectposx , float efectposy,GameObject obj_parent){
