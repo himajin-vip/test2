@@ -4,20 +4,24 @@ using UnityEngine;
 
 public class SwordChargeAtack : Skill
 {
+  int Mp = 5;
     public void Damage(Dictionary<int,Enemy> EnemyList){
       foreach(Enemy enemy in EnemyList.Values){
         if(!enemy.DeathCheck){
           EfectManager.efecton("kiriefect",enemy.transform.position.x,enemy.transform.position.y,enemy.gameObject);
           Damage Damage = new Damage();
-          int FinalDamage = Damage.Check(PlayerManager.Player.Lv.Value,PlayerManager.Player.Str.Value,enemy.Lv.Value,enemy.Vit.Value);
+          int FinalDamage = Damage.Check((int)(PlayerManager.Player.Lv.Value)*2,PlayerManager.Player.Str.Value,enemy.Lv.Value,enemy.Vit.Value);
           DamageTextManager.Make(FinalDamage,enemy.transform.position.x,enemy.transform.position.y,new Color(255,255,255),enemy.transform);
           LogManager.MakeDamageLog(enemy.Name.Value,FinalDamage);
           enemy.Hp.Damage(FinalDamage);
         }
       }
     }
-
+    public int returnMp(){
+      return Mp;
+    }
     public void AtackOn(){
+      PlayerManager.Player.Mp.Use(Mp);
       AudioManager.AudioON(5);
       int Direction = PlayerManager.Player.Direction.Value;
       GameObject Weapon = PlayerManager.Player.Weapon;

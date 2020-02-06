@@ -17,6 +17,9 @@ public class SwordNomalAtack : Skill
         }
       }
     }
+    public int returnMp(){
+      return 0;
+    }
 
     public void AtackOn(){
 

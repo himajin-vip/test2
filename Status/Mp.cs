@@ -11,6 +11,19 @@ public class Mp
       maxValue = max;
       currentValue = current;
     }
+
+    public void Use(int value){
+      currentValue -= value;
+      DataManager.Save();
+    }
+    public void Recovery(int recovery){
+      currentValue += recovery;
+      if(currentValue>maxValue){
+        currentValue = maxValue;
+      }
+      DataManager.Save();
+    }
+
     public void LvUp(int value){
       maxValue  += value;
       currentValue = maxValue;

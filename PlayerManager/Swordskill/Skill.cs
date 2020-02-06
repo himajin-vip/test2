@@ -7,4 +7,6 @@ public interface Skill{
   void Damage(Dictionary<int,Enemy> EnemyList);
   void AtackOn();
 
+  int returnMp();
+
 }

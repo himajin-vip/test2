@@ -6,13 +6,13 @@ public class LeatherCap : HeadItem
 {
   public LeatherCap(){
     SetId(200);
-    SetInfo("Vitを5上げます");
+    SetInfo("Vitを1上げます");
   }
   public override void Equip(){
-    PlayerManager.Player.Vit.Equip(5);
+    PlayerManager.Player.Vit.Equip(1);
   }
   public override void UnEquip(){
-    PlayerManager.Player.Vit.UnEquip(5);
+    PlayerManager.Player.Vit.UnEquip(1);
   }
 
 }

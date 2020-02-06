@@ -7,11 +7,11 @@ public class Slime :Enemy
   Slime(){
     Name = new Name("スライム");
     Lv = new Lv(1);
-    Hp = new Hp(10,10);
+    Hp = new Hp(30,30);
     Mp = new Mp(0,0);
     Str = new Str(1);
     Vit = new Vit(1);
-    Exp = 20;
+    Exp = 15;
     Gold = 1;
     DropItem = 0;
     MoveSpeed = 1;

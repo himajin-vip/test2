@@ -37,6 +37,9 @@ public class Player
   ///////攻撃////////////
   public Atack Atack{get; private set;} = new Atack();
 
+  //////自動回復//////////
+   private AutoKaihuku AutoKaihuku;
+
 
   public void ItemUse(int ItemID){
     UseItem Item = ItemManager.returnUseItem(ItemID);
@@ -73,13 +76,15 @@ public class Player
     Equip.Hand(LoadData.EquipHand);
     Equip.Foot(LoadData.EquipFoot);
     Equip.Accessory(LoadData.EquipAccessory);
+    AutoKaihuku = GameObject.transform.Find("kaihuku").GetComponent<AutoKaihuku>();
+    AutoKaihuku.Set();
     
   }
 
   public void NewGame(string name){
     Name = new Name(name);
     Lv = new Lv(1);
-    Hp = new Hp(50,50);
+    Hp = new Hp(100,100);
     Mp = new Mp(10,10);
     Str = new Str(1);
     Vit = new Vit(1);
@@ -98,14 +103,17 @@ public class Player
     NormalAtack = new SwordNomalAtack();
     Skill = NormalAtack;
     Charge = GameObject.transform.Find("tame").GetComponent<Charge>();
+
+    AutoKaihuku = GameObject.transform.Find("kaihuku").GetComponent<AutoKaihuku>();
+    AutoKaihuku.Set();
   }
   public void LvUp(){
     Lv.LvUp();
-    Hp.LvUp(10);
+    Hp.LvUp(50);
     Mp.LvUp(5);
-    Str.LvUp(5);
-    Vit.LvUp(5);
-    Dex.LvUp(3);
+    Str.LvUp(1);
+    Vit.LvUp(1);
+    Dex.LvUp(1);
     Int.LvUp(1);
     DataManager.Save();
   }

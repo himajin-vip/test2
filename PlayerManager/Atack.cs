@@ -8,7 +8,9 @@ public class Atack
 
   public void KeyDown(){
     if(!On&&!KeyPush){
-      PlayerManager.Player.Charge.Set();
+      if(PlayerManager.Player.ChargeSkill.returnMp()<=PlayerManager.Player.Mp.currentValue){
+        PlayerManager.Player.Charge.Set();
+      }
       KeyPush = true;
     }
   }
