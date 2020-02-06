@@ -20,6 +20,8 @@ public static class EnemyManager
 
     EnemyTypeList.Add(0,(GameObject)Resources.Load("prefab/Enemy/Slime"));
     EnemyTypeList.Add(1,(GameObject)Resources.Load("prefab/Enemy/RedSlime"));
+    EnemyTypeList.Add(2,(GameObject)Resources.Load("prefab/Enemy/BigSlime"));
+    EnemyTypeList.Add(3,(GameObject)Resources.Load("prefab/Enemy/KingSlime"));
 
     EnemyCurrentCount = 0;
 

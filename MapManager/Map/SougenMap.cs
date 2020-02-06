@@ -26,17 +26,17 @@ public class SougenMap : Map
     List<int> EnemyTypeList11 = new List<int>{1};
     MapEnemyList EnemyList11 = new MapEnemyList(EnemyTypeList11,5);
 
-    List<int> EnemyTypeList21 = new List<int>{0};
-    MapEnemyList EnemyList21 = new MapEnemyList(EnemyTypeList21,3);
+    List<int> EnemyTypeList21 = new List<int>{2};
+    MapEnemyList EnemyList21 = new MapEnemyList(EnemyTypeList21,4);
 
-    List<int> EnemyTypeList02 = new List<int>{0};
-    MapEnemyList EnemyList02 = new MapEnemyList(EnemyTypeList02,2);
+    List<int> EnemyTypeList02 = new List<int>{1};
+    MapEnemyList EnemyList02 = new MapEnemyList(EnemyTypeList02,4);
 
-    List<int> EnemyTypeList12 = new List<int>{1};
-    MapEnemyList EnemyList12 = new MapEnemyList(EnemyTypeList12,8);
+    List<int> EnemyTypeList12 = new List<int>{2};
+    MapEnemyList EnemyList12 = new MapEnemyList(EnemyTypeList12,3);
 
-    List<int> EnemyTypeList22 = new List<int>{0,1};
-    MapEnemyList EnemyList22 = new MapEnemyList(EnemyTypeList22,9);
+    List<int> EnemyTypeList22 = new List<int>{3};
+    MapEnemyList EnemyList22 = new MapEnemyList(EnemyTypeList22,1);
 
     EnemyList = new MapEnemyList[3,3]{
       {EnemyList00,EnemyList10,EnemyList20},

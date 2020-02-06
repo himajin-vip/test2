@@ -100,7 +100,12 @@ public class Enemy : MonoBehaviour
   public void Death(){
     DeathCheck = true;
     ItemDrop();
-    PlayerManager.Player.Exp.Get(Exp);
+    int exp = Exp;
+    if(Lv.Value<PlayerManager.Player.Lv.Value){
+      double down = ((PlayerManager.Player.Lv.Value - Lv.Value)/10f);
+                 exp =(int)(Exp * (1f-down));
+    }
+          PlayerManager.Player.Exp.Get(exp);
     StartCoroutine(DestroyEnemy());
   }
   public void ItemDrop(){
