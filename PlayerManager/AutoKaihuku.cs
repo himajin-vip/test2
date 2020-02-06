@@ -6,18 +6,8 @@ public class AutoKaihuku : MonoBehaviour
 {
   private float kaihukuTime = 5f;
   private Coroutine kaihukuC;
-  private Efect Efect;
-  private bool ChargeNow = false;
   public void Set(){
     kaihukuC = StartCoroutine(kaihukuStart());
-  }
-  public void Stop(){
-    StopCoroutine(kaihukuC);
-    AudioManager.AudioOFF(4);
-    if(ChargeNow){
-      GameObject.Destroy(Efect.gameObject);
-    }
-    ChargeNow = false;
   }
 
   public  IEnumerator kaihukuStart(){

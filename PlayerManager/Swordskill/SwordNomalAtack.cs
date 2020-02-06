@@ -10,7 +10,7 @@ public class SwordNomalAtack : Skill
           EfectManager.efecton("kiriefect",enemy.transform.position.x,enemy.transform.position.y,enemy.gameObject);
           Damage Damage = new Damage();
           int FinalDamage = Damage.Check(PlayerManager.Player.Lv.Value,PlayerManager.Player.Str.Value,enemy.Lv.Value,enemy.Vit.Value);
-          DamageTextManager.Make(FinalDamage,enemy.transform.position.x,enemy.transform.position.y,new Color(255,255,255),enemy.transform);
+          FiledTextManager.Make(FinalDamage.ToString(),enemy.transform.position.x,enemy.transform.position.y,new Color(255,255,255),enemy.transform);
           LogManager.MakeDamageLog(enemy.Name.Value,FinalDamage);
           enemy.Hp.Damage(FinalDamage);
           break;

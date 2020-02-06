@@ -16,6 +16,7 @@ public static class AudioManager
       AudioList.Add(6,GameObject.Find("AudioPlayer").transform.Find("kaihuku").GetComponent<AudioSource>());
       AudioList.Add(7,GameObject.Find("AudioPlayer").transform.Find("ItemGet").GetComponent<AudioSource>());
       AudioList.Add(8,GameObject.Find("AudioPlayer").transform.Find("kamituki").GetComponent<AudioSource>());
+      AudioList.Add(9,GameObject.Find("AudioPlayer").transform.Find("LVUP").GetComponent<AudioSource>());
     }
     public static void AudioON(int AudioNo){
       AudioList[AudioNo].Play();

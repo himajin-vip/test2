@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
 
     Damage Damage = new Damage();
     int FinalDamage = Damage.Check(Lv.Value,Str.Value,PlayerManager.Player.Lv.Value,PlayerManager.Player.Vit.Value);
-    DamageTextManager.Make(FinalDamage,Playerobj.transform.position.x,Playerobj.transform.position.y,new Color(255,0,0),Playerobj.transform);
+    FiledTextManager.Make(FinalDamage.ToString(),Playerobj.transform.position.x,Playerobj.transform.position.y,new Color(255,0,0),Playerobj.transform);
     LogManager.MakeDamageLog(PlayerManager.Player.Name.Value,FinalDamage);
     PlayerManager.Player.Hp.Damage(FinalDamage);
     Vector3 Playerpos = Playerobj.gameObject.transform.position;

@@ -70,6 +70,7 @@ public static class LogManager
 
   public static void LvUp(string Name){
     string newlog = (Name+"はLVが上がった");
+    AudioManager.AudioON(9);
     MakeLog(newlog);
   }
 }
