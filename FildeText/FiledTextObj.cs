@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FiledText : MonoBehaviour {
+public class FiledTextObj : MonoBehaviour {
 
   public void go(){
     int randx = Random.Range(-18000, 18000);

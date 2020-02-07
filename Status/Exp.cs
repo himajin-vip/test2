@@ -20,7 +20,8 @@ public class Exp
       currentValue = currentValue - maxValue;
       maxValue = (int)(maxValue * 1.1);
       LogManager.LvUp(PlayerManager.Player.Name.Value);
-      FiledTextManager.Make("LVUP",PlayerManager.Player.GameObject.transform.position.x,PlayerManager.Player.GameObject.transform.position.y,new Color(255,255,0),PlayerManager.Player.GameObject.transform);
+      FiledText filedText = new FiledText();
+      filedText.Make("LVUP",new Color(255,255,0),PlayerManager.Player.GameObject.transform);
     }
     DataManager.Save();
   }
