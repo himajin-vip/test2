@@ -22,7 +22,6 @@ public class SaveData
   public int EquipHand;
   public int EquipFoot;
   public int EquipAccessory;
-
   public List<int> UseItemList  = new List<int>();
   public List<int> UseItemNumberList  = new List<int>();
   public List<int> WeaponItemList  = new List<int>();

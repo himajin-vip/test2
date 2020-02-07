@@ -10,6 +10,7 @@ public static class DataManager
   public static SaveData LoadData{get; private set;} = new SaveData();
   public static bool NewGame{get ;private set;} = true;
   private static AccountData AccountData = new AccountData();
+  private static Dictionary<int,int> test = new Dictionary<int, int>();
 
 
   public static bool NewCharacter(string name , string password){
