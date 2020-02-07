@@ -33,7 +33,7 @@ public static class InventoryManager
 
     static public void ItemGet(Collider2D collision){
 
-      DropItem getItem = collision.gameObject.GetComponent<DropItem>();
+      DropItemObj getItem = collision.gameObject.GetComponent<DropItemObj>();
       int ItemID = getItem.ItemId;
       LogManager.MakeItemGetLog(PlayerManager.Player.Name.Value,ItemID);
       getItem.DropEnd();

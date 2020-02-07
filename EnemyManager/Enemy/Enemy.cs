@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
   public Int Int{get; protected set;}
   public int Exp;
   public int Gold;
-  public int DropItem;
+  public List<DropItem> DropItemList = new List<DropItem>();
   public int MoveSpeed;
   public int MoveStatus;
   public float AtackWaitTime;
@@ -99,7 +99,7 @@ public class Enemy : MonoBehaviour
   }
   public void Death(){
     DeathCheck = true;
-    ItemDrop();
+    new ItemDrop(DropItemList,this.transform);
     int exp = Exp;
     if(Lv.Value<PlayerManager.Player.Lv.Value){
       double down = ((PlayerManager.Player.Lv.Value - Lv.Value)/10f);
@@ -107,13 +107,6 @@ public class Enemy : MonoBehaviour
     }
           PlayerManager.Player.Exp.Get(exp);
     StartCoroutine(DestroyEnemy());
-  }
-  public void ItemDrop(){
-    int i ;
-    i = Random.Range(0,3);
-    if(i == 2){
-      ItemManager.DropItemMake(DropItem,this.transform.position.x,this.transform.position.y);
-    }
   }
 
   void OnCollisionStay2D(Collision2D collision2){

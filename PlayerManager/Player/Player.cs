@@ -35,7 +35,7 @@ public class Player
   public Skill ChargeSkill{get; private set;}
 
   ///////攻撃////////////
-  public Atack Atack{get; private set;} = new Atack();
+  public Atack Atack{get; private set;}
 
   //////自動回復//////////
    private AutoKaihuku AutoKaihuku;
@@ -63,6 +63,8 @@ public class Player
     MoveSpeed = new MoveSpeed(3,1);
 
     Direction = new Direction(Animator);
+
+    Atack = new Atack();
 
     ChargeSkill = new SwordChargeAtack();
     NormalAtack = new SwordNomalAtack();
@@ -94,6 +96,7 @@ public class Player
     MoveSpeed = new MoveSpeed(3,1);
 
     Equip = new Equip();
+    Atack = new Atack();
 
     Direction = new Direction(Animator);
 

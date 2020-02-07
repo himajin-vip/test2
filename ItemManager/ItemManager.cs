@@ -161,7 +161,7 @@ public static class ItemManager
     }
     public static void DropItemMake(int ItemID,float x,float y){
       GameObject DropItem = GameObject.Instantiate(DropItemprefab, new Vector3(x,y,0), Quaternion.identity);
-      DropItem dropitem = DropItem.GetComponent<DropItem>();
+      DropItemObj dropitem = DropItem.GetComponent<DropItemObj>();
       dropitem.SetUp(ItemID,x,y);
     }
 

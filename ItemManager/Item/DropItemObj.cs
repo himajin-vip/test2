@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DropItem : MonoBehaviour
+public class DropItemObj : MonoBehaviour
 {
   public int ItemId;
 
