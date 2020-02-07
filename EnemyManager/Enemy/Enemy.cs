@@ -29,7 +29,8 @@ public class Enemy : MonoBehaviour
     DamageCheck DamageCheck = new DamageCheck();
     DamageCheck.Player(Name.Value,Lv.Value,Str.Value);
     Vector3 Playerpos = Playerobj.gameObject.transform.position;
-    EfectManager.efecton("Kamitukiefect",Playerpos.x,Playerpos.y,Playerobj);//エフェクト作成
+    Efect Efect = new Efect();
+    Efect.On("Kamitukiefect",Playerobj);//エフェクト作成
     AudioManager.AudioON(8);
   }
 

@@ -12,7 +12,8 @@ public class HiPotion : UseItem
     LogManager.UseItemLog(Name,ReturnID());
     LogManager.RecoveryHpLog(Name,recovery);
     FiledTextManager.Make(recovery.ToString(),PlayerManager.Player.GameObject.transform.position.x,PlayerManager.Player.GameObject.transform.position.y,new Color(0,255,0),PlayerManager.Player.GameObject.transform);
-    EfectManager.efecton("kaihukuefect",PlayerManager.Player.GameObject.transform.position.x,PlayerManager.Player.GameObject.transform.position.y,PlayerManager.Player.GameObject);
+    Efect Efect = new Efect();
+    Efect.On("kaihukuefect",PlayerManager.Player.GameObject);
     AudioManager.AudioON(6);
   }
 }

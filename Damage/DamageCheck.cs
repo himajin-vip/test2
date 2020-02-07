@@ -20,14 +20,15 @@ public class DamageCheck
         PlayerManager.Player.Hp.Damage(FinalDamage);
     }
 
-    public void Enemy(Enemy enemy){
+    public bool Enemy(Enemy enemy){
         if(!enemy.DeathCheck){
-          EfectManager.efecton("kiriefect",enemy.transform.position.x,enemy.transform.position.y,enemy.gameObject);
           Damage Damage = new Damage();
           int FinalDamage = Damage.Check(PlayerManager.Player.Lv.Value,PlayerManager.Player.Str.Value,enemy.Lv.Value,enemy.Vit.Value);
           FiledTextManager.Make(FinalDamage.ToString(),enemy.transform.position.x,enemy.transform.position.y,new Color(255,255,255),enemy.transform);
           new DamageLog(enemy.Name.Value,FinalDamage);
           enemy.Hp.Damage(FinalDamage);
+          return true;
         }
+        return false;
     }
 }
