@@ -58,26 +58,26 @@ public class SaveData
      EquipFoot = PlayerManager.Player.Equip.foot.ItemId;
      EquipAccessory = PlayerManager.Player.Equip.accessory.ItemId;
 
-     UseItemList = InventoryManager.ReturnInventoryList("UseItem");
-     UseItemNumberList = InventoryManager.ReturnInventoryNumberList("UseItem");
+     UseItemList = InventoryManager.ReturnInventoryList(ItemType.Use);
+     UseItemNumberList = InventoryManager.ReturnInventoryNumberList(ItemType.Use);
 
-     WeaponItemList = InventoryManager.ReturnInventoryList("WeaponItem");
-     WeaponItemNumberList = InventoryManager.ReturnInventoryNumberList("WeaponItem");
+     WeaponItemList = InventoryManager.ReturnInventoryList(ItemType.Weapon);
+     WeaponItemNumberList = InventoryManager.ReturnInventoryNumberList(ItemType.Weapon);
 
-     HeadItemList = InventoryManager.ReturnInventoryList("HeadItem");
-     HeadItemNumberList = InventoryManager.ReturnInventoryNumberList("HeadItem");
+     HeadItemList = InventoryManager.ReturnInventoryList(ItemType.Head);
+     HeadItemNumberList = InventoryManager.ReturnInventoryNumberList(ItemType.Head);
 
-     BodyItemList = InventoryManager.ReturnInventoryList("BodyItem");
-     BodyItemNumberList = InventoryManager.ReturnInventoryNumberList("BodyItem");
+     BodyItemList = InventoryManager.ReturnInventoryList(ItemType.Body);
+     BodyItemNumberList = InventoryManager.ReturnInventoryNumberList(ItemType.Body);
 
-     HandItemList = InventoryManager.ReturnInventoryList("HandItem");
-     HandItemNumberList = InventoryManager.ReturnInventoryNumberList("HandItem");
+     HandItemList = InventoryManager.ReturnInventoryList(ItemType.Hand);
+     HandItemNumberList = InventoryManager.ReturnInventoryNumberList(ItemType.Hand);
 
-     FootItemList = InventoryManager.ReturnInventoryList("FootItem");
-     FootItemNumberList = InventoryManager.ReturnInventoryNumberList("FootItem");
+     FootItemList = InventoryManager.ReturnInventoryList(ItemType.Foot);
+     FootItemNumberList = InventoryManager.ReturnInventoryNumberList(ItemType.Foot);
 
-     AccesuryItemList = InventoryManager.ReturnInventoryList("AccesuryItem");
-     AccesuryItemNumberList = InventoryManager.ReturnInventoryNumberList("AccesuryItem");
+     AccesuryItemList = InventoryManager.ReturnInventoryList(ItemType.Accessory);
+     AccesuryItemNumberList = InventoryManager.ReturnInventoryNumberList(ItemType.Accessory);
 
   }
 }

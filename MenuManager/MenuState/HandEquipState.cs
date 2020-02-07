@@ -59,7 +59,7 @@ public class HandEquipState : MenuState
       ItemTextList[i].text = "";
     }
     InfoWindowText.text = "";
-    InventoryList = InventoryManager.ReturnInventoryList("HandItem");
+    InventoryList = InventoryManager.ReturnInventoryList(ItemType.Hand);
     foreach(int ItemID in InventoryList) {
       if(ItemID == PlayerManager.Player.Equip.hand.ItemId){
         ItemTextList[Inventorycount].text = "E:"+ItemManager.returnItemName(ItemID)+" / "+InventoryManager.ReturnPieces(ItemID)+"個";

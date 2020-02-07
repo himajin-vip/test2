@@ -58,7 +58,7 @@ public class ItemUseState : MenuState
       ItemTextList[i].text = "";
     }
     InfoWindowText.text = "";
-    InventoryList = InventoryManager.ReturnInventoryList("UseItem");
+    InventoryList = InventoryManager.ReturnInventoryList(ItemType.Use);
     foreach(int ItemID in InventoryList) {
       ItemTextList[Inventorycount].text = ItemManager.returnItemName(ItemID)+" / "+InventoryManager.ReturnPieces(ItemID)+"個";
       Inventorycount++;

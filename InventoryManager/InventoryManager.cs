@@ -91,53 +91,53 @@ public static class InventoryManager
       }
       DataManager.Save();
     }
-    static public List<int> ReturnInventoryList(string ItemType){
+    static public List<int> ReturnInventoryList(ItemType ItemType){
       switch(ItemType){
-        case "UseItem":
+        case ItemType.Use:
           return new List<int>(UseItemInventory.Keys);
 
-        case "WeaponItem":
+        case ItemType.Weapon:
           return new List<int>(WeaponItemInventory.Keys);
 
-        case "HeadItem":
+        case ItemType.Head:
           return new List<int>(HeadItemInventory.Keys);
 
-        case "BodyItem":
+        case ItemType.Body:
           return new List<int>(BodyItemInventory.Keys);
 
-        case "HandItem":
+        case ItemType.Hand:
           return new List<int>(HandItemInventory.Keys);
 
-        case "FootItem":
+        case ItemType.Foot:
           return new List<int>(FootItemInventory.Keys);
 
-        case "AccesuryItem":
+        case ItemType.Accessory:
           return new List<int>(AccesuryItemInventory.Keys);
 
       }
       return new List<int>(0);
     }
-    static public List<int> ReturnInventoryNumberList(string ItemType){
+    static public List<int> ReturnInventoryNumberList(ItemType ItemType){
       switch(ItemType){
-        case "UseItem":
+        case ItemType.Use:
           return new List<int>(UseItemInventory.Values);
 
-        case "WeaponItem":
+        case ItemType.Weapon:
           return new List<int>(WeaponItemInventory.Values);
 
-        case "HeadItem":
+        case ItemType.Head:
           return new List<int>(HeadItemInventory.Values);
 
-        case "BodyItem":
+        case ItemType.Body:
           return new List<int>(BodyItemInventory.Values);
 
-        case "HandItem":
+        case ItemType.Hand:
           return new List<int>(HandItemInventory.Values);
 
-        case "FootItem":
+        case ItemType.Foot:
           return new List<int>(FootItemInventory.Values);
 
-        case "AccesuryItem":
+        case ItemType.Accessory:
           return new List<int>(AccesuryItemInventory.Values);
 
       }

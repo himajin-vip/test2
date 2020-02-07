@@ -59,7 +59,7 @@ public class AccessoryEquipState : MenuState
       ItemTextList[i].text = "";
     }
     InfoWindowText.text = "";
-    InventoryList = InventoryManager.ReturnInventoryList("AccessoryItem");
+    InventoryList = InventoryManager.ReturnInventoryList(ItemType.Accessory);
     foreach(int ItemID in InventoryList) {
       if(ItemID == PlayerManager.Player.Equip.accessory.ItemId){
         ItemTextList[Inventorycount].text = "E:"+ItemManager.returnItemName(ItemID)+" / "+InventoryManager.ReturnPieces(ItemID)+"個";

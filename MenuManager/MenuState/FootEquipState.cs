@@ -59,7 +59,7 @@ public class FootEquipState : MenuState
       ItemTextList[i].text = "";
     }
     InfoWindowText.text = "";
-    InventoryList = InventoryManager.ReturnInventoryList("FootItem");
+    InventoryList = InventoryManager.ReturnInventoryList(ItemType.Foot);
     foreach(int ItemID in InventoryList) {
       if(ItemID == PlayerManager.Player.Equip.foot.ItemId){
         ItemTextList[Inventorycount].text = "E:"+ItemManager.returnItemName(ItemID)+" / "+InventoryManager.ReturnPieces(ItemID)+"個";
