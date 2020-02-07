@@ -14,12 +14,12 @@ public class Exp
 
   public void Get(int value){
     currentValue += value;
-    LogManager.GetExp(PlayerManager.Player.Name.Value,value);
+    new GetExpLog(PlayerManager.Player.Name.Value,value);
     if(currentValue >= maxValue){
       PlayerManager.Player.LvUp();
       currentValue = currentValue - maxValue;
       maxValue = (int)(maxValue * 1.1);
-      LogManager.LvUp(PlayerManager.Player.Name.Value);
+      new LvUpLog(PlayerManager.Player.Name.Value);
       FiledText filedText = new FiledText();
       filedText.Make("LVUP",new Color(255,255,0),PlayerManager.Player.GameObject.transform);
     }

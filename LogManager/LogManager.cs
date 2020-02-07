@@ -46,25 +46,4 @@ public static class LogManager
       LogList[7].text = NewText;
     }
   }
-
-
-  public static void MakeItemGetLog(string Name ,int ItemID){
-    string newlog = (Name+"は"+ItemManager.returnItemName(ItemID)+"を手に入れた");
-    MakeLog(newlog);
-  }
-  public static void UseItemLog(string Name,int ItemID){
-    string newlog = (Name+"は"+ItemManager.returnItemName(ItemID)+"を使った");
-    MakeLog(newlog);
-  }
-
-  public static void GetExp(string Name ,int Exp){
-    string newlog = (Name+"は"+Exp+"の経験値を手に入れた");
-    MakeLog(newlog);
-  }
-
-  public static void LvUp(string Name){
-    string newlog = (Name+"はLVが上がった");
-    AudioManager.AudioON(9);
-    MakeLog(newlog);
-  }
 }

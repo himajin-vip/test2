@@ -35,7 +35,7 @@ public static class InventoryManager
 
       DropItemObj getItem = collision.gameObject.GetComponent<DropItemObj>();
       int ItemID = getItem.ItemId;
-      LogManager.MakeItemGetLog(PlayerManager.Player.Name.Value,ItemID);
+      new ItemGetLog(PlayerManager.Player.Name.Value,ItemID);
       getItem.DropEnd();
 
       string ItemType = ItemManager.returnItemType(ItemID);
