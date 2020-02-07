@@ -46,10 +46,7 @@ public static class LogManager
       LogList[7].text = NewText;
     }
   }
-  public static void MakeDamageLog(string Name,int damage){
-    string newlog = (Name+"は"+damage+"のダメージを受けた");
-    MakeLog(newlog);
-  }
+
   public static void RecoveryHpLog(string Name,int recovery){
     string newlog = (Name+"はHPを"+recovery+"回復した");
     MakeLog(newlog);

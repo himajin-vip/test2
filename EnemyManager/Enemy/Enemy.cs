@@ -26,12 +26,8 @@ public class Enemy : MonoBehaviour
   public int MoveOnY;
 
   public virtual void Atack(GameObject Playerobj){
-
-    Damage Damage = new Damage();
-    int FinalDamage = Damage.Check(Lv.Value,Str.Value,PlayerManager.Player.Lv.Value,PlayerManager.Player.Vit.Value);
-    FiledTextManager.Make(FinalDamage.ToString(),Playerobj.transform.position.x,Playerobj.transform.position.y,new Color(255,0,0),Playerobj.transform);
-    LogManager.MakeDamageLog(PlayerManager.Player.Name.Value,FinalDamage);
-    PlayerManager.Player.Hp.Damage(FinalDamage);
+    DamageCheck DamageCheck = new DamageCheck();
+    DamageCheck.Player(Name.Value,Lv.Value,Str.Value);
     Vector3 Playerpos = Playerobj.gameObject.transform.position;
     EfectManager.efecton("Kamitukiefect",Playerpos.x,Playerpos.y,Playerobj);//エフェクト作成
     AudioManager.AudioON(8);

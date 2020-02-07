@@ -6,15 +6,9 @@ public class SwordChargeAtack : Skill
 {
   int Mp = 5;
     public void Damage(Dictionary<int,Enemy> EnemyList){
+      DamageCheck DamageCheck = new DamageCheck();
       foreach(Enemy enemy in EnemyList.Values){
-        if(!enemy.DeathCheck){
-          EfectManager.efecton("kiriefect",enemy.transform.position.x,enemy.transform.position.y,enemy.gameObject);
-          Damage Damage = new Damage();
-          int FinalDamage = Damage.Check((int)(PlayerManager.Player.Lv.Value)*2,PlayerManager.Player.Str.Value,enemy.Lv.Value,enemy.Vit.Value);
-          FiledTextManager.Make(FinalDamage.ToString(),enemy.transform.position.x,enemy.transform.position.y,new Color(255,255,255),enemy.transform);
-          LogManager.MakeDamageLog(enemy.Name.Value,FinalDamage);
-          enemy.Hp.Damage(FinalDamage);
-        }
+        DamageCheck.Enemy(enemy);
       }
     }
     public int returnMp(){
