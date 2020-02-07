@@ -2,8 +2,8 @@
 public class FootItem
 {
   ////ID500~
-  private int Id;
-  private string Info;
+  public int Id{get; protected set;}
+  public string Info{get; protected set;}
   public virtual void Equip(){
   }
   public virtual void UnEquip(){
