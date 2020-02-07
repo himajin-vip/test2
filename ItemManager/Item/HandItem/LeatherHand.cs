@@ -5,8 +5,8 @@ using UnityEngine;
 public class LeatherHand : HandItem
 {
   public LeatherHand(){
-    SetId(400);
-    SetInfo("Dexを１上げます");
+    Id = 400;
+    Info = "Dexを１上げます";
   }
   public override void Equip(){
     PlayerManager.Player.Dex.Equip(1);

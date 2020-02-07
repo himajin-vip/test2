@@ -5,8 +5,8 @@ using UnityEngine;
 public class LeatherCap : HeadItem
 {
   public LeatherCap(){
-    SetId(200);
-    SetInfo("Vitを1上げます");
+    Id = 200;
+    Info = "Vitを1上げます";
   }
   public override void Equip(){
     PlayerManager.Player.Vit.Equip(1);

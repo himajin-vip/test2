@@ -109,19 +109,19 @@ public static class ItemManager
       string ItemType = returnItemType(ItemID);
       switch(ItemType){
         case "UseItem":
-        return UseItemList[ItemID].ReturnInfo();
+        return UseItemList[ItemID].Info;
         case "WeaponItem":
-        return WeaponItemList[ItemID].ReturnInfo();
+        return WeaponItemList[ItemID].Info;
         case "HeadItem":
-        return HeadItemList[ItemID].ReturnInfo();
+        return HeadItemList[ItemID].Info;
         case "BodyItem":
-        return BodyItemList[ItemID].ReturnInfo();
+        return BodyItemList[ItemID].Info;
         case "HandItem":
-        return HandItemList[ItemID].ReturnInfo();
+        return HandItemList[ItemID].Info;
         case "FootItem":
-        return FootItemList[ItemID].ReturnInfo();
+        return FootItemList[ItemID].Info;
         case "AccessoryItem":
-        return AccessoryItemList[ItemID].ReturnInfo();
+        return AccessoryItemList[ItemID].Info;
       }
       return "";
     }

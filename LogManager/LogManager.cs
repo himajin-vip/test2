@@ -47,10 +47,7 @@ public static class LogManager
     }
   }
 
-  public static void RecoveryHpLog(string Name,int recovery){
-    string newlog = (Name+"はHPを"+recovery+"回復した");
-    MakeLog(newlog);
-  }
+
   public static void MakeItemGetLog(string Name ,int ItemID){
     string newlog = (Name+"は"+ItemManager.returnItemName(ItemID)+"を手に入れた");
     MakeLog(newlog);

@@ -5,8 +5,8 @@ using UnityEngine;
 public class LeatherBody : BodyItem
 {
   public LeatherBody(){
-    SetId(300);
-    SetInfo("Vitを1上げます");
+    Id = 300;
+    Info = "Vitを1上げます";
   }
   public override void Equip(){
     PlayerManager.Player.Vit.Equip(1);

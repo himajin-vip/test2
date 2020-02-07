@@ -5,8 +5,8 @@ using UnityEngine;
 public class IronSword : WeaponItem
 {
   public IronSword(){
-    SetId(100);
-    SetInfo("Strを5上げます");
+    Id = 100;
+    Info = "Strを5上げます";
   }
   public override void Equip(){
     PlayerManager.Player.Str.Equip(5);
