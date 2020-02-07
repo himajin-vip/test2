@@ -3,11 +3,11 @@ public class StateMenu : UpdateState
 {
 
     public void Start(){
-
+      ControlManager.KeyChenge("Menu");
     }
 
     public void Update(){
-      ControlManager.MenuKey();
+      ControlManager.Check();
       UI_Manager.UiStatusUpdate();
       ShortcutManager.AllPiecesReset();
     }

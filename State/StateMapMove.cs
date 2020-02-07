@@ -4,13 +4,13 @@ public class StateMapMove : UpdateState
 
     public void Start()
     {
-
+      ControlManager.KeyChenge("MapMove");
     }
 
     public void Update()
     {
       CameraManager.PlayerPosCheck();
-      ControlManager.AtackKeyUpCheck();
+      ControlManager.Check();
     }
 
     public void End(){

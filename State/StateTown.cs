@@ -7,14 +7,14 @@ public class StateTown : UpdateState
 
       public void Start()
       {
-
+        ControlManager.KeyChenge("Town");
       }
 
       public void Update()
       {
         PlayerManager.PlayerDeathCheck();
         CameraManager.PlayerPosCheck();
-        ControlManager.TownKey();
+        ControlManager.Check();
         UI_Manager.UiStatusUpdate();
         ShortcutManager.AllPiecesReset();
       }

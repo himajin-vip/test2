@@ -8,7 +8,7 @@ public class StateMain : UpdateState
 
     public void Start()
     {
-
+      ControlManager.KeyChenge("Main");
     }
 
     public void Update()
@@ -16,7 +16,7 @@ public class StateMain : UpdateState
       PlayerManager.PlayerDeathCheck();
       EnemyManager.EnemyUpdate();
       CameraManager.PlayerPosCheck();
-      ControlManager.KeyCheck();
+      ControlManager.Check();
       UI_Manager.UiStatusUpdate();
       ShortcutManager.AllPiecesReset();
       EnemyManager.MakeEnemy();

@@ -19,6 +19,7 @@ public class StateSetUp : UpdateState
       PlayerManager.SetUp();
       MapManager.SetUp();
       DataManager.Save();
+      ControlManager.SetUp();
     }
 
     public void Update()
