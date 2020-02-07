@@ -34,7 +34,6 @@ public class GameManager : MonoBehaviour
 
     public static void StateSet(string state){
       UpdateState.End();
-      Debug.Log("NextState->"+state);
       UpdateState = StateList[state];
       UpdateState.Start();
       LastState = NowState;
