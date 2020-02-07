@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UsePotion : MonoBehaviour
+public class UsePotion
 {
    public UsePotion(int ID,float Recovery){
     int recovery = (int)(PlayerManager.Player.Hp.maxValue*Recovery);
