@@ -38,53 +38,53 @@ public static class InventoryManager
       new ItemGetLog(PlayerManager.Player.Name.Value,ItemID);
       getItem.DropEnd();
 
-      string ItemType = ItemManager.returnItemType(ItemID);
+      ItemType ItemType = ItemManager.returnItemType(ItemID);
 
       if(InventoryKeyCheck(ItemID)){
         switch(ItemType){
-          case "UseItem":
+          case ItemType.Use:
             UseItemInventory[ItemID]++;
           break;
-          case "WeaponItem":
+          case ItemType.Weapon:
             WeaponItemInventory[ItemID]++;
           break;
-          case "HeadItem":
+          case ItemType.Head:
             HeadItemInventory[ItemID]++;
           break;
-          case "BodyItem":
+          case ItemType.Body:
             BodyItemInventory[ItemID]++;
           break;
-          case "HandItem":
+          case ItemType.Hand:
             HandItemInventory[ItemID]++;
           break;
-          case "FootItem":
+          case ItemType.Foot:
             FootItemInventory[ItemID]++;
           break;
-          case "AccesuryItem":
+          case ItemType.Accessory:
             AccesuryItemInventory[ItemID]++;
           break;
         }
       }else{
         switch(ItemType){
-          case "UseItem":
+          case ItemType.Use:
             UseItemInventory.Add (ItemID, 1);
           break;
-          case "WeaponItem":
+          case ItemType.Weapon:
             WeaponItemInventory.Add (ItemID, 1);
           break;
-          case "HeadItem":
+          case ItemType.Head:
             HeadItemInventory.Add (ItemID, 1);
           break;
-          case "BodyItem":
+          case ItemType.Body:
             BodyItemInventory.Add (ItemID, 1);
           break;
-          case "HandItem":
+          case ItemType.Hand:
             HandItemInventory.Add (ItemID, 1);
           break;
-          case "FootItem":
+          case ItemType.Foot:
             FootItemInventory.Add (ItemID, 1);
           break;
-          case "AccesuryItem":
+          case ItemType.Accessory:
             AccesuryItemInventory.Add (ItemID, 1);
           break;
         }
@@ -189,45 +189,45 @@ public static class InventoryManager
       return false;
     }
     static bool InventoryPiecesCheck(int ItemID){
-      string ItemType = ItemManager.returnItemType(ItemID);
+      ItemType ItemType = ItemManager.returnItemType(ItemID);
       switch(ItemType){
-        case "UseItem":
+        case ItemType.Use:
         if(UseItemInventory[ItemID]>0){
           return true;
         }else{
           return false;
         }
-        case "WeaponItem":
+        case ItemType.Weapon:
         if(WeaponItemInventory[ItemID]>0){
           return true;
         }else{
           return false;
         }
-        case "HeadItem":
+        case ItemType.Head:
         if(HeadItemInventory[ItemID]>0){
           return true;
         }else{
           return false;
         }
-        case "BodyItem":
+        case ItemType.Body:
         if(BodyItemInventory[ItemID]>0){
           return true;
         }else{
           return false;
         }
-        case "HandItem":
+        case ItemType.Hand:
         if(HandItemInventory[ItemID]>0){
           return true;
         }else{
           return false;
         }
-        case "FootItem":
+        case ItemType.Foot:
         if(FootItemInventory[ItemID]>0){
           return true;
         }else{
           return false;
         }
-        case "AccesuryItem":
+        case ItemType.Accessory:
         if(AccesuryItemInventory[ItemID]>0){
           return true;
         }else{
@@ -237,22 +237,22 @@ public static class InventoryManager
       return false;
     }
     static public int ReturnPieces(int ItemID){
-      string ItemType = ItemManager.returnItemType(ItemID);
+      ItemType ItemType = ItemManager.returnItemType(ItemID);
       if(InventoryKeyCheck(ItemID)){
         switch(ItemType){
-          case "UseItem":
+          case ItemType.Use:
             return UseItemInventory[ItemID];
-          case "WeaponItem":
+          case ItemType.Weapon:
             return WeaponItemInventory[ItemID];
-          case "HeadItem":
+          case ItemType.Head:
             return HeadItemInventory[ItemID];
-          case "BodyItem":
+          case ItemType.Body:
             return BodyItemInventory[ItemID];
-          case "HandItem":
+          case ItemType.Hand:
             return HandItemInventory[ItemID];
-          case "FootItem":
+          case ItemType.Foot:
             return FootItemInventory[ItemID];
-          case "AccesuryItem":
+          case ItemType.Accessory:
             return AccesuryItemInventory[ItemID];
         }
 
@@ -262,47 +262,46 @@ public static class InventoryManager
       return 0;
     }
     static public void ItemReduce(int ItemID){
-      string ItemType = ItemManager.returnItemType(ItemID);
+      ItemType ItemType = ItemManager.returnItemType(ItemID);
       if(InventoryKeyCheck(ItemID)){
         switch(ItemType){
-          case "UseItem":
+          case ItemType.Use:
             UseItemInventory[ItemID]--;
             if(UseItemInventory[ItemID]<=0){
-              Debug.Log("RemoveItem");
               UseItemInventory.Remove(ItemID);
             }
           break;
-          case "WeaponItem":
+          case ItemType.Weapon:
             WeaponItemInventory[ItemID]--;
             if(WeaponItemInventory[ItemID]<=0){
               WeaponItemInventory.Remove(ItemID);
             }
           break;
-          case "HeadItem":
+          case ItemType.Head:
             HeadItemInventory[ItemID]--;
             if(HeadItemInventory[ItemID]<=0){
               HeadItemInventory.Remove(ItemID);
             }
           break;
-          case "BodyItem":
+          case ItemType.Body:
             BodyItemInventory[ItemID]--;
             if(BodyItemInventory[ItemID]<=0){
               BodyItemInventory.Remove(ItemID);
             }
           break;
-          case "HandItem":
+          case ItemType.Hand:
             HandItemInventory[ItemID]--;
             if(HandItemInventory[ItemID]<=0){
               HandItemInventory.Remove(ItemID);
             }
           break;
-          case "FootItem":
+          case ItemType.Foot:
             FootItemInventory[ItemID]--;
             if(FootItemInventory[ItemID]<=0){
               FootItemInventory.Remove(ItemID);
             }
           break;
-          case "AccesuryItem":
+          case ItemType.Accessory:
             AccesuryItemInventory[ItemID]--;
             if(AccesuryItemInventory[ItemID]<=0){
               AccesuryItemInventory.Remove(ItemID);

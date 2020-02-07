@@ -58,7 +58,8 @@ public static class ItemManager
 
       DropItemprefab = (GameObject)Resources.Load ("prefab/DropItem");
     }
-    public static string returnItemType(int CheckID){
+    public static ItemType returnItemType(int CheckID){
+
       List<int> UseItemKeys = new List<int>(UseItemList.Keys);
       List<int> WeaponItemKeys = new List<int>(WeaponItemList.Keys);
       List<int> HeadItemKeys = new List<int>(HeadItemList.Keys);
@@ -69,58 +70,58 @@ public static class ItemManager
 
       foreach(int ItemID in UseItemKeys) {
         if(ItemID == CheckID){
-          return "UseItem";
+          return ItemType.Use;
         }
       }
       foreach(int ItemID in WeaponItemKeys) {
         if(ItemID == CheckID){
-          return "WeaponItem";
+          return ItemType.Weapon;
         }
       }
       foreach(int ItemID in HeadItemKeys) {
         if(ItemID == CheckID){
-          return "HeadItem";
+          return ItemType.Head;
         }
       }
       foreach(int ItemID in BodyItemKeys) {
         if(ItemID == CheckID){
-          return "BodyItem";
+          return ItemType.Body;
         }
       }
       foreach(int ItemID in HandItemKeys) {
         if(ItemID == CheckID){
-          return "HandItem";
+          return ItemType.Hand;
         }
       }
       foreach(int ItemID in FootItemKeys) {
         if(ItemID == CheckID){
-          return "FootItem";
+          return ItemType.Foot;
         }
       }
       foreach(int ItemID in AccessoryItemKeys) {
         if(ItemID == CheckID){
-          return "AccessoryItem";
+          return ItemType.Accessory;
         }
       }
 
-      return "";
+      return ItemType.Use;
     }
     public static string ReturnInfo(int ItemID){
-      string ItemType = returnItemType(ItemID);
+      ItemType ItemType = returnItemType(ItemID);
       switch(ItemType){
-        case "UseItem":
+        case ItemType.Use:
         return UseItemList[ItemID].Info;
-        case "WeaponItem":
+        case ItemType.Weapon:
         return WeaponItemList[ItemID].Info;
-        case "HeadItem":
+        case ItemType.Head:
         return HeadItemList[ItemID].Info;
-        case "BodyItem":
+        case ItemType.Body:
         return BodyItemList[ItemID].Info;
-        case "HandItem":
+        case ItemType.Hand:
         return HandItemList[ItemID].Info;
-        case "FootItem":
+        case ItemType.Foot:
         return FootItemList[ItemID].Info;
-        case "AccessoryItem":
+        case ItemType.Accessory:
         return AccessoryItemList[ItemID].Info;
       }
       return "";
