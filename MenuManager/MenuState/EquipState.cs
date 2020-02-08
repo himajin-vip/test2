@@ -1,9 +1,9 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HeadEquipState : MenuState
+public class EquipState : MenuState
 {
   public List<Text> ItemTextList = new List<Text>();
   public List<int> InventoryList = new List<int>();
@@ -59,9 +59,9 @@ public class HeadEquipState : MenuState
       ItemTextList[i].text = "";
     }
     InfoWindowText.text = "";
-    InventoryList = InventoryManager.ReturnInventoryList(ItemType.Head);
+    InventoryList = InventoryManager.ReturnInventoryList(MenuManager.InventoryType);
     foreach(int ItemID in InventoryList) {
-      if(ItemID == PlayerManager.Player.Equip.head.ItemId){
+      if(ItemID == PlayerManager.Player.Equip.Parts[MenuManager.InventoryType].ItemId){
         ItemTextList[Inventorycount].text = "E:"+ItemManager.returnItemName(ItemID)+" / "+InventoryManager.ReturnPieces(ItemID)+"個";
         Inventorycount++;
       }else{
@@ -103,7 +103,7 @@ public class HeadEquipState : MenuState
         MenuManager.SetMenuState("InventorySelect");
       }else{
         InventoryManager.SelectItem(InventoryList[CursolPos-1]);
-        MenuManager.SetMenuState("HeadEquipComand");
+        MenuManager.SetMenuState("EquipComand");
       }
   }
   public void End(){

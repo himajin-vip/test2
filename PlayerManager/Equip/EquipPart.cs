@@ -1,12 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Hand
+﻿public class EquipPart
 {
   public int ItemId{get; private set;}
 
-  public Hand(){
+  public EquipPart(){
     ItemId = 9999;
   }
   public void Set(int itemid){
@@ -18,7 +14,7 @@ public class Hand
   }
 
   public void UnSet(int itemid){
-      ItemManager.UnEquip(itemid);
-      DataManager.Save();
+    ItemManager.UnEquip(itemid);
+    DataManager.Save();
   }
 }

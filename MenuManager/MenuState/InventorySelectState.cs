@@ -51,22 +51,28 @@ public class InventorySelectState: MenuState{
         MenuManager.SetMenuState("UseItem");
       break;
       case 1:
-        MenuManager.SetMenuState("WeaponEquip");
+        MenuManager.SetInventoryType(ItemType.Weapon);
+        MenuManager.SetMenuState("Equip");
       break;
       case 2:
-        MenuManager.SetMenuState("HeadEquip");
+        MenuManager.SetInventoryType(ItemType.Head);
+        MenuManager.SetMenuState("Equip");
       break;
       case 3:
-        MenuManager.SetMenuState("BodyEquip");
+        MenuManager.SetInventoryType(ItemType.Body);
+        MenuManager.SetMenuState("Equip");
       break;
       case 4:
-        MenuManager.SetMenuState("HandEquip");
+        MenuManager.SetInventoryType(ItemType.Hand);
+        MenuManager.SetMenuState("Equip");
       break;
       case 5:
-        MenuManager.SetMenuState("FootEquip");
+        MenuManager.SetInventoryType(ItemType.Foot);
+        MenuManager.SetMenuState("Equip");
       break;
       case 6:
-        MenuManager.SetMenuState("AccessoryEquip");
+        MenuManager.SetInventoryType(ItemType.Accessory);
+        MenuManager.SetMenuState("Equip");
       break;
       case 7:
 

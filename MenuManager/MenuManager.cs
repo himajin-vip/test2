@@ -2,29 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public static class MenuManager
 {
   private static Dictionary<string,MenuState> MenuStateList = new Dictionary<string,MenuState>();
   private static MenuState MenuState;
-  private static Text EquipWeaponText;
-  private static Text EquipHeadText;
-  private static Text EquipBodyText;
-  private static Text EquipHandText;
-  private static Text EquipFootText;
-  private static Text EquipAccessoryText;
+  private static Dictionary<ItemType,Text> EquipTextList = new Dictionary<ItemType, Text>();
   private static bool InventoryEndfrag;
+  public static ItemType InventoryType{get; private set;}
 
   public static void SetUp(){
     MenuStateList.Clear();
     InventoryEndfrag = true;
     GameObject EquipWindow = GameObject.Find("MenuCanvas").transform.Find("InventoryPanel").transform.Find("EquipWindow").transform.Find("EquipItemPanel").gameObject;
-    EquipWeaponText = EquipWindow.transform.Find("WeaponText").GetComponent<Text>();
-    EquipHeadText = EquipWindow.transform.Find("HeadText").GetComponent<Text>();
-    EquipBodyText = EquipWindow.transform.Find("BodyText").GetComponent<Text>();
-    EquipHandText = EquipWindow.transform.Find("HandText").GetComponent<Text>();
-    EquipFootText = EquipWindow.transform.Find("FootText").GetComponent<Text>();
-    EquipAccessoryText = EquipWindow.transform.Find("AccessoryText").GetComponent<Text>();
+    EquipTextList.Add(ItemType.Weapon,EquipWindow.transform.Find("WeaponText").GetComponent<Text>());
+    EquipTextList.Add(ItemType.Head,EquipWindow.transform.Find("HeadText").GetComponent<Text>());
+    EquipTextList.Add(ItemType.Body,EquipWindow.transform.Find("BodyText").GetComponent<Text>());
+    EquipTextList.Add(ItemType.Hand,EquipWindow.transform.Find("HandText").GetComponent<Text>());
+    EquipTextList.Add(ItemType.Foot,EquipWindow.transform.Find("FootText").GetComponent<Text>());
+    EquipTextList.Add(ItemType.Accessory,EquipWindow.transform.Find("AccessoryText").GetComponent<Text>());
 
     MenuStateList.Add("Null",new NullState());
 
@@ -46,41 +43,12 @@ public static class MenuManager
     MenuStateList.Add("SelectShortCut", new SelectShortCutState());
     MenuStateList["SelectShortCut"].SetUp();
 
-    MenuStateList.Add("WeaponEquip", new WeaponEquipState());
-    MenuStateList["WeaponEquip"].SetUp();
+    MenuStateList.Add("Equip", new EquipState());
+    MenuStateList["Equip"].SetUp();
 
-    MenuStateList.Add("WeaponEquipComand", new WeaponEquipComandState());
-    MenuStateList["WeaponEquipComand"].SetUp();
+    MenuStateList.Add("EquipComand", new EquipComandState());
+    MenuStateList["EquipComand"].SetUp();
 
-    MenuStateList.Add("HeadEquip", new HeadEquipState());
-    MenuStateList["HeadEquip"].SetUp();
-
-    MenuStateList.Add("HeadEquipComand", new HeadEquipComandState());
-    MenuStateList["HeadEquipComand"].SetUp();
-
-    MenuStateList.Add("BodyEquip", new BodyEquipState());
-    MenuStateList["BodyEquip"].SetUp();
-
-    MenuStateList.Add("BodyEquipComand", new BodyEquipComandState());
-    MenuStateList["BodyEquipComand"].SetUp();
-
-    MenuStateList.Add("HandEquip", new HandEquipState());
-    MenuStateList["HandEquip"].SetUp();
-
-    MenuStateList.Add("HandEquipComand", new HandEquipComandState());
-    MenuStateList["HandEquipComand"].SetUp();
-
-    MenuStateList.Add("FootEquip", new FootEquipState());
-    MenuStateList["FootEquip"].SetUp();
-
-    MenuStateList.Add("FootEquipComand", new FootEquipComandState());
-    MenuStateList["FootEquipComand"].SetUp();
-
-    MenuStateList.Add("AccessoryEquip", new AccessoryEquipState());
-    MenuStateList["AccessoryEquip"].SetUp();
-
-    MenuStateList.Add("AccessoryEquipComand", new AccessoryEquipComandState());
-    MenuStateList["AccessoryEquipComand"].SetUp();
 
 
 
@@ -110,19 +78,8 @@ public static class MenuManager
     MenuStateList["UseItem"].End();
     MenuStateList["UseComand"].End();
     MenuStateList["SelectShortCut"].End();
-    MenuStateList["WeaponEquip"].End();
-    MenuStateList["WeaponEquipComand"].End();
-    MenuStateList["HeadEquip"].End();
-    MenuStateList["HeadEquipComand"].End();
-    MenuStateList["BodyEquip"].End();
-    MenuStateList["BodyEquipComand"].End();
-    MenuStateList["HandEquip"].End();
-    MenuStateList["HandEquipComand"].End();
-    MenuStateList["FootEquip"].End();
-    MenuStateList["FootEquipComand"].End();
-    MenuStateList["AccessoryEquip"].End();
-    MenuStateList["AccessoryEquipComand"].End();
-
+    MenuStateList["Equip"].End();
+    MenuStateList["EquipComand"].End();
 
     GameManager.StateSet(GameManager.ReturnLastState());
 
@@ -135,16 +92,20 @@ public static class MenuManager
       InventoryEndfrag = false;
     }
   }
+  public static void SetInventoryType(ItemType itemtype){
+    InventoryType = itemtype;
+  }
   public static bool ReturnInventoryEndfrag(){
     return InventoryEndfrag;
   }
   public static void EquipWindowReset(){
-    EquipWeaponText.text = ItemManager.returnItemName(PlayerManager.Player.Equip.weapon.ItemId);
-    EquipHeadText.text = ItemManager.returnItemName(PlayerManager.Player.Equip.head.ItemId);
-    EquipBodyText.text = ItemManager.returnItemName(PlayerManager.Player.Equip.body.ItemId);
-    EquipHandText.text = ItemManager.returnItemName(PlayerManager.Player.Equip.hand.ItemId);
-    EquipFootText.text = ItemManager.returnItemName(PlayerManager.Player.Equip.foot.ItemId);
-    EquipAccessoryText.text = ItemManager.returnItemName(PlayerManager.Player.Equip.accessory.ItemId);
+    foreach(ItemType itemtype in Enum.GetValues(typeof(ItemType))){
+      if(itemtype != ItemType.Use){
+        if(PlayerManager.Player.Equip.Parts[itemtype].ItemId!=9999){
+          EquipTextList[itemtype].text = ItemManager.returnItemName(PlayerManager.Player.Equip.Parts[itemtype].ItemId);
+        }
+      }
+    }
 
   }
 }

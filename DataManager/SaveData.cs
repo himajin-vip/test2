@@ -50,12 +50,12 @@ public class SaveData
      Int = PlayerManager.Player.Int.NomalValue;
      NextExp = PlayerManager.Player.Exp.maxValue;
      CurrentExp = PlayerManager.Player.Exp.currentValue;
-     EquipWeapon = PlayerManager.Player.Equip.weapon.ItemId;
-     EquipHead = PlayerManager.Player.Equip.head.ItemId;
-     EquipBody = PlayerManager.Player.Equip.body.ItemId;
-     EquipHand = PlayerManager.Player.Equip.hand.ItemId;
-     EquipFoot = PlayerManager.Player.Equip.foot.ItemId;
-     EquipAccessory = PlayerManager.Player.Equip.accessory.ItemId;
+     EquipWeapon = PlayerManager.Player.Equip.Parts[ItemType.Weapon].ItemId;
+     EquipHead = PlayerManager.Player.Equip.Parts[ItemType.Head].ItemId;
+     EquipBody = PlayerManager.Player.Equip.Parts[ItemType.Body].ItemId;
+     EquipHand = PlayerManager.Player.Equip.Parts[ItemType.Hand].ItemId;
+     EquipFoot = PlayerManager.Player.Equip.Parts[ItemType.Foot].ItemId;
+     EquipAccessory = PlayerManager.Player.Equip.Parts[ItemType.Accessory].ItemId;
 
      UseItemList = InventoryManager.ReturnInventoryList(ItemType.Use);
      UseItemNumberList = InventoryManager.ReturnInventoryNumberList(ItemType.Use);

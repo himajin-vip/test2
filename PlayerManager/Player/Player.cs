@@ -71,12 +71,12 @@ public class Player
     Charge = GameObject.transform.Find("tame").GetComponent<Charge>();
     Weapon = (GameObject)Resources.Load("prefab/Weapon/Sword");
     Equip = new Equip();
-    Equip.Weapon(LoadData.EquipWeapon);
-    Equip.Head(LoadData.EquipHead);
-    Equip.Body(LoadData.EquipBody);
-    Equip.Hand(LoadData.EquipHand);
-    Equip.Foot(LoadData.EquipFoot);
-    Equip.Accessory(LoadData.EquipAccessory);
+    Equip.PartSet(LoadData.EquipWeapon,ItemType.Weapon);
+    Equip.PartSet(LoadData.EquipHead,ItemType.Head);
+    Equip.PartSet(LoadData.EquipBody,ItemType.Body);
+    Equip.PartSet(LoadData.EquipHand,ItemType.Hand);
+    Equip.PartSet(LoadData.EquipFoot,ItemType.Foot);
+    Equip.PartSet(LoadData.EquipAccessory,ItemType.Accessory);
     AutoKaihuku = GameObject.transform.Find("kaihuku").GetComponent<AutoKaihuku>();
     AutoKaihuku.Set();
     
