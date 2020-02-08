@@ -13,15 +13,13 @@ public class Weapon
   public void Set(int itemid){
     ItemId = itemid;
     if(itemid != 9999){
-      WeaponItem Item = ItemManager.returnWeaponItem(itemid);
-      Item.Equip();
+      ItemManager.Equip(itemid);
     }
     DataManager.Save();
   }
 
   public void UnSet(int ItemID){
-      WeaponItem Item = ItemManager.returnWeaponItem(ItemID);
-      Item.UnEquip();
+      ItemManager.UnEquip(ItemID);
       DataManager.Save();
   }
 }

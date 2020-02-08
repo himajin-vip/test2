@@ -11,15 +11,13 @@ public class Accessory
   public void Set(int itemid){
     ItemId = itemid;
     if(itemid != 9999){
-      AccessoryItem Item = ItemManager.returnAccessoryItem(itemid);
-      Item.Equip();
+      ItemManager.Equip(itemid);
     }
     DataManager.Save();
   }
 
-  public void UnSet(int ItemID){
-      AccessoryItem Item = ItemManager.returnAccessoryItem(ItemID);
-      Item.UnEquip();
+  public void UnSet(int itemid){
+      ItemManager.UnEquip(itemid);
       DataManager.Save();
   }
 }

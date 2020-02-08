@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LeatherHand : HandItem
+public class LeatherHand : EquipItem
 {
   public LeatherHand(){
     Id = 400;
     Info = "Dexを１上げます";
+    Name = "皮の手袋";
+    Type = ItemType.Hand;
   }
   public override void Equip(){
     PlayerManager.Player.Dex.Equip(1);

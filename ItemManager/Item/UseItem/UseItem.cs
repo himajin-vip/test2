@@ -1,9 +1,8 @@
 
-public class UseItem
+public class UseItem:Item
 {
   /////ID 0~
-  public int Id{get; protected set;}
-  public string Info{get; protected set;}
-    public virtual void ItemUse(string Name){
-    }
+  public ItemType ItemType = ItemType.Use;
+  public virtual void Use(string Name){
+  }
 }

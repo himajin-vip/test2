@@ -12,15 +12,13 @@ public class Body
   public void Set(int itemid){
     ItemId = itemid;
     if(itemid != 9999){
-      BodyItem Item = ItemManager.returnBodyItem(itemid);
-      Item.Equip();
+      ItemManager.Equip(itemid);
     }
     DataManager.Save();
   }
 
-  public void UnSet(int ItemID){
-      BodyItem Item = ItemManager.returnBodyItem(ItemID);
-      Item.UnEquip();
-      DataManager.Save();
+  public void UnSet(int itemid){
+    ItemManager.UnEquip(itemid);
+    DataManager.Save();
   }
 }

@@ -5,8 +5,9 @@ public class HiPotion : UseItem
   public HiPotion(){
     Id = 1;
     Info = "HPを50%回復します";
+    Name = "ハイポーション";
   }
-  public override void ItemUse(string Name){
+  public override void Use(string Name){
     new UsePotion(Id,Recovery);
   }
 }

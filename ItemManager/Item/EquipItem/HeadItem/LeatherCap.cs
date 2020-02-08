@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LeatherBody : BodyItem
+public class LeatherCap : EquipItem
 {
-  public LeatherBody(){
-    Id = 300;
+  public LeatherCap(){
+    Id = 200;
     Info = "Vitを1上げます";
+    Name = "皮の帽子";
+    Type = ItemType.Head;
   }
   public override void Equip(){
     PlayerManager.Player.Vit.Equip(1);

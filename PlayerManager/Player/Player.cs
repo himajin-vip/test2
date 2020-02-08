@@ -42,9 +42,8 @@ public class Player
 
 
   public void ItemUse(int ItemID){
-    UseItem Item = ItemManager.returnUseItem(ItemID);
     if(InventoryManager.ReturnPieces(ItemID)>0){
-      Item.ItemUse(Name.Value);
+      ItemManager.Use(Name.Value,ItemID);
       InventoryManager.ItemReduce(ItemID);
     }
   }

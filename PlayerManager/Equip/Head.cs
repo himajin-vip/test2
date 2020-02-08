@@ -13,15 +13,13 @@ public class Head
   public void Set(int itemid){
     ItemId = itemid;
     if( itemid != 9999){
-      HeadItem Item = ItemManager.returnHeadItem(itemid);
-      Item.Equip();
+      ItemManager.Equip(itemid);
     }
     DataManager.Save();
   }
 
-  public void UnSet(int ItemID){
-      HeadItem Item = ItemManager.returnHeadItem(ItemID);
-      Item.UnEquip();
+  public void UnSet(int itemid){
+      ItemManager.UnEquip(itemid);
       DataManager.Save();
   }
 }

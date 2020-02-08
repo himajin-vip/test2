@@ -13,14 +13,12 @@ public class Foot
   public void Set(int itemid){
     ItemId = itemid;
     if(itemid != 9999){
-      FootItem Item = ItemManager.returnFootItem(itemid);
-      Item.Equip();
+      ItemManager.Equip(itemid);
     }
     DataManager.Save();
   }
   public void UnSet(int itemid){
-      FootItem Item = ItemManager.returnFootItem(itemid);
-      Item.UnEquip();
+      ItemManager.UnEquip(itemid);
       DataManager.Save();
   }
 }
