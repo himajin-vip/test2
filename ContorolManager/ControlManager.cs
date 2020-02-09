@@ -7,6 +7,7 @@ public static class ControlManager
   private static Dictionary<string,Key> KeyList = new Dictionary<string,Key>();
   private static Key Key;
   public static void SetUp(){
+    KeyList.Clear();
     KeyList.Add("Main",new MainKey());
     KeyList.Add("Menu",new MenuKey());
     KeyList.Add("Town",new TownKey());

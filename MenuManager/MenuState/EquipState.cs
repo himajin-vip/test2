@@ -62,10 +62,10 @@ public class EquipState : MenuState
     InventoryList = InventoryManager.ReturnInventoryList(MenuManager.InventoryType);
     foreach(int ItemID in InventoryList) {
       if(ItemID == PlayerManager.Player.Equip.Parts[MenuManager.InventoryType].ItemId){
-        ItemTextList[Inventorycount].text = "E:"+ItemManager.returnItemName(ItemID)+" / "+InventoryManager.ReturnPieces(ItemID)+"個";
+        ItemTextList[Inventorycount].text = "E:"+ItemManager.ReturnItemName(ItemID)+" / "+InventoryManager.ReturnPieces(ItemID)+"個";
         Inventorycount++;
       }else{
-        ItemTextList[Inventorycount].text = ItemManager.returnItemName(ItemID)+" / "+InventoryManager.ReturnPieces(ItemID)+"個";
+        ItemTextList[Inventorycount].text = ItemManager.ReturnItemName(ItemID)+" / "+InventoryManager.ReturnPieces(ItemID)+"個";
         Inventorycount++;
       }
     }

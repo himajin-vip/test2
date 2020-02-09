@@ -60,7 +60,7 @@ public class ItemUseState : MenuState
     InfoWindowText.text = "";
     InventoryList = InventoryManager.ReturnInventoryList(ItemType.Use);
     foreach(int ItemID in InventoryList) {
-      ItemTextList[Inventorycount].text = ItemManager.returnItemName(ItemID)+" / "+InventoryManager.ReturnPieces(ItemID)+"個";
+      ItemTextList[Inventorycount].text = ItemManager.ReturnItemName(ItemID)+" / "+InventoryManager.ReturnPieces(ItemID)+"個";
       Inventorycount++;
     }
     Curesol.SetActive(true);

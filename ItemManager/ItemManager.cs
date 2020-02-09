@@ -14,6 +14,8 @@ public static class ItemManager
 
 
     public static void SetUp(){//Excelとかで読み込めないかな
+      ItemList.Clear();
+      ItemImageList.Clear();
 
       ItemList.Add(0,ItemName.Potion);
       ItemList.Add(1,ItemName.HiPotion);
@@ -29,7 +31,7 @@ public static class ItemManager
       DropItemprefab = (GameObject)Resources.Load ("prefab/DropItem");
     }
 
-    public static ItemType returnItemType(int CheckID){
+    public static ItemType ReturnItemType(int CheckID){
       ItemName itemname = ItemList[CheckID];
       Type itemtype = Type.GetType(itemname.ToString());
       Item item = (Item)Activator.CreateInstance(itemtype);
@@ -42,7 +44,7 @@ public static class ItemManager
       Item item = (Item)Activator.CreateInstance(itemtype);
       return item.Info;
     }
-    public static string returnItemName(int ItemID){
+    public static string ReturnItemName(int ItemID){
       ItemName itemname = ItemList[ItemID];
       Type itemtype = Type.GetType(itemname.ToString());
       Item item = (Item)Activator.CreateInstance(itemtype);

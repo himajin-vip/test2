@@ -14,6 +14,7 @@ public static class MenuManager
 
   public static void SetUp(){
     MenuStateList.Clear();
+    EquipTextList.Clear();
     InventoryEndfrag = true;
     GameObject EquipWindow = GameObject.Find("MenuCanvas").transform.Find("InventoryPanel").transform.Find("EquipWindow").transform.Find("EquipItemPanel").gameObject;
     EquipTextList.Add(ItemType.Weapon,EquipWindow.transform.Find("WeaponText").GetComponent<Text>());
@@ -102,7 +103,7 @@ public static class MenuManager
     foreach(ItemType itemtype in Enum.GetValues(typeof(ItemType))){
       if(itemtype != ItemType.Use){
         if(PlayerManager.Player.Equip.Parts[itemtype].ItemId!=9999){
-          EquipTextList[itemtype].text = ItemManager.returnItemName(PlayerManager.Player.Equip.Parts[itemtype].ItemId);
+          EquipTextList[itemtype].text = ItemManager.ReturnItemName(PlayerManager.Player.Equip.Parts[itemtype].ItemId);
         }
       }
     }

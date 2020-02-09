@@ -5,7 +5,7 @@ using UnityEngine;
 public class ItemGetLog
 {
     public ItemGetLog(string Name ,int ItemID){
-        string newlog = (Name+"は"+ItemManager.returnItemName(ItemID)+"を手に入れた");
+        string newlog = (Name+"は"+ItemManager.ReturnItemName(ItemID)+"を手に入れた");
         LogManager.MakeLog(newlog);
     }
 }

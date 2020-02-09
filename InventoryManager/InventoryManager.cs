@@ -8,7 +8,8 @@ public static class InventoryManager
     public static Dictionary<ItemType,Inventory> InventoryList{get; private set;} = new Dictionary<ItemType, Inventory>();
     private static int SelectItemNo;
 
-    public static void SetUp(){
+    public static void SetUp(){ 
+      InventoryList.Clear();
       InventoryList.Add(ItemType.Use,new Inventory());
       InventoryList.Add(ItemType.Weapon,new Inventory());
       InventoryList.Add(ItemType.Body,new Inventory());
@@ -31,10 +32,11 @@ public static class InventoryManager
       new ItemGetLog(PlayerManager.Player.Name.Value,ItemID);
       getItem.DropEnd();
 
-      ItemType ItemType = ItemManager.returnItemType(ItemID);
+      ItemType ItemType = ItemManager.ReturnItemType(ItemID);
       InventoryList[ItemType].Add(ItemID,1);
       
       DataManager.Save();
+      
     }
     static public List<int> ReturnInventoryList(ItemType ItemType){
         return new List<int>(InventoryList[ItemType].ItemIDList);
@@ -44,12 +46,12 @@ public static class InventoryManager
     }
 
     public static int ReturnPieces(int ItemID){
-      ItemType ItemType = ItemManager.returnItemType(ItemID);
+      ItemType ItemType = ItemManager.ReturnItemType(ItemID);
         return InventoryList[ItemType].ReturnPeace(ItemID);
     }
 
     static public void ItemReduce(int ItemID){
-      ItemType ItemType = ItemManager.returnItemType(ItemID);
+      ItemType ItemType = ItemManager.ReturnItemType(ItemID);
       InventoryList[ItemType].Reduce(ItemID,1);
       DataManager.Save();
     }
