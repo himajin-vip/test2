@@ -26,7 +26,7 @@ public static class MenuManager
 
     MenuStateList.Add("Null",new NullState());
 
-    MenuStateList.Add("Main",new MainState());
+    MenuStateList.Add("Main",new MainMenuState());
     MenuStateList["Main"].SetUp();
 
     MenuStateList.Add("Status",new StatusState());
@@ -82,7 +82,7 @@ public static class MenuManager
     MenuStateList["Equip"].End();
     MenuStateList["EquipComand"].End();
 
-    GameManager.StateSet(GameManager.ReturnLastState());
+    GameManager.SetState(GameManager.ReturnLastState());
 
   }
 
@@ -102,8 +102,8 @@ public static class MenuManager
   public static void EquipWindowReset(){
     foreach(ItemType itemtype in Enum.GetValues(typeof(ItemType))){
       if(itemtype != ItemType.Use){
-        if(PlayerManager.Player.Equip.Parts[itemtype].ItemId!=9999){
-          EquipTextList[itemtype].text = ItemManager.ReturnItemName(PlayerManager.Player.Equip.Parts[itemtype].ItemId);
+        if(GameManager.Player.Equip.Parts[itemtype].ItemId!=9999){
+          EquipTextList[itemtype].text = ItemManager.ReturnItemName(GameManager.Player.Equip.Parts[itemtype].ItemId);
         }
       }
     }

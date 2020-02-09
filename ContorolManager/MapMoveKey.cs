@@ -6,7 +6,7 @@ public class MapMoveKey : Key
 {
   public void Check(){
     if(Input.GetKeyUp(KeyCode.Space)){
-      PlayerManager.Player.Atack.KeyUp();
+      GameManager.Player.Atack.KeyUp();
     }
   }
 }

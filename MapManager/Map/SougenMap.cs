@@ -47,16 +47,16 @@ public class SougenMap : Map
 
   public void Start(int LastMap)
   {
-    GameManager.StateSet("Main");
+    GameManager.SetState("Main");
     GameObject obj;
     switch(LastMap){
       case 0:
         MapPositionX = 1;
         MapPositionY = 0;
         obj = (GameObject)Resources.Load("Map/草原Map");
-        MapObject = GameManager.Instantiate(obj, new Vector3(PlayerManager.Player.GameObject.transform.position.x,PlayerManager.Player.GameObject.transform.position.y+664,0), Quaternion.identity);
+        MapObject = GameManager.Instantiate(obj, new Vector3(GameManager.Player.GameObject.transform.position.x,GameManager.Player.GameObject.transform.position.y+664,0), Quaternion.identity);
         //////カメラサイズの半分-キャラサイズの半分-タイルチップのサイズ-タイルチップの半分
-        CameraManager.PotisionSet(PlayerManager.Player.GameObject.transform.position.x,PlayerManager.Player.GameObject.transform.position.y+(240-24-32-16));
+        CameraManager.PotisionSet(GameManager.Player.GameObject.transform.position.x,GameManager.Player.GameObject.transform.position.y+(240-24-32-16));
       break;
     }
     EnemyManager.MapEnemyDataSet();
@@ -65,7 +65,7 @@ public class SougenMap : Map
     switch(EventNo){
       case 0:
         MapManager.MapChange(0);
-        GameManager.StateSet("Town");
+        GameManager.SetState("Town");
       break;
     }
   }

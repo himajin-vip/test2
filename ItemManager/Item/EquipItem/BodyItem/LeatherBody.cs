@@ -11,10 +11,10 @@ public class LeatherBody : EquipItem
     Type = ItemType.Body;
   }
   public override void Equip(){
-    PlayerManager.Player.Vit.Equip(1);
+    GameManager.Player.Vit.Equip(1);
   }
   public override void UnEquip(){
-    PlayerManager.Player.Vit.UnEquip(1);
+    GameManager.Player.Vit.UnEquip(1);
   }
 
 }

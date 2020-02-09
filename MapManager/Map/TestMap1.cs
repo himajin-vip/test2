@@ -20,8 +20,8 @@ public class TestMap1 : Map
 
       case 1:
         obj = (GameObject)Resources.Load("Map/TestMap");
-        MapObject = GameManager.Instantiate(obj, new Vector3(PlayerManager.Player.GameObject.transform.position.x,PlayerManager.Player.GameObject.transform.position.y-240+24+32), Quaternion.identity);
-        CameraManager.PotisionSet(PlayerManager.Player.GameObject.transform.position.x,PlayerManager.Player.GameObject.transform.position.y+(-240+24+32+16));
+        MapObject = GameManager.Instantiate(obj, new Vector3(GameManager.Player.GameObject.transform.position.x,GameManager.Player.GameObject.transform.position.y-240+24+32), Quaternion.identity);
+        CameraManager.PotisionSet(GameManager.Player.GameObject.transform.position.x,GameManager.Player.GameObject.transform.position.y+(-240+24+32+16));
       break;
     }
   }

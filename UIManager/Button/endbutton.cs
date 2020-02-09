@@ -5,6 +5,6 @@ using UnityEngine.SceneManagement;
 public class endbutton : MonoBehaviour
 {
     public void OnClick(){
-      GameManager.StateSet("Title");
+      GameManager.SetState("Title");
     }
 }

@@ -14,7 +14,7 @@ public class Hp
 
   public void Damage(int damage){
     currentValue -= damage;
-    DataManager.Save();
+    GameManager.AccountData.Save();
   }
 
   public void Recovery(int recovery){
@@ -22,7 +22,7 @@ public class Hp
     if(currentValue>maxValue){
       currentValue = maxValue;
     }
-    DataManager.Save();
+    GameManager.AccountData.Save();
   }
 
   public void Reset(){

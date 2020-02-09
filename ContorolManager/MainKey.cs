@@ -6,28 +6,28 @@ public class MainKey : Key
 {
     public void Check(){
         if(Input.GetKeyDown(KeyCode.M)){
-            if(PlayerManager.Player.Atack.KeyPush){
-                PlayerManager.Player.Atack.KeyUp();
+            if(GameManager.Player.Atack.KeyPush){
+                GameManager.Player.Atack.KeyUp();
             }
             MenuManager.SetMenuState("Main");
         }
         if(Input.GetKey(KeyCode.S)){
-            PlayerManager.Player.Move.Down();
+            GameManager.Player.Move.Down();
         }
         if(Input.GetKey(KeyCode.W)){
-            PlayerManager.Player.Move.Up();
+            GameManager.Player.Move.Up();
         }
         if(Input.GetKey(KeyCode.D)){
-            PlayerManager.Player.Move.Right();
+            GameManager.Player.Move.Right();
         }
         if(Input.GetKey(KeyCode.A)){
-            PlayerManager.Player.Move.Left();
+            GameManager.Player.Move.Left();
         }
         if(Input.GetKey(KeyCode.Space)){
-            PlayerManager.Player.Atack.KeyDown();
+            GameManager.Player.Atack.KeyDown();
         }
         if(Input.GetKeyUp(KeyCode.Space)){
-            PlayerManager.Player.Atack.KeyUp();
+            GameManager.Player.Atack.KeyUp();
         }
         if(Input.GetKeyDown(KeyCode.Alpha1)){
             ShortcutManager.ShortCutOn(1);

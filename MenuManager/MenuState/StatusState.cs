@@ -30,15 +30,15 @@ public class StatusState : MenuState
   }
   public void Start(){
     StateMenu.SetActive(true);
-    NameText.text = PlayerManager.Player.Name.Value;
-    LvText.text = PlayerManager.Player.Lv.Value.ToString();
-    HpText.text = PlayerManager.Player.Hp.currentValue+"/"+PlayerManager.Player.Hp.maxValue;
-    MpText.text = PlayerManager.Player.Mp.currentValue+"/"+PlayerManager.Player.Mp.maxValue;
-    StrText.text = PlayerManager.Player.Str.Value.ToString();
-    VitText.text = PlayerManager.Player.Vit.Value.ToString();
-    DexText.text = PlayerManager.Player.Dex.Value.ToString();
-    IntText.text = PlayerManager.Player.Int.Value.ToString();
-    ExpText.text = PlayerManager.Player.Exp.currentValue+"/"+PlayerManager.Player.Exp.maxValue;
+    NameText.text = GameManager.Player.Name.Value;
+    LvText.text = GameManager.Player.Lv.Value.ToString();
+    HpText.text = GameManager.Player.Hp.currentValue+"/"+GameManager.Player.Hp.maxValue;
+    MpText.text = GameManager.Player.Mp.currentValue+"/"+GameManager.Player.Mp.maxValue;
+    StrText.text = GameManager.Player.Str.Value.ToString();
+    VitText.text = GameManager.Player.Vit.Value.ToString();
+    DexText.text = GameManager.Player.Dex.Value.ToString();
+    IntText.text = GameManager.Player.Int.Value.ToString();
+    ExpText.text = GameManager.Player.Exp.currentValue+"/"+GameManager.Player.Exp.maxValue;
 
   }
   public void CursolMove(int direction){}

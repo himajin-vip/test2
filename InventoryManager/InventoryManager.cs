@@ -29,13 +29,13 @@ public static class InventoryManager
 
       DropItemObj getItem = collision.gameObject.GetComponent<DropItemObj>();
       int ItemID = getItem.ItemId;
-      new ItemGetLog(PlayerManager.Player.Name.Value,ItemID);
+      new ItemGetLog(GameManager.Player.Name.Value,ItemID);
       getItem.DropEnd();
 
       ItemType ItemType = ItemManager.ReturnItemType(ItemID);
       InventoryList[ItemType].Add(ItemID,1);
       
-      DataManager.Save();
+      GameManager.AccountData.Save();
       
     }
     static public List<int> ReturnInventoryList(ItemType ItemType){
@@ -53,7 +53,7 @@ public static class InventoryManager
     static public void ItemReduce(int ItemID){
       ItemType ItemType = ItemManager.ReturnItemType(ItemID);
       InventoryList[ItemType].Reduce(ItemID,1);
-      DataManager.Save();
+      GameManager.AccountData.Save();
     }
     /////////////////インベントリで選択したアイテムの保存
     static public void SelectItem(int ItemID){

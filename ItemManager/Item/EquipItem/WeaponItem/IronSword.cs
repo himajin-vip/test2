@@ -12,9 +12,9 @@ public class IronSword : EquipItem
 
   }
   public override void Equip(){
-    PlayerManager.Player.Str.Equip(5);
+    GameManager.Player.Str.Equip(5);
   }
   public override void UnEquip(){
-    PlayerManager.Player.Str.UnEquip(5);
+    GameManager.Player.Str.UnEquip(5);
   }
 }

@@ -11,10 +11,10 @@ public class LeatherHand : EquipItem
     Type = ItemType.Hand;
   }
   public override void Equip(){
-    PlayerManager.Player.Dex.Equip(1);
+    GameManager.Player.Dex.Equip(1);
   }
   public override void UnEquip(){
-    PlayerManager.Player.Dex.UnEquip(1);
+    GameManager.Player.Dex.UnEquip(1);
   }
 
 }

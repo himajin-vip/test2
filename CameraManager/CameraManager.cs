@@ -33,17 +33,17 @@ public static class CameraManager
   public static void PlayerPosCheck(){
     if(!CameraMoveOn){
       Vector3 Camerapos = MainCamera.transform.position;
-      Vector3 Playerpos = PlayerManager.Player.GameObject.transform.position;
+      Vector3 Playerpos = GameManager.Player.GameObject.transform.position;
       if(Camerapos.x+CameraSizeX/2<Playerpos.x){//カメラを右に移動する
         CameraMoveX = 1;
         CameraMoveXCount++;
         CameraMoveOn = true;
         int i = PlayerMoveCount;
         while(i>0){
-          PlayerManager.Player.Move.Right();
+          GameManager.Player.Move.Right();
           i--;
         }
-        GameManager.StateSet("MapMove");
+        GameManager.SetState("MapMove");
         MapManager.MapMove(2);
       }
       if(Camerapos.x-CameraSizeX/2>Playerpos.x){//カメラを左に移動する
@@ -52,10 +52,10 @@ public static class CameraManager
         CameraMoveOn = true;
         int i = PlayerMoveCount;
         while(i>0){
-          PlayerManager.Player.Move.Left();
+          GameManager.Player.Move.Left();
           i--;
         }
-        GameManager.StateSet("MapMove");
+        GameManager.SetState("MapMove");
         MapManager.MapMove(3);
       }
       if(Camerapos.y+CameraSizeY/2<Playerpos.y){//カメラを上に移動する
@@ -64,10 +64,10 @@ public static class CameraManager
         CameraMoveOn = true;
         int i = PlayerMoveCount;
         while(i>0){
-          PlayerManager.Player.Move.Up();
+          GameManager.Player.Move.Up();
           i--;
         }
-        GameManager.StateSet("MapMove");
+        GameManager.SetState("MapMove");
         MapManager.MapMove(1);
       }
       if(Camerapos.y-CameraSizeY/2>Playerpos.y){//カメラを下に移動する
@@ -76,10 +76,10 @@ public static class CameraManager
         CameraMoveOn = true;
         int i = PlayerMoveCount;
         while(i>0){
-          PlayerManager.Player.Move.Down();
+          GameManager.Player.Move.Down();
           i--;
         }
-        GameManager.StateSet("MapMove");
+        GameManager.SetState("MapMove");
         MapManager.MapMove(0);
       }
     }
@@ -88,13 +88,13 @@ public static class CameraManager
 
 　public static void CameraMoveStart(){
     if(count >= CameraSizeX&&!(CameraMoveX == 0)&&CameraMoveOn){
-      GameManager.StateSet("Main");
+      GameManager.SetState("Main");
       CameraMoveOn = false;
       CameraMoveX = 0;
       count = 0;
     }
     if(count >= CameraSizeY&&!(CameraMoveY == 0)&&CameraMoveOn){
-      GameManager.StateSet("Main");
+      GameManager.SetState("Main");
       CameraMoveOn = false;
       CameraMoveY = 0;
       count = 0;
