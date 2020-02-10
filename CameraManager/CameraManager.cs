@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class CameraManager
+public class CameraManager
 {
   private static GameObject MainCamera;
   private static int CameraSizeX ;
@@ -15,7 +15,7 @@ public static class CameraManager
   private static int CameraMoveYCount ;
   private static int PlayerMoveCount ;
 
-  public static void SetUp(){
+  public CameraManager(){
     MainCamera = Camera.main.gameObject;
     CameraSizeX = 640;
     CameraSizeY = 480;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainMenuState : MenuState
+public class MainMenuState : IMenuState
 {
     public GameObject MainMenuCanvas;
     public GameObject MainMenuCursol;
@@ -59,7 +59,7 @@ public class MainMenuState : MenuState
           MenuManager.SetMenuState("Null");
         break;
         case 6:
-          GameManager.SetState("End");
+          GameManager.SetState("ToEnd");
         break;
       }
     }

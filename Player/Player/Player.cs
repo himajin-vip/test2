@@ -42,7 +42,7 @@ public class Player
 
   /////Talk//////////////
   protected bool TalkFlag = false;
-  protected Npc Npc;
+  public Npc Npc{get; protected set;}
 
   public void Talk(){
     if(TalkFlag){

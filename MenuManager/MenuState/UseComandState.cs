@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UseComandState : MenuState
+public class UseComandState : IMenuState
 {
   public GameObject UseComandWindow;
   public GameObject Curesol;

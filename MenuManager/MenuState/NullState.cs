@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NullState : MenuState
+public class NullState : IMenuState
 {
   public void SetUp(){}
   public void Start(){
-    GameManager.SetState(GameManager.ReturnLastState());
+    GameManager.SetState(GameManager.LastState);
   }
   public void CursolMove(int direction){}
   public void CursolOn(){}

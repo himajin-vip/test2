@@ -10,11 +10,9 @@
     if(itemid != 9999){
       ItemManager.Equip(itemid);
     }
-    GameManager.AccountData.Save();
   }
 
   public void UnSet(int itemid){
     ItemManager.UnEquip(itemid);
-    GameManager.AccountData.Save();
   }
 }

@@ -26,6 +26,7 @@ public class AccountData
    PassWord = password;
  }
   public void Save(){
+    Debug.Log("Save");
     SaveData.Update();
     string SaveDatastr = JsonUtility.ToJson(SaveData);
     int count = 0;

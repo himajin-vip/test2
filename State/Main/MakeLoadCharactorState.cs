@@ -8,7 +8,7 @@ public class MakeLoadCharactorState : IState
 
     public void Update(){
         GameManager.MakeLoadCharactor();
-        GameManager.SetState("Main");
+        GameManager.SetState("MainSetUp");
     }
 
     public void End(){

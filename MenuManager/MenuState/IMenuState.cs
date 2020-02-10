@@ -1,5 +1,5 @@
 
-public interface MenuState{
+public interface IMenuState{
     void SetUp();
     void Start();
     void CursolMove(int direction);

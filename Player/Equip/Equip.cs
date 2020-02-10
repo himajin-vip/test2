@@ -19,7 +19,16 @@ public void PartSet(int ItemId,ItemType itemType){
     Parts[itemType].UnSet(Parts[itemType].ItemId);
   }
     Parts[itemType].Set(ItemId);
+    GameManager.AccountData.Save();
 }
+
+public void PartsLoad(int ItemId,ItemType itemType){
+  if(Parts[itemType].ItemId != 9999){
+    Parts[itemType].UnSet(Parts[itemType].ItemId);
+  }
+    Parts[itemType].Set(ItemId);
+}
+
 
 
 

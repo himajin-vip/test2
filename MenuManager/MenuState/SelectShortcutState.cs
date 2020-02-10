@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SelectShortCutState : MenuState
+public class SelectShortCutState : IMenuState
 {
   public GameObject SelectShortCutWindow;
   public GameObject Curesol;

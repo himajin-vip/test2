@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EquipState : MenuState
+public class EquipState : IMenuState
 {
   public List<Text> ItemTextList = new List<Text>();
   public List<int> InventoryList = new List<int>();

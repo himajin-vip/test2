@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public static class LogManager
+public class LogManager
 {
   private static Dictionary<int,Text> LogList = new Dictionary<int,Text>();
   private static int LogCount;
-  public static void SetUp(){
+  public LogManager(){
     LogList.Clear();
     Text text0 = GameObject.Find("LogText0").GetComponent<Text>();
     LogList.Add(0,text0);

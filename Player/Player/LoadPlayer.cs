@@ -24,11 +24,5 @@ public class LoadPlayer : Player
         Skill = NormalAtack;
 
         Equip = new Equip();
-        Equip.PartSet(LoadData.EquipWeapon,ItemType.Weapon);
-        Equip.PartSet(LoadData.EquipHead,ItemType.Head);
-        Equip.PartSet(LoadData.EquipBody,ItemType.Body);
-        Equip.PartSet(LoadData.EquipHand,ItemType.Hand);
-        Equip.PartSet(LoadData.EquipFoot,ItemType.Foot);
-        Equip.PartSet(LoadData.EquipAccessory,ItemType.Accessory);
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class EnemyManager
+public class EnemyManager
 {
   private static Dictionary<int,Enemy> EnemyList = new Dictionary<int,Enemy>();
   private static Dictionary<int,GameObject> EnemyTypeList = new Dictionary<int ,GameObject>();
@@ -13,20 +13,18 @@ public static class EnemyManager
   private static List<int> MapEnemyTypeList = new List<int>();
   private static int MapEnemyTypeCount;
 
-  public static void SetUp(){
+  public EnemyManager(){
+    EnemyTypeList.Clear();
     EnemyList.Clear();
     EnemyIdList.Clear();
-    EnemyTypeList.Clear();
-
+    MapEnemyTypeList.Clear();
+    
     EnemyTypeList.Add(0,(GameObject)Resources.Load("prefab/Enemy/Slime"));
     EnemyTypeList.Add(1,(GameObject)Resources.Load("prefab/Enemy/RedSlime"));
     EnemyTypeList.Add(2,(GameObject)Resources.Load("prefab/Enemy/BigSlime"));
     EnemyTypeList.Add(3,(GameObject)Resources.Load("prefab/Enemy/KingSlime"));
 
     EnemyCurrentCount = 0;
-
-
-
   }
 
   public static void MapEnemyDataSet(){

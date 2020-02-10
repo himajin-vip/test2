@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class End : MonoBehaviour
+public class ShopState : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()

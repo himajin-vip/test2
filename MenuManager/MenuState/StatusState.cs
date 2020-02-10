@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StatusState : MenuState
+public class StatusState : IMenuState
 {
   GameObject StateMenu;
   Text NameText;

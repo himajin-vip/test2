@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class ShortcutManager
+public class ShortcutManager
 {
   private static Dictionary<int,ShortCut> ShortcutList = new Dictionary<int,ShortCut>();
   private static bool[] SetOK;
 
-  public static void SetUp(){
+  public ShortcutManager(){
     ShortcutList.Clear();
     SetOK = new bool[5];
     ShortcutList.Add(1,GameObject.Find("ShortCut1").GetComponent<ShortCut>());
@@ -23,6 +23,7 @@ public static class ShortcutManager
     ShortcutList[4].SetUp();
     SetOK[4]=false;
   }
+
 
   public static void ShortCutOn(int ShortcutNo){
     if(SetOK[ShortcutNo]){

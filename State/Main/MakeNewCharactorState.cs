@@ -7,7 +7,7 @@ public class MakeNewCharactorState : IState
     }
     public void Update(){
         GameManager.MakeNewCharactor();     
-        GameManager.SetState("Main");
+        GameManager.SetState("MainSetUp");
     }
     public void End(){
 

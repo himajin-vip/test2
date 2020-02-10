@@ -4,17 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 
-public static class MenuManager
+public class MenuManager
 {
-  private static Dictionary<string,MenuState> MenuStateList = new Dictionary<string,MenuState>();
-  private static MenuState MenuState;
+  private static Dictionary<string,IMenuState> MenuStateList = new Dictionary<string,IMenuState>();
+  private static IMenuState MenuState;
   private static Dictionary<ItemType,Text> EquipTextList = new Dictionary<ItemType, Text>();
   private static bool InventoryEndfrag;
   public static ItemType InventoryType{get; private set;}
 
-  public static void SetUp(){
+  public MenuManager(){
     MenuStateList.Clear();
     EquipTextList.Clear();
+
+
+
+
     InventoryEndfrag = true;
     GameObject EquipWindow = GameObject.Find("MenuCanvas").transform.Find("InventoryPanel").transform.Find("EquipWindow").transform.Find("EquipItemPanel").gameObject;
     EquipTextList.Add(ItemType.Weapon,EquipWindow.transform.Find("WeaponText").GetComponent<Text>());
@@ -82,7 +86,7 @@ public static class MenuManager
     MenuStateList["Equip"].End();
     MenuStateList["EquipComand"].End();
 
-    GameManager.SetState(GameManager.ReturnLastState());
+    GameManager.SetState(GameManager.LastState);
 
   }
 

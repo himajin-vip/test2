@@ -22,6 +22,7 @@ public class NewPlayer : Player
         ChargeSkill = new SwordChargeAtack();
         NormalAtack = new SwordNomalAtack();
         Skill = NormalAtack;
-        
+
+
    }
 }

@@ -13,10 +13,7 @@ public static class ItemManager
 
 
 
-    public static void SetUp(){//Excelとかで読み込めないかな
-      ItemList.Clear();
-      ItemImageList.Clear();
-
+    static ItemManager(){//Excelとかで読み込めないかな
       ItemList.Add(0,ItemName.Potion);
       ItemList.Add(1,ItemName.HiPotion);
       ItemList.Add(100,ItemName.IronSword);
