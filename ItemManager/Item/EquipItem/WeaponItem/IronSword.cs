@@ -9,6 +9,7 @@ public class IronSword : EquipItem
     Info = "Strを5上げます";
     Name = "鉄の剣";
     Type = ItemType.Weapon;
+    Price = 500;
 
   }
   public override void Equip(){

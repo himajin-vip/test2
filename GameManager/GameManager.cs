@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
       SeanState.Add("MapMove",new MapMoveState());
       SeanState.Add("Town",new TownState());
       SeanState.Add("Menu", new MenuState());
+      SeanState.Add("Shop", new ShopState());
 
       ///////エンドシーン
       SeanState.Add("ToEnd", new ToEndState());

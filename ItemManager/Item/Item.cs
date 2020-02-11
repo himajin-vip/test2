@@ -8,4 +8,5 @@ public class Item
   public string Info{get; protected set;}
   public ItemType Type{get; protected set;}
   public string Name{get; protected set;}
+  public int Price{get; protected set;}
 }

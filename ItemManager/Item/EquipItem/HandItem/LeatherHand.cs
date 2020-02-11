@@ -9,6 +9,7 @@ public class LeatherHand : EquipItem
     Info = "Dexを１上げます";
     Name = "皮の手袋";
     Type = ItemType.Hand;
+    Price = 300;
   }
   public override void Equip(){
     GameManager.Player.Dex.Equip(1);

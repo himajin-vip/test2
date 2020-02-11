@@ -41,6 +41,12 @@ public static class ItemManager
       Item item = (Item)Activator.CreateInstance(itemtype);
       return item.Info;
     }
+    public static int ReturnPrice(int ItemID){
+      ItemName itemname = ItemList[ItemID];
+      Type itemtype = Type.GetType(itemname.ToString());
+      Item item = (Item)Activator.CreateInstance(itemtype);
+      return item.Price;
+    }
     public static string ReturnItemName(int ItemID){
       ItemName itemname = ItemList[ItemID];
       Type itemtype = Type.GetType(itemname.ToString());

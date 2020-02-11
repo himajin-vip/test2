@@ -9,6 +9,7 @@ public class LeatherCap : EquipItem
     Info = "Vitを1上げます";
     Name = "皮の帽子";
     Type = ItemType.Head;
+    Price = 300;
   }
   public override void Equip(){
     GameManager.Player.Vit.Equip(1);
