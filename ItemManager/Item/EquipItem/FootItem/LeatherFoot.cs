@@ -9,6 +9,7 @@ public class LeatherFoot : EquipItem
     Info = "Dexを１上げます";
     Name = "皮の靴";
     Type = ItemType.Foot;
+    Price = 300;
   }
   public override void Equip(){
     GameManager.Player.Dex.Equip(1);

@@ -9,6 +9,7 @@ public class LeatherBody : EquipItem
     Info = "Vitを1上げます";
     Name = "皮の服";
     Type = ItemType.Body;
+    Price = 300;
   }
   public override void Equip(){
     GameManager.Player.Vit.Equip(1);

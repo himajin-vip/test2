@@ -56,6 +56,7 @@ public class Player
 
   public void ByeNpc(){
     TalkFlag = false;
+    Debug.Log("Bye");
   }
   public void ItemUse(int ItemID){
     if(InventoryManager.ReturnPieces(ItemID)>0){

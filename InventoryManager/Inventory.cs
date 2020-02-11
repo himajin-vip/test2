@@ -8,21 +8,22 @@ public class Inventory
     public List<int> ItemPeaceList{get; private set;} = new List<int>();
 
     public void Add(int addItemNo,int addItemPeace){
-        if(ItemIDList.Count == 0){
+        bool NewItem = true;
+        int count = 0;
+        foreach(int ItemID in ItemIDList){
+            if( ItemID == addItemNo ){
+                NewItem = false;
+                break;
+            }
+            count++;
+        }
+        if(NewItem){
             ItemIDList.Add(addItemNo);
             ItemPeaceList.Add(addItemPeace);
         }else{
-            int count = 0;
-            foreach(int ItemID in ItemIDList){
-                if(ItemID != addItemNo){
-                    ItemIDList.Add(addItemNo);
-                    ItemPeaceList.Add(addItemPeace);
-                }else{
-                    ItemPeaceList[count] += addItemPeace;
-                }
-                count++;
-            }
+            ItemPeaceList[count] += addItemPeace;
         }
+
     }
 
     public void Reduce(int reduceItemNo,int reduceItemPeace){

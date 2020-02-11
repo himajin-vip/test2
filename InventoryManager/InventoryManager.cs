@@ -31,6 +31,15 @@ public static class InventoryManager
       GameManager.AccountData.Save();
       
     }
+
+    static public void ItemBuy(int itemid, int itemnumber){
+      //ifお金の処理
+      ItemType ItemType = ItemManager.ReturnItemType(itemid);
+      InventoryList[ItemType].Add(itemid,itemnumber);
+      
+      GameManager.AccountData.Save();
+
+    }
     static public List<int> ReturnInventoryList(ItemType ItemType){
         return new List<int>(InventoryList[ItemType].ItemIDList);
     }

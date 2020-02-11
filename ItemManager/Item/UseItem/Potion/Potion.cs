@@ -6,6 +6,7 @@ public class Potion : UseItem
     Id = 0;
     Info = "HPを30%回復します";
     Name = "ポーション";
+    Price = 30;
   }
   public override void Use(string Name){
     new UsePotion(Id,Recovery);
