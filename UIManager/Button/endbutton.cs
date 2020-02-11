@@ -1,10 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
-using UnityEngine.SceneManagement;
 public class endbutton : MonoBehaviour
 {
+  public bool toTItle = false;
     public void OnClick(){
-      GameManager.StateSet("Title");
+      toTItle = true;
     }
 }

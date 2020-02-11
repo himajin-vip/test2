@@ -9,19 +9,19 @@ public class TownKey : Key
             MenuManager.SetMenuState("Main");
         }
         if(Input.GetKey(KeyCode.S)){
-            PlayerManager.Player.Move.Down();
+            GameManager.Player.Move.Down();
         }
         if(Input.GetKey(KeyCode.W)){
-            PlayerManager.Player.Move.Up();
+            GameManager.Player.Move.Up();
         }
         if(Input.GetKey(KeyCode.D)){
-            PlayerManager.Player.Move.Right();
+            GameManager.Player.Move.Right();
         }
         if(Input.GetKey(KeyCode.A)){
-            PlayerManager.Player.Move.Left();
+            GameManager.Player.Move.Left();
         }
         if(Input.GetKeyDown(KeyCode.Space)){
-        //喋る
+            GameManager.Player.Talk();
         }
     }
 }

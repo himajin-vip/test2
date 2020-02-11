@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class MapManager
+public class MapManager
 {
   private static Dictionary<int,Map> MapList = new Dictionary<int,Map>();
   private static Map Map;
   private static int LastMap;
 
-  public static void SetUp(){
-    MapList.Clear();
-
+  static MapManager(){
     MapList.Add(0,new TestMap1());
     MapList.Add(1,new SougenMap());
+  }
+  public MapManager(){
+    
     MapList[1].SetUp();
-
     Map = MapList[0];
     LastMap = 0;
     Map.Start(LastMap);

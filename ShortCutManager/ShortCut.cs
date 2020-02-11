@@ -15,7 +15,7 @@ public class ShortCut : MonoBehaviour
       textShortcut.text = "";
     }
     public void ItemUse(){
-      PlayerManager.Player.ItemUse(IDShortcut);
+      GameManager.Player.ItemUse(IDShortcut);
     }
 
     public void PiecesReset(){

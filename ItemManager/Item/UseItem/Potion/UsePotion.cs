@@ -5,14 +5,14 @@ using UnityEngine;
 public class UsePotion
 {
    public UsePotion(int ID,float Recovery){
-    int recovery = (int)(PlayerManager.Player.Hp.maxValue*Recovery);
-    PlayerManager.Player.Hp.Recovery(recovery);
-    new UseItemLog(PlayerManager.Player.Name.Value,ID);
-    new RecoveryHpLog(PlayerManager.Player.Name.Value,recovery);
+    int recovery = (int)(GameManager.Player.Hp.maxValue*Recovery);
+    GameManager.Player.Hp.Recovery(recovery);
+    new UseItemLog(GameManager.Player.Name.Value,ID);
+    new RecoveryHpLog(GameManager.Player.Name.Value,recovery);
     FiledText filedText = new FiledText();
-    filedText.Make(recovery.ToString(),new Color(0,255,0),PlayerManager.Player.GameObject.transform);
+    filedText.Make(recovery.ToString(),new Color(0,255,0),GameManager.Player.GameObject.transform);
     Efect Efect = new Efect();
-    Efect.On("kaihukuefect",PlayerManager.Player.GameObject);
+    Efect.On("kaihukuefect",GameManager.Player.GameObject);
     AudioManager.AudioON(6);
    }
 }

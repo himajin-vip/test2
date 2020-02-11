@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EquipComandState : MenuState
+public class EquipComandState : IMenuState
 {
   public GameObject EquipComandWindow;
   public GameObject Curesol;
@@ -44,7 +44,7 @@ public class EquipComandState : MenuState
   public void CursolOn(){
     switch(CursolPos){
       case 0:
-        PlayerManager.Player.Equip.Parts[MenuManager.InventoryType].Set(InventoryManager.ReturnSelectItem());
+        GameManager.Player.Equip.Parts[MenuManager.InventoryType].Set(InventoryManager.ReturnSelectItem());
         MenuManager.SetMenuState("Equip");
       break;
       case 1:

@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour
 
   public void Move(){
     if(MoveStatus == 1&&!DeathCheck){//プレイヤーを追いかける
-      Vector3 player_pos = PlayerManager.Player.GameObject.transform.position;
+      Vector3 player_pos = GameManager.Player.GameObject.transform.position;
       Vector3 this_pos = this.transform.position;
       if(player_pos.x>this_pos.x){
       this.transform.Translate(MoveSpeed,0,0);
@@ -98,11 +98,11 @@ public class Enemy : MonoBehaviour
     DeathCheck = true;
     new ItemDrop(DropItemList,this.transform);
     int exp = Exp;
-    if(Lv.Value<PlayerManager.Player.Lv.Value){
-      double down = ((PlayerManager.Player.Lv.Value - Lv.Value)/10f);
+    if(Lv.Value<GameManager.Player.Lv.Value){
+      double down = ((GameManager.Player.Lv.Value - Lv.Value)/10f);
                  exp =(int)(Exp * (1f-down));
     }
-          PlayerManager.Player.Exp.Get(exp);
+          GameManager.Player.Exp.Get(exp);
     StartCoroutine(DestroyEnemy());
   }
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventorySelectState: MenuState{
+public class InventorySelectState: IMenuState{
   public GameObject InventoryCanvas;
   public Text[] ItemText;
   public GameObject Curesol;

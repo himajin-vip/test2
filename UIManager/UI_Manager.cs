@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class UI_Manager
+public class UI_Manager
 {
   private static UI_Status UiStatus;
+  public static TalkCanvas TalkCanvas = new TalkCanvas();
 
-  public static void SetUp(){
+  public UI_Manager(){
     UiStatus = GameObject.Find("StatusCanvas").GetComponent<UI_Status>();
   }
-  public static void UiStatusUpdate(){
+  public static void StatusUpdate(){
     UiStatus.update();
   }
 

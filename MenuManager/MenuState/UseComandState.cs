@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UseComandState : MenuState
+public class UseComandState : IMenuState
 {
   public GameObject UseComandWindow;
   public GameObject Curesol;
@@ -44,7 +44,7 @@ public class UseComandState : MenuState
   public void CursolOn(){
     switch(CursolPos){
       case 0:
-        PlayerManager.Player.ItemUse(InventoryManager.ReturnSelectItem());
+        GameManager.Player.ItemUse(InventoryManager.ReturnSelectItem());
         MenuManager.SetMenuState("UseItem");
       break;
       case 1:
