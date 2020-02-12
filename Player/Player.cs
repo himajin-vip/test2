@@ -63,10 +63,10 @@ public class Player : MonoBehaviour
       }
     }
     public void GetExp(int exp){
-      new GetExpLog(Status.Name.Value,exp);
+      new GetExpLog(Name,exp);
       if(Status.Exp.Get(exp)){
         LvUp();
-        new LvUpLog(Status.Name.Value);
+        new LvUpLog(Name);
         FiledText filedText = new FiledText();
         filedText.Make("LVUP",new Color(255,255,0),this.transform);
       }
@@ -88,7 +88,7 @@ public class Player : MonoBehaviour
         DropItemObj getItem = collision.gameObject.GetComponent<DropItemObj>();
         getItem.DropEnd();
         InventoryManager.ItemGet(getItem);
-        new ItemGetLog(Status.Name.Value,getItem.ItemId);
+        new ItemGetLog(Name,getItem.ItemId);
         AudioManager.AudioON(7);
       }
       if(collision.gameObject.tag == "Npc"){
