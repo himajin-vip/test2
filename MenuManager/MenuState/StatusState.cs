@@ -15,6 +15,7 @@ public class StatusState : IMenuState
   Text DexText;
   Text IntText;
   Text ExpText;
+  Text GoldText;
 
   public void SetUp(){
     StateMenu = GameObject.Find("MenuCanvas").transform.Find("StatusPanel").gameObject;
@@ -27,6 +28,7 @@ public class StatusState : IMenuState
     DexText = StateMenu.transform.Find("StatusPanel").transform.Find("DexPanel").transform.Find("DexText").GetComponent<Text>();
     IntText = StateMenu.transform.Find("StatusPanel").transform.Find("IntPanel").transform.Find("IntText").GetComponent<Text>();
     ExpText = StateMenu.transform.Find("StatusPanel").transform.Find("ExpPanel").transform.Find("ExpText").GetComponent<Text>();
+    GoldText = StateMenu.transform.Find("StatusPanel").transform.Find("GoldPanel").transform.Find("GoldText").GetComponent<Text>();
   }
   public void Start(){
     StateMenu.SetActive(true);
@@ -39,6 +41,7 @@ public class StatusState : IMenuState
     DexText.text = GameManager.Player.Dex.Value.ToString();
     IntText.text = GameManager.Player.Int.Value.ToString();
     ExpText.text = GameManager.Player.Exp.currentValue+"/"+GameManager.Player.Exp.maxValue;
+    GoldText.text = InventoryManager.Gold+"G";
 
   }
   public void CursolMove(int direction){}

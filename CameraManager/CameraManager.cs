@@ -15,7 +15,7 @@ public class CameraManager
   private static int CameraMoveYCount ;
   private static int PlayerMoveCount ;
 
-  public CameraManager(){
+  public void SetUp(){
     MainCamera = Camera.main.gameObject;
     CameraSizeX = 640;
     CameraSizeY = 480;

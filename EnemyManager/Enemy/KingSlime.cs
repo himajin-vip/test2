@@ -12,7 +12,7 @@ public class KingSlime : Enemy
       Str = new Str(15);
       Vit = new Vit(10);
       Exp = 50;
-      Gold = 10;
+      Gold = 500;
       DropItemList.Add(new DropItem(1,5));
       MoveSpeed = 1;
       MoveStatus = 0;

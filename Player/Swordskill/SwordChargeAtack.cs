@@ -8,7 +8,7 @@ public class SwordChargeAtack : Skill
     public void Damage(Dictionary<int,Enemy> EnemyList){
       DamageCheck DamageCheck = new DamageCheck();
       foreach(Enemy enemy in EnemyList.Values){
-        if(DamageCheck.Enemy(enemy)){
+        if(DamageCheck.Enemy(enemy,2)){
           Efect Efect = new Efect();
           Efect.On("kiriefect",enemy.gameObject);
         }

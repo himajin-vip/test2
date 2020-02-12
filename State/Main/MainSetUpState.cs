@@ -13,18 +13,19 @@ public class MainSetUpState : IState
     // Update is called once per frame
     public void Update()
     {
-        ControlManager.KeyChenge("Town");
 
-        new MapManager();
-        new CameraManager();
-        new UI_Manager();
-        new LogManager();
-        new ShortcutManager();
-        new AudioManager();
-        new EnemyManager();
-        new MenuManager();
+        new MapManager().SetUp();
+        new CameraManager().SetUp();
+        new UI_Manager().SetUp();
+        new LogManager().SetUp();
+        new ShortcutManager().SetUp();
+        new AudioManager().SetUp();
+        new EnemyManager().SetUp();
+        new MenuManager().SetUp();
+        new ItemManager().SetUp();
         
         GameManager.SetState("Town");
+        MapManager.StartMap();
     }
     public void End()
     {

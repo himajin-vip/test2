@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TownKey : Key
+public class TownControler : Controler
 {
     public void Check(){
         if(Input.GetKeyDown(KeyCode.M)){

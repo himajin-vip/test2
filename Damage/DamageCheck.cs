@@ -21,10 +21,10 @@ public class DamageCheck
         GameManager.Player.Hp.Damage(FinalDamage);
     }
 
-    public bool Enemy(Enemy enemy){
+    public bool Enemy(Enemy enemy,int ExDamage){
         if(!enemy.DeathCheck){
           Damage Damage = new Damage();
-          int FinalDamage = Damage.Check(GameManager.Player.Lv.Value,GameManager.Player.Str.Value,enemy.Lv.Value,enemy.Vit.Value);
+          int FinalDamage = Damage.Check(GameManager.Player.Lv.Value*ExDamage,GameManager.Player.Str.Value,enemy.Lv.Value,enemy.Vit.Value);
           FiledText filedText = new FiledText();
           filedText.Make(FinalDamage.ToString(),new Color(255,255,255),enemy.transform);
           new DamageLog(enemy.Name.Value,FinalDamage);

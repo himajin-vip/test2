@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainKey : Key
+public class MainControler : Controler
 {
     public void Check(){
         if(Input.GetKeyDown(KeyCode.M)){

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MapMoveKey : Key
+public class MapMoveControler : Controler
 {
   public void Check(){
     if(Input.GetKeyUp(KeyCode.Space)){

@@ -12,7 +12,7 @@ public class BigSlime : Enemy
       Str = new Str(10);
       Vit = new Vit(5);
       Exp = 40;
-      Gold = 10;
+      Gold = 100;
       DropItemList.Add(new DropItem(1,5));
       MoveSpeed = 1;
       MoveStatus = 0;

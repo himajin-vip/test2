@@ -15,6 +15,10 @@ public class GameManager : MonoBehaviour
 
     static GameManager()
     {
+
+      new InventoryManager();
+      new MapManager();
+      new ItemManager();
  
       //////タイトルシーン
       SeanState.Add("ToTitle",new ToTitleState());

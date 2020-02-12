@@ -12,7 +12,7 @@ public class RedSlime : Enemy
       Str = new Str(5);
       Vit = new Vit(1);
       Exp = 30;
-      Gold = 10;
+      Gold = 50;
       DropItemList.Add(new DropItem(0,128));
       DropItemList.Add(new DropItem(100,128));
       DropItemList.Add(new DropItem(200,128));

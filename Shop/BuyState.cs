@@ -15,10 +15,10 @@ public class BuyState : IState
     private List<Text> TextList = new List<Text>();
 
     int BuyNumber;
-
-    // Start is called before the first frame update
+    ShopState shopState = new ShopState();
     public void Start()
     {
+        TextList.Clear();
         ShopList = GameManager.Player.Npc.ShopList;
 
         ItemWindow = GameObject.Find("ShopPanel").transform.Find("ItemWindow").gameObject;
@@ -29,6 +29,9 @@ public class BuyState : IState
 
         CursolObj = ItemWindow.transform.Find("SelectCursol").gameObject;
         CursolTransform = CursolObj.GetComponent<RectTransform>();
+
+        Text GoldText = GameObject.Find("ShopPanel").transform.Find("GoldWindow").transform.Find("Text").GetComponent<Text>();
+        GoldText.text = InventoryManager.Gold+"G";
 
         ItemWindow.SetActive(true);
         InfoWindow.SetActive(true);
@@ -43,7 +46,6 @@ public class BuyState : IState
         }
     }
 
-    // Update is called once per frame
     public void Update()
     {
         KeyCheck();
@@ -87,6 +89,7 @@ public class BuyState : IState
                 BuyNumber = 1;
             }
             UpdateText();
+            AudioManager.AudioON(1);
         }
         if(Input.GetKeyDown(KeyCode.A)){
             BuyNumber--;
@@ -94,14 +97,15 @@ public class BuyState : IState
                 BuyNumber = 99;
             }
             UpdateText();
+            AudioManager.AudioON(1);
         }
         if(Input.GetKeyDown(KeyCode.Space)){
            if(CursolPos == 0){
-               ShopState.SetState("BuySellSelect");
+               shopState.SetState("BuySellSelect");
            }
            else{
-               ShopState.getSelectItem(ShopList[CursolPos-1],BuyNumber);
-               ShopState.SetState("BuyCheck");
+               shopState.getSelectItem(ShopList[CursolPos-1],BuyNumber);
+               shopState.SetState("BuyCheck");
            }
             AudioManager.AudioON(3);
         }

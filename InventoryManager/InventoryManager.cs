@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public static class InventoryManager
+public class InventoryManager
 {
     public static Dictionary<ItemType,Inventory> InventoryList{get; private set;} = new Dictionary<ItemType, Inventory>();
     private static int SelectItemNo;
 
-    static InventoryManager(){ 
+    public static int Gold{get; private set;} = 0;
+
+    public InventoryManager(){ 
+      InventoryList.Clear();
       InventoryList.Add(ItemType.Use,new Inventory());
       InventoryList.Add(ItemType.Weapon,new Inventory());
       InventoryList.Add(ItemType.Body,new Inventory());
@@ -32,12 +35,18 @@ public static class InventoryManager
       
     }
 
-    static public void ItemBuy(int itemid, int itemnumber){
-      //ifお金の処理
-      ItemType ItemType = ItemManager.ReturnItemType(itemid);
-      InventoryList[ItemType].Add(itemid,itemnumber);
-      
-      GameManager.AccountData.Save();
+    static public bool ItemBuy(int itemid, int itemnumber){
+      int price = ItemManager.ReturnPrice(itemid)*itemnumber;
+
+      if(PayGold(price)){
+
+        ItemType ItemType = ItemManager.ReturnItemType(itemid);
+        InventoryList[ItemType].Add(itemid,itemnumber);
+        
+        GameManager.AccountData.Save();
+        return true;
+      }
+      return false;
 
     }
     static public List<int> ReturnInventoryList(ItemType ItemType){
@@ -63,6 +72,17 @@ public static class InventoryManager
     }
     static public int ReturnSelectItem(){
       return SelectItemNo;
+    }
+
+    static public void GetGold(int gold){
+      Gold += gold;
+    }
+    static public bool PayGold(int gold){
+      if(Gold-gold >= 0){
+        Gold -= gold;
+        return true;
+      }
+      return false;
     }
 
     public static void InventoryLoad(SaveData SaveData){

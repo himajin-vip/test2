@@ -8,7 +8,8 @@ public class BuySellSelectState : IState
     GameObject CursolObj;
     RectTransform CursolTransform;
     int CursolPos;
-    // Start is called before the first frame update
+    ShopState shopState = new ShopState();
+
     public void Start()
     {
         ShopWindow = GameObject.Find("ShopPanel").gameObject;
@@ -50,12 +51,12 @@ public class BuySellSelectState : IState
         if(Input.GetKeyDown(KeyCode.Space)){
             switch(CursolPos){
                 case 0:
-                    ShopState.SetState("Buy");
+                    shopState.SetState("Buy");
                 break;
                 case 1:
                 break;
                 case 2:
-                    ShopState.SetState("ShopEnd");
+                    shopState.SetState("ShopEnd");
                 break;
             }
             AudioManager.AudioON(3);

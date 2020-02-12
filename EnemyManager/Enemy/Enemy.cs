@@ -100,9 +100,10 @@ public class Enemy : MonoBehaviour
     int exp = Exp;
     if(Lv.Value<GameManager.Player.Lv.Value){
       double down = ((GameManager.Player.Lv.Value - Lv.Value)/10f);
-                 exp =(int)(Exp * (1f-down));
+      exp =(int)(Exp * (1f-down));
     }
-          GameManager.Player.Exp.Get(exp);
+    GameManager.Player.Exp.Get(exp);
+    InventoryManager.GetGold(Gold);
     StartCoroutine(DestroyEnemy());
   }
 

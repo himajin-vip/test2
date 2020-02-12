@@ -7,7 +7,7 @@ public class ShortcutManager
   private static Dictionary<int,ShortCut> ShortcutList = new Dictionary<int,ShortCut>();
   private static bool[] SetOK;
 
-  public ShortcutManager(){
+  public void SetUp(){
     ShortcutList.Clear();
     SetOK = new bool[5];
     ShortcutList.Add(1,GameObject.Find("ShortCut1").GetComponent<ShortCut>());

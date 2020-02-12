@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEditor;
 using System;
 
-public static class ItemManager
+public class ItemManager
 {
   private static Dictionary<int,Sprite> ItemImageList = new Dictionary<int,Sprite>();
   private static Dictionary<int,ItemName> ItemList = new Dictionary<int, ItemName>();
@@ -13,7 +13,9 @@ public static class ItemManager
 
 
 
-    static ItemManager(){//Excelとかで読み込めないかな
+    public ItemManager(){//Excelとかで読み込めないかな
+      ItemImageList.Clear();
+      ItemList.Clear();
       ItemList.Add(0,ItemName.Potion);
       ItemList.Add(1,ItemName.HiPotion);
       ItemList.Add(100,ItemName.IronSword);
@@ -22,6 +24,9 @@ public static class ItemManager
       ItemList.Add(400,ItemName.LeatherHand);
       ItemList.Add(500,ItemName.LeatherFoot);
 
+    }
+
+    public void SetUp(){
       ItemImageList.Add(0,Resources.Load<Sprite>("ItemImage/Potion"));
       ItemImageList.Add(1,Resources.Load<Sprite>("ItemImage/HiPotion"));
 
@@ -51,6 +56,7 @@ public static class ItemManager
       ItemName itemname = ItemList[ItemID];
       Type itemtype = Type.GetType(itemname.ToString());
       Item item = (Item)Activator.CreateInstance(itemtype);
+      Debug.Log(item.Name);
       return item.Name;
     }
     public static Sprite ReturnImage(int ItemID){
@@ -76,10 +82,5 @@ public static class ItemManager
       item.UnEquip();
     }
 
-    public static void DropItemMake(int ItemID,float x,float y){
-      GameObject DropItem = GameObject.Instantiate(DropItemprefab, new Vector3(x,y,0), Quaternion.identity);
-      DropItemObj dropitem = DropItem.GetComponent<DropItemObj>();
-      dropitem.SetUp(ItemID,x,y);
-    }
 
 }

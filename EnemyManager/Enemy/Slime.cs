@@ -12,7 +12,7 @@ public class Slime :Enemy
     Str = new Str(1);
     Vit = new Vit(1);
     Exp = 15;
-    Gold = 1;
+    Gold = 10;
     DropItemList.Add(new DropItem(0,128));
     DropItemList.Add(new DropItem(100,128));
     DropItemList.Add(new DropItem(200,128));

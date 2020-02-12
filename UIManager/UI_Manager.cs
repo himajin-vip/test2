@@ -5,10 +5,11 @@ using UnityEngine;
 public class UI_Manager
 {
   private static UI_Status UiStatus;
-  public static TalkCanvas TalkCanvas = new TalkCanvas();
+  public static TalkCanvas TalkCanvas;
 
-  public UI_Manager(){
+  public void SetUp(){
     UiStatus = GameObject.Find("StatusCanvas").GetComponent<UI_Status>();
+    TalkCanvas = new TalkCanvas();
   }
   public static void StatusUpdate(){
     UiStatus.update();

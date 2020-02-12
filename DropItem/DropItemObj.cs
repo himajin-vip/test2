@@ -6,7 +6,7 @@ public class DropItemObj : MonoBehaviour
 {
   public int ItemId;
 
-  public void SetUp(int itemid,float x,float y){
+  public void SetUp(int itemid){
     int rndx = Random.Range(-18000, 18000);
     int rndy =  Random.Range(-18000, 18000);
     GetComponent<Rigidbody2D>().AddForce(new Vector2(rndx,rndy));

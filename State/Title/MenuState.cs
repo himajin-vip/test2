@@ -1,13 +1,14 @@
 ﻿
 public class MenuState : IState
 {
+    Controler controler = new MenuControler();
     public void Start()
     {
-        ControlManager.KeyChenge("Menu");
+
     }
     public void Update()
     {
-        ControlManager.Check();
+        controler.Check();
     }
 
     public void End(){

@@ -1,16 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopState : IState
 {   
     private static Dictionary<string,IState> SceneList = new Dictionary<string, IState>();
     private static IState ShopScene;
-    private  GameObject ShopWindow;
+
 
     public static int SelectItemId{get; private set;}
     public static int SelectItemNumber{get; private set;}
-    public ShopState(){
+    static ShopState(){
 
         SceneList.Add("BuySellSelect",new BuySellSelectState());
         SceneList.Add("Buy" ,new BuyState());
@@ -23,8 +24,11 @@ public class ShopState : IState
     public void Start()
     {
 
-        ShopWindow = GameObject.Find("ShopCanvas").transform.Find("ShopPanel").gameObject;
+        GameObject ShopWindow = GameObject.Find("ShopCanvas").transform.Find("ShopPanel").gameObject;
         ShopWindow.SetActive(true);
+
+        Text GoldText = ShopWindow.transform.Find("GoldWindow").transform.Find("Text").GetComponent<Text>();
+        GoldText.text = InventoryManager.Gold+"G";
 
         ShopScene = SceneList["BuySellSelect"];
         ShopScene.Start();
@@ -40,13 +44,13 @@ public class ShopState : IState
     
     }
 
-    public static void SetState(string NextScene){
+    public void SetState(string NextScene){
         ShopScene.End();
         ShopScene = SceneList[NextScene];
         ShopScene.Start();    
     }
 
-    public static void getSelectItem(int itemid , int itemnumber){
+    public void getSelectItem(int itemid , int itemnumber){
         SelectItemId = itemid;
         SelectItemNumber = itemnumber;
     }

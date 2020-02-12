@@ -12,7 +12,7 @@ public class MenuManager
   private static bool InventoryEndfrag;
   public static ItemType InventoryType{get; private set;}
 
-  public MenuManager(){
+  public void SetUp(){
     MenuStateList.Clear();
     EquipTextList.Clear();
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-interface Key
+interface Controler
 {
     void Check();
 }

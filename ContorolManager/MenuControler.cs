@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MenuKey : Key
+public class MenuControler : Controler
 {
     public void Check(){
         if(Input.GetKeyDown(KeyCode.M)){

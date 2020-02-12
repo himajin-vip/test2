@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class TownState : IState
 {
+    Controler Controler = new TownControler();
     public void Start()
     {
-        ControlManager.KeyChenge("Town");
+
     }
     public void Update()
     {
-        ControlManager.Check();
+        Controler.Check();
         CameraManager.PlayerPosCheck();
         UI_Manager.StatusUpdate();
         ShortcutManager.AllPiecesReset();

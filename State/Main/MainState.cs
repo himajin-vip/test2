@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class MainState : IState
 {
-    // Start is called before the first frame update
+    Controler controler = new MainControler();
     public void Start()
     {
-        ControlManager.KeyChenge("Main");
+
     }
 
     // Update is called once per frame
     public void Update()
     {
-        ControlManager.Check();
+        controler.Check();
         CameraManager.PlayerPosCheck();
         UI_Manager.StatusUpdate();
         ShortcutManager.AllPiecesReset();

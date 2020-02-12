@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class MapMoveState : IState
 {
+    Controler controler = new MapMoveControler();
     public void Start()
     {
-        ControlManager.KeyChenge("MapMove");
+
     }
     public void Update()
     {
         CameraManager.PlayerPosCheck();
-        ControlManager.Check();
+        controler.Check();
         UI_Manager.StatusUpdate();
         ShortcutManager.AllPiecesReset();
     }

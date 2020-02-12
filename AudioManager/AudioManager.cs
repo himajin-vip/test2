@@ -5,7 +5,7 @@ using UnityEngine;
 public class AudioManager
 {
   private static Dictionary<int,AudioSource> AudioList = new Dictionary<int,AudioSource>();
-    public AudioManager(){
+    public void SetUp(){
       AudioList.Clear();
       AudioList.Add(1,GameObject.Find("AudioPlayer").transform.Find("AudioCursolmove").GetComponent<AudioSource>());
       AudioList.Add(2,GameObject.Find("AudioPlayer").transform.Find("KiriSE").GetComponent<AudioSource>());
@@ -16,8 +16,9 @@ public class AudioManager
       AudioList.Add(7,GameObject.Find("AudioPlayer").transform.Find("ItemGet").GetComponent<AudioSource>());
       AudioList.Add(8,GameObject.Find("AudioPlayer").transform.Find("kamituki").GetComponent<AudioSource>());
       AudioList.Add(9,GameObject.Find("AudioPlayer").transform.Find("LVUP").GetComponent<AudioSource>());
+      AudioList.Add(10,GameObject.Find("AudioPlayer").transform.Find("shiharai").GetComponent<AudioSource>());
     }
-    public static void AudioON(int AudioNo){
+    public　static void AudioON(int AudioNo){
       AudioList[AudioNo].Play();
     }
     public static void AudioOFF(int AudioNo){

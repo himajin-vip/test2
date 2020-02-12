@@ -13,7 +13,7 @@ public class EnemyManager
   private static List<int> MapEnemyTypeList = new List<int>();
   private static int MapEnemyTypeCount;
 
-  public EnemyManager(){
+  public void SetUp(){
     EnemyTypeList.Clear();
     EnemyList.Clear();
     EnemyIdList.Clear();
