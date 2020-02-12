@@ -6,7 +6,7 @@ public class BigSlime : Enemy
 {
     BigSlime(){
       Name = "ビッグスライム";
-      Lv = new StatusLv(10);
+      Lv = 10;
       Hp = new StatusHp(250 ,250);
       Mp = new StatusMp(0,0);
       Str = new StatusBattle(10);

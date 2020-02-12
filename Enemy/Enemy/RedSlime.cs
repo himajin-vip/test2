@@ -6,7 +6,7 @@ public class RedSlime : Enemy
 {
     RedSlime(){
       Name = "レッドスライム";
-      Lv = new StatusLv(5);
+      Lv = 5;
       Hp = new StatusHp(150 ,150);
       Mp = new StatusMp(0,0);
       Str = new StatusBattle(5);

@@ -18,8 +18,8 @@ public class AutoKaihuku : MonoBehaviour
 
   public  IEnumerator kaihukuStart(){
     yield return new WaitForSeconds(kaihukuTime);
-        player.Status.Hp.Recovery(10*player.Status.Lv.Value);
-        player.Status.Mp.Recovery(1*player.Status.Lv.Value);
+        player.Status.Hp.Recovery(10*player.Status.Lv);
+        player.Status.Mp.Recovery(1*player.Status.Lv);
         Set();
   }
 

@@ -6,7 +6,7 @@ public class Slime :Enemy
 {
   Slime(){
     Name = "スライム";
-    Lv = new StatusLv(1);
+    Lv = 1;
     Hp = new StatusHp(30,30);
     Mp = new StatusMp(0,0);
     Str = new StatusBattle(1);

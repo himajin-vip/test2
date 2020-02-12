@@ -8,7 +8,7 @@ public class DamageCheck
         Damage Damage = new Damage();
         Player player = PlayerObj.GetComponent<Player>();
         string playername = player.Name;
-        int playerlv = player.Status.Lv.Value;
+        int playerlv = player.Status.Lv;
         int playervit = player.Status.Vit.Value;
         Transform playertransform = PlayerObj.transform;
         /////ダメージ計算
@@ -26,7 +26,7 @@ public class DamageCheck
         if(!enemy.DeathCheck){
           Damage Damage = new Damage();
           enemy.player = player;
-          int FinalDamage = Damage.Check(player.Status.Lv.Value*ExDamage,player.Status.Str.Value,enemy.Lv.Value,enemy.Vit.Value);
+          int FinalDamage = Damage.Check(player.Status.Lv*ExDamage,player.Status.Str.Value,enemy.Lv,enemy.Vit.Value);
           FiledText filedText = new FiledText();
           filedText.Make(FinalDamage.ToString(),new Color(255,255,255),enemy.transform);
           new DamageLog(enemy.Name,FinalDamage);

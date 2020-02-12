@@ -6,7 +6,7 @@ public class KingSlime : Enemy
 {
     KingSlime(){
       Name = "キングスライム";
-      Lv = new StatusLv(15);
+      Lv = 15;
       Hp = new StatusHp(500 ,500);
       Mp = new StatusMp(0,0);
       Str = new StatusBattle(15);

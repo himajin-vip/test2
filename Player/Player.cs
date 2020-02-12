@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     public string Name{get; private set;}
     public PlayerStatus Status{get; protected set;}
+    public  Equip Equip{get; protected set;}
     private Move move;
     public StatusMoveSpeed MoveSpeed{get; private set;}
     public Direction Direction{get; private set;}
@@ -17,6 +18,7 @@ public class Player : MonoBehaviour
     public Skill ChargeSkill{get; protected set;}
     private bool TalkFlag = false;
     public Npc Npc{get; protected set;}
+
     public Player(){
       MoveSpeed = new StatusMoveSpeed(3,1);
       Direction = new Direction(this.GetComponent<Animator>());
@@ -55,7 +57,6 @@ public class Player : MonoBehaviour
       }
     }
 
-
     public void ItemUse(int ItemID){
       if(InventoryManager.ReturnPieces(ItemID)>0){
         ItemManager.Use(Name,ItemID);
@@ -65,22 +66,15 @@ public class Player : MonoBehaviour
     public void GetExp(int exp){
       new GetExpLog(Name,exp);
       if(Status.Exp.Get(exp)){
-        LvUp();
+        Status.LvUp();
         new LvUpLog(Name);
         FiledText filedText = new FiledText();
         filedText.Make("LVUP",new Color(255,255,0),this.transform);
       }
         GameManager.AccountData.Save();
     }
-
-    public void LvUp(){
-      Status.Lv.LvUp();
-      Status.Hp.LvUp(50);
-      Status.Mp.LvUp(5);
-      Status.Str.LvUp(1);
-      Status.Vit.LvUp(1);
-      Status.Dex.LvUp(1);
-      Status.Int.LvUp(1);
+    public void SetName(string name){
+      Name = name;
     }
 
     void OnTriggerEnter2D(Collider2D collision){

@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
   public int EnemyId;
   public string Name{get; protected set;}
-  public StatusLv Lv{get; protected set;}
+  public int Lv{get; protected set;}
   public StatusHp Hp{get; protected set;}
   public StatusMp Mp{get; protected set;}
   public StatusBattle Str{get; protected set;}
@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour
   }
   public virtual void Atack(GameObject Playerobj){
     DamageCheck DamageCheck = new DamageCheck();
-    DamageCheck.Player(PlayerObj,Name,Lv.Value,Str.Value);
+    DamageCheck.Player(PlayerObj,Name,Lv,Str.Value);
     Vector3 Playerpos = Playerobj.gameObject.transform.position;
     Efect Efect = new Efect();
     Efect.On("Kamitukiefect",Playerobj);//エフェクト作成
@@ -107,8 +107,8 @@ public class Enemy : MonoBehaviour
     DeathCheck = true;
     new ItemDrop(DropItemList,this.transform);
     int exp = Exp;
-    if(Lv.Value<player.Status.Lv.Value){
-      double down = ((player.Status.Lv.Value - Lv.Value)/10f);
+    if(Lv<player.Status.Lv){
+      double down = ((player.Status.Lv - Lv)/10f);
       exp =(int)(Exp * (1f-down));
     }
     player.GetExp(exp);

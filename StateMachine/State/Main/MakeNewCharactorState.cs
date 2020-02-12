@@ -6,8 +6,10 @@ public class MakeNewCharactorState : IState
         SceneManager.LoadScene("Main");
     }
     public void Update(){
-        MakePlayerObject PlayerObject = new MakePlayerObject();
-        Player = new NewPlayer(); 
+        MakePlayerObject playerObject= new MakePlayerObject();
+        Player newplayer = playerObject.Object.GetComponent<Player>();
+        newplayer.SetName(GameManager.AccountData.Name);
+        newplayer.Status.SetNewGame();
         GameManager.SetState("MainSetUp");
     }
     public void End(){

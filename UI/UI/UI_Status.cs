@@ -13,7 +13,7 @@ public class UI_Status : MonoBehaviour
 
   public void update(Player player)
   {
-    LVText.text = "Lv:"+player.Status.Lv.Value+" "+player.Name;
+    LVText.text = "Lv:"+player.Status.Lv+" "+player.Name;
     hpSlider.maxValue = player.Status.Hp.maxValue;
     hpSlider.value = player.Status.Hp.currentValue;
     hpText.text = player.Status.Hp.currentValue+"/"+player.Status.Hp.maxValue;
