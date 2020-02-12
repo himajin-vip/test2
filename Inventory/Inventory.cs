@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class Inventory
 {
-    public List<int> ItemIDList{get; private set;} = new List<int>();
-    public List<int> ItemPeaceList{get; private set;} = new List<int>();
-    Dictionary<int,int> List = new Dictionary<int, int>();
+    private Dictionary<int,int> List = new Dictionary<int, int>();
 
     public void Add(int addItemNo,int addItemPeace){
         List<int> Idlist = new List<int>(List.Keys);
@@ -23,16 +21,20 @@ public class Inventory
     }
 
     public void Reduce(int reduceItemNo,int reduceItemPeace){
-        for(int i = 0;i<ItemIDList.Count;i++){
-            if(ItemIDList[i] == reduceItemNo){
-                ItemPeaceList[i] -= reduceItemPeace;
-                if(ItemPeaceList[i] <=0 ){
-                    ItemIDList.Remove(i);
-                    ItemPeaceList.Remove(i);
-                }
-            }
-        }  
+        List<int> Idlist = new List<int>(List.Keys);
+        bool haveItem = Idlist.Contains(reduceItemNo);
+        if(haveItem){
+            List[reduceItemNo] -= reduceItemPeace;
+            RemoveItem(reduceItemNo);
+        }
     }
+
+    public void RemoveItem(int itemid){
+        if(List[itemid]<=0){
+            List.Remove(itemid);
+        }
+    }
+
     public int ReturnPeace(int ItemID){
          for(int i = 0;i<ItemIDList.Count;i++){
             if(ItemIDList[i] == ItemID){
