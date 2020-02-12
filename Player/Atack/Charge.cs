@@ -11,7 +11,7 @@ public class Charge : MonoBehaviour
   private Efect Efect = new Efect();
   private bool ChargeNow = false;
 
-  public Charge(Player player ,GameObject playerobj){
+  public void SetUp(Player player ,GameObject playerobj){
     Player = player;
     PlayerObj = playerobj;
   }

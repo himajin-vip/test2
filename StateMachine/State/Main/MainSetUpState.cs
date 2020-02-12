@@ -15,6 +15,8 @@ public class MainSetUpState : IState
     {
 
         MapManager.SetUp();
+        AccountData.PlayerSet();
+        ItemDrop.SetUp();
         new CameraManager().SetUp();
         new UI_Manager().SetUp();
         new LogManager().SetUp();

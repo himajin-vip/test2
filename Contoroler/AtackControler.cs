@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AtackControler : MonoBehaviour
+public class AtackControler
 {
     Player Player;
     public  AtackControler(){

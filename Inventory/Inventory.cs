@@ -25,6 +25,7 @@ public class Inventory
         }
 
     }
+    
 
     public void Reduce(int reduceItemNo,int reduceItemPeace){
         for(int i = 0;i<ItemIDList.Count;i++){

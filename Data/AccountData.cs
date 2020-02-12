@@ -17,9 +17,9 @@ public static class AccountData
     AccountDataList = JsonUtility.FromJson<AccountDataList> (Accountstr);
    }
  }
- public static void PlayerSet(Player player)
+ public static void PlayerSet()
  {
-   Player = player;
+   Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
  }
  public static void SetLoadData(SaveData loaddata){
    LoadData = loaddata;

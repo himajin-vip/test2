@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
 
   public void SetUp(){
     Direction = new Direction(this.GetComponent<Animator>());
-    move = new Move(this.gameObject,MoveSpeed,Direction);
+    move = new Move(this.gameObject,Direction);
   }
   public virtual void Atack(GameObject Playerobj){
     DamageCheck DamageCheck = new DamageCheck();
@@ -48,16 +48,16 @@ public class Enemy : MonoBehaviour
       Vector3 player_pos = PlayerObj.transform.position;
       Vector3 this_pos = this.transform.position;
       if(player_pos.x>this_pos.x){
-        move.Right();
+        move.Right(MoveSpeed);
       }
       if(player_pos.x<this_pos.x){
-        move.Left();
+        move.Left(MoveSpeed);
       }
       if(player_pos.y>this_pos.y){
-        move.Up();
+        move.Up(MoveSpeed);
       }
       if(player_pos.y<this_pos.y){
-        move.Down();
+        move.Down(MoveSpeed);
       }
     }
     if(MoveStatus == 0&&!DeathCheck){//自由に動く
@@ -80,22 +80,22 @@ public class Enemy : MonoBehaviour
            if(MoveOn){
          if(MoveOnX == 1){
            if(this.transform.position.x+MoveSpeed<CameraposX+CameraSizeX/2){
-             move.Right();
+             move.Right(MoveSpeed);
            }
          }
          if(MoveOnX == -1){
            if(this.transform.position.x+MoveSpeed>CameraposX-CameraSizeX/2){
-             move.Left();
+             move.Left(MoveSpeed);
            }
          }
          if(MoveOnY == 1){
            if(this.transform.position.y+MoveSpeed<CameraposY+CameraSizeY/2){
-             move.Up();
+             move.Up(MoveSpeed);
            }
          }
          if(MoveOnY == -1){
            if(this.transform.position.y-MoveSpeed>CameraposY-CameraSizeY/2){
-             move.Down();
+             move.Down(MoveSpeed);
            }
          }
        }

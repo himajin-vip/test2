@@ -7,7 +7,7 @@ public class AutoKaihuku : MonoBehaviour
   private float kaihukuTime = 5f;
   private Coroutine kaihukuC;
   private Player player;
-  public AutoKaihuku(){
+  public void SetUp(){
     kaihukuC = StartCoroutine(kaihukuStart());
     player = transform.parent.GetComponent<Player>();
   }

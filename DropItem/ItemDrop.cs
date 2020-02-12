@@ -6,7 +6,7 @@ public class ItemDrop
 {
     private static GameObject DropItemprefab;
 
-    public void SetUp(){
+    public static void SetUp(){
         DropItemprefab = (GameObject)Resources.Load ("prefab/DropItem");
     }
     public ItemDrop(List<DropItem> DropItemList,Transform transform){
