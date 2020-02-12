@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class MainState : IState
 {
-    Controler controler = new MainControler();
+    Controler controler ;
     public void Start()
     {
-
+        controler= new MainControler();
     }
 
     // Update is called once per frame

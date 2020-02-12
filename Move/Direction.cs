@@ -11,19 +11,19 @@ public class Direction
     Animator = animator;
   }
   public void Down(){
-    Animator.SetInteger("move_direction", 0);
+    Animator.SetInteger("Direction", 0);
     Value = 0;
   }
   public void Up(){
-    Animator.SetInteger("move_direction", 1);
+    Animator.SetInteger("Direction", 1);
     Value = 1;
   }
   public void Right(){
-    Animator.SetInteger("move_direction", 2);
+    Animator.SetInteger("Direction", 2);
     Value = 2;
   }
   public void Left(){
-    Animator.SetInteger("move_direction", 3);
+    Animator.SetInteger("Direction", 3);
     Value = 3;
   }
 }

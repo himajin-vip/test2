@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraManager
 {
   private static GameObject MainCamera;
+  private static GameObject PlayerObj;
   private static int CameraSizeX ;
   private static int CameraSizeY ;
   private static int CameraMoveX ;
@@ -17,6 +18,7 @@ public class CameraManager
 
   public void SetUp(){
     MainCamera = Camera.main.gameObject;
+    PlayerObj = GameObject.FindGameObjectWithTag("Player").gameObject;
     CameraSizeX = 640;
     CameraSizeY = 480;
     CameraMoveX = 0;
@@ -27,24 +29,26 @@ public class CameraManager
     CameraMoveYCount = 0;
     PlayerMoveCount = 10;
   }
-  public static Vector3 ReturnPosition(){
-    return MainCamera.transform.position;
-  }
+
   public static void PlayerPosCheck(){
+    MapManager mapManager = new MapManager();
+    Player player = GameManager.Player;
+    Move playerMove = new Move(PlayerObj,player.MoveSpeed.Value,player.Direction);
+
     if(!CameraMoveOn){
       Vector3 Camerapos = MainCamera.transform.position;
-      Vector3 Playerpos = GameManager.Player.GameObject.transform.position;
+      Vector3 Playerpos = PlayerObj.transform.position;
       if(Camerapos.x+CameraSizeX/2<Playerpos.x){//カメラを右に移動する
         CameraMoveX = 1;
         CameraMoveXCount++;
         CameraMoveOn = true;
         int i = PlayerMoveCount;
         while(i>0){
-          GameManager.Player.Move.Right();
+          playerMove.Right();
           i--;
         }
         GameManager.SetState("MapMove");
-        MapManager.MapMove(2);
+        mapManager.MapMove(2);
       }
       if(Camerapos.x-CameraSizeX/2>Playerpos.x){//カメラを左に移動する
         CameraMoveX = -1;
@@ -52,11 +56,11 @@ public class CameraManager
         CameraMoveOn = true;
         int i = PlayerMoveCount;
         while(i>0){
-          GameManager.Player.Move.Left();
+          playerMove.Left();
           i--;
         }
         GameManager.SetState("MapMove");
-        MapManager.MapMove(3);
+        mapManager.MapMove(3);
       }
       if(Camerapos.y+CameraSizeY/2<Playerpos.y){//カメラを上に移動する
         CameraMoveY = 1;
@@ -64,11 +68,11 @@ public class CameraManager
         CameraMoveOn = true;
         int i = PlayerMoveCount;
         while(i>0){
-          GameManager.Player.Move.Up();
+          playerMove.Up();
           i--;
         }
         GameManager.SetState("MapMove");
-        MapManager.MapMove(1);
+        mapManager.MapMove(1);
       }
       if(Camerapos.y-CameraSizeY/2>Playerpos.y){//カメラを下に移動する
         CameraMoveY = -1;
@@ -76,11 +80,11 @@ public class CameraManager
         CameraMoveOn = true;
         int i = PlayerMoveCount;
         while(i>0){
-          GameManager.Player.Move.Down();
+          playerMove.Down();
           i--;
         }
         GameManager.SetState("MapMove");
-        MapManager.MapMove(0);
+        mapManager.MapMove(0);
       }
     }
     CameraMoveStart();

@@ -8,14 +8,11 @@ public class MapManager
   private static Map Map;
   private static int LastMap;
 
-  public MapManager(){
+  public void SetUp(){
     MapList.Clear();
     MapList.Add(0,new TestMap1());
     MapList.Add(1,new SougenMap());
     MapList[1].SetUp();
-    
-  }
-  public void SetUp(){
     Map = MapList[0];
     LastMap = 0;
   }
@@ -38,7 +35,7 @@ public class MapManager
   public static int ReturnLastMap(){
     return LastMap;
   }
-  public static void MapMove(int Direction){
+  public void MapMove(int Direction){
     Map.MapMove(Direction);
   }
 

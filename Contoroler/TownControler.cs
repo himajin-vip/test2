@@ -4,21 +4,30 @@ using UnityEngine;
 
 public class TownControler : Controler
 {
+    GameObject PlayerObj;
+    Player Player;
+    Move PlayerMove;
+    public TownControler(){
+        PlayerObj = GameObject.FindGameObjectWithTag("Player").gameObject;
+        Player = GameManager.Player;
+        PlayerMove = new Move(PlayerObj,Player.MoveSpeed.Value,Player.Direction);
+
+    }
     public void Check(){
         if(Input.GetKeyDown(KeyCode.M)){
             MenuManager.SetMenuState("Main");
         }
         if(Input.GetKey(KeyCode.S)){
-            GameManager.Player.Move.Down();
+            PlayerMove.Down();
         }
         if(Input.GetKey(KeyCode.W)){
-            GameManager.Player.Move.Up();
+            PlayerMove.Up();
         }
         if(Input.GetKey(KeyCode.D)){
-            GameManager.Player.Move.Right();
+            PlayerMove.Right();
         }
         if(Input.GetKey(KeyCode.A)){
-            GameManager.Player.Move.Left();
+            PlayerMove.Left();
         }
         if(Input.GetKeyDown(KeyCode.Space)){
             GameManager.Player.Talk();

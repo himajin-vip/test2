@@ -16,6 +16,8 @@ public class Enemy : MonoBehaviour
   public int Exp;
   public int Gold;
   public List<DropItem> DropItemList = new List<DropItem>();
+  public Move move;
+  public Direction Direction;
   public int MoveSpeed;
   public int MoveStatus;
   public float AtackWaitTime;
@@ -25,6 +27,10 @@ public class Enemy : MonoBehaviour
   public int MoveOnX;
   public int MoveOnY;
 
+  public void SetUp(){
+    Direction = new Direction(this.GetComponent<Animator>());
+    move = new Move(this.gameObject,MoveSpeed,Direction);
+  }
   public virtual void Atack(GameObject Playerobj){
     DamageCheck DamageCheck = new DamageCheck();
     DamageCheck.Player(Name.Value,Lv.Value,Str.Value);
@@ -39,16 +45,16 @@ public class Enemy : MonoBehaviour
       Vector3 player_pos = GameManager.Player.GameObject.transform.position;
       Vector3 this_pos = this.transform.position;
       if(player_pos.x>this_pos.x){
-      this.transform.Translate(MoveSpeed,0,0);
+        move.Right();
       }
       if(player_pos.x<this_pos.x){
-      this.transform.Translate(-MoveSpeed,0,0);
+        move.Left();
       }
       if(player_pos.y>this_pos.y){
-      this.transform.Translate(0,MoveSpeed,0);
+        move.Up();
       }
       if(player_pos.y<this_pos.y){
-      this.transform.Translate(0,-MoveSpeed,0);
+        move.Down();
       }
     }
     if(MoveStatus == 0&&!DeathCheck){//自由に動く
@@ -62,8 +68,8 @@ public class Enemy : MonoBehaviour
     }
   }
   private IEnumerator MoveWait(int frame){
-    float CameraposX = CameraManager.ReturnPosition().x;
-    float CameraposY = CameraManager.ReturnPosition().y;
+    float CameraposX = Camera.main.gameObject.transform.position.x;
+    float CameraposY = Camera.main.gameObject.transform.position.y;
     int CameraSizeX = 640;
     int CameraSizeY = 480;
     while (frame > 0) {
@@ -71,22 +77,22 @@ public class Enemy : MonoBehaviour
            if(MoveOn){
          if(MoveOnX == 1){
            if(this.transform.position.x+MoveSpeed<CameraposX+CameraSizeX/2){
-             this.transform.Translate(MoveSpeed,0,0);
+             move.Right();
            }
          }
          if(MoveOnX == -1){
            if(this.transform.position.x+MoveSpeed>CameraposX-CameraSizeX/2){
-             this.transform.Translate(-MoveSpeed,0,0);
+             move.Left();
            }
          }
          if(MoveOnY == 1){
            if(this.transform.position.y+MoveSpeed<CameraposY+CameraSizeY/2){
-             this.transform.Translate(0,MoveSpeed,0);
+             move.Up();
            }
          }
          if(MoveOnY == -1){
            if(this.transform.position.y-MoveSpeed>CameraposY-CameraSizeY/2){
-             this.transform.Translate(0,-MoveSpeed,0);
+             move.Down();
            }
          }
        }

@@ -39,8 +39,8 @@ public class EnemyManager
 
   public static void MakeEnemy(){
 
-    float CameraposX = CameraManager.ReturnPosition().x;
-    float CameraposY = CameraManager.ReturnPosition().y;
+    float CameraposX = Camera.main.gameObject.transform.position.x;
+    float CameraposY = Camera.main.gameObject.transform.position.y;
     int CameraSizeX = 640;
     int CameraSizeY = 480;
     int marge = 64;
@@ -59,6 +59,7 @@ public class EnemyManager
       ///////オブジェクトの作成;
       GameObject Enemyobj2= GameManager.Instantiate(EnemyObject,new Vector3(CameraposX+x,CameraposY+y,0), Quaternion.identity);
       Enemy Enemy = Enemyobj2.GetComponent<Enemy>();
+      Enemy.SetUp();
       ////////ID決め
       int useid = 0;
       foreach(int id in EnemyIdList){

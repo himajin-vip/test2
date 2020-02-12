@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class TownState : IState
 {
-    Controler Controler = new TownControler();
+    Controler Controler;
     public void Start()
     {
-
+        Controler = new TownControler();
     }
     public void Update()
     {

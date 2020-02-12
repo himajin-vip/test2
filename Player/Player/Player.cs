@@ -18,7 +18,6 @@ public class Player
   public Int Int{get; protected set;}
   public Exp Exp{get; protected set;}
 
-  public Move Move{get; protected set;} = new Move();
   public MoveSpeed MoveSpeed{get; protected set;}
   public Direction Direction{get; protected set;}
 
