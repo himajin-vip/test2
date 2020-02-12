@@ -5,7 +5,7 @@ using UnityEngine;
 public class TownMap : Map
 {
   private GameObject MapObject;
-  private MapEnemyList EnemyList;
+  private MapEnemyList EnemyList = new MapEnemyList(new List<int>(),0);
 
   public void SetUp(){
   }

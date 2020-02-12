@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
   private static StateMachine SeanState = new StateMachine();
-
-  public static AccountData AccountData{get; private set;} = new AccountData();
   public static bool SetUp = false;
   public static string NowState{get; private set;}
   public static string LastState{get; private set;}

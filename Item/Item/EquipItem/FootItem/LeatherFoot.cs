@@ -11,11 +11,11 @@ public class LeatherFoot : EquipItem
     Type = ItemType.Foot;
     Price = 300;
   }
-  public override void Equip(){
-    GameManager.Player.Dex.Equip(1);
+  public override void Equip(Player player){
+    player.Status.Dex.Equip(1);
   }
-  public override void UnEquip(){
-    GameManager.Player.Dex.UnEquip(1);
+  public override void UnEquip(Player player){
+    player.Status.Dex.UnEquip(1);
   }
 
 }

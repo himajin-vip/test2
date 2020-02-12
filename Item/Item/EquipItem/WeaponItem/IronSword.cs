@@ -12,10 +12,10 @@ public class IronSword : EquipItem
     Price = 500;
 
   }
-  public override void Equip(){
-    GameManager.Player.Str.Equip(5);
+  public override void Equip(Player player){
+    player.Status.Str.Equip(5);
   }
-  public override void UnEquip(){
-    GameManager.Player.Str.UnEquip(5);
+  public override void UnEquip(Player player){
+    player.Status.Str.UnEquip(5);
   }
 }

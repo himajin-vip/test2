@@ -9,7 +9,7 @@ public class MakeLoadCharactorState : IState
     public void Update(){
         MakePlayerObject playerObject = new MakePlayerObject();
         Player player = playerObject.Object.GetComponent<Player>();
-        SaveData LoadData = GameManager.AccountData.LoadData;
+        SaveData LoadData = AccountData.LoadData;
         player.SetName(LoadData.Name);
         player.Status.SetLoadGame(LoadData);
         // Player.Equip.PartsLoad(AccountData.LoadData.EquipWeapon,ItemType.Weapon);

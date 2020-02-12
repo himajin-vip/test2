@@ -8,7 +8,7 @@ public class MakeNewCharactorState : IState
     public void Update(){
         MakePlayerObject playerObject= new MakePlayerObject();
         Player newplayer = playerObject.Object.GetComponent<Player>();
-        newplayer.SetName(GameManager.AccountData.Name);
+        newplayer.SetName(AccountData.Name);
         newplayer.Status.SetNewGame();
         GameManager.SetState("MainSetUp");
     }

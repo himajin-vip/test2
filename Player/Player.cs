@@ -24,8 +24,11 @@ public class Player : MonoBehaviour
       Direction = new Direction(this.GetComponent<Animator>());
       move = new Move(this.gameObject,MoveSpeed.Value,Direction);
       Atack = new Atack(this);
+      normalAtack = new SwordNomalAtack(this,this.gameObject);
+      ChargeSkill = new SwordChargeAtack(this,this.gameObject);
       Charge = this.transform.Find("tame").GetComponent<Charge>();
       Weapon = (GameObject)Resources.Load("prefab/Weapon/Sword");
+      Equip = new Equip(this);
     }
     public void Move(int direction){
       if(!Atack.On){
@@ -71,7 +74,7 @@ public class Player : MonoBehaviour
         FiledText filedText = new FiledText();
         filedText.Make("LVUP",new Color(255,255,0),this.transform);
       }
-        GameManager.AccountData.Save();
+        AccountData.Save();
     }
     public void SetName(string name){
       Name = name;

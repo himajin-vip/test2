@@ -10,11 +10,12 @@ public class EquipComandState : IMenuState
   public float CursolPosition = -10;
   public float newPosy;
   public int CursolPos;
-
+  private Player Player;
   public void SetUp(){
     EquipComandWindow = GameObject.Find("MenuCanvas").transform.Find("InventoryPanel").transform.Find("EquipComandWindow").gameObject;
     Curesol = EquipComandWindow.transform.Find("SelectCursol").gameObject;
     CursolTransform = Curesol.GetComponent<RectTransform>();
+    Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
   }
   public void Start(){
     EquipComandWindow.SetActive(true);
@@ -44,7 +45,7 @@ public class EquipComandState : IMenuState
   public void CursolOn(){
     switch(CursolPos){
       case 0:
-        GameManager.Player.Equip.Parts[MenuManager.InventoryType].Set(InventoryManager.ReturnSelectItem());
+        Player.Equip.Parts[MenuManager.InventoryType].Set(InventoryManager.ReturnSelectItem(),Player);
         MenuManager.SetMenuState("Equip");
       break;
       case 1:

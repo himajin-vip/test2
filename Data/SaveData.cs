@@ -37,25 +37,25 @@ public class SaveData
   public List<int> AccesuryItemList  = new List<int>();
   public List<int> AccesuryItemNumberList = new List<int>();
 
-  public void Update(){
-     Name = GameManager.Player.Name.Value;
-     Lv = GameManager.Player.Lv.Value;
-     MaxHp = GameManager.Player.Hp.maxValue;
-     CurrentHp = GameManager.Player.Hp.currentValue;
-     MaxMp = GameManager.Player.Mp.maxValue;
-     CurrentMp = GameManager.Player.Mp.currentValue;
-     Str = GameManager.Player.Str.NomalValue;
-     Vit = GameManager.Player.Vit.NomalValue;
-     Dex = GameManager.Player.Dex.NomalValue;
-     Int = GameManager.Player.Int.NomalValue;
-     NextExp = GameManager.Player.Exp.maxValue;
-     CurrentExp = GameManager.Player.Exp.currentValue;
-     EquipWeapon = GameManager.Player.Equip.Parts[ItemType.Weapon].ItemId;
-     EquipHead = GameManager.Player.Equip.Parts[ItemType.Head].ItemId;
-     EquipBody = GameManager.Player.Equip.Parts[ItemType.Body].ItemId;
-     EquipHand = GameManager.Player.Equip.Parts[ItemType.Hand].ItemId;
-     EquipFoot = GameManager.Player.Equip.Parts[ItemType.Foot].ItemId;
-     EquipAccessory = GameManager.Player.Equip.Parts[ItemType.Accessory].ItemId;
+  public void Update(Player player){
+     Name = player.Name;
+     Lv = player.Status.Lv;
+     MaxHp = player.Status.Hp.maxValue;
+     CurrentHp = player.Status.Hp.currentValue;
+     MaxMp = player.Status.Mp.maxValue;
+     CurrentMp = player.Status.Mp.currentValue;
+     Str = player.Status.Str.NomalValue;
+     Vit = player.Status.Vit.NomalValue;
+     Dex = player.Status.Dex.NomalValue;
+     Int = player.Status.Int.NomalValue;
+     NextExp = player.Status.Exp.maxValue;
+     CurrentExp = player.Status.Exp.currentValue;
+     EquipWeapon = player.Equip.Parts[ItemType.Weapon].ItemId;
+     EquipHead = player.Equip.Parts[ItemType.Head].ItemId;
+     EquipBody = player.Equip.Parts[ItemType.Body].ItemId;
+     EquipHand = player.Equip.Parts[ItemType.Hand].ItemId;
+     EquipFoot = player.Equip.Parts[ItemType.Foot].ItemId;
+     EquipAccessory = player.Equip.Parts[ItemType.Accessory].ItemId;
 
      UseItemList = InventoryManager.ReturnInventoryList(ItemType.Use);
      UseItemNumberList = InventoryManager.ReturnInventoryNumberList(ItemType.Use);

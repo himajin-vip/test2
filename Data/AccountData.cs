@@ -2,32 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AccountData
+public static class AccountData
 {
-  public string Name{get; private set;}
-  private string PassWord;
-  public SaveData SaveData{get; private set;} = new SaveData();
-  public SaveData LoadData{get; private set;} = new SaveData();
-  public AccountDataList AccountDataList{get; private set;} = new AccountDataList();
+  public static string Name{get; private set;}
+  private static string PassWord;
+  public static SaveData SaveData{get; private set;} = new SaveData();
+  public static SaveData LoadData{get; private set;} = new SaveData();
+  public static AccountDataList AccountDataList{get; private set;} = new AccountDataList();
+  public static Player Player;
 
- public void SetUp(){
+ public static void SetUp(){
    string Accountstr =  PlayerPrefs.GetString("Account","0");
    if(Accountstr != "0"){
     AccountDataList = JsonUtility.FromJson<AccountDataList> (Accountstr);
    }
  }
- public void SetLoadData(SaveData loaddata){
+ public static void PlayerSet(Player player)
+ {
+   Player = player;
+ }
+ public static void SetLoadData(SaveData loaddata){
    LoadData = loaddata;
  }
- public void SetName(string name){
+ public static void SetName(string name){
    Name = name;
  }
- public void SetPassWord(string password){
+ public static void SetPassWord(string password){
    PassWord = password;
  }
-  public void Save(){
-    Debug.Log("Save");
-    SaveData.Update();
+  public static void Save(){
+    SaveData.Update(Player);
     string SaveDatastr = JsonUtility.ToJson(SaveData);
     int count = 0;
     foreach(string Playername in AccountDataList.Account){

@@ -8,7 +8,7 @@ public class SwordChargeAtack : Skill
   Player Player;
   GameObject PlayerObj;
 
-  SwordChargeAtack(Player player,GameObject playerobj){
+  public SwordChargeAtack(Player player,GameObject playerobj){
     Player = player;
     PlayerObj = playerobj;
   }

@@ -14,14 +14,14 @@ public class StatusMp
 
     public void Use(int value){
       currentValue -= value;
-      GameManager.AccountData.Save();
+      AccountData.Save();
     }
     public void Recovery(int recovery){
       currentValue += recovery;
       if(currentValue>maxValue){
         currentValue = maxValue;
       }
-      GameManager.AccountData.Save();
+      AccountData.Save();
     }
 
     public void LvUp(int value){

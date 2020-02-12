@@ -27,7 +27,7 @@ public class InventoryManager
       ItemType ItemType = ItemManager.ReturnItemType(ItemID);
       InventoryList[ItemType].Add(ItemID,1);
       
-      GameManager.AccountData.Save();
+      AccountData.Save();
       
     }
 
@@ -39,7 +39,7 @@ public class InventoryManager
         ItemType ItemType = ItemManager.ReturnItemType(itemid);
         InventoryList[ItemType].Add(itemid,itemnumber);
         
-        GameManager.AccountData.Save();
+        AccountData.Save();
         return true;
       }
       return false;
@@ -60,7 +60,7 @@ public class InventoryManager
     static public void ItemReduce(int ItemID){
       ItemType ItemType = ItemManager.ReturnItemType(ItemID);
       InventoryList[ItemType].Reduce(ItemID,1);
-      GameManager.AccountData.Save();
+      AccountData.Save();
     }
     /////////////////インベントリで選択したアイテムの保存
     static public void SelectItem(int ItemID){

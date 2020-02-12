@@ -16,6 +16,7 @@ public class StatusState : IMenuState
   Text IntText;
   Text ExpText;
   Text GoldText;
+  Player Player;
 
   public void SetUp(){
     StateMenu = GameObject.Find("MenuCanvas").transform.Find("StatusPanel").gameObject;
@@ -29,18 +30,19 @@ public class StatusState : IMenuState
     IntText = StateMenu.transform.Find("StatusPanel").transform.Find("IntPanel").transform.Find("IntText").GetComponent<Text>();
     ExpText = StateMenu.transform.Find("StatusPanel").transform.Find("ExpPanel").transform.Find("ExpText").GetComponent<Text>();
     GoldText = StateMenu.transform.Find("StatusPanel").transform.Find("GoldPanel").transform.Find("GoldText").GetComponent<Text>();
+    Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
   }
   public void Start(){
     StateMenu.SetActive(true);
-    NameText.text = GameManager.Player.Name.Value;
-    LvText.text = GameManager.Player.Lv.Value.ToString();
-    HpText.text = GameManager.Player.Hp.currentValue+"/"+GameManager.Player.Hp.maxValue;
-    MpText.text = GameManager.Player.Mp.currentValue+"/"+GameManager.Player.Mp.maxValue;
-    StrText.text = GameManager.Player.Str.Value.ToString();
-    VitText.text = GameManager.Player.Vit.Value.ToString();
-    DexText.text = GameManager.Player.Dex.Value.ToString();
-    IntText.text = GameManager.Player.Int.Value.ToString();
-    ExpText.text = GameManager.Player.Exp.currentValue+"/"+GameManager.Player.Exp.maxValue;
+    NameText.text = Player.Name;
+    LvText.text = Player.Status.Lv.ToString();
+    HpText.text = Player.Status.Hp.currentValue+"/"+Player.Status.Hp.maxValue;
+    MpText.text = Player.Status.Mp.currentValue+"/"+Player.Status.Mp.maxValue;
+    StrText.text = Player.Status.Str.Value.ToString();
+    VitText.text = Player.Status.Vit.Value.ToString();
+    DexText.text = Player.Status.Dex.Value.ToString();
+    IntText.text = Player.Status.Int.Value.ToString();
+    ExpText.text = Player.Status.Exp.currentValue+"/"+Player.Status.Exp.maxValue;
     GoldText.text = InventoryManager.Gold+"G";
 
   }

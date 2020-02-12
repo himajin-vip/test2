@@ -17,6 +17,9 @@ public class EquipState : IMenuState
   public int CursolPos;
   public int Inventorycount;
 
+  public Player Player;
+
+
   public void SetUp(){
     ItemTextList.Clear();
     InventoryList.Clear();
@@ -47,6 +50,8 @@ public class EquipState : IMenuState
     ItemTextList.Add(ItemPanel.transform.Find("ItemNameText17").GetComponent<Text>());
     ItemTextList.Add(ItemPanel.transform.Find("ItemNameText18").GetComponent<Text>());
     ItemTextList.Add(ItemPanel.transform.Find("ItemNameText19").GetComponent<Text>());
+
+    Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
   }
   public void Start(){
     MenuManager.EquipWindowReset();
@@ -61,7 +66,7 @@ public class EquipState : IMenuState
     InfoWindowText.text = "";
     InventoryList = InventoryManager.ReturnInventoryList(MenuManager.InventoryType);
     foreach(int ItemID in InventoryList) {
-      if(ItemID == GameManager.Player.Equip.Parts[MenuManager.InventoryType].ItemId){
+      if(ItemID == Player.Equip.Parts[MenuManager.InventoryType].ItemId){
         ItemTextList[Inventorycount].text = "E:"+ItemManager.ReturnItemName(ItemID)+" / "+InventoryManager.ReturnPieces(ItemID)+"個";
         Inventorycount++;
       }else{

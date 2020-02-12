@@ -5,14 +5,14 @@
   public EquipPart(){
     ItemId = 9999;
   }
-  public void Set(int itemid){
+  public void Set(int itemid,Player player){
     ItemId = itemid;
     if(itemid != 9999){
-      ItemManager.Equip(itemid);
+      ItemManager.Equip(itemid,player);
     }
   }
 
-  public void UnSet(int itemid){
-    ItemManager.UnEquip(itemid);
+  public void UnSet(int itemid,Player player){
+    ItemManager.UnEquip(itemid,player);
   }
 }

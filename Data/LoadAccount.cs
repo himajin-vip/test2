@@ -8,7 +8,7 @@ public class LoadAccount
         bool PlayingPlayer = false;
         string AccountName = "";
 
-        AccountDataList AccountDataList = GameManager.AccountData.AccountDataList;
+        AccountDataList AccountDataList = AccountData.AccountDataList;
 
         int count = 0;
         foreach(string accountname in AccountDataList.Account){
@@ -22,9 +22,9 @@ public class LoadAccount
         if(PlayingPlayer){
             if(PlayerPrefs.GetString(AccountName) == password){
                 string savedatastr = AccountDataList.SaveData[count];
-                GameManager.AccountData.SetLoadData(JsonUtility.FromJson<SaveData> (savedatastr));
-                GameManager.AccountData.SetName(name);
-                GameManager.AccountData.SetPassWord(password);
+                AccountData.SetLoadData(JsonUtility.FromJson<SaveData> (savedatastr));
+                AccountData.SetName(name);
+                AccountData.SetPassWord(password);
                 return true;
             }else{
                 return false;

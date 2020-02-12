@@ -69,17 +69,17 @@ public class ItemManager
       UseItem item = (UseItem)Activator.CreateInstance(itemtype);
       item.Use(Name);
     }
-    public static void Equip(int ItemID){
+    public static void Equip(int ItemID,Player player){
       ItemName itemname = ItemList[ItemID];
       Type itemtype = Type.GetType(itemname.ToString());
       EquipItem item = (EquipItem)Activator.CreateInstance(itemtype);
-      item.Equip();
+      item.Equip(player);
     }
-    public static void UnEquip(int ItemID){
+    public static void UnEquip(int ItemID,Player player){
       ItemName itemname = ItemList[ItemID];
       Type itemtype = Type.GetType(itemname.ToString());
       EquipItem item = (EquipItem)Activator.CreateInstance(itemtype);
-      item.UnEquip();
+      item.UnEquip(player);
     }
 
 

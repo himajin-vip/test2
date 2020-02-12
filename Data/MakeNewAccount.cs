@@ -10,7 +10,7 @@ public class MakeNewAccount
         
         if(!(Accountstr == "0"))////////アカウントデータ有り
         {
-            AccountDataList AccountDataList = GameManager.AccountData.AccountDataList; 
+            AccountDataList AccountDataList = AccountData.AccountDataList; 
             foreach(string PlayingName in AccountDataList.Account){
                 if(PlayingName == name){
                 newPlayer = false;
@@ -23,23 +23,23 @@ public class MakeNewAccount
                 PlayerPrefs.SetString("Account",Accountstr);
                 PlayerPrefs.SetString(name,password);
                 PlayerPrefs.Save ();
-                GameManager.AccountData.SetName(name);
-                GameManager.AccountData.SetPassWord(password);
+                AccountData.SetName(name);
+                AccountData.SetPassWord(password);
                 return true;
             }else{
                 return false;
             }
         }else/////////アカウントデータ無し
         {
-            AccountDataList AccountDataList = GameManager.AccountData.AccountDataList; 
+            AccountDataList AccountDataList = AccountData.AccountDataList; 
             AccountDataList.Account.Add(name);
             AccountDataList.SaveData.Add("");
             Accountstr = JsonUtility.ToJson (AccountDataList);
             PlayerPrefs.SetString("Account",Accountstr);
             PlayerPrefs.SetString(name,password);
             PlayerPrefs.Save ();
-            GameManager.AccountData.SetName(name);
-            GameManager.AccountData.SetPassWord(password);
+            AccountData.SetName(name);
+            AccountData.SetPassWord(password);
             return true;
         }
     }

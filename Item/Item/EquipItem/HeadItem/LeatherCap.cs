@@ -11,11 +11,11 @@ public class LeatherCap : EquipItem
     Type = ItemType.Head;
     Price = 300;
   }
-  public override void Equip(){
-    GameManager.Player.Vit.Equip(1);
+  public override void Equip(Player player){
+    player.Status.Vit.Equip(1);
   }
-  public override void UnEquip(){
-    GameManager.Player.Vit.UnEquip(1);
+  public override void UnEquip(Player player){
+    player.Status.Vit.UnEquip(1);
   }
 
 }
