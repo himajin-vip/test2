@@ -37,7 +37,8 @@ public class Inventory
         return Idlist.Contains(ItemID);
     }
     public void Load(List<int> itemIDList, List<int> itemPeaceList){
-        ItemIDList = new List<int>(itemIDList);
-        ItemPeaceList = new List<int>(itemPeaceList);
+        for(int i = 0;i<itemIDList.Count;i++){
+            List.Add(itemIDList[i],itemPeaceList[i]);
+        }
     }
 }
