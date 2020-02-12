@@ -41,4 +41,10 @@ public class Inventory
             List.Add(itemIDList[i],itemPeaceList[i]);
         }
     }
+    public List<int> GetIdList(){
+        return new List<int>(List.Keys);
+    }
+    public List<int> GetPeaceList(){
+        return new List<int>(List.Values);
+    }
 }
