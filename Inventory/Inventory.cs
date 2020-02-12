@@ -27,11 +27,9 @@ public class Inventory
     }
 
     public int ReturnPeace(int ItemID){
-         for(int i = 0;i<ItemIDList.Count;i++){
-            if(ItemIDList[i] == ItemID){
-                return ItemPeaceList[i];
-            }
-        } 
+        if(HaveCheck(ItemID)){
+            return List[ItemID];
+        }
         return 0;        
     }
     public bool HaveCheck(int ItemID){
