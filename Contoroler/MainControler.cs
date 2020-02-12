@@ -4,51 +4,19 @@ using UnityEngine;
 
 public class MainControler : Controler
 {
-    GameObject PlayerObj;
-    Player Player;
-    Move PlayerMove;
+    
+    AtackControler Atack;
+    PlayerMoveControler PlayerMove;
+    ShortCutControler shortCut;
     public MainControler(){
-        PlayerObj = GameObject.FindGameObjectWithTag("Player").gameObject;
-        Player = GameManager.Player;
-        PlayerMove = new Move(PlayerObj,Player.MoveSpeed.Value,Player.Direction);
+        Atack = new AtackControler();
+        PlayerMove = new PlayerMoveControler();
+        shortCut = new ShortCutControler();
 
     }
     public void Check(){
-        if(Input.GetKeyDown(KeyCode.M)){
-            if(GameManager.Player.Atack.KeyPush){
-                GameManager.Player.Atack.KeyUp();
-            }
-            MenuManager.SetMenuState("Main");
-        }
-        if(Input.GetKey(KeyCode.S)){
-            PlayerMove.Down();
-        }
-        if(Input.GetKey(KeyCode.W)){
-            PlayerMove.Up();
-        }
-        if(Input.GetKey(KeyCode.D)){
-            PlayerMove.Right();
-        }
-        if(Input.GetKey(KeyCode.A)){
-            PlayerMove.Left();
-        }
-        if(Input.GetKey(KeyCode.Space)){
-            GameManager.Player.Atack.KeyDown();
-        }
-        if(Input.GetKeyUp(KeyCode.Space)){
-            GameManager.Player.Atack.KeyUp();
-        }
-        if(Input.GetKeyDown(KeyCode.Alpha1)){
-            ShortcutManager.ShortCutOn(1);
-        }
-        if(Input.GetKeyDown(KeyCode.Alpha2)){
-            ShortcutManager.ShortCutOn(2);
-        }
-        if(Input.GetKeyDown(KeyCode.Alpha3)){
-            ShortcutManager.ShortCutOn(3);
-        }
-        if(Input.GetKeyDown(KeyCode.Alpha4)){
-            ShortcutManager.ShortCutOn(4);
-        }
+        Atack.Check();
+        shortCut.Check();
+        PlayerMove.Check();
     }
 }

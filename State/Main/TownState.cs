@@ -5,14 +5,17 @@ using UnityEngine;
 public class TownState : IState
 {
     Controler Controler;
+    CameraManager cameraManager;
     public void Start()
     {
+
         Controler = new TownControler();
+        cameraManager = new CameraManager();
     }
     public void Update()
     {
         Controler.Check();
-        CameraManager.PlayerPosCheck();
+        cameraManager.PlayerPosCheck();
         UI_Manager.StatusUpdate();
         ShortcutManager.AllPiecesReset();
     }

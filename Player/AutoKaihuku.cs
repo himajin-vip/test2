@@ -6,14 +6,20 @@ public class AutoKaihuku : MonoBehaviour
 {
   private float kaihukuTime = 5f;
   private Coroutine kaihukuC;
+  private Player player;
+  public AutoKaihuku(){
+    kaihukuC = StartCoroutine(kaihukuStart());
+    player = transform.parent.GetComponent<Player>();
+  }
+
   public void Set(){
     kaihukuC = StartCoroutine(kaihukuStart());
   }
 
   public  IEnumerator kaihukuStart(){
     yield return new WaitForSeconds(kaihukuTime);
-        GameManager.Player.Hp.Recovery(10);
-        GameManager.Player.Mp.Recovery(1);
+        player.Status.Hp.Recovery(10*player.Status.Lv.Value);
+        player.Status.Mp.Recovery(1*player.Status.Lv.Value);
         Set();
   }
 

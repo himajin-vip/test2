@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MapManager
+public static class MapManager
 {
   private static Dictionary<int,Map> MapList = new Dictionary<int,Map>();
   private static Map Map;
   private static int LastMap;
 
-  public void SetUp(){
+  public static void SetUp(){
     MapList.Clear();
-    MapList.Add(0,new TestMap1());
+    MapList.Add(0,new TownMap());
     MapList.Add(1,new SougenMap());
     MapList[1].SetUp();
     Map = MapList[0];
@@ -35,7 +35,7 @@ public class MapManager
   public static int ReturnLastMap(){
     return LastMap;
   }
-  public void MapMove(int Direction){
+  public static void MapMove(int Direction){
     Map.MapMove(Direction);
   }
 

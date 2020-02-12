@@ -5,14 +5,14 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
   public int EnemyId;
-  public Name Name{get; protected set;}
-  public Lv Lv{get; protected set;}
-  public Hp Hp{get; protected set;}
-  public Mp Mp{get; protected set;}
-  public Str Str{get; protected set;}
-  public Vit Vit{get; protected set;}
-  public Dex Dex{get; protected set;}
-  public Int Int{get; protected set;}
+  public string Name{get; protected set;}
+  public StatusLv Lv{get; protected set;}
+  public StatusHp Hp{get; protected set;}
+  public StatusMp Mp{get; protected set;}
+  public StatusBattle Str{get; protected set;}
+  public StatusBattle Vit{get; protected set;}
+  public StatusBattle Dex{get; protected set;}
+  public StatusBattle Int{get; protected set;}
   public int Exp;
   public int Gold;
   public List<DropItem> DropItemList = new List<DropItem>();
@@ -26,6 +26,9 @@ public class Enemy : MonoBehaviour
   public bool MoveOn;
   public int MoveOnX;
   public int MoveOnY;
+  
+  public GameObject PlayerObj;
+  public Player player;
 
   public void SetUp(){
     Direction = new Direction(this.GetComponent<Animator>());
@@ -33,7 +36,7 @@ public class Enemy : MonoBehaviour
   }
   public virtual void Atack(GameObject Playerobj){
     DamageCheck DamageCheck = new DamageCheck();
-    DamageCheck.Player(Name.Value,Lv.Value,Str.Value);
+    DamageCheck.Player(PlayerObj,Name,Lv.Value,Str.Value);
     Vector3 Playerpos = Playerobj.gameObject.transform.position;
     Efect Efect = new Efect();
     Efect.On("Kamitukiefect",Playerobj);//エフェクト作成
@@ -42,7 +45,7 @@ public class Enemy : MonoBehaviour
 
   public void Move(){
     if(MoveStatus == 1&&!DeathCheck){//プレイヤーを追いかける
-      Vector3 player_pos = GameManager.Player.GameObject.transform.position;
+      Vector3 player_pos = PlayerObj.transform.position;
       Vector3 this_pos = this.transform.position;
       if(player_pos.x>this_pos.x){
         move.Right();
@@ -104,18 +107,19 @@ public class Enemy : MonoBehaviour
     DeathCheck = true;
     new ItemDrop(DropItemList,this.transform);
     int exp = Exp;
-    if(Lv.Value<GameManager.Player.Lv.Value){
-      double down = ((GameManager.Player.Lv.Value - Lv.Value)/10f);
+    if(Lv.Value<player.Status.Lv.Value){
+      double down = ((player.Status.Lv.Value - Lv.Value)/10f);
       exp =(int)(Exp * (1f-down));
     }
-    GameManager.Player.Exp.Get(exp);
+    player.GetExp(exp);
     InventoryManager.GetGold(Gold);
     StartCoroutine(DestroyEnemy());
   }
 
   void OnCollisionStay2D(Collision2D collision2){
     if(!DeathCheck){
-      if(collision2.gameObject.GetComponent<PlayerObj>()&&!AtackOn){
+      if(collision2.gameObject.GetComponent<Player>()&&!AtackOn){
+        PlayerObj = collision2.gameObject;
         AtackOn = true;
         StartCoroutine(AtackWait());
         Atack(collision2.gameObject);

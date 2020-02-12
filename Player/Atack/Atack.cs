@@ -5,11 +5,15 @@ public class Atack
 {
   public bool On{get; private set;} = false;
   public bool KeyPush{get; private set;} = false;
+  public Player Player;
 
+  public Atack(Player player){
+    Player = player;
+  }
   public void KeyDown(){
     if(!On&&!KeyPush){
-      if(GameManager.Player.ChargeSkill.returnMp()<=GameManager.Player.Mp.currentValue){
-        GameManager.Player.Charge.Set();
+      if(Player.ChargeSkill.returnMp()<=Player.Status.Mp.currentValue){
+        Player.Charge.Set();
       }
       KeyPush = true;
     }
@@ -18,15 +22,15 @@ public class Atack
   public void KeyUp(){
     if(!On){
       On = true;
-      GameManager.Player.MoveSpeed.ReSetSpeed();
-      GameManager.Player.Charge.Stop();
-      GameManager.Player.Skill.AtackOn();
+      Player.MoveSpeed.ReSetSpeed();
+      Player.Charge.Stop();
+      Player.Skill.AtackOn();
     }
     KeyPush = false;
   }
 
   public void Off(){
     On = false;
-    GameManager.Player.SetNormalAtack();
+    Player.SetNormalAtack();
   }
 }

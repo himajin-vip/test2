@@ -1,14 +1,14 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Vit
+public class StatusBattle
 {
   public int Value{get; private set;}
   public int NomalValue{get; private set;}
   private int ExValue;
   private int EquipValue;
-  public Vit(int value){
+  public StatusBattle(int value){
     NomalValue = value;
     Value = NomalValue + ExValue + EquipValue;
   }

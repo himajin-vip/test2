@@ -6,18 +6,21 @@ using UnityEngine.SceneManagement;
 
 public class WeaponObject : MonoBehaviour
 {
-  public int Damage;
-  public static Dictionary<int,Enemy> HitEnemyList = new Dictionary<int,Enemy>();
-  public int HitCount = 0;
 
-  public void SetUp(){
+  private static Dictionary<int,Enemy> HitEnemyList = new Dictionary<int,Enemy>();
+  private int HitCount = 0;
+
+  private Player Player;
+
+  public void SetUp(Player player){
     HitEnemyList.Clear();
+    Player = player;
   }
 
   public void OnEnd(){
-    GameManager.Player.Skill.Damage(HitEnemyList);
+    Player.Skill.Damage(HitEnemyList);
     HitEnemyList.Clear();
-    GameManager.Player.Atack.Off();
+    Player.Atack.Off();
     Destroy (this.gameObject);
   }
 

@@ -5,12 +5,12 @@ using UnityEngine;
 public class RedSlime : Enemy
 {
     RedSlime(){
-      Name = new Name("レッドスライム");
-      Lv = new Lv(5);
-      Hp = new Hp(150 ,150);
-      Mp = new Mp(0,0);
-      Str = new Str(5);
-      Vit = new Vit(1);
+      Name = "レッドスライム";
+      Lv = new StatusLv(5);
+      Hp = new StatusHp(150 ,150);
+      Mp = new StatusMp(0,0);
+      Str = new StatusBattle(5);
+      Vit = new StatusBattle(1);
       Exp = 30;
       Gold = 50;
       DropItemList.Add(new DropItem(0,128));

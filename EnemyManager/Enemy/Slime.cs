@@ -5,12 +5,12 @@ using UnityEngine;
 public class Slime :Enemy
 {
   Slime(){
-    Name = new Name("スライム");
-    Lv = new Lv(1);
-    Hp = new Hp(30,30);
-    Mp = new Mp(0,0);
-    Str = new Str(1);
-    Vit = new Vit(1);
+    Name = "スライム";
+    Lv = new StatusLv(1);
+    Hp = new StatusHp(30,30);
+    Mp = new StatusMp(0,0);
+    Str = new StatusBattle(1);
+    Vit = new StatusBattle(1);
     Exp = 15;
     Gold = 10;
     DropItemList.Add(new DropItem(0,128));

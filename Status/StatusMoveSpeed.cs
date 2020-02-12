@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveSpeed
+public class StatusMoveSpeed
 {
   public int Value{get; private set;}
   public int ChargeSpeed{get; private set;}
   public int NomalSpeed{get; private set;}
 
-  public MoveSpeed(int nomalspeed , int chagespeed){
+  public StatusMoveSpeed(int nomalspeed , int chagespeed){
     NomalSpeed = nomalspeed;
     ChargeSpeed = chagespeed;
     ReSetSpeed();

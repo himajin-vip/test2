@@ -2,22 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TownControler : Controler
+public class AtackControler : MonoBehaviour
 {
-    PlayerMoveControler PlayerMove;
     Player Player;
-
-    public TownControler(){
-        PlayerMove = new PlayerMoveControler();
+    public  AtackControler(){
         Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
     public void Check(){
         if(Input.GetKeyDown(KeyCode.M)){
+            if(Player.Atack.KeyPush){
+                Player.Atack.KeyUp();
+            }
             MenuManager.SetMenuState("Main");
         }
-        if(Input.GetKeyDown(KeyCode.Space)){
-            Player.Talk();
+        if(Input.GetKey(KeyCode.Space)){
+            Player.Atack.KeyDown();
         }
-        PlayerMove.Check();
+        if(Input.GetKeyUp(KeyCode.Space)){
+            Player.Atack.KeyUp();
+        }
     }
 }

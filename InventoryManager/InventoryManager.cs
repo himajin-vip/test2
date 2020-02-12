@@ -21,13 +21,9 @@ public class InventoryManager
       InventoryList.Add(ItemType.Accessory,new Inventory());
     }
 
-    static public void ItemGet(Collider2D collision){
+    static public void ItemGet(DropItemObj Item){
 
-      DropItemObj getItem = collision.gameObject.GetComponent<DropItemObj>();
-      int ItemID = getItem.ItemId;
-      new ItemGetLog(GameManager.Player.Name.Value,ItemID);
-      getItem.DropEnd();
-
+      int ItemID = Item.ItemId;
       ItemType ItemType = ItemManager.ReturnItemType(ItemID);
       InventoryList[ItemType].Add(ItemID,1);
       

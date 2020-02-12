@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class DamageCheck
 {
-    public void Player(string enemyname,int enemylv ,int enemystr){
+    public void Player(GameObject PlayerObj,string enemyname,int enemylv ,int enemystr){
         Damage Damage = new Damage();
-        string playername = GameManager.Player.Name.Value;
-        int playerlv = GameManager.Player.Lv.Value;
-        int playervit = GameManager.Player.Vit.Value;
-        Transform playertransform = GameManager.Player.GameObject.transform;
+        Player player = PlayerObj.GetComponent<Player>();
+        string playername = player.Name;
+        int playerlv = player.Status.Lv.Value;
+        int playervit = player.Status.Vit.Value;
+        Transform playertransform = PlayerObj.transform;
         /////ダメージ計算
         int FinalDamage = Damage.Check(enemylv,enemystr,playerlv,playervit);
         /////フィールドテキスト生成
@@ -18,16 +19,17 @@ public class DamageCheck
         ////ダメージログ生成
         new DamageLog(playername,FinalDamage);
         ////ダメージを与える
-        GameManager.Player.Hp.Damage(FinalDamage);
+        player.Status.Hp.Damage(FinalDamage);
     }
 
-    public bool Enemy(Enemy enemy,int ExDamage){
+    public bool Enemy(Player player,Enemy enemy,int ExDamage){
         if(!enemy.DeathCheck){
           Damage Damage = new Damage();
-          int FinalDamage = Damage.Check(GameManager.Player.Lv.Value*ExDamage,GameManager.Player.Str.Value,enemy.Lv.Value,enemy.Vit.Value);
+          enemy.player = player;
+          int FinalDamage = Damage.Check(player.Status.Lv.Value*ExDamage,player.Status.Str.Value,enemy.Lv.Value,enemy.Vit.Value);
           FiledText filedText = new FiledText();
           filedText.Make(FinalDamage.ToString(),new Color(255,255,255),enemy.transform);
-          new DamageLog(enemy.Name.Value,FinalDamage);
+          new DamageLog(enemy.Name,FinalDamage);
           enemy.Hp.Damage(FinalDamage);
           return true;
         }

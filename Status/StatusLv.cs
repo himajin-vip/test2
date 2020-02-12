@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Lv
+public class StatusLv
 {
   public int Value{get; private set;}
-  public Lv(int value){
+  public StatusLv(int value){
     Value = value;
   }
   public void LvUp(){

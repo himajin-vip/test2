@@ -14,14 +14,8 @@ public class NewPlayer : Player
         Dex = new Dex(1);
         Int = new Int(1);
         Exp = new Exp(100,0);
-        MoveSpeed = new MoveSpeed(3,1);
 
         Equip = new Equip();
-        Atack = new Atack();
-
-        ChargeSkill = new SwordChargeAtack();
-        NormalAtack = new SwordNomalAtack();
-        Skill = NormalAtack;
 
 
    }

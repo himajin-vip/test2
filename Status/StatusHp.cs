@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hp
+public class StatusHp
 {
   public int maxValue{get; protected set;}
   public int currentValue{get; protected set;}
 
-  public Hp(int max ,int current){
+  public StatusHp(int max ,int current){
     maxValue = max;
     currentValue = current;
   }

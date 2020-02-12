@@ -14,12 +14,12 @@ public class MainSetUpState : IState
     public void Update()
     {
 
-        new MapManager().SetUp();
+        MapManager.SetUp();
         new CameraManager().SetUp();
         new UI_Manager().SetUp();
         new LogManager().SetUp();
         new ShortcutManager().SetUp();
-        new AudioManager().SetUp();
+        AudioManager.SetUp();
         new EnemyManager().SetUp();
         new MenuManager().SetUp();
         new ItemManager().SetUp();

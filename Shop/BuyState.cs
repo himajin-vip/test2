@@ -19,7 +19,8 @@ public class BuyState : IState
     public void Start()
     {
         TextList.Clear();
-        ShopList = GameManager.Player.Npc.ShopList;
+        Player Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        ShopList = Player.Npc.ShopList;
 
         ItemWindow = GameObject.Find("ShopPanel").transform.Find("ItemWindow").gameObject;
 

@@ -6,7 +6,7 @@ public class MapEvent : MonoBehaviour
 {
   public int EventNo;
   void OnTriggerEnter2D(Collider2D collision){
-    if(collision.gameObject.GetComponent<PlayerObj>()){
+    if(collision.gameObject.GetComponent<Player>()){
       MapManager.MapEvent(EventNo);
     }
   }

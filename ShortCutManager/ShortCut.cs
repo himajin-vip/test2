@@ -9,13 +9,10 @@ public class ShortCut : MonoBehaviour
   public GameObject ImgObj;
   public Image imgShortcut;
   public Text textShortcut;
-  public int IDShortcut=9999;
+  public int IDShortcut{get; private set;}=9999;
     public void SetUp(){
       imgShortcut = ImgObj.GetComponent<Image>();
       textShortcut.text = "";
-    }
-    public void ItemUse(){
-      GameManager.Player.ItemUse(IDShortcut);
     }
 
     public void PiecesReset(){

@@ -15,13 +15,6 @@ public class LoadPlayer : Player
         Dex = new Dex(LoadData.Dex);
         Int = new Int(LoadData.Int);
         Exp = new Exp(LoadData.NextExp,LoadData.CurrentExp);
-        
-        MoveSpeed = new MoveSpeed(3,1);
-
-        Atack = new Atack();
-        ChargeSkill = new SwordChargeAtack();
-        NormalAtack = new SwordNomalAtack();
-        Skill = NormalAtack;
 
         Equip = new Equip();
     }

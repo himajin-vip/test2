@@ -2,26 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestMap1 : Map
+public class TownMap : Map
 {
-  public GameObject MapObject;
-  public MapEnemyList EnemyList;
+  private GameObject MapObject;
+  private MapEnemyList EnemyList;
 
   public void SetUp(){
   }
   public void Start(int LastMap)
   {
+    GameObject PlayerObj = GameObject.FindGameObjectWithTag("Player").gameObject;
     GameObject obj;
+    CameraManager cameraManager = new CameraManager();
     switch(LastMap){
       case 0:
-        obj = (GameObject)Resources.Load("Map/TestMap");
+        obj = (GameObject)Resources.Load("Map/TownMap");
         MapObject = GameManager.Instantiate(obj, new Vector3(0,0,0), Quaternion.identity);
       break;
 
       case 1:
-        obj = (GameObject)Resources.Load("Map/TestMap");
-        MapObject = GameManager.Instantiate(obj, new Vector3(GameManager.Player.GameObject.transform.position.x,GameManager.Player.GameObject.transform.position.y-240+24+32), Quaternion.identity);
-        CameraManager.PotisionSet(GameManager.Player.GameObject.transform.position.x,GameManager.Player.GameObject.transform.position.y+(-240+24+32+16));
+        obj = (GameObject)Resources.Load("Map/TownMap");
+        MapObject = GameManager.Instantiate(obj, new Vector3(PlayerObj.transform.position.x,PlayerObj.transform.position.y-240+24+32), Quaternion.identity);
+        cameraManager.PotisionSet(PlayerObj.transform.position.x,PlayerObj.transform.position.y+(-240+24+32+16));
       break;
     }
   }

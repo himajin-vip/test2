@@ -5,12 +5,12 @@ using UnityEngine;
 public class BigSlime : Enemy
 {
     BigSlime(){
-      Name = new Name("ビッグスライム");
-      Lv = new Lv(10);
-      Hp = new Hp(250 ,250);
-      Mp = new Mp(0,0);
-      Str = new Str(10);
-      Vit = new Vit(5);
+      Name = "ビッグスライム";
+      Lv = new StatusLv(10);
+      Hp = new StatusHp(250 ,250);
+      Mp = new StatusMp(0,0);
+      Str = new StatusBattle(10);
+      Vit = new StatusBattle(5);
       Exp = 40;
       Gold = 100;
       DropItemList.Add(new DropItem(1,5));
