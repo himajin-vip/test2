@@ -47,10 +47,8 @@ public class LogCanvas:MonoBehaviour
     return true;
   }
   public void AddLog(string addtext){
-    int i=0;
-    while(i<7){
+    for(int i = 0; i < 7 ;i++){
       LogList[i].text = LogList[i+1].text;
-      i++;
     }
     LogList[7].text = addtext;
   }

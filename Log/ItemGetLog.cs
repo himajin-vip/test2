@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemGetLog
+public class ItemGetLog:LogMaker
 {
-    public ItemGetLog(string Name ,int ItemID){
-        ItemLibrary itemLibrary = new ItemLibrary();
-        //string newlog = (Name+"は"+itemLibrary.SetName(ItemID)+"を手に入れた");
-        //LogManager.MakeLog(newlog);
+    public ItemGetLog(string Name ,ItemID itemID){
+        ItemName itemName = new GetItemName().Get(itemID);
+        string newlog = (Name+"は"+itemName.GetValue()+"を手に入れた");
+        logCanvas.MakeLog(newlog);
     }
 }
