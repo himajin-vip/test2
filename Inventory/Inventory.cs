@@ -8,33 +8,33 @@ public class Inventory
 
     public void Add(ItemID itemID,ItemPeace itemPeace){
         if(HasCheck(itemID)){
-            List.Add(itemID.GetID(),itemPeace.GetValue());
+            List.Add(itemID.GetValue(),itemPeace.GetValue());
         }
         if(!HasCheck(itemID)){
-            List[itemID.GetID()] = itemPeace.GetValue();
+            List[itemID.GetValue()] = itemPeace.GetValue();
         }
     }
     public void Reduce(ItemID itemID,ItemPeace itemPeace){
         if(HasCheck(itemID)){
-            List[itemID.GetID()] -= itemPeace.GetValue();
+            List[itemID.GetValue()] -= itemPeace.GetValue();
             RemoveItem(itemID);
         }
     }
     public void RemoveItem(ItemID itemID){
-        if(List[itemID.GetID()]<=0){
-            List.Remove(itemID.GetID());
+        if(List[itemID.GetValue()]<=0){
+            List.Remove(itemID.GetValue());
         }
     }
 
     public ItemPeace GetPeace(ItemID itemID){
         if(HasCheck(itemID)){
-            return new ItemPeace(List[itemID.GetID()]);
+            return new ItemPeace(List[itemID.GetValue()]);
         }
         return new ItemPeace(0);        
     }
     public bool HasCheck(ItemID itemID){
         List<int> Idlist = new List<int>(List.Keys);
-        return Idlist.Contains(itemID.GetID());
+        return Idlist.Contains(itemID.GetValue());
     }
     public void Load(List<int> itemIDList, List<int> itemPeaceList){
         for(int i = 0;i<itemIDList.Count;i++){
