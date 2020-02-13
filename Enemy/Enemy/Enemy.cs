@@ -112,7 +112,7 @@ public class Enemy : MonoBehaviour
       exp =(int)(Exp * (1f-down));
     }
     player.GetExp(exp);
-    InventoryManager.GetGold(Gold);
+    player.GetGold(new Gold(Gold));
     StartCoroutine(DestroyEnemy());
   }
 

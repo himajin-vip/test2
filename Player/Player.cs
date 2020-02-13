@@ -98,6 +98,9 @@ public class Player : MonoBehaviour
       goldtext.text = new FirstintClasstoStringer().Get(gold);
       return goldtext;
     }
+    public void GetGold(Gold Gold){
+      wallet.Add(Gold);
+    }
     //////Status
     public void GetExp(int exp){
       new GetExpLog(Name,exp);
