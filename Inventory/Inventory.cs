@@ -8,15 +8,15 @@ public class Inventory
 
     public void Add(ItemID itemID,ItemPeace itemPeace){
         if(HasCheck(itemID)){
-            List.Add(itemID.GetID(),itemPeace.GetPeace());
+            List.Add(itemID.GetID(),itemPeace.GetValue());
         }
         if(!HasCheck(itemID)){
-            List[itemID.GetID()] = itemPeace.GetPeace();
+            List[itemID.GetID()] = itemPeace.GetValue();
         }
     }
     public void Reduce(ItemID itemID,ItemPeace itemPeace){
         if(HasCheck(itemID)){
-            List[itemID.GetID()] -= itemPeace.GetPeace();
+            List[itemID.GetID()] -= itemPeace.GetValue();
             RemoveItem(itemID);
         }
     }

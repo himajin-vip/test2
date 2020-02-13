@@ -13,7 +13,7 @@ public class InventoryManager
         return inventoryList.GetPeace(itemID);
     }
     public bool HasCheck(ItemID itemID){
-      if(GetPieces(itemID).GetPeace() > 0){
+      if(GetPieces(itemID).GetValue() > 0){
         return true;
       }
       return false;
