@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class ItemBag
 {
-    private int ItemID;
-    private int Peace;
+    private ItemID ItemID;
+    private ItemPeace ItemPeace;
 
     ItemBag(int itemid, int peace){
-        ItemID = itemid;
-        Peace = peace;
+        ItemID = new ItemID(itemid);
+        ItemPeace =  new ItemPeace(peace);
     }
     public int Getid(){
-        return ItemID;
+        return ItemID.GetID();
     }
     public int GetPeace(){
-        return Peace;
+        return ItemPeace.GetPeace();
     }
 }
