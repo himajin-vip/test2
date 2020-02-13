@@ -5,6 +5,6 @@ using UnityEngine;
 public class InventoryGetIDList : InventoryControler
 {
     public List<int> Get(ItemType itemType){
-        return inventoryList[itemType].GetIdList();
+        return new List<int>(inventoryList[itemType].GetIdList());
     }
 }

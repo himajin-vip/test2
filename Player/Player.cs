@@ -18,7 +18,6 @@ public class Player : MonoBehaviour
     public Skill Skill{get; protected set;}
     private Skill normalAtack;
     public Skill ChargeSkill{get; protected set;}
-    private InventoryManager Inventory = new InventoryManager();
     private Wallet wallet = new Wallet();
     private bool TalkFlag = false;
     public Npc Npc{get; protected set;}
@@ -67,25 +66,17 @@ public class Player : MonoBehaviour
       }
     }
     ///////Item
-    public void ItemReduce(ItemID itemID,ItemPeace itemPeace){
-      Inventory.Reduce(itemID,itemPeace);
-    }
-    public void SetInventoryIDList(List<int> list ,ItemType itemType){
-      list = new List<int>(Inventory.GetIdList(itemType));
-    }
-    public void SetInventoryPeaceList(List<int> list ,ItemType itemType){
-      list = new List<int>(Inventory.GetPeaceList(itemType));
-    }
+
     public void ItemUse(ItemID itemID){
-      if(Inventory.HasCheck(itemID)){
+      if(new InventoryHasCheck().Check(itemID)){
         UseItem UseItem = new GetUseItem().Get(itemID);
-        Inventory.Reduce(itemID,new ItemPeace(1));
+        new InventoryReduce().Reduce(itemID,new ItemPeace(1));
         UseItem.Use(Name);
       }
     }
     public void DropGet(DropItemObj dropItemObj){
       ItemID itemid = new ItemID(dropItemObj.ItemId);
-      Inventory.Add(itemid,new ItemPeace(1));
+      new Inventory().Add(itemid,new ItemPeace(1));
       new ItemGetLog(Name,itemid);
       AudioManager.AudioON(7);
     }
@@ -93,7 +84,7 @@ public class Player : MonoBehaviour
       ItemPrice itemPrice = new GetItemPrice().Get(itemID,itemPeace);
       Gold gold = new Gold(itemPrice.GetValue());
       if(wallet.Use(gold)){
-        Inventory.Add(itemID,itemPeace);
+        new InventoryAdd().Add(itemID,itemPeace);
         AccountData.Save();
         return true;
       }
@@ -105,7 +96,7 @@ public class Player : MonoBehaviour
       return goldtext;
     }
     public Text SetPeaceText(Text Peacetext,ItemID itemID){
-      ItemPeace peace = Inventory.GetPieces(itemID);
+      ItemPeace peace = new InventoryGetPeace().Get(itemID);
       Peacetext.text = new FirstintClasstoStringer().Get(peace);
       return Peacetext;
     }

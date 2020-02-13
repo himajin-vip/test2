@@ -64,7 +64,7 @@ public class EquipState : IMenuState
       ItemTextList[i].text = "";
     }
     InfoWindowText.text = "";
-    Player.SetInventoryIDList(InventoryList,MenuManager.InventoryType);
+    InventoryList = new InventoryGetIDList().Get(MenuManager.InventoryType);
     foreach(int ItemID in InventoryList) {
       ItemName itemName = new GetItemName().Get(new ItemID(ItemID));
       if(ItemID == Player.Equip.Parts[MenuManager.InventoryType].ItemId){

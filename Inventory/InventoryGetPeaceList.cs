@@ -5,6 +5,6 @@ using UnityEngine;
 public class InventoryGetPeaceList : InventoryControler
 {
     public List<int> Get(ItemType itemType){
-        return inventoryList[itemType].GetPeaceList();
+        return new List<int>(inventoryList[itemType].GetPeaceList());
     }
 }

@@ -59,7 +59,7 @@ public class ItemUseState : IMenuState
     }
     InfoWindowText.text = "";
     Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-    player.SetInventoryIDList(InventoryList,ItemType.Use);
+    InventoryList = new InventoryGetIDList().Get(ItemType.Use);
     foreach(int ItemID in InventoryList) {
       ItemName itemName = new GetItemName().Get(new ItemID(ItemID));
       ItemTextList[Inventorycount].text = itemName.GetValue()+" / "+player.SetPeaceText(ItemTextList[Inventorycount],new ItemID(ItemID)).text+"個";

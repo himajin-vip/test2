@@ -27,7 +27,6 @@ public class ShopState : IState
         GameObject ShopWindow = GameObject.Find("ShopCanvas").transform.Find("ShopPanel").gameObject;
         ShopWindow.SetActive(true);
         Text GoldText = ShopWindow.transform.Find("GoldWindow").transform.Find("Text").GetComponent<Text>();
-        InventoryManager inventoryManager = new InventoryManager();
         player  = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         GoldText.text = player.SetGoldText(GoldText).text+"G";
 

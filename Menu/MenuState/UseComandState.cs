@@ -53,7 +53,7 @@ public class UseComandState : IMenuState
         MenuManager.SetMenuState("SelectShortCut");
       break;
       case 2:
-        Player.ItemReduce(new ItemID(MenuManager.SelectItemID),new ItemPeace(1));
+        new InventoryReduce().Reduce(new ItemID(MenuManager.SelectItemID),new ItemPeace(1));
         MenuManager.SetMenuState("UseItem");
       break;
       case 3:

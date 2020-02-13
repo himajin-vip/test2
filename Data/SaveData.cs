@@ -57,26 +57,26 @@ public class SaveData
     EquipFoot = player.Equip.Parts[ItemType.Foot].ItemId;
     EquipAccessory = player.Equip.Parts[ItemType.Accessory].ItemId;
 
-    player.SetInventoryIDList(UseItemList,ItemType.Use);
-    player.SetInventoryPeaceList(UseItemNumberList,ItemType.Use);
+    UseItemList = new InventoryGetIDList().Get(ItemType.Use);
+    UseItemNumberList = new InventoryGetPeaceList().Get(ItemType.Use);
 
-     player.SetInventoryIDList(WeaponItemList,ItemType.Weapon);
-     player.SetInventoryPeaceList(WeaponItemNumberList,ItemType.Weapon);
+    WeaponItemList = new InventoryGetIDList().Get(ItemType.Weapon);
+    WeaponItemNumberList = new InventoryGetPeaceList().Get(ItemType.Weapon);
 
-     player.SetInventoryIDList(HeadItemList,ItemType.Head);
-     player.SetInventoryPeaceList(HeadItemNumberList,ItemType.Head);
+    HeadItemList = new InventoryGetIDList().Get(ItemType.Head);
+    HeadItemNumberList = new InventoryGetPeaceList().Get(ItemType.Head);
 
-     player.SetInventoryIDList(BodyItemList,ItemType.Body);
-     player.SetInventoryPeaceList(BodyItemNumberList,ItemType.Body);
+    BodyItemList = new InventoryGetIDList().Get(ItemType.Body);
+    BodyItemNumberList =  new InventoryGetPeaceList().Get(ItemType.Body);
 
-     player.SetInventoryIDList(HandItemList,ItemType.Hand);
-     player.SetInventoryPeaceList(HandItemNumberList,ItemType.Hand);
+    HandItemList = new InventoryGetIDList().Get(ItemType.Hand);
+    HandItemNumberList =  new InventoryGetPeaceList().Get(ItemType.Hand);
 
-     player.SetInventoryIDList(FootItemList,ItemType.Foot);
-     player.SetInventoryPeaceList(FootItemNumberList,ItemType.Foot);
+    FootItemList = new InventoryGetIDList().Get(ItemType.Foot);
+    FootItemNumberList =  new InventoryGetPeaceList().Get(ItemType.Foot);
 
-     player.SetInventoryIDList(AccesuryItemList,ItemType.Accessory);
-     player.SetInventoryPeaceList(AccesuryItemNumberList,ItemType.Accessory);
+    AccesuryItemList = new InventoryGetIDList().Get(ItemType.Accessory);
+    AccesuryItemNumberList =  new InventoryGetPeaceList().Get(ItemType.Accessory);
 
   }
 }
