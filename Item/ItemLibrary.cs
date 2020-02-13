@@ -26,7 +26,7 @@ public class ItemLibrary
         ItemName itemname = ItemList[itemID.GetID()];
         Type itemtype = Type.GetType(itemname.ToString());
         Item item = (Item)Activator.CreateInstance(itemtype);
-        return new Gold(item.Price*itemPeace.GetPeace());
+        return new Gold(item.Price*itemPeace.GetValue());
     }
     public UseItem GetUseItem(ItemID itemID){
         ItemName itemname = ItemList[itemID.GetID()];
