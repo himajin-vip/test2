@@ -32,9 +32,6 @@ public class ItemManager
 
       DropItemprefab = (GameObject)Resources.Load ("prefab/DropItem");
     }
-    public static Sprite ReturnImage(int ItemID){
-      return ItemImageList[ItemID];
-    }
     public static void Equip(int ItemID,Player player){
       ItemNames itemname = ItemList[ItemID];
       Type itemtype = Type.GetType(itemname.ToString());

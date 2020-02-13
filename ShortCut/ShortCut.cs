@@ -24,6 +24,6 @@ public class ShortCut : MonoBehaviour
     public void SetId(int ID){
       IDShortcut = ID;
       imgShortcut.color = new Color(1, 1, 1, 1);
-      imgShortcut.sprite = ItemManager.ReturnImage(ID);
+      imgShortcut.sprite = new GetItemImage().Get(new ItemID(ID));
     }
 }
