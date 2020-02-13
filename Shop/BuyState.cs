@@ -125,7 +125,7 @@ public class BuyState : IState
         if(CursolPos != 0 && CursolPos <= (ShopList.Count)){
             ItemName itemName = new GetItemName().Get(new ItemID(ShopList[CursolPos-1]));
             ItemPrice itemPrice = new GetItemPrice().Get(new ItemID(ShopList[CursolPos-1]),new ItemPeace(BuyNumber));
-            TextList[CursolPos-1].text = itemName.GetValue()+" : "+itemPrice.GetValue()+BuyNumber+"個";
+            TextList[CursolPos-1].text = itemName.GetValue()+" : "+itemPrice.GetValue()+"G : "+BuyNumber+"個";
         }
     }
 
