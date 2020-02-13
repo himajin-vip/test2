@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class DropItemObj : MonoBehaviour
 {
-  public int ItemId;
+  private ItemID itemID;
+  private ItemPeace itemPeace;
 
-  public void SetUp(int itemid){
+  public void SetUp(ItemID ItemID,ItemPeace ItemPeace){
+        
+    itemID = ItemID;
+    itemPeace = ItemPeace;
+    
     int rndx = Random.Range(-18000, 18000);
     int rndy =  Random.Range(-18000, 18000);
     GetComponent<Rigidbody2D>().AddForce(new Vector2(rndx,rndy));
-    ItemId = itemid;
     StartCoroutine(StopItem());
   }
   public void DropEnd(){

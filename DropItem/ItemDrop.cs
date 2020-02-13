@@ -9,13 +9,9 @@ public class ItemDrop
     public static void SetUp(){
         DropItemprefab = (GameObject)Resources.Load ("prefab/DropItem");
     }
-    public ItemDrop(List<DropItem> DropItemList,Transform transform){
-        foreach(DropItem DropItem in DropItemList){
-            if(0 == Random.Range(0,DropItem.DropRate)){
-                GameObject dropItemObj = GameObject.Instantiate(DropItemprefab, new Vector3(transform.position.x,transform.position.y,0), Quaternion.identity);
-                DropItemObj dropitem = dropItemObj.GetComponent<DropItemObj>();
-                dropitem.SetUp(DropItem.ItemNo);
-            }
+    public ItemDrop(List<DropItemData> DropItemList,Transform transform){
+        foreach(DropItemData DropItemData in DropItemList){
+            DropItemData.DropCheck(DropItemData,transform,DropItemprefab);
         }
     }
 }
