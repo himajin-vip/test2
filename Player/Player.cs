@@ -96,7 +96,8 @@ public class Player : MonoBehaviour
     }
     public bool ItemBuy(ItemID itemID, ItemPeace itemPeace){
       ItemLibrary itemLibrary = new ItemLibrary();
-      Gold gold = itemLibrary.GetPrice(itemID,itemPeace);
+      ItemPrice itemPrice = itemLibrary.GetPrice(itemID,itemPeace);
+      Gold gold = new Gold(itemPrice.GetValue());
       if(wallet.Use(gold)){
         Inventory.Add(itemID,itemPeace);
         AccountData.Save();

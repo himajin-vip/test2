@@ -65,12 +65,13 @@ public class EquipState : IMenuState
     }
     InfoWindowText.text = "";
     Player.SetInventoryIDList(InventoryList,MenuManager.InventoryType);
+    ItemLibrary itemLibrary = new ItemLibrary();
     foreach(int ItemID in InventoryList) {
       if(ItemID == Player.Equip.Parts[MenuManager.InventoryType].ItemId){
-        ItemTextList[Inventorycount].text = "E:"+ItemManager.ReturnItemName(ItemID)+" / "+Player.SetPeaceText(ItemTextList[Inventorycount],new ItemID(ItemID)).text+"個";
+        ItemTextList[Inventorycount].text = "E:"+itemLibrary.SetName(ItemTextList[Inventorycount],new ItemID(ItemID)).text+" / "+Player.SetPeaceText(ItemTextList[Inventorycount],new ItemID(ItemID)).text+"個";
         Inventorycount++;
       }else{
-        ItemTextList[Inventorycount].text = ItemManager.ReturnItemName(ItemID)+" / "+Player.SetPeaceText(ItemTextList[Inventorycount],new ItemID(ItemID)).text+"個";
+        ItemTextList[Inventorycount].text = itemLibrary.SetName(ItemTextList[Inventorycount],new ItemID(ItemID)).text+" / "+Player.SetPeaceText(ItemTextList[Inventorycount],new ItemID(ItemID)).text+"個";
         Inventorycount++;
       }
     }

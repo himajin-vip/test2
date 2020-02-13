@@ -60,8 +60,9 @@ public class ItemUseState : IMenuState
     InfoWindowText.text = "";
     Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     player.SetInventoryIDList(InventoryList,ItemType.Use);
+    ItemLibrary itemLibrary = new ItemLibrary();
     foreach(int ItemID in InventoryList) {
-      ItemTextList[Inventorycount].text = ItemManager.ReturnItemName(ItemID)+" / "+player.SetPeaceText(ItemTextList[Inventorycount],new ItemID(ItemID)).text+"個";
+      ItemTextList[Inventorycount].text = itemLibrary.SetName(ItemTextList[Inventorycount],new ItemID(ItemID)).text+" / "+player.SetPeaceText(ItemTextList[Inventorycount],new ItemID(ItemID)).text+"個";
       Inventorycount++;
     }
     Curesol.SetActive(true);

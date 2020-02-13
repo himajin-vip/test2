@@ -20,13 +20,13 @@ public class ItemLibrary
         ItemNames itemname = ItemList[itemID.GetID()];
         Type itemtype = Type.GetType(itemname.ToString());
         Item item = (Item)Activator.CreateInstance(itemtype);
-        return item.Type;
+        return item.getType();
     }
-    public Gold GetPrice(ItemID itemID,ItemPeace itemPeace){
+    public ItemPrice GetPrice(ItemID itemID,ItemPeace itemPeace){
         ItemNames itemname = ItemList[itemID.GetID()];
         Type itemtype = Type.GetType(itemname.ToString());
         Item item = (Item)Activator.CreateInstance(itemtype);
-        return new Gold(item.Price*itemPeace.GetValue());
+        return new PriceCal().Get(item.GetPrice(),itemPeace);
     }
     public Type GetItem(ItemID itemID){
         ItemNames itemname = ItemList[itemID.GetID()];
@@ -36,14 +36,17 @@ public class ItemLibrary
         ItemNames itemname = ItemList[itemID.GetID()];
         Type itemtype = Type.GetType(itemname.ToString());
         Item item = (Item)Activator.CreateInstance(itemtype);
-        text.text = item.Info;
+        ItemInfo itemInfo = item.GetInfo();
+        text.text = itemInfo.GetValue();
         return text;
     }
-    public string ReturnItemName(int ItemID){
-      ItemNames itemname = ItemList[ItemID];
+    public Text SetName(Text text,ItemID itemID){
+      ItemNames itemname = ItemList[itemID.GetID()];
       Type itemtype = Type.GetType(itemname.ToString());
       Item item = (Item)Activator.CreateInstance(itemtype);
-      return item.Name;
+      ItemName itemName = item.GetName();
+      text.text = itemName.GetValue();
+      return text;
     }
 
 }

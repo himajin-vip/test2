@@ -43,7 +43,7 @@ public class BuyState : IState
         ItemLibrary itemLibrary = new ItemLibrary();
         for(int i = 0; i < ShopList.Count ;i++){
             TextList.Add(GameObject.Find("ItemNameText"+i).GetComponent<Text>());
-            TextList[i].text = ItemManager.ReturnItemName(ShopList[i])+" : "+itemLibrary.GetPrice(new ItemID(ShopList[i]),new ItemPeace(1))+"G : 1個";
+            TextList[i].text = itemLibrary.SetName(TextList[i],new ItemID(ShopList[i])).text+" : "+itemLibrary.GetPrice(new ItemID(ShopList[i]),new ItemPeace(1)).GetValue()+"G : 1個";
         }
     }
 
@@ -123,7 +123,7 @@ public class BuyState : IState
     public void UpdateText(){
         if(CursolPos != 0 && CursolPos <= (ShopList.Count)){
             ItemLibrary itemLibrary = new ItemLibrary();
-            TextList[CursolPos-1].text = ItemManager.ReturnItemName(ShopList[CursolPos-1])+" : "+itemLibrary.GetPrice(new ItemID(ShopList[CursolPos-1]),new ItemPeace(BuyNumber))+"G : "+BuyNumber+"個";
+            TextList[CursolPos-1].text = itemLibrary.SetName(TextList[CursolPos-1],new ItemID(ShopList[CursolPos-1])).text+" : "+itemLibrary.GetPrice(new ItemID(ShopList[CursolPos-1]),new ItemPeace(BuyNumber)).GetValue()+"G : "+BuyNumber+"個";
         }
     }
 
