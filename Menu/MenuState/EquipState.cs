@@ -65,13 +65,13 @@ public class EquipState : IMenuState
     }
     InfoWindowText.text = "";
     Player.SetInventoryIDList(InventoryList,MenuManager.InventoryType);
-    ItemLibrary itemLibrary = new ItemLibrary();
     foreach(int ItemID in InventoryList) {
+      ItemName itemName = new GetItemName().Get(new ItemID(ItemID));
       if(ItemID == Player.Equip.Parts[MenuManager.InventoryType].ItemId){
-        ItemTextList[Inventorycount].text = "E:"+itemLibrary.SetName(ItemTextList[Inventorycount],new ItemID(ItemID)).text+" / "+Player.SetPeaceText(ItemTextList[Inventorycount],new ItemID(ItemID)).text+"個";
+        ItemTextList[Inventorycount].text = "E:"+itemName.GetValue()+" / "+Player.SetPeaceText(ItemTextList[Inventorycount],new ItemID(ItemID)).text+"個";
         Inventorycount++;
       }else{
-        ItemTextList[Inventorycount].text = itemLibrary.SetName(ItemTextList[Inventorycount],new ItemID(ItemID)).text+" / "+Player.SetPeaceText(ItemTextList[Inventorycount],new ItemID(ItemID)).text+"個";
+        ItemTextList[Inventorycount].text = itemName.GetValue()+" / "+Player.SetPeaceText(ItemTextList[Inventorycount],new ItemID(ItemID)).text+"個";
         Inventorycount++;
       }
     }
@@ -97,8 +97,8 @@ public class EquipState : IMenuState
       break;
     }
     if(!(CursolPos==0)){
-      ItemLibrary itemLibrary = new ItemLibrary();
-      itemLibrary.SetInfo(InfoWindowText,new ItemID(InventoryList[CursolPos-1]));
+      ItemInfo itemInfo = new GetItemInfo().Get(new ItemID(InventoryList[CursolPos-1]));
+      InfoWindowText.text = itemInfo.GetValue();
     }else{
       InfoWindowText.text = "";
     }

@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
     }
     public void ItemUse(ItemID itemID){
       if(Inventory.HasCheck(itemID)){
-        UseItem UseItem = FetchUseItem(itemID);
+        UseItem UseItem = new GetUseItem().Get(itemID);
         Inventory.Reduce(itemID,new ItemPeace(1));
         UseItem.Use(Name);
       }
@@ -86,17 +86,11 @@ public class Player : MonoBehaviour
     public void DropGet(DropItemObj dropItemObj){
       ItemID itemid = new ItemID(dropItemObj.ItemId);
       Inventory.Add(itemid,new ItemPeace(1));
-      new ItemGetLog(Name,itemid.GetID());
+      new ItemGetLog(Name,itemid);
       AudioManager.AudioON(7);
     }
-    public UseItem FetchUseItem(ItemID itemID){
-      ItemLibrary itemLibrary = new ItemLibrary();
-      Type itemType = itemLibrary.GetItem(itemID);
-      return (UseItem)Activator.CreateInstance(itemType);
-    }
     public bool ItemBuy(ItemID itemID, ItemPeace itemPeace){
-      ItemLibrary itemLibrary = new ItemLibrary();
-      ItemPrice itemPrice = itemLibrary.GetPrice(itemID,itemPeace);
+      ItemPrice itemPrice = new GetItemPrice().Get(itemID,itemPeace);
       Gold gold = new Gold(itemPrice.GetValue());
       if(wallet.Use(gold)){
         Inventory.Add(itemID,itemPeace);

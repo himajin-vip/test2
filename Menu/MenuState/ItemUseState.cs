@@ -60,9 +60,9 @@ public class ItemUseState : IMenuState
     InfoWindowText.text = "";
     Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     player.SetInventoryIDList(InventoryList,ItemType.Use);
-    ItemLibrary itemLibrary = new ItemLibrary();
     foreach(int ItemID in InventoryList) {
-      ItemTextList[Inventorycount].text = itemLibrary.SetName(ItemTextList[Inventorycount],new ItemID(ItemID)).text+" / "+player.SetPeaceText(ItemTextList[Inventorycount],new ItemID(ItemID)).text+"個";
+      ItemName itemName = new GetItemName().Get(new ItemID(ItemID));
+      ItemTextList[Inventorycount].text = itemName.GetValue()+" / "+player.SetPeaceText(ItemTextList[Inventorycount],new ItemID(ItemID)).text+"個";
       Inventorycount++;
     }
     Curesol.SetActive(true);
@@ -87,8 +87,8 @@ public class ItemUseState : IMenuState
       break;
     }
     if(!(CursolPos==0)){
-      ItemLibrary itemLibrary = new ItemLibrary();
-      itemLibrary.SetInfo(InfoWindowText,new ItemID(InventoryList[CursolPos-1]));
+      ItemInfo itemInfo = new GetItemInfo().Get(new ItemID(InventoryList[CursolPos-1]));
+      InfoWindowText.text = itemInfo.GetValue();
     }else{
       InfoWindowText.text = "";
     }

@@ -5,7 +5,6 @@ using UnityEngine;
 public class InventoryList
 {
     private Dictionary<ItemType,Inventory> List = new Dictionary<ItemType, Inventory>();
-    private ItemLibrary itemLibrary = new ItemLibrary();
 
     public InventoryList(){
         List.Add(ItemType.Use,new Inventory());
@@ -18,20 +17,20 @@ public class InventoryList
     }
 
     public void Add(ItemID itemID,ItemPeace itemPeace){
-        ItemType itemType = itemLibrary.GetItemType(itemID);
+        ItemType itemType = new GetItemType().Get(itemID);
         List[itemType].Add(itemID,itemPeace);
     }
     public void Reduce(ItemID itemID,ItemPeace itemPeace){
-        ItemType itemType = itemLibrary.GetItemType(itemID);
+        ItemType itemType = new GetItemType().Get(itemID);
         List[itemType].Reduce(itemID,itemPeace);
     }
     public ItemPeace GetPeace(ItemID itemID){
-        ItemType itemType = itemLibrary.GetItemType(itemID);
+        ItemType itemType = new GetItemType().Get(itemID);
         return List[itemType].GetPeace(itemID);
     }
     public void Load(List<int> itemIDList, List<int> itemPeaceList){
         if(itemIDList.Count != 0){
-            ItemType itemType = itemLibrary.GetItemType(new ItemID(itemIDList[0]));
+            ItemType itemType = new GetItemType().Get(new ItemID(itemIDList[0]));
             List[itemType].Load(itemIDList,itemPeaceList);
         }
     }

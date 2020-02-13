@@ -40,10 +40,11 @@ public class BuyState : IState
 
         CursolPos = 0;
         CursolTransform.anchoredPosition = new Vector2(10,-10);
-        ItemLibrary itemLibrary = new ItemLibrary();
         for(int i = 0; i < ShopList.Count ;i++){
             TextList.Add(GameObject.Find("ItemNameText"+i).GetComponent<Text>());
-            TextList[i].text = itemLibrary.SetName(TextList[i],new ItemID(ShopList[i])).text+" : "+itemLibrary.GetPrice(new ItemID(ShopList[i]),new ItemPeace(1)).GetValue()+"G : 1個";
+            ItemPrice itemPrice = new GetItemPrice().Get(new ItemID(ShopList[i]),new ItemPeace(1));
+            ItemName itemName = new GetItemName().Get(new ItemID(ShopList[i]));
+            TextList[i].text = itemName.GetValue()+" : "+itemPrice.GetValue()+"G : 1個";
         }
     }
 
@@ -114,16 +115,17 @@ public class BuyState : IState
 
     public void GetInfoText(){
         if(CursolPos >0){
-            ItemLibrary itemLibrary = new ItemLibrary();
-            itemLibrary.SetInfo(InfoText,new ItemID(ShopList[CursolPos-1]));
+            ItemInfo itemInfo = new GetItemInfo().Get(new ItemID(ShopList[CursolPos-1]));
+            InfoText.text = itemInfo.GetValue();
         }else{
             InfoText.text = "";
         }
     }
     public void UpdateText(){
         if(CursolPos != 0 && CursolPos <= (ShopList.Count)){
-            ItemLibrary itemLibrary = new ItemLibrary();
-            TextList[CursolPos-1].text = itemLibrary.SetName(TextList[CursolPos-1],new ItemID(ShopList[CursolPos-1])).text+" : "+itemLibrary.GetPrice(new ItemID(ShopList[CursolPos-1]),new ItemPeace(BuyNumber)).GetValue()+"G : "+BuyNumber+"個";
+            ItemName itemName = new GetItemName().Get(new ItemID(ShopList[CursolPos-1]));
+            ItemPrice itemPrice = new GetItemPrice().Get(new ItemID(ShopList[CursolPos-1]),new ItemPeace(BuyNumber));
+            TextList[CursolPos-1].text = itemName.GetValue()+" : "+itemPrice.GetValue()+BuyNumber+"個";
         }
     }
 

@@ -19,8 +19,7 @@ public class InventoryManager
       return false;
     }
     public void Reduce(ItemID itemID,ItemPeace itemPeace){
-      ItemLibrary itemLibrary = new ItemLibrary();
-      ItemType ItemType = itemLibrary.GetItemType(itemID);
+      ItemType ItemType = new GetItemType().Get(itemID);
       inventoryList.Reduce(itemID,itemPeace);
       AccountData.Save();
     }
