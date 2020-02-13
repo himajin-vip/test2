@@ -86,7 +86,8 @@ public class ItemUseState : IMenuState
       break;
     }
     if(!(CursolPos==0)){
-      InfoWindowText.text = ItemManager.ReturnInfo(InventoryList[CursolPos-1]);
+      ItemLibrary itemLibrary = new ItemLibrary();
+      itemLibrary.SetInfo(InfoWindowText,new ItemID(InventoryList[CursolPos-1]));
     }else{
       InfoWindowText.text = "";
     }

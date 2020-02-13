@@ -33,25 +33,6 @@ public class ItemManager
       DropItemprefab = (GameObject)Resources.Load ("prefab/DropItem");
     }
 
-    public static ItemType ReturnItemType(int CheckID){
-      ItemName itemname = ItemList[CheckID];
-      Type itemtype = Type.GetType(itemname.ToString());
-      Item item = (Item)Activator.CreateInstance(itemtype);
-      return item.Type;
-    }
-
-    public static string ReturnInfo(int ItemID){
-      ItemName itemname = ItemList[ItemID];
-      Type itemtype = Type.GetType(itemname.ToString());
-      Item item = (Item)Activator.CreateInstance(itemtype);
-      return item.Info;
-    }
-    public static int ReturnPrice(int ItemID){
-      ItemName itemname = ItemList[ItemID];
-      Type itemtype = Type.GetType(itemname.ToString());
-      Item item = (Item)Activator.CreateInstance(itemtype);
-      return item.Price;
-    }
     public static string ReturnItemName(int ItemID){
       ItemName itemname = ItemList[ItemID];
       Type itemtype = Type.GetType(itemname.ToString());
@@ -61,13 +42,6 @@ public class ItemManager
     }
     public static Sprite ReturnImage(int ItemID){
       return ItemImageList[ItemID];
-    }
-
-    public static void Use(string Name,int ItemID){
-      ItemName itemname = ItemList[ItemID];
-      Type itemtype = Type.GetType(itemname.ToString());
-      UseItem item = (UseItem)Activator.CreateInstance(itemtype);
-      item.Use(Name);
     }
     public static void Equip(int ItemID,Player player){
       ItemName itemname = ItemList[ItemID];

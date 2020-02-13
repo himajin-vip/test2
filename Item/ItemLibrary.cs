@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using UnityEngine.UI;
 using System;
 public class ItemLibrary
 {
-    private Dictionary<int,ItemName> ItemList = new Dictionary<int, ItemName>();
+    private static Dictionary<int,ItemName> ItemList = new Dictionary<int, ItemName>();
 
-    public ItemLibrary(){
+    static ItemLibrary(){
         ItemList.Add(0,ItemName.Potion);
         ItemList.Add(1,ItemName.HiPotion);
         ItemList.Add(100,ItemName.IronSword);
@@ -33,6 +33,13 @@ public class ItemLibrary
         Type itemtype = Type.GetType(itemname.ToString());
         UseItem item = (UseItem)Activator.CreateInstance(itemtype);
         return item;
+    }
+    public Text SetInfo(Text text,ItemID itemID){
+        ItemName itemname = ItemList[itemID.GetID()];
+        Type itemtype = Type.GetType(itemname.ToString());
+        Item item = (Item)Activator.CreateInstance(itemtype);
+        text.text = item.Info;
+        return text;
     }
 
 }
