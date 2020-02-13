@@ -5,7 +5,7 @@ using UnityEngine;
 public class FirstIntClass
 {
    protected int Value;
-   public int GetValue(){
+   public virtual int GetValue(){
        return Value;
    }
 }

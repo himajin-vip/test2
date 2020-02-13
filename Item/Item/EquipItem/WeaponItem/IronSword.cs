@@ -5,11 +5,11 @@ using UnityEngine;
 public class IronSword : EquipItem
 {
   public IronSword(){
-    Id = 100;
-    Info = "Strを5上げます";
-    Name = "鉄の剣";
+    Id = new ItemID(100);
+    Info = new ItemInfo("Strを5上げます");
+    Name = new ItemName("鉄の剣");
     Type = ItemType.Weapon;
-    Price = 500;
+    Price = new ItemPrice(500);
 
   }
   public override void Equip(Player player){

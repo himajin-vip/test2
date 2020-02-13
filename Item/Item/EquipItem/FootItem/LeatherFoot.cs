@@ -5,11 +5,11 @@ using UnityEngine;
 public class LeatherFoot : EquipItem
 {
   public LeatherFoot(){
-    Id = 500;
-    Info = "Dexを１上げます";
-    Name = "皮の靴";
+    Id = new ItemID(500);
+    Info = new ItemInfo("Dexを１上げます");
+    Name = new ItemName("皮の靴");
     Type = ItemType.Foot;
-    Price = 300;
+    Price = new ItemPrice(300);
   }
   public override void Equip(Player player){
     player.Status.Dex.Equip(1);

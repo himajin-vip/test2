@@ -1,4 +1,4 @@
-﻿public enum ItemName{
+﻿public enum ItemNames{
     Potion,
     HiPotion,
     IronSword,

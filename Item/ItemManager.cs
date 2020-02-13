@@ -8,7 +8,7 @@ using System;
 public class ItemManager
 {
   private static Dictionary<int,Sprite> ItemImageList = new Dictionary<int,Sprite>();
-  private static Dictionary<int,ItemName> ItemList = new Dictionary<int, ItemName>();
+  private static Dictionary<int,ItemNames> ItemList = new Dictionary<int, ItemNames>();
   private static GameObject DropItemprefab;
 
 
@@ -16,13 +16,13 @@ public class ItemManager
     public ItemManager(){//Excelとかで読み込めないかな
       ItemImageList.Clear();
       ItemList.Clear();
-      ItemList.Add(0,ItemName.Potion);
-      ItemList.Add(1,ItemName.HiPotion);
-      ItemList.Add(100,ItemName.IronSword);
-      ItemList.Add(200,ItemName.LeatherCap);
-      ItemList.Add(300,ItemName.LeatherBody);
-      ItemList.Add(400,ItemName.LeatherHand);
-      ItemList.Add(500,ItemName.LeatherFoot);
+      ItemList.Add(0,ItemNames.Potion);
+      ItemList.Add(1,ItemNames.HiPotion);
+      ItemList.Add(100,ItemNames.IronSword);
+      ItemList.Add(200,ItemNames.LeatherCap);
+      ItemList.Add(300,ItemNames.LeatherBody);
+      ItemList.Add(400,ItemNames.LeatherHand);
+      ItemList.Add(500,ItemNames.LeatherFoot);
 
     }
 
@@ -32,25 +32,17 @@ public class ItemManager
 
       DropItemprefab = (GameObject)Resources.Load ("prefab/DropItem");
     }
-
-    public static string ReturnItemName(int ItemID){
-      ItemName itemname = ItemList[ItemID];
-      Type itemtype = Type.GetType(itemname.ToString());
-      Item item = (Item)Activator.CreateInstance(itemtype);
-      Debug.Log(item.Name);
-      return item.Name;
-    }
     public static Sprite ReturnImage(int ItemID){
       return ItemImageList[ItemID];
     }
     public static void Equip(int ItemID,Player player){
-      ItemName itemname = ItemList[ItemID];
+      ItemNames itemname = ItemList[ItemID];
       Type itemtype = Type.GetType(itemname.ToString());
       EquipItem item = (EquipItem)Activator.CreateInstance(itemtype);
       item.Equip(player);
     }
     public static void UnEquip(int ItemID,Player player){
-      ItemName itemname = ItemList[ItemID];
+      ItemNames itemname = ItemList[ItemID];
       Type itemtype = Type.GetType(itemname.ToString());
       EquipItem item = (EquipItem)Activator.CreateInstance(itemtype);
       item.UnEquip(player);

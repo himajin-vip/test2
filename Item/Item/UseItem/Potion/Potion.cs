@@ -1,14 +1,14 @@
 using UnityEngine;
 public class Potion : UseItem
 {
-  private float Recovery = 0.3f;
+  private Recovery recovery = new Recovery(0.3f);
   public Potion(){
-    Id = 0;
-    Info = "HPを30%回復します";
-    Name = "ポーション";
-    Price = 30;
+    Id = new ItemID(0);
+    Info = new ItemInfo("HPを30%回復します");
+    Name = new ItemName("ポーション");
+    Price = new ItemPrice(30);
   }
   public override void Use(string Name){
-    new UsePotion(Id,Recovery);
+    new UsePotion(Id,recovery);
   }
 }

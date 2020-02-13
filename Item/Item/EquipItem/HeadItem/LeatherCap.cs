@@ -5,11 +5,11 @@ using UnityEngine;
 public class LeatherCap : EquipItem
 {
   public LeatherCap(){
-    Id = 200;
-    Info = "Vitを1上げます";
-    Name = "皮の帽子";
+    Id = new ItemID(200);
+    Info = new ItemInfo("Vitを1上げます");
+    Name = new ItemName("皮の帽子");
     Type = ItemType.Head;
-    Price = 300;
+    Price = new ItemPrice(300);
   }
   public override void Equip(Player player){
     player.Status.Vit.Equip(1);

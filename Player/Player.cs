@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class Player : MonoBehaviour
 {
@@ -90,7 +91,8 @@ public class Player : MonoBehaviour
     }
     public UseItem FetchUseItem(ItemID itemID){
       ItemLibrary itemLibrary = new ItemLibrary();
-      return itemLibrary.GetUseItem(itemID);
+      Type itemType = itemLibrary.GetItem(itemID);
+      return (UseItem)Activator.CreateInstance(itemType);
     }
     public bool ItemBuy(ItemID itemID, ItemPeace itemPeace){
       ItemLibrary itemLibrary = new ItemLibrary();

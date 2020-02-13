@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class UsePotion
 {
-   public UsePotion(int ID,float Recovery){
+   public UsePotion(ItemID ID,Recovery Recovery){
 
       //////使う相手を選択できるように引数にしたほうがいい
       GameObject PlayerObj = GameObject.FindGameObjectWithTag("Player").gameObject;
       Player Player = PlayerObj.GetComponent<Player>();
 
 
-      int recovery = (int)(Player.Status.Hp.maxValue*Recovery);
+      int recovery = (int)(Player.Status.Hp.maxValue*Recovery.GetValue());
       Player.Status.Hp.Recovery(recovery);
-      new UseItemLog(Player.Name,ID);
+      new UseItemLog(Player.Name,ID.GetID());
       new RecoveryHpLog(Player.Name,recovery);
       FiledText filedText = new FiledText();
       filedText.Make(recovery.ToString(),new Color(0,255,0),PlayerObj.transform);

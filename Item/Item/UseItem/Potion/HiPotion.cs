@@ -1,12 +1,12 @@
 using UnityEngine;
 public class HiPotion : UseItem
 {
-  private float Recovery = 0.5f;
+  private Recovery Recovery = new Recovery(0.5f);
   public HiPotion(){
-    Id = 1;
-    Info = "HPを50%回復します";
-    Name = "ハイポーション";
-    Price = 100;
+    Id = new ItemID(1);
+    Info = new ItemInfo("HPを50%回復します");
+    Name = new ItemName("ハイポーション");
+    Price = new ItemPrice(100);
   }
   public override void Use(string Name){
     new UsePotion(Id,Recovery);
