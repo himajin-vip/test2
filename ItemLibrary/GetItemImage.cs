@@ -5,6 +5,6 @@ using UnityEngine;
 public class GetItemImage : ItemLibrary
 {    
     public Sprite Get(ItemID itemID){
-      return ItemImageList[itemID.GetID()];
+      return ItemImageList[itemID.GetValue()];
     }
 }
