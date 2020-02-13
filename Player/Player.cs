@@ -18,7 +18,6 @@ public class Player : MonoBehaviour
     public Skill Skill{get; protected set;}
     private Skill normalAtack;
     public Skill ChargeSkill{get; protected set;}
-    private Wallet wallet = new Wallet();
     private bool TalkFlag = false;
     public Npc Npc{get; protected set;}
 
@@ -83,25 +82,18 @@ public class Player : MonoBehaviour
     public bool ItemBuy(ItemID itemID, ItemPeace itemPeace){
       ItemPrice itemPrice = new GetItemPrice().Get(itemID,itemPeace);
       Gold gold = new Gold(itemPrice.GetValue());
-      if(wallet.Use(gold)){
+      if(new UseGold().Use(gold)){
         new InventoryAdd().Add(itemID,itemPeace);
         AccountData.Save();
         return true;
       }
       return false;
     }
-    public Text SetGoldText(Text goldtext){
-      Gold gold = wallet.GetMoney();
-      goldtext.text = new FirstintClasstoStringer().Get(gold);
-      return goldtext;
-    }
+
     public Text SetPeaceText(Text Peacetext,ItemID itemID){
       ItemPeace peace = new InventoryGetPeace().Get(itemID);
       Peacetext.text = new FirstintClasstoStringer().Get(peace);
       return Peacetext;
-    }
-    public void GetGold(Gold Gold){
-      wallet.Add(Gold);
     }
     //////Status
     public void GetExp(int exp){
