@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -91,6 +92,11 @@ public class Player : MonoBehaviour
         return true;
       }
       return false;
+    }
+    public Text SetGoldText(Text goldtext){
+      Gold gold = wallet.GetMoney();
+      goldtext.text = new FirstintClasstoStringer().Get(gold);
+      return goldtext;
     }
     //////Status
     public void GetExp(int exp){
