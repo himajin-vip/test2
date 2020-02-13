@@ -77,7 +77,7 @@ public class Player : MonoBehaviour
       ItemID itemid = new ItemID(dropItemObj.ItemId);
       new Inventory().Add(itemid,new ItemPeace(1));
       new ItemGetLog(Name,itemid);
-      AudioManager.AudioON(7);
+      new PlayAudio().Play(AudioList.ItemGet);
     }
 
     public Text SetPeaceText(Text Peacetext,ItemID itemID){

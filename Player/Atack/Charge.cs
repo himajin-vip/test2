@@ -20,7 +20,7 @@ public class Charge : MonoBehaviour
   }
   public void Stop(){
     StopCoroutine(ChargeC);
-    AudioManager.AudioOFF(4);
+    new StopAudio().Stop(AudioList.Charge);
     if(ChargeNow){
       Efect.Off();
     }
@@ -31,7 +31,7 @@ public class Charge : MonoBehaviour
     yield return new WaitForSeconds(ChargeTime/2);
       ChargeNow = true;
       Efect.On("tameefect",PlayerObj);
-      AudioManager.AudioON(4);
+      new PlayAudio().Play(AudioList.Charge);
       Player.MoveSpeed.SetChargeSpeed();
 
     yield return new WaitForSeconds(ChargeTime/2);

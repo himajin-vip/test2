@@ -6,7 +6,7 @@ public class LvUpLog:LogMaker
 {
   public LvUpLog(string Name){
     string newlog = (Name+"はLVが上がった");
-    AudioManager.AudioON(9);
+    new PlayAudio().Play(AudioList.LVUP);
     logCanvas.MakeLog(newlog);
   }
 }

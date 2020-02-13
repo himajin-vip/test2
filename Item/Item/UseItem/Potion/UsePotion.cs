@@ -19,6 +19,6 @@ public class UsePotion
       filedText.Make(recovery.ToString(),new Color(0,255,0),PlayerObj.transform);
       Efect Efect = new Efect();
       Efect.On("kaihukuefect",PlayerObj);
-      AudioManager.AudioON(6);
+      new PlayAudio().Play(AudioList.Kaifuku);
    }
 }

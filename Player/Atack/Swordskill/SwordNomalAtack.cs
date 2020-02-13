@@ -26,7 +26,7 @@ public class SwordNomalAtack : Skill
 
     public void AtackOn(){
 
-      AudioManager.AudioON(2);
+      new PlayAudio().Play(AudioList.Kiri);
       int Direction = Player.Direction.Value;
       GameObject Weapon = Player.Weapon;
       Vector3 PlayerPos = PlayerObj.transform.position;

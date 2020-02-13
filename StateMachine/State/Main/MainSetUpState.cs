@@ -21,7 +21,7 @@ public class MainSetUpState : IState
         new CameraManager().SetUp();
         new UI_Manager().SetUp();
         new ShortcutManager().SetUp();
-        AudioManager.SetUp();
+        new AudioPlayer().SetUp();
         new EnemyManager().SetUp();
         new MenuManager().SetUp();
         new ItemManager().SetUp();

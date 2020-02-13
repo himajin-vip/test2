@@ -26,7 +26,7 @@ public class SwordChargeAtack : Skill
     }
     public void AtackOn(){
       Player.Status.Mp.Use(Mp);
-      AudioManager.AudioON(5);
+      new PlayAudio().Play(AudioList.ChargeAtack);
       int Direction = Player.Direction.Value;
       GameObject Weapon = Player.Weapon;
       Vector3 PlayerPos = PlayerObj.transform.position;

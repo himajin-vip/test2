@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour
     Vector3 Playerpos = Playerobj.gameObject.transform.position;
     Efect Efect = new Efect();
     Efect.On("Kamitukiefect",Playerobj);//エフェクト作成
-    AudioManager.AudioON(8);
+    new PlayAudio().Play(AudioList.Kamituki);
   }
 
   public void Move(){

@@ -42,21 +42,21 @@ public class BuyCheckState : IState
             pos.y += 30;
             CursolTransform.anchoredPosition = pos;
             CursolPos--;
-            AudioManager.AudioON(1);
+            new PlayAudio().Play(AudioList.CursolMove);
         }
         if(Input.GetKeyDown(KeyCode.S)&&(CursolPos<1)){
             Vector2 pos = CursolTransform.anchoredPosition;
             pos.y -= 30;
             CursolTransform.anchoredPosition = pos;
             CursolPos++;
-            AudioManager.AudioON(1);
+            new PlayAudio().Play(AudioList.CursolMove);
         }
         if(Input.GetKeyDown(KeyCode.Space)){
             switch(CursolPos){
                 case 0:
                     if(new BuyItem().Buy(new ItemID(ShopState.SelectItemId),new ItemPeace(ShopState.SelectItemNumber))){
                         shopState.SetState("Buy");
-                        AudioManager.AudioON(10);
+                        new PlayAudio().Play(AudioList.Shiharai);
                     }
                 break;
                 case 1:

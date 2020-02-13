@@ -72,7 +72,7 @@ public class BuyState : IState
             CursolPos--;
 
             GetInfoText();
-            AudioManager.AudioON(1);
+            new PlayAudio().Play(AudioList.CursolMove);
         }
         if(Input.GetKeyDown(KeyCode.S)&&(CursolPos<ShopList.Count)){
             BuyNumber = 1;
@@ -83,7 +83,7 @@ public class BuyState : IState
             CursolPos++;
 
             GetInfoText();
-            AudioManager.AudioON(1);
+            new PlayAudio().Play(AudioList.CursolMove);
         }
         if(Input.GetKeyDown(KeyCode.D)){
             BuyNumber++;
@@ -91,7 +91,7 @@ public class BuyState : IState
                 BuyNumber = 1;
             }
             UpdateText();
-            AudioManager.AudioON(1);
+            new PlayAudio().Play(AudioList.CursolMove);
         }
         if(Input.GetKeyDown(KeyCode.A)){
             BuyNumber--;
@@ -99,7 +99,7 @@ public class BuyState : IState
                 BuyNumber = 99;
             }
             UpdateText();
-            AudioManager.AudioON(1);
+            new PlayAudio().Play(AudioList.CursolMove);
         }
         if(Input.GetKeyDown(KeyCode.Space)){
            if(CursolPos == 0){
@@ -109,7 +109,7 @@ public class BuyState : IState
                shopState.getSelectItem(ShopList[CursolPos-1],BuyNumber);
                shopState.SetState("BuyCheck");
            }
-            AudioManager.AudioON(3);
+            new PlayAudio().Play(AudioList.CursolOn);
         }
     }
 

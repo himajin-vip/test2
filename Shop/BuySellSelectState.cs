@@ -39,14 +39,14 @@ public class BuySellSelectState : IState
             pos.y += 30;
             CursolTransform.anchoredPosition = pos;
             CursolPos--;
-            AudioManager.AudioON(1);
+            new PlayAudio().Play(AudioList.CursolMove);
         }
         if(Input.GetKeyDown(KeyCode.S)&&(CursolPos<2)){
             Vector2 pos = CursolTransform.anchoredPosition;
             pos.y -= 30;
             CursolTransform.anchoredPosition = pos;
             CursolPos++;
-            AudioManager.AudioON(1);
+            new PlayAudio().Play(AudioList.CursolMove);
         }
         if(Input.GetKeyDown(KeyCode.Space)){
             switch(CursolPos){
@@ -59,7 +59,7 @@ public class BuySellSelectState : IState
                     shopState.SetState("ShopEnd");
                 break;
             }
-            AudioManager.AudioON(3);
+            new PlayAudio().Play(AudioList.CursolOn);
         }
     }
 }
