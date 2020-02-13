@@ -25,5 +25,21 @@ public class InventoryList
         ItemType itemType = itemLibrary.GetItemType(itemID);
         List[itemType].Reduce(itemID,itemPeace);
     }
+    public ItemPeace GetPeace(ItemID itemID){
+        ItemType itemType = itemLibrary.GetItemType(itemID);
+        return List[itemType].GetPeace(itemID);
+    }
+    public void Load(List<int> itemIDList, List<int> itemPeaceList){
+        if(itemIDList.Count != 0){
+            ItemType itemType = itemLibrary.GetItemType(new ItemID(itemIDList[0]));
+            List[itemType].Load(itemIDList,itemPeaceList);
+        }
+    }
+    public List<int> GetIdList(ItemType itemType){
+        return List[itemType].GetIdList();
+    }
+    public List<int> GetPeaceList(ItemType itemType){
+        return List[itemType].GetPeaceList();
+    }
 
 }
