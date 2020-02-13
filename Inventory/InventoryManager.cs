@@ -15,7 +15,7 @@ public class InventoryManager
 
     public bool ItemBuy(ItemID itemID, ItemPeace itemPeace){
       ItemLibrary itemLibrary = new ItemLibrary();
-      Gold gold = new Gold(itemLibrary.GetPrice(itemID)*itemPeace.GetPeace());
+      Gold gold = itemLibrary.GetPrice(itemID,itemPeace);
       if(wallet.Use(gold)){
         ItemGet(itemID,itemPeace);
         AccountData.Save();

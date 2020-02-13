@@ -22,12 +22,11 @@ public class ItemLibrary
         Item item = (Item)Activator.CreateInstance(itemtype);
         return item.Type;
     }
-    /////////ItemPriceクラスを作んなきゃ
-    public int GetPrice(ItemID itemID){
+    public Gold GetPrice(ItemID itemID,ItemPeace itemPeace){
         ItemName itemname = ItemList[itemID.GetID()];
         Type itemtype = Type.GetType(itemname.ToString());
         Item item = (Item)Activator.CreateInstance(itemtype);
-        return item.Price;
+        return new Gold(item.Price*itemPeace.GetPeace());
     }
 
 }
