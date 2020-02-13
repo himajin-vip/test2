@@ -21,5 +21,9 @@ public class InventoryList
         ItemType itemType = itemLibrary.GetItemType(itemID);
         List[itemType].Add(itemID,itemPeace);
     }
+    public void Reduce(ItemID itemID,ItemPeace itemPeace){
+        ItemType itemType = itemLibrary.GetItemType(itemID);
+        List[itemType].Reduce(itemID,itemPeace);
+    }
 
 }
