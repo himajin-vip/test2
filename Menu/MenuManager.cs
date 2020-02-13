@@ -12,6 +12,7 @@ public class MenuManager
   private static bool InventoryEndfrag;
   public static ItemType InventoryType{get; private set;}
   private static Player Player;
+  public static int SelectItemID;
 
   public void SetUp(){
     MenuStateList.Clear();

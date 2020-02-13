@@ -66,6 +66,12 @@ public class Player : MonoBehaviour
       }
     }
     ///////Item
+    public void ItemReduce(ItemID itemID,ItemPeace itemPeace){
+      Inventory.Reduce(itemID,itemPeace);
+    }
+    public void SetInventoryList(List<int> list ,ItemType itemType){
+      list = new List<int>(Inventory.GetIdList(itemType));
+    }
     public void ItemUse(ItemID itemID){
       if(Inventory.HasCheck(itemID)){
         UseItem UseItem = FetchUseItem(itemID);
@@ -98,6 +104,11 @@ public class Player : MonoBehaviour
       goldtext.text = new FirstintClasstoStringer().Get(gold);
       return goldtext;
     }
+    public Text SetPeaceText(Text Peacetext,ItemID itemID){
+      ItemPeace peace = Inventory.GetPieces(itemID);
+      Peacetext.text = new FirstintClasstoStringer().Get(peace);
+      return Peacetext;
+    }
     public void GetGold(Gold Gold){
       wallet.Add(Gold);
     }
@@ -115,7 +126,6 @@ public class Player : MonoBehaviour
     public void SetName(string name){
       Name = name;
     }
-
     //////衝突判定
     void OnTriggerEnter2D(Collider2D collision){
       if(collision.gameObject.tag == "Item"){
@@ -128,7 +138,6 @@ public class Player : MonoBehaviour
         TalkFlag = true;
       }
     }
-
     void OnTriggerExit2D(Collider2D collision){
       if(collision.gameObject.tag == "Npc"){
         TalkFlag = false;

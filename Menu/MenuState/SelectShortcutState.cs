@@ -44,19 +44,19 @@ public class SelectShortCutState : IMenuState
   public void CursolOn(){
     switch(CursolPos){
       case 0:
-        ShortcutManager.SetShortcut(1,InventoryManager.ReturnSelectItem());
+        ShortcutManager.SetShortcut(1,MenuManager.SelectItemID);
         MenuManager.SetMenuState("UseItem");
       break;
       case 1:
-        ShortcutManager.SetShortcut(2,InventoryManager.ReturnSelectItem());
+        ShortcutManager.SetShortcut(2,MenuManager.SelectItemID);
         MenuManager.SetMenuState("UseItem");
       break;
       case 2:
-        ShortcutManager.SetShortcut(3,InventoryManager.ReturnSelectItem());
+        ShortcutManager.SetShortcut(3,MenuManager.SelectItemID);
         MenuManager.SetMenuState("UseItem");
       break;
       case 3:
-        ShortcutManager.SetShortcut(4,InventoryManager.ReturnSelectItem());
+        ShortcutManager.SetShortcut(4,MenuManager.SelectItemID);
         MenuManager.SetMenuState("UseItem");
       break;
       case 4:

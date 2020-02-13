@@ -64,13 +64,13 @@ public class EquipState : IMenuState
       ItemTextList[i].text = "";
     }
     InfoWindowText.text = "";
-    InventoryList = InventoryManager.ReturnInventoryList(MenuManager.InventoryType);
+    Player.SetInventoryList(InventoryList,MenuManager.InventoryType);
     foreach(int ItemID in InventoryList) {
       if(ItemID == Player.Equip.Parts[MenuManager.InventoryType].ItemId){
-        ItemTextList[Inventorycount].text = "E:"+ItemManager.ReturnItemName(ItemID)+" / "+InventoryManager.ReturnPieces(ItemID)+"個";
+        ItemTextList[Inventorycount].text = "E:"+ItemManager.ReturnItemName(ItemID)+" / "+Player.SetPeaceText(ItemTextList[Inventorycount],new ItemID(ItemID)).text+"個";
         Inventorycount++;
       }else{
-        ItemTextList[Inventorycount].text = ItemManager.ReturnItemName(ItemID)+" / "+InventoryManager.ReturnPieces(ItemID)+"個";
+        ItemTextList[Inventorycount].text = ItemManager.ReturnItemName(ItemID)+" / "+Player.SetPeaceText(ItemTextList[Inventorycount],new ItemID(ItemID)).text+"個";
         Inventorycount++;
       }
     }
@@ -107,7 +107,7 @@ public class EquipState : IMenuState
         MenuManager.InventoryEndFragToggle(true);
         MenuManager.SetMenuState("InventorySelect");
       }else{
-        InventoryManager.SelectItem(InventoryList[CursolPos-1]);
+        MenuManager.SelectItemID=InventoryList[CursolPos-1];
         MenuManager.SetMenuState("EquipComand");
       }
   }

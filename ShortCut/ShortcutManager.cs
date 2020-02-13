@@ -30,7 +30,7 @@ public class ShortcutManager
 
   public static void ShortCutOn(int ShortcutNo){
     if(SetOK[ShortcutNo]){
-      player.ItemUse(ShortcutList[ShortcutNo].IDShortcut);
+      player.ItemUse(new ItemID(ShortcutList[ShortcutNo].IDShortcut));
     }
   }
 

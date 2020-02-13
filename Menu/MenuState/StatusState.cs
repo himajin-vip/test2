@@ -43,7 +43,7 @@ public class StatusState : IMenuState
     DexText.text = Player.Status.Dex.Value.ToString();
     IntText.text = Player.Status.Int.Value.ToString();
     ExpText.text = Player.Status.Exp.currentValue+"/"+Player.Status.Exp.maxValue;
-    GoldText.text = InventoryManager.Gold+"G";
+    GoldText.text = Player.SetGoldText(GoldText).text+"G";
 
   }
   public void CursolMove(int direction){}

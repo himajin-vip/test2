@@ -45,11 +45,11 @@ public class EquipComandState : IMenuState
   public void CursolOn(){
     switch(CursolPos){
       case 0:
-        Player.Equip.Parts[MenuManager.InventoryType].Set(InventoryManager.ReturnSelectItem(),Player);
+        Player.Equip.Parts[MenuManager.InventoryType].Set(MenuManager.SelectItemID,Player);
         MenuManager.SetMenuState("Equip");
       break;
       case 1:
-        InventoryManager.ItemReduce(InventoryManager.ReturnSelectItem());
+        Player.ItemReduce(new ItemID(MenuManager.SelectItemID),new ItemPeace(1));
         MenuManager.SetMenuState("Equip");
       break;
       case 2:
