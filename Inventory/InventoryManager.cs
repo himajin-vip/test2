@@ -61,13 +61,13 @@ public class InventoryManager
       return false;
     }
 
-    public static void InventoryLoad(SaveData SaveData){
-      InventoryList[ItemType.Use].Load(SaveData.UseItemList,SaveData.UseItemNumberList);
-      InventoryList[ItemType.Weapon].Load(SaveData.WeaponItemList,SaveData.WeaponItemNumberList);
-      InventoryList[ItemType.Head].Load(SaveData.HeadItemList,SaveData.HeadItemNumberList);
-      InventoryList[ItemType.Body].Load(SaveData.BodyItemList,SaveData.BodyItemNumberList);
-      InventoryList[ItemType.Hand].Load(SaveData.HandItemList,SaveData.HandItemNumberList);
-      InventoryList[ItemType.Foot].Load(SaveData.FootItemList,SaveData.FootItemNumberList);
-      InventoryList[ItemType.Accessory].Load(SaveData.AccesuryItemList,SaveData.AccesuryItemNumberList);
+    public void InventoryLoad(SaveData SaveData){
+      inventoryList.Load(SaveData.UseItemList,SaveData.UseItemNumberList);
+      inventoryList.Load(SaveData.WeaponItemList,SaveData.WeaponItemNumberList);
+      inventoryList.Load(SaveData.HeadItemList,SaveData.HeadItemNumberList);
+      inventoryList.Load(SaveData.BodyItemList,SaveData.BodyItemNumberList);
+      inventoryList.Load(SaveData.HandItemList,SaveData.HandItemNumberList);
+      inventoryList.Load(SaveData.FootItemList,SaveData.FootItemNumberList);
+      inventoryList.Load(SaveData.AccesuryItemList,SaveData.AccesuryItemNumberList);
     }
 }
