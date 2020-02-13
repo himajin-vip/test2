@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gold
+public class Gold :FirstIntClass
 {
-    private int Value;
-
     public Gold(int value){
         Value = value;
     }
@@ -18,8 +16,5 @@ public class Gold
         }
         Value -= gold.Value;
         return true;
-    }
-    public int GetValue(){
-        return Value;
     }
 }
