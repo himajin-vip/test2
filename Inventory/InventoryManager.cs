@@ -30,11 +30,11 @@ public class InventoryManager
       return false;
 
     }
-    static public List<int> ReturnInventoryList(ItemType ItemType){
-        return new List<int>(InventoryList[ItemType].GetIdList());
+    public List<int> GetIdList(ItemType ItemType){
+        return inventoryList.GetIdList(ItemType);
     }
-    static public List<int> ReturnInventoryNumberList(ItemType ItemType){
-        return new List<int>(InventoryList[ItemType].GetPeaceList());
+    public List<int> GetPeaceList(ItemType ItemType){
+        return inventoryList.GetPeaceList(ItemType);
     }
 
     public static int ReturnPieces(int ItemID){
