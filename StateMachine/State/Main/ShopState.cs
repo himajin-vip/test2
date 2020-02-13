@@ -23,12 +23,13 @@ public class ShopState : IState
     }
     public void Start()
     {
+        Player player;
         GameObject ShopWindow = GameObject.Find("ShopCanvas").transform.Find("ShopPanel").gameObject;
         ShopWindow.SetActive(true);
         Text GoldText = ShopWindow.transform.Find("GoldWindow").transform.Find("Text").GetComponent<Text>();
         InventoryManager inventoryManager = new InventoryManager();
-        Gold gold = inventoryManager.GetMoney();
-        GoldText.text = gold.GetValue()+"G";
+        player  = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        GoldText.text = player.SetGoldText(GoldText).text+"G";
 
         ShopScene = SceneList["BuySellSelect"];
         ShopScene.Start();

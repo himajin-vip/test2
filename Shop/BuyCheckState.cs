@@ -9,6 +9,7 @@ public class BuyCheckState : IState
     RectTransform CursolTransform;
     int CursolPos;
     ShopState shopState = new ShopState();
+    Player player;
     public void Start()
     {
         BuyComandWindow = GameObject.Find("ShopPanel").transform.Find("BuyComandWindow").gameObject;
@@ -21,6 +22,8 @@ public class BuyCheckState : IState
         CursolTransform.anchoredPosition = new Vector2(10,-10);
 
         CursolPos = 0;
+
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         
     }
 
@@ -51,7 +54,7 @@ public class BuyCheckState : IState
         if(Input.GetKeyDown(KeyCode.Space)){
             switch(CursolPos){
                 case 0:
-                    if(InventoryManager.ItemBuy(ShopState.SelectItemId,ShopState.SelectItemNumber)){
+                    if(player.ItemBuy(new ItemID(ShopState.SelectItemId),new ItemPeace(ShopState.SelectItemNumber))){
                         shopState.SetState("Buy");
                         AudioManager.AudioON(10);
                     }
