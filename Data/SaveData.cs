@@ -38,45 +38,45 @@ public class SaveData
   public List<int> AccesuryItemNumberList = new List<int>();
 
   public void Update(Player player){
-     Name = player.Name;
-     Lv = player.Status.Lv;
-     MaxHp = player.Status.Hp.maxValue;
-     CurrentHp = player.Status.Hp.currentValue;
-     MaxMp = player.Status.Mp.maxValue;
-     CurrentMp = player.Status.Mp.currentValue;
-     Str = player.Status.Str.NomalValue;
-     Vit = player.Status.Vit.NomalValue;
-     Dex = player.Status.Dex.NomalValue;
-     Int = player.Status.Int.NomalValue;
-     NextExp = player.Status.Exp.maxValue;
-     CurrentExp = player.Status.Exp.currentValue;
-     EquipWeapon = player.Equip.Parts[ItemType.Weapon].ItemId;
-     EquipHead = player.Equip.Parts[ItemType.Head].ItemId;
-     EquipBody = player.Equip.Parts[ItemType.Body].ItemId;
-     EquipHand = player.Equip.Parts[ItemType.Hand].ItemId;
-     EquipFoot = player.Equip.Parts[ItemType.Foot].ItemId;
-     EquipAccessory = player.Equip.Parts[ItemType.Accessory].ItemId;
+    Name = player.Name;
+    Lv = player.Status.Lv;
+    MaxHp = player.Status.Hp.maxValue;
+    CurrentHp = player.Status.Hp.currentValue;
+    MaxMp = player.Status.Mp.maxValue;
+    CurrentMp = player.Status.Mp.currentValue;
+    Str = player.Status.Str.NomalValue;
+    Vit = player.Status.Vit.NomalValue;
+    Dex = player.Status.Dex.NomalValue;
+    Int = player.Status.Int.NomalValue;
+    NextExp = player.Status.Exp.maxValue;
+    CurrentExp = player.Status.Exp.currentValue;
+    EquipWeapon = player.Equip.Parts[ItemType.Weapon].ItemId;
+    EquipHead = player.Equip.Parts[ItemType.Head].ItemId;
+    EquipBody = player.Equip.Parts[ItemType.Body].ItemId;
+    EquipHand = player.Equip.Parts[ItemType.Hand].ItemId;
+    EquipFoot = player.Equip.Parts[ItemType.Foot].ItemId;
+    EquipAccessory = player.Equip.Parts[ItemType.Accessory].ItemId;
 
-     UseItemList = InventoryManager.ReturnInventoryList(ItemType.Use);
-     UseItemNumberList = InventoryManager.ReturnInventoryNumberList(ItemType.Use);
+    player.SetInventoryIDList(UseItemList,ItemType.Use);
+    player.SetInventoryPeaceList(UseItemNumberList,ItemType.Use);
 
-     WeaponItemList = InventoryManager.ReturnInventoryList(ItemType.Weapon);
-     WeaponItemNumberList = InventoryManager.ReturnInventoryNumberList(ItemType.Weapon);
+     player.SetInventoryIDList(WeaponItemList,ItemType.Weapon);
+     player.SetInventoryPeaceList(WeaponItemNumberList,ItemType.Weapon);
 
-     HeadItemList = InventoryManager.ReturnInventoryList(ItemType.Head);
-     HeadItemNumberList = InventoryManager.ReturnInventoryNumberList(ItemType.Head);
+     player.SetInventoryIDList(HeadItemList,ItemType.Head);
+     player.SetInventoryPeaceList(HeadItemNumberList,ItemType.Head);
 
-     BodyItemList = InventoryManager.ReturnInventoryList(ItemType.Body);
-     BodyItemNumberList = InventoryManager.ReturnInventoryNumberList(ItemType.Body);
+     player.SetInventoryIDList(BodyItemList,ItemType.Body);
+     player.SetInventoryPeaceList(BodyItemNumberList,ItemType.Body);
 
-     HandItemList = InventoryManager.ReturnInventoryList(ItemType.Hand);
-     HandItemNumberList = InventoryManager.ReturnInventoryNumberList(ItemType.Hand);
+     player.SetInventoryIDList(HandItemList,ItemType.Hand);
+     player.SetInventoryPeaceList(HandItemNumberList,ItemType.Hand);
 
-     FootItemList = InventoryManager.ReturnInventoryList(ItemType.Foot);
-     FootItemNumberList = InventoryManager.ReturnInventoryNumberList(ItemType.Foot);
+     player.SetInventoryIDList(FootItemList,ItemType.Foot);
+     player.SetInventoryPeaceList(FootItemNumberList,ItemType.Foot);
 
-     AccesuryItemList = InventoryManager.ReturnInventoryList(ItemType.Accessory);
-     AccesuryItemNumberList = InventoryManager.ReturnInventoryNumberList(ItemType.Accessory);
+     player.SetInventoryIDList(AccesuryItemList,ItemType.Accessory);
+     player.SetInventoryPeaceList(AccesuryItemNumberList,ItemType.Accessory);
 
   }
 }

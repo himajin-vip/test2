@@ -69,8 +69,11 @@ public class Player : MonoBehaviour
     public void ItemReduce(ItemID itemID,ItemPeace itemPeace){
       Inventory.Reduce(itemID,itemPeace);
     }
-    public void SetInventoryList(List<int> list ,ItemType itemType){
+    public void SetInventoryIDList(List<int> list ,ItemType itemType){
       list = new List<int>(Inventory.GetIdList(itemType));
+    }
+    public void SetInventoryPeaceList(List<int> list ,ItemType itemType){
+      list = new List<int>(Inventory.GetPeaceList(itemType));
     }
     public void ItemUse(ItemID itemID){
       if(Inventory.HasCheck(itemID)){

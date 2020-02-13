@@ -64,7 +64,7 @@ public class EquipState : IMenuState
       ItemTextList[i].text = "";
     }
     InfoWindowText.text = "";
-    Player.SetInventoryList(InventoryList,MenuManager.InventoryType);
+    Player.SetInventoryIDList(InventoryList,MenuManager.InventoryType);
     foreach(int ItemID in InventoryList) {
       if(ItemID == Player.Equip.Parts[MenuManager.InventoryType].ItemId){
         ItemTextList[Inventorycount].text = "E:"+ItemManager.ReturnItemName(ItemID)+" / "+Player.SetPeaceText(ItemTextList[Inventorycount],new ItemID(ItemID)).text+"個";
