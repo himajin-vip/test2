@@ -18,17 +18,13 @@ public class InventoryManager
 
     public bool ItemBuy(ItemID itemID, ItemPeace itemPeace){
       int price = itemLibrary.GetPrice(itemID)*itemPeace.GetPeace();
-
       if(PayGold(price)){
-
         ItemType ItemType = itemLibrary.GetItemType(itemID);
         inventoryList.Add(itemID,itemPeace);
-        
         AccountData.Save();
         return true;
       }
       return false;
-
     }
     public List<int> GetIdList(ItemType ItemType){
         return inventoryList.GetIdList(ItemType);
@@ -37,14 +33,13 @@ public class InventoryManager
         return inventoryList.GetPeaceList(ItemType);
     }
 
-    public static int ReturnPieces(int ItemID){
-      ItemType ItemType = ItemManager.ReturnItemType(ItemID);
-        return InventoryList[ItemType].ReturnPeace(ItemID);
+    public ItemPeace GetPieces(ItemID itemID){
+        return inventoryList.GetPeace(itemID);
     }
 
-    static public void ItemReduce(int ItemID){
-      ItemType ItemType = ItemManager.ReturnItemType(ItemID);
-      InventoryList[ItemType].Reduce(ItemID,1);
+    public void Reduce(ItemID itemID,ItemPeace itemPeace){
+      ItemType ItemType = itemLibrary.GetItemType(itemID);
+      inventoryList.Reduce(itemID,itemPeace);
       AccountData.Save();
     }
     /////////////////インベントリで選択したアイテムの保存
