@@ -13,7 +13,7 @@ public class UsePotion
 
       int recovery = (int)(Player.Status.Hp.maxValue*Recovery.GetValue());
       Player.Status.Hp.Recovery(recovery);
-      new UseItemLog(Player.Name,ID.GetID());
+      new UseItemLog(Player.Name,ID);
       new RecoveryHpLog(Player.Name,recovery);
       FiledText filedText = new FiledText();
       filedText.Make(recovery.ToString(),new Color(0,255,0),PlayerObj.transform);
