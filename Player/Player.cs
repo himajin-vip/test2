@@ -79,16 +79,6 @@ public class Player : MonoBehaviour
       new ItemGetLog(Name,itemid);
       AudioManager.AudioON(7);
     }
-    public bool ItemBuy(ItemID itemID, ItemPeace itemPeace){
-      ItemPrice itemPrice = new GetItemPrice().Get(itemID,itemPeace);
-      Gold gold = new Gold(itemPrice.GetValue());
-      if(new UseGold().Use(gold)){
-        new InventoryAdd().Add(itemID,itemPeace);
-        AccountData.Save();
-        return true;
-      }
-      return false;
-    }
 
     public Text SetPeaceText(Text Peacetext,ItemID itemID){
       ItemPeace peace = new InventoryGetPeace().Get(itemID);

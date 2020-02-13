@@ -54,7 +54,7 @@ public class BuyCheckState : IState
         if(Input.GetKeyDown(KeyCode.Space)){
             switch(CursolPos){
                 case 0:
-                    if(player.ItemBuy(new ItemID(ShopState.SelectItemId),new ItemPeace(ShopState.SelectItemNumber))){
+                    if(new BuyItem().Buy(new ItemID(ShopState.SelectItemId),new ItemPeace(ShopState.SelectItemNumber))){
                         shopState.SetState("Buy");
                         AudioManager.AudioON(10);
                     }
