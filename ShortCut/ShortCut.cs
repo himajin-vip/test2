@@ -16,7 +16,9 @@ public class ShortCut : MonoBehaviour
     }
 
     public void PiecesReset(){
-      textShortcut.text = InventoryManager.ReturnPieces(IDShortcut).ToString();
+      InventoryManager inventoryManager = new InventoryManager();
+      ItemID itemID = new ItemID(IDShortcut);
+      textShortcut.text = inventoryManager.GetPieces(itemID).ToString();
     }
 
     public void SetId(int ID){

@@ -7,15 +7,15 @@ public class Inventory
     private Dictionary<int,int> List = new Dictionary<int, int>();
 
     public void Add(ItemID itemID,ItemPeace itemPeace){
-        if(HaveCheck(itemID)){
+        if(HasCheck(itemID)){
             List.Add(itemID.GetID(),itemPeace.GetPeace());
         }
-        if(!HaveCheck(itemID)){
+        if(!HasCheck(itemID)){
             List[itemID.GetID()] = itemPeace.GetPeace();
         }
     }
     public void Reduce(ItemID itemID,ItemPeace itemPeace){
-        if(HaveCheck(itemID)){
+        if(HasCheck(itemID)){
             List[itemID.GetID()] -= itemPeace.GetPeace();
             RemoveItem(itemID);
         }
@@ -27,12 +27,12 @@ public class Inventory
     }
 
     public ItemPeace GetPeace(ItemID itemID){
-        if(HaveCheck(itemID)){
+        if(HasCheck(itemID)){
             return new ItemPeace(List[itemID.GetID()]);
         }
         return new ItemPeace(0);        
     }
-    public bool HaveCheck(ItemID itemID){
+    public bool HasCheck(ItemID itemID){
         List<int> Idlist = new List<int>(List.Keys);
         return Idlist.Contains(itemID.GetID());
     }

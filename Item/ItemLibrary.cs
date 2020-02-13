@@ -28,5 +28,11 @@ public class ItemLibrary
         Item item = (Item)Activator.CreateInstance(itemtype);
         return new Gold(item.Price*itemPeace.GetPeace());
     }
+    public UseItem GetUseItem(ItemID itemID){
+        ItemName itemname = ItemList[itemID.GetID()];
+        Type itemtype = Type.GetType(itemname.ToString());
+        UseItem item = (UseItem)Activator.CreateInstance(itemtype);
+        return item;
+    }
 
 }

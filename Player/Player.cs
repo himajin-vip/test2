@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
     public Skill Skill{get; protected set;}
     private Skill normalAtack;
     public Skill ChargeSkill{get; protected set;}
+    private InventoryManager Inventory = new InventoryManager();
+    private Wallet wallet = new Wallet();
     private bool TalkFlag = false;
     public Npc Npc{get; protected set;}
 
@@ -32,6 +34,7 @@ public class Player : MonoBehaviour
       Weapon = (GameObject)Resources.Load("prefab/Weapon/Sword");
       Equip = new Equip(this);
     }
+    ///////Action
     public void Move(int direction){
       if(!Atack.On){
         switch(direction){
@@ -61,13 +64,35 @@ public class Player : MonoBehaviour
         Npc.Talk();
       }
     }
-
-    public void ItemUse(int ItemID){
-      if(InventoryManager.ReturnPieces(ItemID)>0){
-        ItemManager.Use(Name,ItemID);
-        InventoryManager.ItemReduce(ItemID);
+    ///////Item
+    public void ItemUse(ItemID itemID){
+      if(Inventory.HasCheck(itemID)){
+        UseItem UseItem = FetchUseItem(itemID);
+        Inventory.Reduce(itemID,new ItemPeace(1));
+        UseItem.Use(Name);
       }
     }
+    public void DropGet(DropItemObj dropItemObj){
+      ItemID itemid = new ItemID(dropItemObj.ItemId);
+      Inventory.Add(itemid,new ItemPeace(1));
+      new ItemGetLog(Name,itemid.GetID());
+      AudioManager.AudioON(7);
+    }
+    public UseItem FetchUseItem(ItemID itemID){
+      ItemLibrary itemLibrary = new ItemLibrary();
+      return itemLibrary.GetUseItem(itemID);
+    }
+    public bool ItemBuy(ItemID itemID, ItemPeace itemPeace){
+      ItemLibrary itemLibrary = new ItemLibrary();
+      Gold gold = itemLibrary.GetPrice(itemID,itemPeace);
+      if(wallet.Use(gold)){
+        Inventory.Add(itemID,itemPeace);
+        AccountData.Save();
+        return true;
+      }
+      return false;
+    }
+    //////Status
     public void GetExp(int exp){
       new GetExpLog(Name,exp);
       if(Status.Exp.Get(exp)){
@@ -82,13 +107,12 @@ public class Player : MonoBehaviour
       Name = name;
     }
 
+    //////衝突判定
     void OnTriggerEnter2D(Collider2D collision){
       if(collision.gameObject.tag == "Item"){
         DropItemObj getItem = collision.gameObject.GetComponent<DropItemObj>();
         getItem.DropEnd();
-        InventoryManager.ItemGet(getItem);
-        new ItemGetLog(Name,getItem.ItemId);
-        AudioManager.AudioON(7);
+        DropGet(getItem);
       }
       if(collision.gameObject.tag == "Npc"){
         Npc = collision.GetComponent<Npc>();

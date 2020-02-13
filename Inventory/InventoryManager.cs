@@ -1,49 +1,37 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System;
+﻿using System.Collections.Generic;
+
 
 public class InventoryManager
 {
-    private static InventoryList inventoryList = new InventoryList();
-    private static Wallet wallet = new Wallet();
-
-    public void ItemGet(ItemID itemID , ItemPeace itemPeace){
+    private InventoryList inventoryList = new InventoryList();
+    public void Add(ItemID itemID , ItemPeace itemPeace){
       inventoryList.Add(itemID,itemPeace);
       AccountData.Save();
-    }
-
-    public bool ItemBuy(ItemID itemID, ItemPeace itemPeace){
-      ItemLibrary itemLibrary = new ItemLibrary();
-      Gold gold = itemLibrary.GetPrice(itemID,itemPeace);
-      if(wallet.Use(gold)){
-        ItemGet(itemID,itemPeace);
-        AccountData.Save();
-        return true;
-      }
-      return false;
-    }
-    public List<int> GetIdList(ItemType ItemType){
-        return inventoryList.GetIdList(ItemType);
-    }
-    public List<int> GetPeaceList(ItemType ItemType){
-        return inventoryList.GetPeaceList(ItemType);
     }
 
     public ItemPeace GetPieces(ItemID itemID){
         return inventoryList.GetPeace(itemID);
     }
-
+    public bool HasCheck(ItemID itemID){
+      if(GetPieces(itemID).GetPeace() > 0){
+        return true;
+      }
+      return false;
+    }
     public void Reduce(ItemID itemID,ItemPeace itemPeace){
       ItemLibrary itemLibrary = new ItemLibrary();
       ItemType ItemType = itemLibrary.GetItemType(itemID);
       inventoryList.Reduce(itemID,itemPeace);
       AccountData.Save();
     }
-    public Gold GetMoney(){
-      return wallet.GetMoney();
-    }
 
+//////////セーブデーター関連
+    public List<int> GetIdList(ItemType ItemType){
+        return inventoryList.GetIdList(ItemType);
+    }
+    public List<int> GetPeaceList(ItemType ItemType){
+        return inventoryList.GetPeaceList(ItemType);
+    }
 
     public void InventoryLoad(SaveData SaveData){
       inventoryList.Load(SaveData.UseItemList,SaveData.UseItemNumberList);
