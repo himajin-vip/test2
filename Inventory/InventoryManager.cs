@@ -5,39 +5,24 @@ using System;
 
 public class InventoryManager
 {
-    public static Dictionary<ItemType,Inventory> InventoryList{get; private set;} = new Dictionary<ItemType, Inventory>();
+    private static InventoryList inventoryList = new InventoryList();
+    private ItemLibrary itemLibrary = new ItemLibrary();
     private static int SelectItemNo;
-
     public static int Gold{get; private set;} = 0;
 
-    public InventoryManager(){ 
-      InventoryList.Clear();
-      InventoryList.Add(ItemType.Use,new Inventory());
-      InventoryList.Add(ItemType.Weapon,new Inventory());
-      InventoryList.Add(ItemType.Body,new Inventory());
-      InventoryList.Add(ItemType.Head,new Inventory());
-      InventoryList.Add(ItemType.Hand,new Inventory());
-      InventoryList.Add(ItemType.Foot,new Inventory());
-      InventoryList.Add(ItemType.Accessory,new Inventory());
-    }
-
-    static public void ItemGet(DropItemObj Item){
-
-      int ItemID = Item.ItemId;
-      ItemType ItemType = ItemManager.ReturnItemType(ItemID);
-      InventoryList[ItemType].Add(ItemID,1);
-      
+    public void ItemGet(DropItemObj Item){
+      inventoryList.Add(new ItemID(Item.ItemId),new ItemPeace(1));
       AccountData.Save();
       
     }
 
-    static public bool ItemBuy(int itemid, int itemnumber){
-      int price = ItemManager.ReturnPrice(itemid)*itemnumber;
+    public bool ItemBuy(ItemID itemID, ItemPeace itemPeace){
+      int price = itemLibrary.GetPrice(itemID)*itemPeace.GetPeace();
 
       if(PayGold(price)){
 
-        ItemType ItemType = ItemManager.ReturnItemType(itemid);
-        InventoryList[ItemType].Add(itemid,itemnumber);
+        ItemType ItemType = itemLibrary.GetItemType(itemID);
+        inventoryList.Add(itemID,itemPeace);
         
         AccountData.Save();
         return true;
@@ -46,10 +31,10 @@ public class InventoryManager
 
     }
     static public List<int> ReturnInventoryList(ItemType ItemType){
-        return new List<int>(InventoryList[ItemType].ItemIDList);
+        return new List<int>(InventoryList[ItemType].GetIdList());
     }
     static public List<int> ReturnInventoryNumberList(ItemType ItemType){
-        return new List<int>(InventoryList[ItemType].ItemPeaceList);
+        return new List<int>(InventoryList[ItemType].GetPeaceList());
     }
 
     public static int ReturnPieces(int ItemID){

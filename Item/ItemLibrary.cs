@@ -23,7 +23,7 @@ public class ItemLibrary
         return item.Type;
     }
     /////////ItemPriceクラスを作んなきゃ
-    public int ReturnPrice(ItemID itemID){
+    public int GetPrice(ItemID itemID){
         ItemName itemname = ItemList[itemID.GetID()];
         Type itemtype = Type.GetType(itemname.ToString());
         Item item = (Item)Activator.CreateInstance(itemtype);
