@@ -26,11 +26,11 @@ public class Inventory
         }
     }
 
-    public int ReturnPeace(ItemID itemID){
+    public ItemPeace GetPeace(ItemID itemID){
         if(HaveCheck(itemID)){
-            return List[itemID.GetID()];
+            return new ItemPeace(List[itemID.GetID()]);
         }
-        return 0;        
+        return new ItemPeace(0);        
     }
     public bool HaveCheck(ItemID itemID){
         List<int> Idlist = new List<int>(List.Keys);
