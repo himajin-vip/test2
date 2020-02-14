@@ -13,7 +13,7 @@ public class KingSlime : Enemy
       Vit = new StatusBattle(10);
       Exp = 50;
       Gold = 500;
-      DropItemList.Add(new DropItem(1,5));
+      DropItemList.Add(new MakeDropItemData().Make(1,1,128));
       MoveSpeed = 1;
       MoveStatus = 0;
       AtackWaitTime = 1f;

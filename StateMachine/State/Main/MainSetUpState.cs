@@ -24,7 +24,6 @@ public class MainSetUpState : IState
         new AudioPlayer().SetUp();
         new EnemyManager().SetUp();
         new MenuManager().SetUp();
-        new ItemManager().SetUp();
         
         GameManager.SetState("Town");
         MapManager.StartMap();

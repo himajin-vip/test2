@@ -64,8 +64,18 @@ public class Player : MonoBehaviour
         Npc.Talk();
       }
     }
-    ///////Item
-
+    public void equip(ItemID itemID,Player player){
+      ItemName itemname = new GetItemName().Get(itemID);
+      Type itemtype = Type.GetType(itemname.ToString());
+      EquipItem item = (EquipItem)Activator.CreateInstance(itemtype);
+      item.Equip(player);
+    }
+    public void UnEquip(ItemID itemID,Player player){
+      ItemName itemname = new GetItemName().Get(itemID);
+      Type itemtype = Type.GetType(itemname.ToString());
+      EquipItem item = (EquipItem)Activator.CreateInstance(itemtype);
+      item.UnEquip(player);
+    }
     public void ItemUse(ItemID itemID){
       if(new InventoryHasCheck().Check(itemID)){
         UseItem UseItem = new GetUseItem().Get(itemID);
@@ -75,7 +85,7 @@ public class Player : MonoBehaviour
     }
     public void DropGet(DropItemObj dropItemObj){
       ItemID itemid = new ItemID(dropItemObj.ItemId);
-      new Inventory().Add(itemid,new ItemPeace(1));
+      new InventoryAdd().Add(itemid,new ItemPeace(1));
       new ItemGetLog(Name,itemid);
       new PlayAudio().Play(AudioList.ItemGet);
     }

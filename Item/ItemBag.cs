@@ -8,4 +8,10 @@ public class ItemBag
         itemID = itemid;
         itemPeace = itempeace;
     }
+    public ItemID GetID(){
+        return itemID;
+    }
+    public ItemPeace GetPeace(){
+        return itemPeace;
+    }
 }

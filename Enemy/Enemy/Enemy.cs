@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
   public StatusBattle Int{get; protected set;}
   public int Exp;
   public int Gold;
-  public List<DropItem> DropItemList = new List<DropItem>();
+  public List<DropItemData> DropItemList = new List<DropItemData>();
   public Move move;
   public Direction Direction;
   public int MoveSpeed;

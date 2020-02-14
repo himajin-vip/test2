@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class DropItemObj : MonoBehaviour
 {
-  private ItemID itemID;
-  private ItemPeace itemPeace;
-
-  public void SetUp(ItemID ItemID,ItemPeace ItemPeace){
+  private ItemBag itemBag;
+  public void SetUp(ItemBag itembag){
         
-    itemID = ItemID;
-    itemPeace = ItemPeace;
+    itemBag = itembag;
     
     int rndx = Random.Range(-18000, 18000);
     int rndy =  Random.Range(-18000, 18000);

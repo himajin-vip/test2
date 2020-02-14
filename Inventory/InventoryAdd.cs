@@ -1,8 +1,9 @@
 ﻿
 public class InventoryAdd : InventoryControler
 {
-    public void Add(ItemID itemID,ItemPeace itemPeace){
+    public void Add(ItemBag itemBag){
+        ItemID itemID = itemBag.GetID();
         ItemType itemType = new GetItemType().Get(itemID);
-        inventoryList[itemType].Add(itemID,itemPeace);
+        inventoryList[itemType].Add(itemBag);
     }
 }

@@ -6,7 +6,9 @@ public class Inventory
 {
     private Dictionary<int,int> List = new Dictionary<int, int>();
 
-    public void Add(ItemID itemID,ItemPeace itemPeace){
+    public void Add(ItemBag itembag){
+        ItemID itemID = itembag.GetID();
+        ItemPeace itemPeace = itembag.GetPeace();
         if(HasCheck(itemID)){
             List.Add(itemID.GetValue(),itemPeace.GetValue());
         }

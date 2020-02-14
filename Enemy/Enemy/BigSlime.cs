@@ -13,7 +13,7 @@ public class BigSlime : Enemy
       Vit = new StatusBattle(5);
       Exp = 40;
       Gold = 100;
-      DropItemList.Add(new DropItem(1,5));
+      DropItemList.Add(new MakeDropItemData().Make(1,1,128));
       MoveSpeed = 1;
       MoveStatus = 0;
       AtackWaitTime = 1f;
