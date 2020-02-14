@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Get_Indexof_Inventory : MonoBehaviour
+public class Get_Indexof_Inventory
 {
    public int ItemBagGet(List<ItemBag> inventory ,ItemBag itembag){
        List<int> list = new Get_IntIDList_Inventory().Get(inventory);

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemPeaceList_to_FirstintClassList : MonoBehaviour
+public class ItemPeaceList_to_FirstintClassList
 {
 
     public List<FirstIntClass> Get(List<ItemPeace> itemIDList){

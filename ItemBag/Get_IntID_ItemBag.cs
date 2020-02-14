@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Get_IntID_ItemBag : MonoBehaviour
+public class Get_IntID_ItemBag
 {
    public int Get(ItemBag itembag){
        ItemID itemID = itembag.GetID();

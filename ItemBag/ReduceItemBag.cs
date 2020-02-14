@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ReduceItemBag : MonoBehaviour
+public class ReduceItemBag
 {
     public ItemBag Reduce(ItemBag itembagA,ItemBag itembagB){
         ItemID itemID = itembagA.GetID();

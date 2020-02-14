@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EqualCheck_ItemID_ItemBag : MonoBehaviour
+public class EqualCheck_ItemID_ItemBag
 {
     public bool Check(ItemBag itembagA, ItemBag itembagB){
         ItemID itemidA = itembagA.GetID();

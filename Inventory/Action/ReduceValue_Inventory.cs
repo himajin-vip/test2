@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ReduceValue_for_Inventory : MonoBehaviour
+public class ReduceValue_for_Inventory
 {
     public ReduceValue_for_Inventory(List<ItemBag> inventory ,ItemBag ItemBag){
         if(new HasCheck_Inventory().ItemBagCheck(inventory,ItemBag)){
