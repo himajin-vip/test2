@@ -19,7 +19,7 @@ public class Inventory
         inventory = new List<ItemBag>(itemBags);
     }
     public List<ItemID> GetIdList(){
-        return new List<ItemID>(new Get_ItemIDList_Inventory().Get(inventory));
+        return new Get_ItemIDList_Inventory().Get(inventory);
     }
     public List<ItemPeace> GetPeaceList(){
         return new Get_ItemPeaceList_Inventory().Get(inventory);
