@@ -7,17 +7,11 @@ public class Inventory
     private List<ItemBag> inventory = new List<ItemBag>();
 
     public void Add(ItemBag itembag){
-        if(new HasCheck_Inventory().ItemBagCheck(inventory,itembag)){
-            inventory.Add(itembag);
-        }
-        if(!new HasCheck_Inventory().ItemBagCheck(inventory,itembag)){
-            new AddValue_Inventory(inventory,itembag);
-        }
+       new AddCheck_Inventory().Check(inventory ,itembag);
     }
     public void Reduce(ItemID itemID,ItemPeace itemPeace){
         new ReduceValue_for_Inventory(inventory,new ItemBag(itemID,itemPeace));
     }
-
     public ItemPeace GetPeace(ItemID itemID){
         return new Get_ItemPeace_Inventory().Get(inventory,itemID);
     }
