@@ -4,49 +4,30 @@ using UnityEngine;
 
 public class Inventory
 {
-    private Dictionary<int,int> List = new Dictionary<int, int>();
+    private List<ItemBag> inventory = new List<ItemBag>();
 
     public void Add(ItemBag itembag){
-        ItemID itemID = itembag.GetID();
-        ItemPeace itemPeace = itembag.GetPeace();
-        if(HasCheck(itemID)){
-            List.Add(itemID.GetValue(),itemPeace.GetValue());
+        if(new HasCheck_Inventory().ItemBagCheck(inventory,itembag)){
+            inventory.Add(itembag);
         }
-        if(!HasCheck(itemID)){
-            List[itemID.GetValue()] = itemPeace.GetValue();
+        if(!new HasCheck_Inventory().ItemBagCheck(inventory,itembag)){
+            new AddValue_Inventory(inventory,itembag);
         }
     }
     public void Reduce(ItemID itemID,ItemPeace itemPeace){
-        if(HasCheck(itemID)){
-            List[itemID.GetValue()] -= itemPeace.GetValue();
-            RemoveItem(itemID);
-        }
-    }
-    public void RemoveItem(ItemID itemID){
-        if(List[itemID.GetValue()]<=0){
-            List.Remove(itemID.GetValue());
-        }
+        new ReduceValue_for_Inventory(inventory,new ItemBag(itemID,itemPeace));
     }
 
     public ItemPeace GetPeace(ItemID itemID){
-        if(HasCheck(itemID)){
-            return new ItemPeace(List[itemID.GetValue()]);
-        }
-        return new ItemPeace(0);        
+        return new Get_ItemPeace_Inventory().Get(inventory,itemID);
     }
-    public bool HasCheck(ItemID itemID){
-        List<int> Idlist = new List<int>(List.Keys);
-        return Idlist.Contains(itemID.GetValue());
+    public void Load(List<ItemBag> itemBags){
+        inventory = new List<ItemBag>(itemBags);
     }
-    public void Load(List<int> itemIDList, List<int> itemPeaceList){
-        for(int i = 0;i<itemIDList.Count;i++){
-            List.Add(itemIDList[i],itemPeaceList[i]);
-        }
+    public List<ItemID> GetIdList(){
+        return new List<ItemID>(new Get_ItemIDList_Inventory().Get(inventory));
     }
-    public List<int> GetIdList(){
-        return new List<int>(List.Keys);
-    }
-    public List<int> GetPeaceList(){
-        return new List<int>(List.Values);
+    public List<ItemPeace> GetPeaceList(){
+        return new Get_ItemPeaceList_Inventory().Get(inventory);
     }
 }
