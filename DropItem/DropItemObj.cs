@@ -14,6 +14,9 @@ public class DropItemObj : MonoBehaviour
     GetComponent<Rigidbody2D>().AddForce(new Vector2(rndx,rndy));
     StartCoroutine(StopItem());
   }
+  public ItemBag GetItemBag(){
+    return itemBag;
+  }
   public void DropEnd(){
     Destroy(this.gameObject);
   }

@@ -83,13 +83,6 @@ public class Player : MonoBehaviour
         UseItem.Use(Name);
       }
     }
-    public void DropGet(DropItemObj dropItemObj){
-      ItemID itemid = new ItemID(dropItemObj.ItemId);
-      new InventoryAdd().Add(itemid,new ItemPeace(1));
-      new ItemGetLog(Name,itemid);
-      new PlayAudio().Play(AudioList.ItemGet);
-    }
-
     public Text SetPeaceText(Text Peacetext,ItemID itemID){
       ItemPeace peace = new InventoryGetPeace().Get(itemID);
       Peacetext.text = new FirstintClasstoStringer().Get(peace);
@@ -112,9 +105,12 @@ public class Player : MonoBehaviour
     //////衝突判定
     void OnTriggerEnter2D(Collider2D collision){
       if(collision.gameObject.tag == "Item"){
-        DropItemObj getItem = collision.gameObject.GetComponent<DropItemObj>();
-        getItem.DropEnd();
-        DropGet(getItem);
+        DropItemObj dropItemObj = collision.gameObject.GetComponent<DropItemObj>();
+        dropItemObj.DropEnd();
+        ItemBag itemBag = dropItemObj.GetItemBag();
+        new AddDropItem().Add(itemBag);
+        new ItemGetLog(Name,itemBag.GetID());
+        new PlayAudio().Play(AudioList.ItemGet);
       }
       if(collision.gameObject.tag == "Npc"){
         Npc = collision.GetComponent<Npc>();
