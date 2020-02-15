@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemID :FirstIntClass
+public class ItemID :Key
 {
     public ItemID(int value){
         Value = value;

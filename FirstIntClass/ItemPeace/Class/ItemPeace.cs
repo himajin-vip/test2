@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemPeace :FirstIntClass
+public class ItemPeace :Value
 {
     public ItemPeace(int value){
         Value = value;

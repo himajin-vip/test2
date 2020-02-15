@@ -1,17 +1,11 @@
-﻿
-public class ItemBag
+﻿using UnityEngine;
+public class ItemBag　:　IData
 {
-    private ItemID itemID;
-    private ItemPeace itemPeace;
-
-    public ItemBag(ItemID itemid ,ItemPeace itempeace){
-        itemID = itemid;
-        itemPeace = itempeace;
+    public ItemBag(Key key, Value value){
+        Key = key;
+        Value = value; 
     }
-    public ItemID GetID(){
-        return itemID;
-    }
-    public ItemPeace GetPeace(){
-        return itemPeace;
-    }
+    public override IData Copy(){
+        return new ItemBag(Key.Copy(),Value.Copy());
+    }     
 }

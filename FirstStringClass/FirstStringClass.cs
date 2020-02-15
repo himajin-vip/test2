@@ -8,4 +8,10 @@ public class FirstStringClass
     public string GetValue(){
         return Value;
     }
+    public bool EqualCheck(FirstStringClass firstString){
+        if(Value == firstString.GetValue()){
+            return true;
+        }
+        return false;
+    }
 }
