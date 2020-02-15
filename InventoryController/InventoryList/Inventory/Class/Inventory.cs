@@ -10,20 +10,13 @@ public class Inventory:IDatas
         DataType = dataType;
     }
     public void Add(IData itembag){
-        if(itembag.EqualCheckDataType(DataType)){
-            new IDatasControler().Add(inventory,itembag);
-        }
+        new IDatasControler().Add(inventory,itembag,DataType);
     }
     public void Reduce(Key itemID,Value itemPeace){
-        if(itemID.EqualCheckDataType(DataType)){
-            new IDatasControler().Reduce(inventory,itemID,itemPeace);
-        }
+        new IDatasControler().Reduce(inventory,itemID,itemPeace,DataType);
     }
     public Value GetValue(Key itemID){
-        if(itemID.EqualCheckDataType(DataType)){
-            return new IDatasControler().GetValue(inventory,itemID);
-        }
-        return new Value(0);
+        return new IDatasControler().GetValue(inventory,itemID,DataType);
     }
     public void Load(List<IData> itemBags){
         new IDatasControler().Load(inventory,itemBags);

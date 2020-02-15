@@ -5,7 +5,7 @@ using UnityEngine;
 public class Remove_IDatas
 {
     public Remove_IDatas(List<IData> IDatas,Key key){
-        Value value = new IDatasControler().GetValue(IDatas,key);
+        Value value = new GetValue_IDatas().GetValue(IDatas,key);
         if(new FirstintClassConvertor().Toint(value) == 0){
             int index = new Get_Indexof_IDatas().Get(IDatas,key);
             IDatas.RemoveRange(index,1);

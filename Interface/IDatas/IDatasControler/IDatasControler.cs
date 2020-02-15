@@ -4,27 +4,22 @@ using UnityEngine;
 
 public class IDatasControler
 {
-    public void Add(List<IData> IDatas,IData IData){
-        if(new KeyCheck_IDatas().KeyCheck(IDatas,IData.GetKey())){
-            IDatas.Add(IData);
-        }
-        if(!new KeyCheck_IDatas().KeyCheck(IDatas,IData.GetKey())){
-            new AddValue_IDatas(IDatas,IData);
+    public void Add(List<IData> IDatas,IData IData,IDataType datatype){
+        if(IData.EqualCheckDataType(datatype)){
+            new Add_IDatas().Add(IDatas,IData);
         }
     }
-    public void Reduce(List<IData> IDatas ,Key key,Value value){
-        if(new KeyCheck_IDatas().KeyCheck(IDatas,key)){
-            int index = new Get_Indexof_IDatas().Get(IDatas,key);
-            IDatas[index].Reduce(value);
-            new Remove_IDatas(IDatas,key);
+
+    public void Reduce(List<IData> IDatas ,Key key,Value value,IDataType dataType){
+        if(key.EqualCheckDataType(dataType)){
+            new Reduce_IDatas().Reduce(IDatas,key,value);
         }
     }
-    public Value GetValue(List<IData> IDatas ,Key key){
-        if(new KeyCheck_IDatas().KeyCheck(IDatas,key)){
-            IData IData = new Get_IData_IDatas().Get(IDatas,key);
-            return IData.GetValue();
+    public Value GetValue(List<IData> IDatas ,Key key,IDataType dataType){
+        if(key.EqualCheckDataType(dataType)){
+            return new GetValue_IDatas().GetValue(IDatas,key);
         }
-        return new Value();
+        return new Value(0);
     }
     public void Load(List<IData> IDatas, List<IData> loadData){
         IDatas = loadData;
