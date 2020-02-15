@@ -28,10 +28,10 @@ public class IDataListsContoloer
             IDatasList[i].Load(LoadDatas[i]);
         }
     }
-    public List<List<IData>> GetSaveDatas(List<IDatas> IDatasList,ListCount listCount){
+    public List<List<IData>> GetIDatasList(List<IDatas> IDatasList,ListCount listCount){
         List<List<IData>> SavaDatas = new List<List<IData>>();
         for(int i = 0;i<listCount.GetValue();i++){
-            SavaDatas[i] = IDatasList[i].GetSaveData();
+            SavaDatas[i] = IDatasList[i].GetIDatas();
         }
         return SavaDatas;
     }

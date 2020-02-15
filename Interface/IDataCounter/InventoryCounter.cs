@@ -7,7 +7,7 @@ using UnityEngine;
      void Add(ItemBag itemBag);
      void Reduce(ItemID itemId,ItemPeace itemPeace);
      Value GetValue(ItemID itemID);
-     void Load(List<List<ItemBag>> ItemBagsList);
-     List<List<ItemBag>> GetSaveDatas();
+     void Load(List<List<ItemBag>> InventorysData);
+     List<List<ItemBag>> GetInventorysDatas();
 
 }

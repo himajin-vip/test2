@@ -21,7 +21,7 @@ public class Inventory:IDatas
     public void Load(List<IData> itemBags){
         new IDatasControler().Load(inventory,itemBags);
     }
-    public List<IData> GetSaveData(){
+    public List<IData> GetIDatas(){
         return new IDatasControler().GetSaveData(inventory);
     }
 }

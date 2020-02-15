@@ -8,5 +8,5 @@ public interface IDatas
         void Reduce(Key key,Value value);
         Value GetValue(Key key);
         void Load(List<IData> datalist);
-        List<IData> GetSaveData();
+        List<IData> GetIDatas();
 }

@@ -30,8 +30,8 @@ public class InventoryList:IDatasList
     public void Load(List<List<IData>> LoadDatas){
         new IDataListsContoloer().Load(inventories,LoadDatas,listCount);
     }
-    public List<List<IData>> GetSaveDatas(){
-       return new IDataListsContoloer().GetSaveDatas(inventories,listCount);
+    public List<List<IData>> GetIDatasList(){
+       return new IDataListsContoloer().GetIDatasList(inventories,listCount);
     }
 
 }
