@@ -83,11 +83,6 @@ public class Player : MonoBehaviour
         UseItem.Use(Name);
       }
     }
-    public Text SetPeaceText(Text Peacetext,ItemID itemID){
-      ItemPeace peace = new InventoryGetPeace().Get(itemID);
-      Peacetext.text = new FirstintClasstoStringer().Get(peace);
-      return Peacetext;
-    }
     //////Status
     public void GetExp(int exp){
       new GetExpLog(Name,exp);
@@ -109,7 +104,7 @@ public class Player : MonoBehaviour
         dropItemObj.DropEnd();
         ItemBag itemBag = dropItemObj.GetItemBag();
         new AddDropItem().Add(itemBag);
-        new ItemGetLog(Name,itemBag.GetID());
+        new ItemGetLog(Name,new Get_ItemID().forItemBag(itemBag));
         new PlayAudio().Play(AudioList.ItemGet);
       }
       if(collision.gameObject.tag == "Npc"){

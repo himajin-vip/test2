@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 public class ItemLibrary
 {
-    protected static Dictionary<int,ItemNames> ItemList = new Dictionary<int, ItemNames>();
-    protected static Dictionary<int,Sprite> ItemImageList = new Dictionary<int,Sprite>();
+    private Dictionary<int,ItemNames> ItemList = new Dictionary<int, ItemNames>();
+    private Dictionary<int,Sprite> ItemImageList = new Dictionary<int,Sprite>();
 
-    static ItemLibrary(){
+    public ItemLibrary(){
         ItemList.Add(0,ItemNames.Potion);
         ItemList.Add(1,ItemNames.HiPotion);
         ItemList.Add(100,ItemNames.IronSword);
