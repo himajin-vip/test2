@@ -11,7 +11,6 @@ public class Value:FirstIntClass
             SetNull();
         }
     }
-
     public void Add(Value val){
         Value += val.GetValue();
     }
