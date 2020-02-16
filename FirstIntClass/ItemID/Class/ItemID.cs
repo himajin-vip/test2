@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemID :Key
 {
-    public ItemID(int value){
+    public ItemID(int value = 0){
         Value = value;
     }
 }

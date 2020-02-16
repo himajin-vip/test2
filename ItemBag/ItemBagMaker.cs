@@ -2,17 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemBagMaker : MonoBehaviour
+public class ItemBagMaker
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public ItemBag Make(int key,int value,ItemType itemType){
+        Key Key = new Key(key);
+        Key.SetDataType(itemType.ToString());
+        return new ItemBag(Key,new Value(value));
     }
 }

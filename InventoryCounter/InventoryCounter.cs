@@ -5,21 +5,20 @@ using UnityEngine;
 public class InventoryCounter:IDataCounter
 {
     private IDatasList inventoryList;
-    ItemBag itemBag;
-    ItemID itemID = new ItemID(0);
-    ItemPeace itemPeace;
+    private IDataChecker IDataChecker;
 
     public InventoryCounter(){
         inventoryList = new InventoryList();
+        IDataChecker = new IDataChecker(new ItemBagMaker().Make(0,0,ItemType.Use),new ItemID(),new ItemPeace());
     }
      public void Add(IData IData){
-         new IDataMaster().Add(inventoryList,IData);
+         new IDataMaster().Add(inventoryList,IData,IDataChecker);
     }
     public bool Reduce(Key Key,Value Value){
-        return new IDataMaster().Reduce(inventoryList,Key,Value);
+        return new IDataMaster().Reduce(inventoryList,Key,Value,IDataChecker);
     }
     public Value GetValue(Key Key){
-       return new IDataMaster().GetValue(inventoryList,Key);
+       return new IDataMaster().GetValue(inventoryList,Key,IDataChecker);
     }
     public void Load(List<List<IData>> IDatasList){
         new IDataMaster().Load(inventoryList,IDatasList);

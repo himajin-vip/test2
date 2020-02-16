@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 public class ItemBag　:　IData
 {
-    public ItemBag(Key key, Value value){
+    public ItemBag(Key key , Value value){
         Key = key;
         Value = value; 
     }

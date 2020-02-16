@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemPeace :Value
 {
-    public ItemPeace(int value){
+    public ItemPeace(int value = 0){
         Value = value;
     }
 }
