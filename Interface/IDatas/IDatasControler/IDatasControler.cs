@@ -10,10 +10,11 @@ public class IDatasControler
         }
     }
 
-    public void Reduce(List<IData> IDatas ,Key key,Value value,IDataType dataType){
+    public bool Reduce(List<IData> IDatas ,Key key,Value value,IDataType dataType){
         if(key.EqualCheckDataType(dataType)){
-            new Reduce_IDatas().Reduce(IDatas,key,value);
+           return new Reduce_IDatas().Reduce(IDatas,key,value);
         }
+        return false;
     }
     public Value GetValue(List<IData> IDatas ,Key key,IDataType dataType){
         if(key.EqualCheckDataType(dataType)){

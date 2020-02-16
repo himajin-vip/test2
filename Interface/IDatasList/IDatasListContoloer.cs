@@ -9,17 +9,23 @@ public class IDataListsContoloer
             IDatasList[i].Add(idata);
         }
     }
-    public void Reduce(List<IDatas> IDatasList,Key Key,Value Value,ListCount listCount){
+    public bool Reduce(List<IDatas> IDatasList,Key Key,Value Value,ListCount listCount){
+        List<bool> bools = new List<bool>();
         for(int i = 0; i < listCount.GetValue();i++){
-            IDatasList[i].Reduce(Key,Value);
+            bools.Add(IDatasList[i].Reduce(Key,Value));
         }
+        return ReduceCheck(bools);
+    }
+    public bool ReduceCheck(List<bool> bools){
+        for(int i = 0; i < bools.Count;i++){
+            if(bools[i] == true){return true;}
+        }
+        return false;
     }
     public Value GetValue(List<IDatas> IDatasList,Key Key,ListCount listCount){
         for(int i = 0; i < listCount.GetValue();i++){
             Value value = IDatasList[i].GetValue(Key);
-            if(value.NullCheck()){
-                return value;
-            } 
+            if(!value.NullCheck()){ return value; } 
         }
         return new Value(0);
     }

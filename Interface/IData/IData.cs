@@ -27,8 +27,8 @@ using System;
      public void Add(Value value){
           Value.Add(value);
      }
-     public void Reduce(Value value){
-          Value.Add(value);
+     public bool Reduce(Value value){
+          return Value.Reduce(value);
      }
      public bool EqualCheckDataType(IDataType dataType){
           return Key.EqualCheckDataType(dataType);

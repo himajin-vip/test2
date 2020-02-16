@@ -17,8 +17,8 @@ public class Key:FirstIntClass
     public Key Copy(){
         return new Key(Value);
     }
-    public void SetDataType(){
-
+    public void SetDataType(string dataType){
+        DataType = new IDataType(dataType);
     }
     public bool EqualCheckDataType(IDataType dataType){
         return DataType.EqualCheck(dataType);

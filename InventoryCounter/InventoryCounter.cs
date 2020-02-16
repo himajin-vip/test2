@@ -2,35 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryControler
+public class InventoryCounter:IDataCounter
 {
-    private InventoryList inventoryList;
+    private IDatasList inventoryList;
+    ItemBag itemBag;
+    ItemID itemID = new ItemID(0);
+    ItemPeace itemPeace;
 
-    public InventoryControler(){
+    public InventoryCounter(){
         inventoryList = new InventoryList();
     }
-     public void Add(ItemType itemType,ItemBag itembag){
-        inventorySelector.Add(itemType,itembag);
+     public void Add(IData IData){
+         new IDataMaster().Add(inventoryList,IData);
     }
-    public void Reduce(ItemType itemType,ItemID itemID,ItemPeace itemPeace){
-        inventorySelector.Reduce(itemType,itemID,itemPeace);
+    public bool Reduce(Key Key,Value Value){
+        return new IDataMaster().Reduce(inventoryList,Key,Value);
     }
-    public ItemPeace GetPeace(ItemType itemType,ItemID itemID){
-        Value value = inventorySelector.GetValue(itemType,itemID);
-        return new ItemPeace(value.GetValue());
+    public Value GetValue(Key Key){
+       return new IDataMaster().GetValue(inventoryList,Key);
     }
-    public void Load(ItemType itemType,List<ItemBag> itemBags){
-        if(itemBags.Count!=0){
-            List<IData> idatas = new ItemBagConvertor().toIDatas(itemBags);
-            inventorySelector.Load(itemType,idatas);
-        }
+    public void Load(List<List<IData>> IDatasList){
+        new IDataMaster().Load(inventoryList,IDatasList);
     }
-    public List<ItemID> GetIdList(ItemType itemType){
-        List<Key> keys = inventorySelector.GetIdList(itemType);
-        return new KeysConverter().ToItemIDs(keys);
-    }
-    public List<ItemPeace> GetPeaceList(ItemType itemType){
-        List<Value> values = inventorySelector.GetPeaceList(itemType);
-        return new ValuesConvertor().ToPeaces(values);
+    public List<List<IData>> GetIDatasList(){
+        return new IDataMaster().GetIDatasList(inventoryList);
     }
 }

@@ -21,8 +21,8 @@ public class InventoryList:IDatasList
     public void Add(IData idata){
         new IDataListsContoloer().Add(inventories,idata,listCount);
     }
-    public void Reduce(Key Key,Value Value){
-        new IDataListsContoloer().Reduce(inventories,Key,Value,listCount);
+    public bool Reduce(Key Key,Value Value){
+        return new IDataListsContoloer().Reduce(inventories,Key,Value,listCount);
     }
     public Value GetValue(Key Key){
         return new IDataListsContoloer().GetValue(inventories,Key,listCount);

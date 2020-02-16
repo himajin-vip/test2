@@ -12,8 +12,8 @@ public class Inventory:IDatas
     public void Add(IData itembag){
         new IDatasControler().Add(inventory,itembag,DataType);
     }
-    public void Reduce(Key itemID,Value itemPeace){
-        new IDatasControler().Reduce(inventory,itemID,itemPeace,DataType);
+    public bool Reduce(Key itemID,Value itemPeace){
+        return new IDatasControler().Reduce(inventory,itemID,itemPeace,DataType);
     }
     public Value GetValue(Key itemID){
         return new IDatasControler().GetValue(inventory,itemID,DataType);

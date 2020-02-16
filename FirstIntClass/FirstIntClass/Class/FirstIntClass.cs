@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class FirstIntClass
 {
-   protected int Value;
-   protected bool Null = false;
+   public int Value;
+   public bool Null = false;
 
    public int GetValue(){
        return Value;

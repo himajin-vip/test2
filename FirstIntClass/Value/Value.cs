@@ -15,8 +15,18 @@ public class Value:FirstIntClass
     public void Add(Value val){
         Value += val.GetValue();
     }
-    public void Reduce(Value val){
-        Value -= val.GetValue();
+    public bool Reduce(Value val){
+        if(ReduceCheck(val)){
+            Value -= val.GetValue();
+            return true;
+        }
+        return false;
+    }
+    public bool ReduceCheck(Value val){
+        if(Value >= val.GetValue()){
+            return true;
+        }
+        return false;
     }
     public Value Copy(){
         return new Value(Value);
