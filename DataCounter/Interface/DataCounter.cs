@@ -8,6 +8,6 @@ using UnityEngine;
      bool Reduce(Key Key,Value Value);
      Value GetValue(Key Key);
      // void Load(List<List<Data>> DatasList);
-     // List<List<Data>> GetDatasList();
+     PublicDatasList GetDatasList();
 
 }

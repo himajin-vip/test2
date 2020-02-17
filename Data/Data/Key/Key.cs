@@ -34,6 +34,6 @@ public abstract class Key:FirstClass
         return DataType.EqualCheck(dataType);
     }
     public string GetDataType(){
-        return DataType.ToString();
+        return DataType.GetStringValue();
     }
 }

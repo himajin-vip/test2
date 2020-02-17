@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PublicDatasList
 {
-    List<PublicDatas> publicDatasList = new List<PublicDatas>();
+    public List<string> publicDatasList = new List<string>();
     public void Add(PublicDatas publicDatas){
-        publicDatasList.Add(publicDatas);
+        publicDatasList.Add(JsonUtility.ToJson(publicDatas));
     }
 }

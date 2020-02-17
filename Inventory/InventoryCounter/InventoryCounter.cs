@@ -23,7 +23,7 @@ public class InventoryCounter:DataCounter
     // public void Load(List<List<Data>> DatasList){
     //     new DataMaster().Load(inventoryList,DatasList);
     // }
-    // public List<List<Data>> GetDatasList(){
-    //     return new DataMaster().GetDatasList(inventoryList);
-    // }
+    public PublicDatasList GetDatasList(){
+        return new DataMaster().GetDatasList(inventoryList);
+    }
 }
