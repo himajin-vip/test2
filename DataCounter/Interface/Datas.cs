@@ -9,5 +9,5 @@ public interface Datas
         Value GetValue(Key key);
         
         // void Load(List<Data> datalist);
-        // List<Data> GetDatas();
+        PublicDatas GetDatas();
 }

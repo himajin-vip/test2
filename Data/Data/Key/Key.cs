@@ -33,4 +33,7 @@ public abstract class Key:FirstClass
     public bool EqualCheckDataType(DataType dataType){
         return DataType.EqualCheck(dataType);
     }
+    public string GetDataType(){
+        return DataType.ToString();
+    }
 }

@@ -23,8 +23,8 @@ public class DataMaster
     }
     // public void Load(DatasList DatasList,List<List<Data>> Dataslist){
     //     DatasList.Load(Dataslist);
-    // }
-    // public List<List<Data>> GetDatasList(DatasList DatasList){
-    //     return DatasList.GetDatasList();
-    // }
+    // // }
+    public PublicDatasList GetDatasList(DatasList DatasList){
+        return DatasList.GetDatasList();
+    }
 }

@@ -25,7 +25,11 @@ public class DatasControler
     // public void Load(List<Data> Datas, List<Data> loadData){
     //     Datas = loadData;
     // }
-    // public List<Data> GetSaveData(List<Data> inventory){
-    //     return new List<Data>(inventory);
-    // }
+    public PublicDatas GetDatas(List<Data> Datas){
+        PublicDatas publicDatas = new PublicDatas();
+        foreach(Data data in Datas){
+            publicDatas.Add(new PublicData(data));
+        }
+        return publicDatas;
+    }
 }
