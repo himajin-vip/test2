@@ -5,12 +5,12 @@ using System;
 
 public class ItemID :Key
 {
-    public ItemID(int value = 0,ItemType itemType = ItemType.Use){
+    public ItemID(int value = 0,string dataType = ""){
         IntValue = value;
         StringValue = value.ToString();
-        DataType = new DataType(itemType.ToString());
+        DataType = new DataType(dataType);
     }
     public override Key Copy(){
-        return new ItemID(IntValue,(ItemType)Enum.Parse(typeof(ItemType), DataType.GetStringValue(), true));
+        return new ItemID(IntValue,DataType.GetStringValue());
     }
 }
