@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-public class IDataChecker
+public class DataChecker
 {
-    Type IDataType;
+    Type DataType;
     Type KeyType;
     Type ValueType;
-    public IDataChecker(IData idata,Key key,Value value){
-        IDataType = idata.GetType();
+    public DataChecker(Data Data,Key key,Value value){
+        DataType = Data.GetType();
         KeyType = key.GetType();
         ValueType = value.GetType();
     }
-    public bool IDataCheck(IData idata){
-        if(IDataType == idata.GetType()){return true;}
+    public bool DataCheck(Data Data){
+        if(DataType == Data.GetType()){return true;}
         return false;
     }
     public bool KeyCheck(Key key){

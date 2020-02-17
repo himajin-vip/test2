@@ -2,28 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryCounter:IDataCounter
+public class InventoryCounter:DataCounter
 {
-    private IDatasList inventoryList;
-    private IDataChecker IDataChecker;
+    private DatasList inventoryList;
+    private DataChecker DataChecker;
 
     public InventoryCounter(){
         inventoryList = new InventoryList();
-        IDataChecker = new IDataChecker(new ItemBagMaker().Make(0,0,ItemType.Use),new ItemID(),new ItemPeace());
+        DataChecker = new DataChecker(new ItemBagMaker().Make(0,0,ItemType.Use),new ItemID(),new ItemPeace());
     }
-     public void Add(IData IData){
-         new IDataMaster().Add(inventoryList,IData,IDataChecker);
+     public void Add(Data Data){
+         new DataMaster().Add(inventoryList,Data,DataChecker);
     }
     public bool Reduce(Key Key,Value Value){
-        return new IDataMaster().Reduce(inventoryList,Key,Value,IDataChecker);
+        return new DataMaster().Reduce(inventoryList,Key,Value,DataChecker);
     }
     public Value GetValue(Key Key){
-       return new IDataMaster().GetValue(inventoryList,Key,IDataChecker);
+       return new DataMaster().GetValue(inventoryList,Key,DataChecker);
     }
-    public void Load(List<List<IData>> IDatasList){
-        new IDataMaster().Load(inventoryList,IDatasList);
+    public void Load(List<List<Data>> DatasList){
+        new DataMaster().Load(inventoryList,DatasList);
     }
-    public List<List<IData>> GetIDatasList(){
-        return new IDataMaster().GetIDatasList(inventoryList);
+    public List<List<Data>> GetDatasList(){
+        return new DataMaster().GetDatasList(inventoryList);
     }
 }

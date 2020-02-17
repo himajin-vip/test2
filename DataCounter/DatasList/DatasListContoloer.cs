@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IDataListsContoloer
+public class DataListsContoloer
 {
-    public void Add(List<IDatas> IDatasList ,IData idata,ListCount listCount){
+    public void Add(List<Datas> DatasList ,Data Data,ListCount listCount){
         for(int i = 0; i < listCount.GetValue();i++){
-            IDatasList[i].Add(idata);
+            DatasList[i].Add(Data);
         }
     }
-    public bool Reduce(List<IDatas> IDatasList,Key Key,Value Value,ListCount listCount){
+    public bool Reduce(List<Datas> DatasList,Key Key,Value Value,ListCount listCount){
         List<bool> bools = new List<bool>();
         for(int i = 0; i < listCount.GetValue();i++){
-            bools.Add(IDatasList[i].Reduce(Key,Value));
+            bools.Add(DatasList[i].Reduce(Key,Value));
         }
         return ReduceCheck(bools);
     }
@@ -22,22 +22,22 @@ public class IDataListsContoloer
         }
         return false;
     }
-    public Value GetValue(List<IDatas> IDatasList,Key Key,ListCount listCount){
+    public Value GetValue(List<Datas> DatasList,Key Key,ListCount listCount){
         for(int i = 0; i < listCount.GetValue();i++){
-            Value value = IDatasList[i].GetValue(Key);
+            Value value = DatasList[i].GetValue(Key);
             if(!value.NullCheck()){ return value; } 
         }
         return new Value(0);
     }
-    public void Load(List<IDatas> IDatasList,List<List<IData>> LoadDatas,ListCount listCount){
+    public void Load(List<Datas> DatasList,List<List<Data>> LoadDatas,ListCount listCount){
         for(int i = 0;i<listCount.GetValue();i++){
-            IDatasList[i].Load(LoadDatas[i]);
+            DatasList[i].Load(LoadDatas[i]);
         }
     }
-    public List<List<IData>> GetIDatasList(List<IDatas> IDatasList,ListCount listCount){
-        List<List<IData>> SavaDatas = new List<List<IData>>();
+    public List<List<Data>> GetDatasList(List<Datas> DatasList,ListCount listCount){
+        List<List<Data>> SavaDatas = new List<List<Data>>();
         for(int i = 0;i<listCount.GetValue();i++){
-            SavaDatas[i] = IDatasList[i].GetIDatas();
+            SavaDatas[i] = DatasList[i].GetDatas();
         }
         return SavaDatas;
     }

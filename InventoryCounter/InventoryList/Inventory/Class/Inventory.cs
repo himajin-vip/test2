@@ -2,26 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory:IDatas
+public class Inventory:Datas
 {
-    private List<IData> inventory = new List<IData>();
-    private IDataType DataType;
-    public Inventory(IDataType dataType){
+    private List<Data> inventory = new List<Data>();
+    private DataType DataType;
+    public Inventory(DataType dataType){
         DataType = dataType;
     }
-    public void Add(IData itembag){
-        new IDatasControler().Add(inventory,itembag,DataType);
+    public void Add(Data itembag){
+        new DatasControler().Add(inventory,itembag,DataType);
     }
     public bool Reduce(Key itemID,Value itemPeace){
-        return new IDatasControler().Reduce(inventory,itemID,itemPeace,DataType);
+        return new DatasControler().Reduce(inventory,itemID,itemPeace,DataType);
     }
     public Value GetValue(Key itemID){
-        return new IDatasControler().GetValue(inventory,itemID,DataType);
+        return new DatasControler().GetValue(inventory,itemID,DataType);
     }
-    public void Load(List<IData> itemBags){
-        new IDatasControler().Load(inventory,itemBags);
+    public void Load(List<Data> itemBags){
+        new DatasControler().Load(inventory,itemBags);
     }
-    public List<IData> GetIDatas(){
-        return new IDatasControler().GetSaveData(inventory);
+    public List<Data> GetDatas(){
+        return new DatasControler().GetSaveData(inventory);
     }
 }

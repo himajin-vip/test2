@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
- public abstract class IData
+ public abstract class Data
 {
      protected Key Key;
      protected Value Value;
-    public IData(){
+    public Data(){
         Key = new Key(0);
         Value = new Value(0);
     }
@@ -17,12 +17,12 @@ using System;
           return  Value.Copy();
      }
      public int GetintKey(){
-          return new FirstintClassConvertor().Toint(Key);
+          return new IntClassConvertor().Toint(Key);
      }
      public int GetintValue(){
-          return new FirstintClassConvertor().Toint(Value);
+          return new IntClassConvertor().Toint(Value);
      }
-     public abstract IData Copy();
+     public abstract Data Copy();
 
      public void Add(Value value){
           Value.Add(value);
@@ -30,7 +30,7 @@ using System;
      public bool Reduce(Value value){
           return Value.Reduce(value);
      }
-     public bool EqualCheckDataType(IDataType dataType){
+     public bool EqualCheckDataType(DataType dataType){
           return Key.EqualCheckDataType(dataType);
      }
      public bool NullCheck(){

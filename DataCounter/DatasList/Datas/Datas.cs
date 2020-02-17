@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IDatas
+public interface Datas
 {
-        void Add(IData data);
+        void Add(Data data);
         bool Reduce(Key key,Value value);
         Value GetValue(Key key);
-        void Load(List<IData> datalist);
-        List<IData> GetIDatas();
+        void Load(List<Data> datalist);
+        List<Data> GetDatas();
 }

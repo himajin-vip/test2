@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ItemBagConvertor
 {
-    public List<IData> toIDatas(List<ItemBag> itemBags){
-        List<IData> IDatas = new List<IData>(itemBags);
-        return IDatas;
+    public List<Data> toDatas(List<ItemBag> itemBags){
+        List<Data> Datas = new List<Data>(itemBags);
+        return Datas;
     }
 }

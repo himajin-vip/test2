@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NullData : IData
+public class NullData : Data
 {
     Key key;
     Value value;
@@ -10,7 +10,7 @@ public class NullData : IData
         key = new Key(0);
         value = new Value(0);
     }
-    public override IData Copy(){
+    public override Data Copy(){
         return new NullData();
     }
 }

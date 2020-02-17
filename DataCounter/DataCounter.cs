@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
- public interface IDataCounter
+ public interface DataCounter
 {
-     void Add(IData IData);
+     void Add(Data Data);
      bool Reduce(Key Key,Value Value);
      Value GetValue(Key Key);
-     void Load(List<List<IData>> IDatasList);
-     List<List<IData>> GetIDatasList();
+     void Load(List<List<Data>> DatasList);
+     List<List<Data>> GetDatasList();
 
 }
