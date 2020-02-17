@@ -6,6 +6,9 @@ public class NullData : Data
 {
     Key key;
     Value value;
+    public NullData(){
+       value  = new NullValue();
+    }
 
     public override Data Copy(){
         return new NullData();
