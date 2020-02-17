@@ -49,8 +49,8 @@ public class EquipComandState : IMenuState
         MenuManager.SetMenuState("Equip");
       break;
       case 1:
-        new InventoryReduce().Reduce(new ItemID(MenuManager.SelectItemID),new ItemPeace(1));
-        MenuManager.SetMenuState("Equip");
+        // new InventoryReduce().Reduce(new ItemID(MenuManager.SelectItemID),new ItemPeace(1));
+        // MenuManager.SetMenuState("Equip");
       break;
       case 2:
         MenuManager.SetMenuState("Equip");

@@ -42,9 +42,9 @@ public class BuyState : IState
         CursolTransform.anchoredPosition = new Vector2(10,-10);
         for(int i = 0; i < ShopList.Count ;i++){
             TextList.Add(GameObject.Find("ItemNameText"+i).GetComponent<Text>());
-            ItemPrice itemPrice = new GetItemPrice().Get(new ItemID(ShopList[i]),new ItemPeace(1));
-            ItemName itemName = new GetItemName().Get(new ItemID(ShopList[i]));
-            TextList[i].text = itemName.GetValue()+" : "+itemPrice.GetValue()+"G : 1個";
+            // ItemPrice itemPrice = new GetItemPrice().Get(new ItemID(ShopList[i]),new ItemPeace(1));
+            // ItemName itemName = new GetItemName().Get(new ItemID(ShopList[i]));
+            // TextList[i].text = itemName.GetValue()+" : "+itemPrice.GetStringValue()+"G : 1個";
         }
     }
 
@@ -115,17 +115,17 @@ public class BuyState : IState
 
     public void GetInfoText(){
         if(CursolPos >0){
-            ItemInfo itemInfo = new GetItemInfo().Get(new ItemID(ShopList[CursolPos-1]));
-            InfoText.text = itemInfo.GetValue();
+            // ItemInfo itemInfo = new GetItemInfo().Get(new ItemID(ShopList[CursolPos-1]));
+            // InfoText.text = itemInfo.GetValue();
         }else{
             InfoText.text = "";
         }
     }
     public void UpdateText(){
         if(CursolPos != 0 && CursolPos <= (ShopList.Count)){
-            ItemName itemName = new GetItemName().Get(new ItemID(ShopList[CursolPos-1]));
-            ItemPrice itemPrice = new GetItemPrice().Get(new ItemID(ShopList[CursolPos-1]),new ItemPeace(BuyNumber));
-            TextList[CursolPos-1].text = itemName.GetValue()+" : "+itemPrice.GetValue()+"G : "+BuyNumber+"個";
+            // ItemName itemName = new GetItemName().Get(new ItemID(ShopList[CursolPos-1]));
+            // ItemPrice itemPrice = new GetItemPrice().Get(new ItemID(ShopList[CursolPos-1]),new ItemPeace(BuyNumber));
+            // TextList[CursolPos-1].text = itemName.GetValue()+" : "+itemPrice.GetStringValue()+"G : "+BuyNumber+"個";
         }
     }
 

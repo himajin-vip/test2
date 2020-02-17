@@ -54,10 +54,10 @@ public class BuyCheckState : IState
         if(Input.GetKeyDown(KeyCode.Space)){
             switch(CursolPos){
                 case 0:
-                    if(new BuyItem().Buy(new ItemID(ShopState.SelectItemId),new ItemPeace(ShopState.SelectItemNumber))){
-                        shopState.SetState("Buy");
-                        new PlayAudio().Play(AudioList.Shiharai);
-                    }
+                    // if(new BuyItem().Buy(new ItemID(ShopState.SelectItemId),new ItemPeace(ShopState.SelectItemNumber))){
+                    //     shopState.SetState("Buy");
+                    //     new PlayAudio().Play(AudioList.Shiharai);
+                    // }
                 break;
                 case 1:
                     shopState.SetState("Buy");

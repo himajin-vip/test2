@@ -11,7 +11,7 @@ public class DropItemData
        dropRate = DropRate;
    }
     public void DropCheck(DropItemData dropItemData,Transform transform,GameObject DropItemprefab){
-        if(0 == Random.Range(0,dropRate.GetValue())){
+        if(0 == Random.Range(0,dropRate.GetIntValue())){
             GameObject dropItemObj = GameObject.Instantiate(DropItemprefab, new Vector3(transform.position.x,transform.position.y,0), Quaternion.identity);
             DropItemObj dropitem = dropItemObj.GetComponent<DropItemObj>();
             dropitem.SetUp(itemBag);

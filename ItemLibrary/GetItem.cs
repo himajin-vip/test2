@@ -1,9 +1,9 @@
-﻿using System;
+﻿// using System;
 
-public class GetItem : ItemLibrary
-{
-    public Type Get(ItemID itemID){
-        ItemNames itemname = ItemList[itemID.GetValue()];
-        return Type.GetType(itemname.ToString());
-    }
-}
+// public class GetItem : ItemLibrary
+// {
+//     public Type Get(ItemID itemID){
+//         ItemNames itemname = ItemList[itemID.GetIntValue()];
+//         return Type.GetType(itemname.ToString());
+//     }
+// }

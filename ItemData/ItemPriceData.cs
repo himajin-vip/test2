@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemPriceData:IGetID
+public class ItemPriceData
 {
     ItemID itemID;
     ItemPrice itemPrice;

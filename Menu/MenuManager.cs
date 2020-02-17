@@ -109,8 +109,8 @@ public class MenuManager
     foreach(ItemType itemtype in Enum.GetValues(typeof(ItemType))){
       if(itemtype != ItemType.Use){
         if(Player.Equip.Parts[itemtype].ItemId!=9999){
-          ItemName itemName = new GetItemName().Get(new ItemID(Player.Equip.Parts[itemtype].ItemId));
-          EquipTextList[itemtype].text = itemName.GetValue();
+          // ItemName itemName = new GetItemName().Get(new ItemID(Player.Equip.Parts[itemtype].ItemId));
+          // EquipTextList[itemtype].text = itemName.GetValue();
         }
       }
     }

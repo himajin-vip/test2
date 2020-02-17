@@ -65,23 +65,23 @@ public class Player : MonoBehaviour
       }
     }
     public void equip(ItemID itemID,Player player){
-      ItemName itemname = new GetItemName().Get(itemID);
-      Type itemtype = Type.GetType(itemname.ToString());
-      EquipItem item = (EquipItem)Activator.CreateInstance(itemtype);
-      item.Equip(player);
+      // ItemName itemname = new GetItemName().Get(itemID);
+      // Type itemtype = Type.GetType(itemname.ToString());
+      // EquipItem item = (EquipItem)Activator.CreateInstance(itemtype);
+      // item.Equip(player);
     }
     public void UnEquip(ItemID itemID,Player player){
-      ItemName itemname = new GetItemName().Get(itemID);
-      Type itemtype = Type.GetType(itemname.ToString());
-      EquipItem item = (EquipItem)Activator.CreateInstance(itemtype);
-      item.UnEquip(player);
+      // ItemName itemname = new GetItemName().Get(itemID);
+      // Type itemtype = Type.GetType(itemname.ToString());
+      // EquipItem item = (EquipItem)Activator.CreateInstance(itemtype);
+      // item.UnEquip(player);
     }
     public void ItemUse(ItemID itemID){
-      if(new InventoryHasCheck().Check(itemID)){
-        UseItem UseItem = new GetUseItem().Get(itemID);
-        new InventoryReduce().Reduce(itemID,new ItemPeace(1));
-        UseItem.Use(Name);
-      }
+      // if(new InventoryHasCheck().Check(itemID)){
+      //   UseItem UseItem = new GetUseItem().Get(itemID);
+      //   new InventoryReduce().Reduce(itemID,new ItemPeace(1));
+      //   UseItem.Use(Name);
+      // }
     }
     //////Status
     public void GetExp(int exp){
@@ -99,14 +99,14 @@ public class Player : MonoBehaviour
     }
     //////衝突判定
     void OnTriggerEnter2D(Collider2D collision){
-      if(collision.gameObject.tag == "Item"){
-        DropItemObj dropItemObj = collision.gameObject.GetComponent<DropItemObj>();
-        dropItemObj.DropEnd();
-        ItemBag itemBag = dropItemObj.GetItemBag();
-        new AddDropItem().Add(itemBag);
-        new ItemGetLog(Name,new Get_ItemID().forItemBag(itemBag));
-        new PlayAudio().Play(AudioList.ItemGet);
-      }
+      // if(collision.gameObject.tag == "Item"){
+      //   DropItemObj dropItemObj = collision.gameObject.GetComponent<DropItemObj>();
+      //   dropItemObj.DropEnd();
+      //   ItemBag itemBag = dropItemObj.GetItemBag();
+      //   new AddDropItem().Add(itemBag);
+      //   new ItemGetLog(Name,new Get_ItemID().forItemBag(itemBag));
+      //   new PlayAudio().Play(AudioList.ItemGet);
+      // }
       if(collision.gameObject.tag == "Npc"){
         Npc = collision.GetComponent<Npc>();
         TalkFlag = true;

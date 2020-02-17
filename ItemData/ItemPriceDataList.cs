@@ -9,7 +9,5 @@ public class ItemPriceDataList
     public ItemPriceDataList(){
         ItemPriceDatas[0]=(new ItemPriceData(new ItemID(0),new ItemPrice(30)));
     }
-    public ItemPrice GetItemPrice(ItemID itemID){
-
-    }
+ 
 }
