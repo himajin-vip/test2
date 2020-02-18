@@ -5,8 +5,6 @@ using UnityEngine;
 public class LeatherHand : EquipItem
 {
   public LeatherHand(){
-    Info = new ItemInfo("Dexを１上げます");
-    Name = new ItemName("皮の手袋");
   }
   public override void Equip(Player player){
     player.Status.Dex.Equip(1);

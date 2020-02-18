@@ -10,8 +10,11 @@ public class GameManager : MonoBehaviour
   public static string NowState{get; private set;}
   public static string LastState{get; private set;}
 
-    static GameManager()
+    public GameManager()
     {
+      InventoryCounter inventory = new InventoryCounter();
+      ItemLibrary itemLibrary = new ItemLibrary();
+      new ItemDataSetUper(itemLibrary);
  
       //////タイトルシーン
       SeanState.Add("ToTitle",new ToTitleState());

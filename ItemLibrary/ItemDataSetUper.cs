@@ -5,10 +5,8 @@ using UnityEngine;
 public class ItemDataSetUper
 {
     ItemLibrary itemLibrary;
-    ItemDataSetUper(ItemLibrary itemlibrary){
+    public ItemDataSetUper(ItemLibrary itemlibrary){
         itemLibrary = itemlibrary;
-    }
-    public void SetUp(){
         ItemData itemData;
         itemData = new ItemDataMaker().MakeName(1,"ポーション",ItemLibrarys.Name);
         itemLibrary.Add(itemData);

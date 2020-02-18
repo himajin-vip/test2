@@ -5,10 +5,6 @@ using UnityEngine;
 public class IronSword : EquipItem
 {
   public IronSword(){
-    Info = new ItemInfo("Strを5上げます");
-    Name = new ItemName("鉄の剣");
-
-
   }
   public override void Equip(Player player){
     player.Status.Str.Equip(5);
