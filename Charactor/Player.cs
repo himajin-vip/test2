@@ -1,7 +1,9 @@
 public class Player:Charactor
 {
-    public Player(StatusCounter statusCounter){
-        StatusCounter = statusCounter;
+    
+    public Player(){
+        DataCounter.AddCounters(new MakeNewPlayerStatus().Make());
     }
+
 
 }
