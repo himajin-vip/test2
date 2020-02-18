@@ -16,8 +16,6 @@ public class DamageCheck
         /////フィールドテキスト生成
         FiledText filedText = new FiledText();
         filedText.Make(FinalDamage.ToString(),new Color(255,0,0),playertransform);
-        ////ダメージログ生成
-        new DamageLog(playername,FinalDamage);
         ////ダメージを与える
         player.Status.Hp.Damage(FinalDamage);
     }
@@ -29,7 +27,6 @@ public class DamageCheck
           int FinalDamage = Damage.Check(player.Status.Lv*ExDamage,player.Status.Str.Value,enemy.Lv,enemy.Vit.Value);
           FiledText filedText = new FiledText();
           filedText.Make(FinalDamage.ToString(),new Color(255,255,255),enemy.transform);
-          new DamageLog(enemy.Name,FinalDamage);
           enemy.Hp.Damage(FinalDamage);
           return true;
         }

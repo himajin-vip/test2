@@ -14,16 +14,7 @@ public class MainSetUpState : IState
     public void Update()
     {
 
-        MapManager.SetUp();
-        AccountData.PlayerSet();
-        ItemDrop.SetUp();
-        new LogMaker().SetUp();
-        new CameraManager().SetUp();
-        new UI_Manager().SetUp();
-        new ShortcutManager().SetUp();
-        new AudioPlayer().SetUp();
-        new EnemyManager().SetUp();
-        new MenuManager().SetUp();
+        
         
         GameManager.SetState("Town");
         MapManager.StartMap();

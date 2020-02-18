@@ -85,10 +85,8 @@ public class Player : MonoBehaviour
     }
     //////Status
     public void GetExp(int exp){
-      new GetExpLog(Name,exp);
       if(Status.Exp.Get(exp)){
         Status.LvUp();
-        new LvUpLog(Name);
         FiledText filedText = new FiledText();
         filedText.Make("LVUP",new Color(255,255,0),this.transform);
       }

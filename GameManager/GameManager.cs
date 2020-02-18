@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
   private static StateMachine SeanState = new StateMachine();
-  public static bool SetUp = false;
   public static string NowState{get; private set;}
   public static string LastState{get; private set;}
 
@@ -15,6 +14,7 @@ public class GameManager : MonoBehaviour
       InventoryCounter inventory = new InventoryCounter();
       ItemLibrary itemLibrary = new ItemLibrary();
       new ItemDataSetUper(itemLibrary);
+      LogMaker log = new LogMaker();
  
       //////タイトルシーン
       SeanState.Add("ToTitle",new ToTitleState());
