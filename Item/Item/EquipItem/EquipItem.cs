@@ -5,9 +5,9 @@ using UnityEngine;
 public class EquipItem : Item
 {
 
-  public virtual void Equip(Player player){
+  public virtual void Equip(Playerp Playerp){
   }
-  public virtual void UnEquip(Player player){
+  public virtual void UnEquip(Playerp Playerp){
   }
   
 }

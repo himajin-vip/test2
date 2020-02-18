@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShortcutManager
 {
   private static Dictionary<int,ShortCut> ShortcutList = new Dictionary<int,ShortCut>();
-  private static Player player;
+  private static Playerp Playerp;
   private static bool[] SetOK;
 
   public void SetUp(){
@@ -24,13 +24,13 @@ public class ShortcutManager
     ShortcutList[4].SetUp();
     SetOK[4]=false;
 
-    player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+    Playerp = GameObject.FindGameObjectWithTag("Playerp").GetComponent<Playerp>();
   }
 
 
   public static void ShortCutOn(int ShortcutNo){
     if(SetOK[ShortcutNo]){
-      player.ItemUse(new ItemID(ShortcutList[ShortcutNo].IDShortcut));
+      Playerp.ItemUse(new ItemID(ShortcutList[ShortcutNo].IDShortcut));
     }
   }
 

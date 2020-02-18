@@ -57,9 +57,9 @@ public class GameManager : MonoBehaviour
       SeanState.Set(NextState);
     }
 
-    // public static void PlayerDeathCheck(){
-    //   if(Player.Hp.currentValue<=0){
-    //     Player.Hp.Reset();
+    // public static void PlayerpDeathCheck(){
+    //   if(Playerp.Hp.currentValue<=0){
+    //     Playerp.Hp.Reset();
     //     AccountData.Save();
     //     SetState("ToEnd");
     //   }

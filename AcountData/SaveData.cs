@@ -37,25 +37,25 @@ public class SaveData
   public List<int> AccesuryItemList  = new List<int>();
   public List<int> AccesuryItemNumberList = new List<int>();
 
-  public void Update(Player player){
-    Name = player.Name;
-    Lv = player.Status.Lv;
-    MaxHp = player.Status.Hp.maxValue;
-    CurrentHp = player.Status.Hp.currentValue;
-    MaxMp = player.Status.Mp.maxValue;
-    CurrentMp = player.Status.Mp.currentValue;
-    Str = player.Status.Str.NomalValue;
-    Vit = player.Status.Vit.NomalValue;
-    Dex = player.Status.Dex.NomalValue;
-    Int = player.Status.Int.NomalValue;
-    NextExp = player.Status.Exp.maxValue;
-    CurrentExp = player.Status.Exp.currentValue;
-    EquipWeapon = player.Equip.Parts[ItemType.Weapon].ItemId;
-    EquipHead = player.Equip.Parts[ItemType.Head].ItemId;
-    EquipBody = player.Equip.Parts[ItemType.Body].ItemId;
-    EquipHand = player.Equip.Parts[ItemType.Hand].ItemId;
-    EquipFoot = player.Equip.Parts[ItemType.Foot].ItemId;
-    EquipAccessory = player.Equip.Parts[ItemType.Accessory].ItemId;
+  public void Update(Playerp Playerp){
+    Name = Playerp.Name;
+    Lv = Playerp.Status.Lv;
+    MaxHp = Playerp.Status.Hp.maxValue;
+    CurrentHp = Playerp.Status.Hp.currentValue;
+    MaxMp = Playerp.Status.Mp.maxValue;
+    CurrentMp = Playerp.Status.Mp.currentValue;
+    Str = Playerp.Status.Str.NomalValue;
+    Vit = Playerp.Status.Vit.NomalValue;
+    Dex = Playerp.Status.Dex.NomalValue;
+    Int = Playerp.Status.Int.NomalValue;
+    NextExp = Playerp.Status.Exp.maxValue;
+    CurrentExp = Playerp.Status.Exp.currentValue;
+    EquipWeapon = Playerp.Equip.Parts[ItemType.Weapon].ItemId;
+    EquipHead = Playerp.Equip.Parts[ItemType.Head].ItemId;
+    EquipBody = Playerp.Equip.Parts[ItemType.Body].ItemId;
+    EquipHand = Playerp.Equip.Parts[ItemType.Hand].ItemId;
+    EquipFoot = Playerp.Equip.Parts[ItemType.Foot].ItemId;
+    EquipAccessory = Playerp.Equip.Parts[ItemType.Accessory].ItemId;
 
     // UseItemList = new InventoryGetIDList().Get(ItemType.Use);
     // UseItemNumberList = new InventoryGetPeaceList().Get(ItemType.Use);

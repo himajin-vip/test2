@@ -6,10 +6,10 @@ public class IronSword : EquipItem
 {
   public IronSword(){
   }
-  public override void Equip(Player player){
-    player.Status.Str.Equip(5);
+  public override void Equip(Playerp Playerp){
+    Playerp.Status.Str.Equip(5);
   }
-  public override void UnEquip(Player player){
-    player.Status.Str.UnEquip(5);
+  public override void UnEquip(Playerp Playerp){
+    Playerp.Status.Str.UnEquip(5);
   }
 }

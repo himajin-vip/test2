@@ -9,7 +9,7 @@ public static class AccountData
   public static SaveData SaveData{get; private set;} = new SaveData();
   public static SaveData LoadData{get; private set;} = new SaveData();
   public static AccountDataList AccountDataList{get; private set;} = new AccountDataList();
-  public static Player Player;
+  public static Playerp Playerp;
 
  public static void SetUp(){
    string Accountstr =  PlayerPrefs.GetString("Account","0");
@@ -17,9 +17,9 @@ public static class AccountData
     AccountDataList = JsonUtility.FromJson<AccountDataList> (Accountstr);
    }
  }
- public static void PlayerSet()
+ public static void PlayerpSet()
  {
-   Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+   Playerp = GameObject.FindGameObjectWithTag("Playerp").GetComponent<Playerp>();
  }
  public static void SetLoadData(SaveData loaddata){
    LoadData = loaddata;
@@ -31,11 +31,11 @@ public static class AccountData
    PassWord = password;
  }
   public static void Save(){
-    SaveData.Update(Player);
+    SaveData.Update(Playerp);
     string SaveDatastr = JsonUtility.ToJson(SaveData);
     int count = 0;
-    foreach(string Playername in AccountDataList.Account){
-      if(Playername == Name){
+    foreach(string Playerpname in AccountDataList.Account){
+      if(Playerpname == Name){
         AccountDataList.SaveData[count] = SaveDatastr;
         break;
       }

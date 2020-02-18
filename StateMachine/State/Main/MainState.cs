@@ -16,7 +16,7 @@ public class MainState : IState
     public void Update()
     {
         controler.Check();
-        cameraManager.PlayerPosCheck();
+        cameraManager.PlayerpPosCheck();
         UI_Manager.StatusUpdate();
         ShortcutManager.AllPiecesReset();
         EnemyManager.EnemyUpdate();

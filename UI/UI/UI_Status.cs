@@ -11,15 +11,15 @@ public class UI_Status : MonoBehaviour
   public Text mpText;
   public Text LVText;
 
-  public void update(Player player)
+  public void update(Playerp Playerp)
   {
-    LVText.text = "Lv:"+player.Status.Lv+" "+player.Name;
-    hpSlider.maxValue = player.Status.Hp.maxValue;
-    hpSlider.value = player.Status.Hp.currentValue;
-    hpText.text = player.Status.Hp.currentValue+"/"+player.Status.Hp.maxValue;
-    mpSlider.maxValue = player.Status.Mp.maxValue;
-    mpSlider.value = player.Status.Mp.currentValue;
-    mpText.text = player.Status.Mp.currentValue+"/"+player.Status.Mp.maxValue;
+    LVText.text = "Lv:"+Playerp.Status.Lv+" "+Playerp.Name;
+    hpSlider.maxValue = Playerp.Status.Hp.maxValue;
+    hpSlider.value = Playerp.Status.Hp.currentValue;
+    hpText.text = Playerp.Status.Hp.currentValue+"/"+Playerp.Status.Hp.maxValue;
+    mpSlider.maxValue = Playerp.Status.Mp.maxValue;
+    mpSlider.value = Playerp.Status.Mp.currentValue;
+    mpText.text = Playerp.Status.Mp.currentValue+"/"+Playerp.Status.Mp.maxValue;
 
   }
 

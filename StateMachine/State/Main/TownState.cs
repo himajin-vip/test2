@@ -15,7 +15,7 @@ public class TownState : IState
     public void Update()
     {
         Controler.Check();
-        cameraManager.PlayerPosCheck();
+        cameraManager.PlayerpPosCheck();
         UI_Manager.StatusUpdate();
         ShortcutManager.AllPiecesReset();
     }

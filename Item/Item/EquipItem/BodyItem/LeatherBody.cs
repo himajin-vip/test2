@@ -6,11 +6,11 @@ public class LeatherBody : EquipItem
 {
   public LeatherBody(){
   }
-  public override void Equip(Player player){
-    player.Status.Vit.Equip(1);
+  public override void Equip(Playerp Playerp){
+    Playerp.Status.Vit.Equip(1);
   }
-  public override void UnEquip(Player player){
-    player.Status.Vit.UnEquip(1);
+  public override void UnEquip(Playerp Playerp){
+    Playerp.Status.Vit.UnEquip(1);
   }
 
 }

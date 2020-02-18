@@ -10,6 +10,6 @@ public class Get_Data_Datas
             Data data = Datas[Index];
             return data.Copy();
         }
-        return new NullData();
+        return new Data(new NullKey(),new NullValue());
     }
 }

@@ -6,17 +6,17 @@ public class MakeNewAccount
 {
         public bool Make(string name , string password){
         string Accountstr =  PlayerPrefs.GetString("Account","0");
-        bool newPlayer = true;
+        bool newPlayerp = true;
         
         if(!(Accountstr == "0"))////////アカウントデータ有り
         {
             AccountDataList AccountDataList = AccountData.AccountDataList; 
             foreach(string PlayingName in AccountDataList.Account){
                 if(PlayingName == name){
-                newPlayer = false;
+                newPlayerp = false;
                 }
             }
-            if(newPlayer){
+            if(newPlayerp){
                 AccountDataList.Account.Add(name);
                 AccountDataList.SaveData.Add("");
                 Accountstr = JsonUtility.ToJson (AccountDataList);

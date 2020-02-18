@@ -1,4 +1,4 @@
-﻿public class PlayerStatus
+﻿public class PlayerpStatus
 {
   public int Lv{get; protected set;}
   public StatusHp Hp{get; protected set;}

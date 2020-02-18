@@ -11,7 +11,7 @@ public class TownMap : Map
   }
   public void Start(int LastMap)
   {
-    GameObject PlayerObj = GameObject.FindGameObjectWithTag("Player").gameObject;
+    GameObject PlayerpObj = GameObject.FindGameObjectWithTag("Playerp").gameObject;
     GameObject obj;
     CameraManager cameraManager = new CameraManager();
     switch(LastMap){
@@ -22,8 +22,8 @@ public class TownMap : Map
 
       case 1:
         obj = (GameObject)Resources.Load("Map/TownMap");
-        MapObject = GameManager.Instantiate(obj, new Vector3(PlayerObj.transform.position.x,PlayerObj.transform.position.y-240+24+32), Quaternion.identity);
-        cameraManager.PotisionSet(PlayerObj.transform.position.x,PlayerObj.transform.position.y+(-240+24+32+16));
+        MapObject = GameManager.Instantiate(obj, new Vector3(PlayerpObj.transform.position.x,PlayerpObj.transform.position.y-240+24+32), Quaternion.identity);
+        cameraManager.PotisionSet(PlayerpObj.transform.position.x,PlayerpObj.transform.position.y+(-240+24+32+16));
       break;
     }
   }

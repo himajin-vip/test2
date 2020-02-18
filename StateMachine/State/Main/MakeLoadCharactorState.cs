@@ -7,17 +7,17 @@ public class MakeLoadCharactorState : IState
     }
 
     public void Update(){
-        MakePlayerObject playerObject = new MakePlayerObject();
-        Player player = playerObject.Object.GetComponent<Player>();
+        MakePlayerpObject PlayerpObject = new MakePlayerpObject();
+        Playerp Playerp = PlayerpObject.Object.GetComponent<Playerp>();
         SaveData LoadData = AccountData.LoadData;
-        player.SetName(LoadData.Name);
-        player.Status.SetLoadGame(LoadData);
-        // Player.Equip.PartsLoad(AccountData.LoadData.EquipWeapon,ItemType.Weapon);
-        // Player.Equip.PartsLoad(AccountData.LoadData.EquipHead,ItemType.Head);
-        // Player.Equip.PartsLoad(AccountData.LoadData.EquipBody,ItemType.Body);
-        // Player.Equip.PartsLoad(AccountData.LoadData.EquipHand,ItemType.Hand);
-        // Player.Equip.PartsLoad(AccountData.LoadData.EquipFoot,ItemType.Foot);
-        // Player.Equip.PartsLoad(AccountData.LoadData.EquipAccessory,ItemType.Accessory);
+        Playerp.SetName(LoadData.Name);
+        Playerp.Status.SetLoadGame(LoadData);
+        // Playerp.Equip.PartsLoad(AccountData.LoadData.EquipWeapon,ItemType.Weapon);
+        // Playerp.Equip.PartsLoad(AccountData.LoadData.EquipHead,ItemType.Head);
+        // Playerp.Equip.PartsLoad(AccountData.LoadData.EquipBody,ItemType.Body);
+        // Playerp.Equip.PartsLoad(AccountData.LoadData.EquipHand,ItemType.Hand);
+        // Playerp.Equip.PartsLoad(AccountData.LoadData.EquipFoot,ItemType.Foot);
+        // Playerp.Equip.PartsLoad(AccountData.LoadData.EquipAccessory,ItemType.Accessory);
         // GameManager.SetState("MainSetUp");
     }
 

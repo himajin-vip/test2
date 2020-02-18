@@ -4,27 +4,27 @@ using UnityEngine;
 
 public class DamageCheck
 {
-    public void Player(GameObject PlayerObj,string enemyname,int enemylv ,int enemystr){
+    public void Playerp(GameObject PlayerpObj,string enemyname,int enemylv ,int enemystr){
         Damage Damage = new Damage();
-        Player player = PlayerObj.GetComponent<Player>();
-        string playername = player.Name;
-        int playerlv = player.Status.Lv;
-        int playervit = player.Status.Vit.Value;
-        Transform playertransform = PlayerObj.transform;
+        Playerp Playerp = PlayerpObj.GetComponent<Playerp>();
+        string Playerpname = Playerp.Name;
+        int Playerplv = Playerp.Status.Lv;
+        int Playerpvit = Playerp.Status.Vit.Value;
+        Transform Playerptransform = PlayerpObj.transform;
         /////ダメージ計算
-        int FinalDamage = Damage.Check(enemylv,enemystr,playerlv,playervit);
+        int FinalDamage = Damage.Check(enemylv,enemystr,Playerplv,Playerpvit);
         /////フィールドテキスト生成
         FiledText filedText = new FiledText();
-        filedText.Make(FinalDamage.ToString(),new Color(255,0,0),playertransform);
+        filedText.Make(FinalDamage.ToString(),new Color(255,0,0),Playerptransform);
         ////ダメージを与える
-        player.Status.Hp.Damage(FinalDamage);
+        Playerp.Status.Hp.Damage(FinalDamage);
     }
 
-    public bool Enemy(Player player,Enemy enemy,int ExDamage){
+    public bool Enemy(Playerp Playerp,Enemy enemy,int ExDamage){
         if(!enemy.DeathCheck){
           Damage Damage = new Damage();
-          enemy.player = player;
-          int FinalDamage = Damage.Check(player.Status.Lv*ExDamage,player.Status.Str.Value,enemy.Lv,enemy.Vit.Value);
+          enemy.Playerp = Playerp;
+          int FinalDamage = Damage.Check(Playerp.Status.Lv*ExDamage,Playerp.Status.Str.Value,enemy.Lv,enemy.Vit.Value);
           FiledText filedText = new FiledText();
           filedText.Make(FinalDamage.ToString(),new Color(255,255,255),enemy.transform);
           enemy.Hp.Damage(FinalDamage);

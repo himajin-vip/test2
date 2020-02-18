@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class TownControler : Controler
 {
-    PlayerMoveControler PlayerMove;
-    Player Player;
+    // PlayerpMoveControler PlayerpMove;
+    Playerp Playerp;
 
     public TownControler(){
-        PlayerMove = new PlayerMoveControler();
-        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        // PlayerpMove = new PlayerpMoveControler();
+        Playerp = GameObject.FindGameObjectWithTag("Playerp").GetComponent<Playerp>();
     }
     public void Check(){
         if(Input.GetKeyDown(KeyCode.M)){
             MenuManager.SetMenuState("Main");
         }
         if(Input.GetKeyDown(KeyCode.Space)){
-            Player.Talk();
+            Playerp.Talk();
         }
-        PlayerMove.Check();
+        // PlayerpMove.Check();
     }
 }

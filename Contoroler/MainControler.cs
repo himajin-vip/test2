@@ -6,17 +6,17 @@ public class MainControler : Controler
 {
     
     AtackControler Atack;
-    PlayerMoveControler PlayerMove;
+    // PlayerpMoveControler PlayerpMove;
     ShortCutControler shortCut;
     public MainControler(){
         Atack = new AtackControler();
-        PlayerMove = new PlayerMoveControler();
+        // PlayerpMove = new PlayerpMoveControler();
         shortCut = new ShortCutControler();
 
     }
     public void Check(){
         Atack.Check();
         shortCut.Check();
-        PlayerMove.Check();
+        // PlayerpMove.Check();
     }
 }

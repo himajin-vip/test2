@@ -10,13 +10,13 @@ public class UseComandState : IMenuState
   public float CursolPosition = -10;
   public float newPosy;
   public int CursolPos;
-  Player Player;
+  Playerp Playerp;
 
   public void SetUp(){
     UseComandWindow = GameObject.Find("MenuCanvas").transform.Find("InventoryPanel").transform.Find("UseComandWindow").gameObject;
     Curesol = UseComandWindow.transform.Find("SelectCursol").gameObject;
     CursolTransform = Curesol.GetComponent<RectTransform>();
-    Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+    Playerp = GameObject.FindGameObjectWithTag("Playerp").GetComponent<Playerp>();
   }
   public void Start(){
     UseComandWindow.SetActive(true);
@@ -46,7 +46,7 @@ public class UseComandState : IMenuState
   public void CursolOn(){
     switch(CursolPos){
       case 0:
-        Player.ItemUse(new ItemID(MenuManager.SelectItemID));
+        Playerp.ItemUse(new ItemID(MenuManager.SelectItemID));
         MenuManager.SetMenuState("UseItem");
       break;
       case 1:

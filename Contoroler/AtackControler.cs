@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class AtackControler
 {
-    Player Player;
+    Playerp Playerp;
     public  AtackControler(){
-        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        Playerp = GameObject.FindGameObjectWithTag("Playerp").GetComponent<Playerp>();
     }
     public void Check(){
         if(Input.GetKeyDown(KeyCode.M)){
-            if(Player.Atack.KeyPush){
-                Player.Atack.KeyUp();
+            if(Playerp.Atack.KeyPush){
+                Playerp.Atack.KeyUp();
             }
             MenuManager.SetMenuState("Main");
         }
         if(Input.GetKey(KeyCode.Space)){
-            Player.Atack.KeyDown();
+            Playerp.Atack.KeyDown();
         }
         if(Input.GetKeyUp(KeyCode.Space)){
-            Player.Atack.KeyUp();
+            Playerp.Atack.KeyUp();
         }
     }
 }

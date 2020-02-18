@@ -9,5 +9,8 @@ public enum Statuss{
     Vit,
     Int,
     Dex,
+    CurrentExp,
+    NextExp,
+    Gold,
 
 }

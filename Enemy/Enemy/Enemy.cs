@@ -27,36 +27,36 @@ public class Enemy : MonoBehaviour
   public int MoveOnX;
   public int MoveOnY;
   
-  public GameObject PlayerObj;
-  public Player player;
+  public GameObject PlayerpObj;
+  public Playerp Playerp;
 
   public void SetUp(){
     Direction = new Direction(this.GetComponent<Animator>());
     move = new Move(this.gameObject,Direction);
   }
-  public virtual void Atack(GameObject Playerobj){
+  public virtual void Atack(GameObject Playerpobj){
     DamageCheck DamageCheck = new DamageCheck();
-    DamageCheck.Player(PlayerObj,Name,Lv,Str.Value);
-    Vector3 Playerpos = Playerobj.gameObject.transform.position;
+    DamageCheck.Playerp(PlayerpObj,Name,Lv,Str.Value);
+    Vector3 Playerppos = Playerpobj.gameObject.transform.position;
     Efect Efect = new Efect();
-    Efect.On("Kamitukiefect",Playerobj);//エフェクト作成
+    Efect.On("Kamitukiefect",Playerpobj);//エフェクト作成
     new PlayAudio().Play(AudioList.Kamituki);
   }
 
   public void Move(){
     if(MoveStatus == 1&&!DeathCheck){//プレイヤーを追いかける
-      Vector3 player_pos = PlayerObj.transform.position;
+      Vector3 Playerp_pos = PlayerpObj.transform.position;
       Vector3 this_pos = this.transform.position;
-      if(player_pos.x>this_pos.x){
+      if(Playerp_pos.x>this_pos.x){
         move.Right(MoveSpeed);
       }
-      if(player_pos.x<this_pos.x){
+      if(Playerp_pos.x<this_pos.x){
         move.Left(MoveSpeed);
       }
-      if(player_pos.y>this_pos.y){
+      if(Playerp_pos.y>this_pos.y){
         move.Up(MoveSpeed);
       }
-      if(player_pos.y<this_pos.y){
+      if(Playerp_pos.y<this_pos.y){
         move.Down(MoveSpeed);
       }
     }
@@ -107,19 +107,19 @@ public class Enemy : MonoBehaviour
     DeathCheck = true;
     new ItemDrop(DropItemList,this.transform);
     int exp = Exp;
-    if(Lv<player.Status.Lv){
-      double down = ((player.Status.Lv - Lv)/10f);
+    if(Lv<Playerp.Status.Lv){
+      double down = ((Playerp.Status.Lv - Lv)/10f);
       exp =(int)(Exp * (1f-down));
     }
-    player.GetExp(exp);
+    Playerp.GetExp(exp);
     new AddGold().Add(new Gold(Gold));
     StartCoroutine(DestroyEnemy());
   }
 
   void OnCollisionStay2D(Collision2D collision2){
     if(!DeathCheck){
-      if(collision2.gameObject.GetComponent<Player>()&&!AtackOn){
-        PlayerObj = collision2.gameObject;
+      if(collision2.gameObject.GetComponent<Playerp>()&&!AtackOn){
+        PlayerpObj = collision2.gameObject;
         AtackOn = true;
         StartCoroutine(AtackWait());
         Atack(collision2.gameObject);

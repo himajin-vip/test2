@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 
-public class Player : MonoBehaviour
+public class Playerp : MonoBehaviour
 {
     public string Name{get; private set;}
-    public PlayerStatus Status {get; protected set;} = new PlayerStatus();
+    public PlayerpStatus Status {get; protected set;} = new PlayerpStatus();
     public  Equip Equip{get; protected set;}
     private Move move;
     public StatusMoveSpeed MoveSpeed{get; private set;}
@@ -15,9 +15,9 @@ public class Player : MonoBehaviour
     public Atack Atack{get; private set;}
     public GameObject Weapon{get; protected set;}
     public Charge Charge{get; protected set;}
-    public Skill Skill{get; protected set;}
-    private Skill normalAtack;
-    public Skill ChargeSkill{get; protected set;}
+    // public Skill Skill{get; protected set;}
+    // private Skill normalAtack;
+    // public Skill ChargeSkill{get; protected set;}
     private bool TalkFlag = false;
     public Npc Npc{get; protected set;}
 
@@ -26,9 +26,9 @@ public class Player : MonoBehaviour
       Direction = new Direction(this.gameObject.GetComponent<Animator>());
       move = new Move(this.gameObject,Direction);
       Atack = new Atack(this);
-      normalAtack = new SwordNomalAtack(this,this.gameObject);
-      Skill = normalAtack;
-      ChargeSkill = new SwordChargeAtack(this,this.gameObject);
+      // normalAtack = new SwordNomalAtack(this,this.gameObject);
+      // Skill = normalAtack;
+      // ChargeSkill = new SwordChargeAtack(this,this.gameObject);
       Charge = this. transform.Find("tame").GetComponent<Charge>();
       Charge.SetUp(this,this.gameObject);
       Weapon = (GameObject)Resources.Load("prefab/Weapon/Sword");
@@ -54,27 +54,27 @@ public class Player : MonoBehaviour
       }
     }
     public void SetChargeSkill(){
-      Skill = ChargeSkill;
+      // Skill = ChargeSkill;
     }
     public void SetNormalAtack(){
-      Skill = normalAtack;
+      // Skill = normalAtack;
     }
     public void Talk(){
       if(TalkFlag){
         Npc.Talk();
       }
     }
-    public void equip(ItemID itemID,Player player){
+    public void equip(ItemID itemID,Playerp Playerp){
       // ItemName itemname = new GetItemName().Get(itemID);
       // Type itemtype = Type.GetType(itemname.ToString());
       // EquipItem item = (EquipItem)Activator.CreateInstance(itemtype);
-      // item.Equip(player);
+      // item.Equip(Playerp);
     }
-    public void UnEquip(ItemID itemID,Player player){
+    public void UnEquip(ItemID itemID,Playerp Playerp){
       // ItemName itemname = new GetItemName().Get(itemID);
       // Type itemtype = Type.GetType(itemname.ToString());
       // EquipItem item = (EquipItem)Activator.CreateInstance(itemtype);
-      // item.UnEquip(player);
+      // item.UnEquip(Playerp);
     }
     public void ItemUse(ItemID itemID){
       // if(new InventoryHasCheck().Check(itemID)){

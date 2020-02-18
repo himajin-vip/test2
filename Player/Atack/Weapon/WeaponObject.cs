@@ -10,17 +10,17 @@ public class WeaponObject : MonoBehaviour
   private static Dictionary<int,Enemy> HitEnemyList = new Dictionary<int,Enemy>();
   private int HitCount = 0;
 
-  private Player Player;
+  private Playerp Playerp;
 
-  public void SetUp(Player player){
+  public void SetUp(Playerp Playerp){
     HitEnemyList.Clear();
-    Player = player;
+    // Playerp = Playerp;
   }
 
   public void OnEnd(){
-    Player.Skill.Damage(HitEnemyList);
+    // Playerp.Skill.Damage(HitEnemyList);
     HitEnemyList.Clear();
-    Player.Atack.Off();
+    Playerp.Atack.Off();
     Destroy (this.gameObject);
   }
 

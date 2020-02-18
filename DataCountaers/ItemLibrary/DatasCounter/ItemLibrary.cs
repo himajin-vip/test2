@@ -9,7 +9,7 @@ public class ItemLibrary:DataCounter
 
     public ItemLibrary(){
         itemLibrary = new ItemDatasList();
-        DataChecker = new DataChecker(typeof(ItemData),typeof(ItemID),typeof(ItemDataValue));
+        DataChecker = new DataChecker(typeof(ItemID),typeof(ItemDataValue));
     }
      public void Add(Data itemdata){
         new DataMaster().Add(itemLibrary,itemdata,DataChecker);

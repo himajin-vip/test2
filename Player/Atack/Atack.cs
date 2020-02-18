@@ -5,32 +5,32 @@ public class Atack
 {
   public bool On{get; private set;} = false;
   public bool KeyPush{get; private set;} = false;
-  public Player Player;
+  public Playerp Playerp;
 
-  public Atack(Player player){
-    Player = player;
+  public Atack(Playerp Playerp){
+    // Playerp = Playerp;
   }
   public void KeyDown(){
-    if(!On&&!KeyPush){
-      if(Player.ChargeSkill.returnMp()<=Player.Status.Mp.currentValue){
-        Player.Charge.Set();
-      }
-      KeyPush = true;
-    }
+    // if(!On&&!KeyPush){
+    //   // if(Playerp.ChargeSkill.returnMp()<=Playerp.Status.Mp.currentValue){
+    //     Playerp.Charge.Set();
+    //   }
+    //   KeyPush = true;
+    // }
   }
 
   public void KeyUp(){
     if(!On){
       On = true;
-      Player.MoveSpeed.ReSetSpeed();
-      Player.Charge.Stop();
-      Player.Skill.AtackOn();
+      Playerp.MoveSpeed.ReSetSpeed();
+      Playerp.Charge.Stop();
+      // Playerp.Skill.AtackOn();
     }
     KeyPush = false;
   }
 
   public void Off(){
     On = false;
-    Player.SetNormalAtack();
+    Playerp.SetNormalAtack();
   }
 }

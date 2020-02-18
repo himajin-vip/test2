@@ -6,15 +6,15 @@ public class UI_Manager
 {
   private static UI_Status UiStatus;
   public static TalkCanvas TalkCanvas;
-  private static Player player;
+  private static Playerp Playerp;
 
   public void SetUp(){
     UiStatus = GameObject.Find("StatusCanvas").GetComponent<UI_Status>();
     TalkCanvas = new TalkCanvas();
-    player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+    Playerp = GameObject.FindGameObjectWithTag("Playerp").GetComponent<Playerp>();
   }
   public static void StatusUpdate(){
-    UiStatus.update(player);
+    UiStatus.update(Playerp);
   }
 
 

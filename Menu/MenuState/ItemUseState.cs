@@ -58,11 +58,11 @@ public class ItemUseState : IMenuState
       ItemTextList[i].text = "";
     }
     InfoWindowText.text = "";
-    Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+    Playerp Playerp = GameObject.FindGameObjectWithTag("Playerp").GetComponent<Playerp>();
     // InventoryList = new InventoryGetIDList().Get(ItemType.Use);
     foreach(int ItemID in InventoryList) {
       // ItemName itemName = new GetItemName().Get(new ItemID(ItemID));
-      // ItemTextList[Inventorycount].text = itemName.GetValue()+" / "+player.SetPeaceText(ItemTextList[Inventorycount],new ItemID(ItemID)).text+"個";
+      // ItemTextList[Inventorycount].text = itemName.GetValue()+" / "+Playerp.SetPeaceText(ItemTextList[Inventorycount],new ItemID(ItemID)).text+"個";
       Inventorycount++;
     }
     Curesol.SetActive(true);

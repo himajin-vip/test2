@@ -17,7 +17,7 @@ public class EquipState : IMenuState
   public int CursolPos;
   public int Inventorycount;
 
-  public Player Player;
+  public Playerp Playerp;
 
 
   public void SetUp(){
@@ -51,7 +51,7 @@ public class EquipState : IMenuState
     ItemTextList.Add(ItemPanel.transform.Find("ItemNameText18").GetComponent<Text>());
     ItemTextList.Add(ItemPanel.transform.Find("ItemNameText19").GetComponent<Text>());
 
-    Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+    Playerp = GameObject.FindGameObjectWithTag("Playerp").GetComponent<Playerp>();
   }
   public void Start(){
     MenuManager.EquipWindowReset();
@@ -67,11 +67,11 @@ public class EquipState : IMenuState
     // InventoryList = new InventoryGetIDList().Get(MenuManager.InventoryType);
     foreach(int ItemID in InventoryList) {
       // ItemName itemName = new GetItemName().Get(new ItemID(ItemID));
-      if(ItemID == Player.Equip.Parts[MenuManager.InventoryType].ItemId){
-        // ItemTextList[Inventorycount].text = "E:"+itemName.GetValue()+" / "+Player.SetPeaceText(ItemTextList[Inventorycount],new ItemID(ItemID)).text+"個";
+      if(ItemID == Playerp.Equip.Parts[MenuManager.InventoryType].ItemId){
+        // ItemTextList[Inventorycount].text = "E:"+itemName.GetValue()+" / "+Playerp.SetPeaceText(ItemTextList[Inventorycount],new ItemID(ItemID)).text+"個";
         Inventorycount++;
       }else{
-        // ItemTextList[Inventorycount].text = itemName.GetValue()+" / "+Player.SetPeaceText(ItemTextList[Inventorycount],new ItemID(ItemID)).text+"個";
+        // ItemTextList[Inventorycount].text = itemName.GetValue()+" / "+Playerp.SetPeaceText(ItemTextList[Inventorycount],new ItemID(ItemID)).text+"個";
         Inventorycount++;
       }
     }

@@ -11,7 +11,7 @@ public class MenuManager
   private static Dictionary<ItemType,Text> EquipTextList = new Dictionary<ItemType, Text>();
   private static bool InventoryEndfrag;
   public static ItemType InventoryType{get; private set;}
-  private static Player Player;
+  private static Playerp Playerp;
   public static int SelectItemID;
 
   public void SetUp(){
@@ -61,7 +61,7 @@ public class MenuManager
 
 
 
-    Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+    Playerp = GameObject.FindGameObjectWithTag("Playerp").GetComponent<Playerp>();
     MenuState = MenuStateList["Null"];
   }
 
@@ -108,8 +108,8 @@ public class MenuManager
   public static void EquipWindowReset(){
     foreach(ItemType itemtype in Enum.GetValues(typeof(ItemType))){
       if(itemtype != ItemType.Use){
-        if(Player.Equip.Parts[itemtype].ItemId!=9999){
-          // ItemName itemName = new GetItemName().Get(new ItemID(Player.Equip.Parts[itemtype].ItemId));
+        if(Playerp.Equip.Parts[itemtype].ItemId!=9999){
+          // ItemName itemName = new GetItemName().Get(new ItemID(Playerp.Equip.Parts[itemtype].ItemId));
           // EquipTextList[itemtype].text = itemName.GetValue();
         }
       }

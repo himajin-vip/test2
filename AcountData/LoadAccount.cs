@@ -5,7 +5,7 @@ using UnityEngine;
 public class LoadAccount
 {
     public bool LoadGame(string name , string password){
-        bool PlayingPlayer = false;
+        bool PlayingPlayerp = false;
         string AccountName = "";
 
         AccountDataList AccountDataList = AccountData.AccountDataList;
@@ -14,12 +14,12 @@ public class LoadAccount
         foreach(string accountname in AccountDataList.Account){
             if(accountname == name){
                 AccountName = accountname;
-                PlayingPlayer = true;
+                PlayingPlayerp = true;
                 break;
             }
             count++;
         }
-        if(PlayingPlayer){
+        if(PlayingPlayerp){
             if(PlayerPrefs.GetString(AccountName) == password){
                 string savedatastr = AccountDataList.SaveData[count];
                 AccountData.SetLoadData(JsonUtility.FromJson<SaveData> (savedatastr));

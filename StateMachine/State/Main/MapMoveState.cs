@@ -13,7 +13,7 @@ public class MapMoveState : IState
     }
     public void Update()
     {
-        cameraManager.PlayerPosCheck();
+        cameraManager.PlayerpPosCheck();
         controler.Check();
         UI_Manager.StatusUpdate();
         ShortcutManager.AllPiecesReset();

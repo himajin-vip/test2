@@ -9,7 +9,7 @@ public class BuyCheckState : IState
     RectTransform CursolTransform;
     int CursolPos;
     ShopState shopState = new ShopState();
-    Player player;
+    Playerp Playerp;
     public void Start()
     {
         BuyComandWindow = GameObject.Find("ShopPanel").transform.Find("BuyComandWindow").gameObject;
@@ -23,7 +23,7 @@ public class BuyCheckState : IState
 
         CursolPos = 0;
 
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        Playerp = GameObject.FindGameObjectWithTag("Playerp").GetComponent<Playerp>();
         
     }
 

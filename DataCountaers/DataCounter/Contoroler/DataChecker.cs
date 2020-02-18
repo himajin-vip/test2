@@ -4,16 +4,14 @@ using UnityEngine;
 using System;
 public class DataChecker
 {
-    Type DataType;
     Type KeyType;
     Type ValueType;
-    public DataChecker(Type Data,Type key,Type value){
-        DataType = Data;
+    public DataChecker(Type key,Type value){
         KeyType = key;
         ValueType = value;
     }
     public bool DataCheck(Data Data){
-        if(DataType == Data.GetType()){return true;}
+        if(Data.TypeCheck(KeyType)){return true;}
         return false;
     }
     public bool KeyCheck(Key key){

@@ -13,7 +13,7 @@ public class Slime :Enemy
     Vit = new StatusBattle(1);
     Exp = 15;
     Gold = 10;
-    DropItemList.Add(new MakeDropItemData().Make(0,1,128));
+    // DropItemList.Add(new MakeDropItemData().Make(0,1,128));
     MoveSpeed = 1;
     MoveStatus = 0;
     AtackWaitTime = 1f;
