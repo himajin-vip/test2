@@ -46,7 +46,7 @@ public class UseComandState : IMenuState
   public void CursolOn(){
     switch(CursolPos){
       case 0:
-        Playerp.ItemUse(new ItemID(MenuManager.SelectItemID));
+        // Playerp.ItemUse(new ItemID(MenuManager.SelectItemID));
         MenuManager.SetMenuState("UseItem");
       break;
       case 1:

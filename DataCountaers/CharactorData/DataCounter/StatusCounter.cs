@@ -6,7 +6,7 @@ using System;
 public class StatusCounter : DataCounter
 {
     CharactorDatasList charactorDatasList = new CharactorDatasList();
-    DataChecker DataChecker = new DataChecker(typeof(StatusKey),typeof(StatusValue));
+    DataChecker DataChecker = new CharactorDataCheker();
      public void Add(Data itemdata){
         new DataMaster().Add(charactorDatasList,itemdata,DataChecker);
     }

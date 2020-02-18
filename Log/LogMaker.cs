@@ -22,17 +22,17 @@ public class LogMaker
         new PlayAudio().Play(AudioList.LVUP);
         logCanvas.MakeLog(newlog);
     }
-    public void ItemGetLog(string Name ,ItemID itemID){
-        // // ItemName itemName = new GetItemName().Get(itemID);
-        // string newlog = (Name+"は"+itemName.GetValue()+"を手に入れた");
-        // logCanvas.MakeLog(newlog);
-    }
+    // public void ItemGetLog(string Name ,ItemID itemID){
+    //     // // ItemName itemName = new GetItemName().Get(itemID);
+    //     // string newlog = (Name+"は"+itemName.GetValue()+"を手に入れた");
+    //     // logCanvas.MakeLog(newlog);
+    // }
     public void RecoveryHpLog(string Name,int recovery){
         string newlog = (Name+"はHPを"+recovery+"回復した");
         logCanvas.MakeLog(newlog);
     }
-    public void UseItemLog(string Name,ItemDataValue itemName){
-    //     string newlog = (Name+"は"+ItemDataValue+"を使った");
-    // logCanvas.MakeLog(newlog);
-    }
+    // public void UseItemLog(string Name,ItemDataValue itemName){
+    // //     string newlog = (Name+"は"+ItemDataValue+"を使った");
+    // // logCanvas.MakeLog(newlog);
+    // }
 }

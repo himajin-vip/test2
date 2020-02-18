@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ItemLibrarys
+public enum DataType_ItemLibrary
 {
     Name,
     Price,

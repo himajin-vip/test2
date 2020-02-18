@@ -32,7 +32,7 @@ public class Charge : MonoBehaviour
       ChargeNow = true;
       Efect.On("tameefect",PlayerpObj);
       new PlayAudio().Play(AudioList.Charge);
-      Playerp.MoveSpeed.SetChargeSpeed();
+      // Playerp.MoveSpeed.SetChargeSpeed();
 
     yield return new WaitForSeconds(ChargeTime/2);
       Efect.SetSpeed(2.0f);

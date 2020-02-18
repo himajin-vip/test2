@@ -6,7 +6,7 @@ public class ItemDatasList:DatasList
 {
     public List<Datas> DatasList = new List<Datas>();
     public ItemDatasList(){
-        foreach (ItemLibrarys Value in Enum.GetValues(typeof(ItemLibrarys))){
+        foreach (DataType_ItemLibrary Value in Enum.GetValues(typeof(DataType_ItemLibrary))){
             DatasList.Add(new ItemDatas(new DataType(Value.ToString())));
         }
     }

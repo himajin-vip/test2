@@ -10,8 +10,8 @@ public class MakeLoadCharactorState : IState
         MakePlayerpObject PlayerpObject = new MakePlayerpObject();
         Playerp Playerp = PlayerpObject.Object.GetComponent<Playerp>();
         SaveData LoadData = AccountData.LoadData;
-        Playerp.SetName(LoadData.Name);
-        Playerp.Status.SetLoadGame(LoadData);
+        // Playerp.SetName(LoadData.Name);
+        // Playerp.Status.SetLoadGame(LoadData);
         // Playerp.Equip.PartsLoad(AccountData.LoadData.EquipWeapon,ItemType.Weapon);
         // Playerp.Equip.PartsLoad(AccountData.LoadData.EquipHead,ItemType.Head);
         // Playerp.Equip.PartsLoad(AccountData.LoadData.EquipBody,ItemType.Body);

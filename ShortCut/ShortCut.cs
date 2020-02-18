@@ -16,7 +16,7 @@ public class ShortCut : MonoBehaviour
     }
 
     public void PiecesReset(){
-      ItemID itemID = new ItemID(IDShortcut);
+      // ItemID itemID = new ItemID(IDShortcut);
       // new InventoryPeaceTextSet().Set(textShortcut,itemID);
     }
 

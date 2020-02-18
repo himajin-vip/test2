@@ -76,15 +76,15 @@ public class EnemyManager
   public static void EnemyUpdate(){
     List<Enemy> DeathList = new List<Enemy>();
     foreach (Enemy enemy in EnemyList.Values){
-        if(enemy.Hp.currentValue<=0&&!enemy.DeathCheck){
-          DeathList.Add(enemy);
-      }else{
-        enemy.Move();
-      }
+      //   if(enemy.Hp.currentValue<=0&&!enemy.DeathCheck){
+      //     DeathList.Add(enemy);
+      // }else{
+      //   enemy.Move();
+      // }
     }
 
     foreach(Enemy enemy in DeathList){
-      enemy.Death();
+      // enemy.Death();
       EnemyList.Remove(enemy.EnemyId);
       EnemyIdList.Add(enemy.EnemyId);
       EnemyCurrentCount--;

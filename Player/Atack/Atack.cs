@@ -22,7 +22,7 @@ public class Atack
   public void KeyUp(){
     if(!On){
       On = true;
-      Playerp.MoveSpeed.ReSetSpeed();
+      // Playerp.MoveSpeed.ReSetSpeed();
       Playerp.Charge.Stop();
       // Playerp.Skill.AtackOn();
     }

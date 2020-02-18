@@ -7,7 +7,7 @@ public class CharactorDatasList:DatasList
 
     public List<Datas> DatasList = new List<Datas>();
     public CharactorDatasList(){
-        foreach (CharactorDataTypes Value in Enum.GetValues(typeof(CharactorDataTypes))){
+        foreach (DataType_Charactor Value in Enum.GetValues(typeof(DataType_Charactor))){
             DatasList.Add(new CharactorDatas(new DataType(Value.ToString())));
         }
     }

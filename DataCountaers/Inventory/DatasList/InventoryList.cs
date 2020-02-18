@@ -7,7 +7,7 @@ public class InventoryList:DatasList
 {
     public List<Datas> inventories = new List<Datas>();
     public InventoryList(){
-        foreach (ItemType Value in Enum.GetValues(typeof(ItemType))){
+        foreach (DataType_Inventory Value in Enum.GetValues(typeof(DataType_Inventory))){
             inventories.Add(new Inventory(new DataType(Value.ToString())));
         }
     }

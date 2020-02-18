@@ -10,7 +10,7 @@ public class Playerp : MonoBehaviour
     public PlayerpStatus Status {get; protected set;} = new PlayerpStatus();
     public  Equip Equip{get; protected set;}
     private Move move;
-    public StatusMoveSpeed MoveSpeed{get; private set;}
+    // public StatusMoveSpeed MoveSpeed{get; private set;}
     public Direction Direction{get; private set;}
     public Atack Atack{get; private set;}
     public GameObject Weapon{get; protected set;}
@@ -22,7 +22,7 @@ public class Playerp : MonoBehaviour
     public Npc Npc{get; protected set;}
 
     public void SetUp(){
-      MoveSpeed = new StatusMoveSpeed(3,1);
+      // MoveSpeed = new StatusMoveSpeed(3,1);
       Direction = new Direction(this.gameObject.GetComponent<Animator>());
       move = new Move(this.gameObject,Direction);
       Atack = new Atack(this);
@@ -36,22 +36,22 @@ public class Playerp : MonoBehaviour
     }
     ///////Action
     public void Move(int direction){
-      if(!Atack.On){
-        switch(direction){
-          case 0:
-            move.Down(MoveSpeed.Value);
-          break;
-          case 1:
-            move.Up(MoveSpeed.Value);
-          break;
-          case 2:
-            move.Right(MoveSpeed.Value);
-          break;
-          case 3:
-            move.Left(MoveSpeed.Value);
-          break;
-        }
-      }
+      // if(!Atack.On){
+      //   switch(direction){
+      //     case 0:
+      //       move.Down(MoveSpeed.Value);
+      //     break;
+      //     case 1:
+      //       move.Up(MoveSpeed.Value);
+      //     break;
+      //     case 2:
+      //       move.Right(MoveSpeed.Value);
+      //     break;
+      //     case 3:
+      //       move.Left(MoveSpeed.Value);
+      //     break;
+      //   }
+      // }
     }
     public void SetChargeSkill(){
       // Skill = ChargeSkill;
@@ -64,56 +64,56 @@ public class Playerp : MonoBehaviour
         Npc.Talk();
       }
     }
-    public void equip(ItemID itemID,Playerp Playerp){
-      // ItemName itemname = new GetItemName().Get(itemID);
-      // Type itemtype = Type.GetType(itemname.ToString());
-      // EquipItem item = (EquipItem)Activator.CreateInstance(itemtype);
-      // item.Equip(Playerp);
-    }
-    public void UnEquip(ItemID itemID,Playerp Playerp){
-      // ItemName itemname = new GetItemName().Get(itemID);
-      // Type itemtype = Type.GetType(itemname.ToString());
-      // EquipItem item = (EquipItem)Activator.CreateInstance(itemtype);
-      // item.UnEquip(Playerp);
-    }
-    public void ItemUse(ItemID itemID){
-      // if(new InventoryHasCheck().Check(itemID)){
-      //   UseItem UseItem = new GetUseItem().Get(itemID);
-      //   new InventoryReduce().Reduce(itemID,new ItemPeace(1));
-      //   UseItem.Use(Name);
-      // }
-    }
+    // public void equip(ItemID itemID,Playerp Playerp){
+    //   // ItemName itemname = new GetItemName().Get(itemID);
+    //   // Type itemtype = Type.GetType(itemname.ToString());
+    //   // EquipItem item = (EquipItem)Activator.CreateInstance(itemtype);
+    //   // item.Equip(Playerp);
+    // }
+    // public void UnEquip(ItemID itemID,Playerp Playerp){
+    //   // ItemName itemname = new GetItemName().Get(itemID);
+    //   // Type itemtype = Type.GetType(itemname.ToString());
+    //   // EquipItem item = (EquipItem)Activator.CreateInstance(itemtype);
+    //   // item.UnEquip(Playerp);
+    // }
+    // public void ItemUse(ItemID itemID){
+    //   // if(new InventoryHasCheck().Check(itemID)){
+    //   //   UseItem UseItem = new GetUseItem().Get(itemID);
+    //   //   new InventoryReduce().Reduce(itemID,new ItemPeace(1));
+    //   //   UseItem.Use(Name);
+    //   // }
+    // }
     //////Status
-    public void GetExp(int exp){
-      if(Status.Exp.Get(exp)){
-        Status.LvUp();
-        FiledText filedText = new FiledText();
-        filedText.Make("LVUP",new Color(255,255,0),this.transform);
-      }
-        AccountData.Save();
-    }
-    public void SetName(string name){
-      Name = name;
-    }
-    //////衝突判定
-    void OnTriggerEnter2D(Collider2D collision){
-      // if(collision.gameObject.tag == "Item"){
-      //   DropItemObj dropItemObj = collision.gameObject.GetComponent<DropItemObj>();
-      //   dropItemObj.DropEnd();
-      //   ItemBag itemBag = dropItemObj.GetItemBag();
-      //   new AddDropItem().Add(itemBag);
-      //   new ItemGetLog(Name,new Get_ItemID().forItemBag(itemBag));
-      //   new PlayAudio().Play(AudioList.ItemGet);
-      // }
-      if(collision.gameObject.tag == "Npc"){
-        Npc = collision.GetComponent<Npc>();
-        TalkFlag = true;
-      }
-    }
-    void OnTriggerExit2D(Collider2D collision){
-      if(collision.gameObject.tag == "Npc"){
-        TalkFlag = false;
-        collision.GetComponent<Npc>().End();
-      }
-    }
+    // public void GetExp(int exp){
+    //   if(Status.Exp.Get(exp)){
+    //     Status.LvUp();
+    //     FiledText filedText = new FiledText();
+    //     filedText.Make("LVUP",new Color(255,255,0),this.transform);
+    //   }
+    //     AccountData.Save();
+    // }
+    // public void SetName(string name){
+    //   Name = name;
+    // }
+    // //////衝突判定
+    // void OnTriggerEnter2D(Collider2D collision){
+    //   // if(collision.gameObject.tag == "Item"){
+    //   //   DropItemObj dropItemObj = collision.gameObject.GetComponent<DropItemObj>();
+    //   //   dropItemObj.DropEnd();
+    //   //   ItemBag itemBag = dropItemObj.GetItemBag();
+    //   //   new AddDropItem().Add(itemBag);
+    //   //   new ItemGetLog(Name,new Get_ItemID().forItemBag(itemBag));
+    //   //   new PlayAudio().Play(AudioList.ItemGet);
+    //   // }
+    //   if(collision.gameObject.tag == "Npc"){
+    //     Npc = collision.GetComponent<Npc>();
+    //     TalkFlag = true;
+    //   }
+    // }
+    // void OnTriggerExit2D(Collider2D collision){
+    //   if(collision.gameObject.tag == "Npc"){
+    //     TalkFlag = false;
+    //     collision.GetComponent<Npc>().End();
+    //   }
+    // }
 }

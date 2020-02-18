@@ -9,7 +9,7 @@ public class InventoryCounter:DataCounter
 
     public InventoryCounter(){
         inventoryList = new InventoryList();
-        DataChecker = new DataChecker(typeof(ItemBag),typeof(ItemID),typeof(ItemPeace));
+        DataChecker = new InvenrtoryDataChecker();
     }
      public void Add(Data Data){
          new DataMaster().Add(inventoryList,Data,DataChecker);

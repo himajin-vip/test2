@@ -10,7 +10,7 @@ public class DataMaster
         }
     }
     public bool Reduce(DatasList DatasList,Key Key,Value Value,DataChecker DataChecker){
-        if(DataChecker.KeyValueCheck(Key,Value)){
+        if(DataChecker.KeyCheck(Key)){
             return DatasList.Reduce(Key,Value);
         }
         return false;

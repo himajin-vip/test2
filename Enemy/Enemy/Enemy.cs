@@ -5,16 +5,6 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
   public int EnemyId;
-  public string Name{get; protected set;}
-  public int Lv{get; protected set;}
-  public StatusHp Hp{get; protected set;}
-  public StatusMp Mp{get; protected set;}
-  public StatusBattle Str{get; protected set;}
-  public StatusBattle Vit{get; protected set;}
-  public StatusBattle Dex{get; protected set;}
-  public StatusBattle Int{get; protected set;}
-  public int Exp;
-  public int Gold;
   public List<DropItemData> DropItemList = new List<DropItemData>();
   public Move move;
   public Direction Direction;
@@ -35,12 +25,12 @@ public class Enemy : MonoBehaviour
     move = new Move(this.gameObject,Direction);
   }
   public virtual void Atack(GameObject Playerpobj){
-    DamageCheck DamageCheck = new DamageCheck();
-    DamageCheck.Playerp(PlayerpObj,Name,Lv,Str.Value);
-    Vector3 Playerppos = Playerpobj.gameObject.transform.position;
-    Efect Efect = new Efect();
-    Efect.On("Kamitukiefect",Playerpobj);//エフェクト作成
-    new PlayAudio().Play(AudioList.Kamituki);
+    // DamageCheck DamageCheck = new DamageCheck();
+    // DamageCheck.Playerp(PlayerpObj,Name,Lv,Str.Value);
+    // Vector3 Playerppos = Playerpobj.gameObject.transform.position;
+    // Efect Efect = new Efect();
+    // Efect.On("Kamitukiefect",Playerpobj);//エフェクト作成
+    // new PlayAudio().Play(AudioList.Kamituki);
   }
 
   public void Move(){
@@ -103,19 +93,6 @@ public class Enemy : MonoBehaviour
      }
      MoveOn = false;
   }
-  public void Death(){
-    DeathCheck = true;
-    new ItemDrop(DropItemList,this.transform);
-    int exp = Exp;
-    if(Lv<Playerp.Status.Lv){
-      double down = ((Playerp.Status.Lv - Lv)/10f);
-      exp =(int)(Exp * (1f-down));
-    }
-    Playerp.GetExp(exp);
-    new AddGold().Add(new Gold(Gold));
-    StartCoroutine(DestroyEnemy());
-  }
-
   void OnCollisionStay2D(Collision2D collision2){
     if(!DeathCheck){
       if(collision2.gameObject.GetComponent<Playerp>()&&!AtackOn){
