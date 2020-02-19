@@ -12,7 +12,6 @@ public class Playerp : MonoBehaviour
     private Move move;
     // public StatusMoveSpeed MoveSpeed{get; private set;}
     public Direction Direction{get; private set;}
-    public Atack Atack{get; private set;}
     public GameObject Weapon{get; protected set;}
     public Charge Charge{get; protected set;}
     // public Skill Skill{get; protected set;}
@@ -25,7 +24,7 @@ public class Playerp : MonoBehaviour
       // MoveSpeed = new StatusMoveSpeed(3,1);
       // Direction = new Direction(this.gameObject.GetComponent<Animator>());
       // move = new Move(this.gameObject,Direction);
-      Atack = new Atack(this);
+
       // normalAtack = new SwordNomalAtack(this,this.gameObject);
       // Skill = normalAtack;
       // ChargeSkill = new SwordChargeAtack(this,this.gameObject);

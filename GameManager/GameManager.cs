@@ -17,7 +17,10 @@ public class GameManager : MonoBehaviour
       MoveManager moveManager = new MoveManager();
 
       SpaceContoroler space = new SpaceContoroler();
-      SkillControler skill = new SkillControler();
+
+      List<Enemy> HitList = new List<Enemy>();
+      SkillControler skill = new SkillControler(HitList);
+      
       PlayerObjectManager player = new PlayerObjectManager();
 
       SeanState.Add(States.MakePlayerObj,new MakePlayerObj(moveManager,player));
