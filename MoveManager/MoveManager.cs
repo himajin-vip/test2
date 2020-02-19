@@ -15,7 +15,14 @@ public class MoveManager
     }
 
     public void Add(MoveState moveState,GameObject obj,Move move){
-        MovesList[moveState].Add(obj,move);
+         MoveList moves = MovesList[moveState];
+        if(!moves.Find(obj)){
+            moves.Add(obj,move);
+            return;
+        }
+        moves.Change(obj,move);
+
+       
     }
     public void Check(){
         moves.Check();

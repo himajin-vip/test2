@@ -16,6 +16,7 @@ public class MakePlayerObj : IState
         MoveManager.Add(MoveState.Main,Object,move);
         MoveManager.Add(MoveState.MapMove,Camera.main.gameObject,CameraMove);
         MoveManager.Add(MoveState.Main,Camera.main.gameObject,CameraMove);
+
     }
     public void Update(){
         GameManager.SetState("Main");

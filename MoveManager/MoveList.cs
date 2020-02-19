@@ -11,6 +11,12 @@ public class MoveList
     public void Remove(GameObject obj){
         Moves.Remove(obj);
     }
+    public bool Find(GameObject obj){
+        return Moves.ContainsKey(obj);
+    }
+    public void Change(GameObject obj,Move move){
+        Moves[obj] = move;
+    }
     public void Check(){
         foreach(Move move in Moves.Values){
             move.Check();
