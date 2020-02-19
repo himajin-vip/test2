@@ -10,15 +10,19 @@ public class ContorolerMove:Move
 
     public override void Check(){
         if(Input.GetKey(KeyCode.S)){
+            direction.Down();
             Down();
         }
         if(Input.GetKey(KeyCode.W)){
+            direction.Up();
             Up();
         }
         if(Input.GetKey(KeyCode.D)){
+            direction.Right();
             Right();
         }
         if(Input.GetKey(KeyCode.A)){
+            direction.Left();
             Left();
         }
     }

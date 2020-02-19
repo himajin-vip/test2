@@ -10,6 +10,10 @@ public class StateMachine
     public void Update(){
         State.Update();
     }
+    public void Start(string nextstate){
+        State = StateList[nextstate];
+        State.Start();
+    }
 
     public void Set(string nextstate){
         State.End();

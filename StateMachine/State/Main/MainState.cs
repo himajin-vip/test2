@@ -4,25 +4,20 @@ using UnityEngine;
 
 public class MainState : IState
 {
-    Controler controler ;
-    CameraManager cameraManager;
+    MoveManager MoveManager;
     Player player;
+    public MainState(MoveManager moveManager){
+        MoveManager = moveManager;
+    }
     public void Start()
     {
-        controler= new MainControler();
-        cameraManager = new CameraManager();
         player = new GetPlayerComponent().Get();
     }
 
     // Update is called once per frame
     public void Update()
     {
-        controler.Check();
-        cameraManager.PlayerpPosCheck();
-        UI_Manager.StatusUpdate();
-        ShortcutManager.AllPiecesReset();
-        EnemyManager.EnemyUpdate();
-        EnemyManager.MakeEnemy();
+        MoveManager.Check();
     }
 
     public void End()
