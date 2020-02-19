@@ -4,46 +4,38 @@ using UnityEngine;
 
 public class RandomMove:Move
 {
-    RandomMoveValue randx ;
-    RandomMoveValue randy ;
-    public RandomMove(Transform t){
+    RandomMoveValue RandomMoveValue;
+    Direction direction;
+    public RandomMove(Transform t,Animator animator){
         transform = t;
+        direction = new Direction(animator);
     }
     public override void Check(){
-        if(!randx.On()==!randx.On()){
-            RandomSet();
+        if(!RandomMoveValue.On()){
+            RandomMoveValue.Set();
         }
-        if(randx.On()){
-            Xmove();
+        if(RandomMoveValue.On()){
+            move();
         }
-        if(randy.On()){
-            Ymove();
-        }
+    
     }
-    public void RandomSet(){
-        randx.Set();
-        if(randx.GetIntValue() == 0){
-            randy.Set();
-        }
-    }
-    private void Xmove(){
-        randx.Count();
-        switch(randx.GetIntValue()){
+    private void move(){
+        RandomMoveValue.Count();
+        switch(RandomMoveValue.GetIntValue()){
             case 1:
+                direction.Right();
                 Right();
             break;
             case -1:
+                direction.Left();
                 Left();
             break;
-        }
-    }
-    private void Ymove(){
-        randx.Count();
-        switch(randx.GetIntValue()){
-            case 1:
+            case 2:
+                direction.Up();
                 Up();
             break;
-            case -1:
+            case -2:
+                direction.Down();
                 Down();
             break;
         }

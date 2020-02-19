@@ -6,7 +6,7 @@ public class RandomMoveValue:IntClass
     bool on = false;
     CountChecker CountChecker = new CountChecker(32);
     public void Set(){
-        Value = Random.Range(-1,1);
+        Value = Random.Range(-2,3);
         if(Value != 0){
             on = true;
         }

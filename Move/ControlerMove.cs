@@ -1,8 +1,10 @@
 using UnityEngine;
 public class ContorolerMove:Move
 {
-    public ContorolerMove(Transform t){
+    Direction direction;
+    public ContorolerMove(Transform t,Animator animator){
         transform = t;
+        direction = new Direction(animator);
     }
 
     public override void Check(){
