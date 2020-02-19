@@ -1,19 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+
 public class MoveManager
 {
-    Dictionary<GameObject,Move> Moves = new Dictionary<GameObject, Move>();
-
-    public void Add(GameObject obj,Move move){
-        Moves.Add(obj,move);
+    Dictionary<MoveState,MoveList> MovesList = new Dictionary<MoveState, MoveList>();
+    MoveList moves;
+    public MoveManager(){
+        foreach(MoveState state in Enum.GetValues(typeof(MoveState))){
+            MovesList.Add(state,new MoveList());
+        }
+        moves = MovesList[MoveState.Main];
     }
-    public void Remove(GameObject obj){
-        Moves.Remove(obj);
+
+    public void Add(MoveState moveState,GameObject obj,Move move){
+        MovesList[moveState].Add(obj,move);
     }
     public void Check(){
-        foreach(Move move in Moves.Values){
-            move.Check();
-        }
+        moves.Check();
+    }
+    public void SetState(MoveState state){
+        moves = MovesList[state];
     }
 }

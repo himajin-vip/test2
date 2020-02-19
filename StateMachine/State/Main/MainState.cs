@@ -11,6 +11,7 @@ public class MainState : IState
     }
     public void Start()
     {
+        MoveManager.SetState(MoveState.Main);
         player = new GetPlayerComponent().Get();
     }
 

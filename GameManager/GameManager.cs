@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
 
       SeanState.Add("MakePlayerObject",new MakePlayerObj(moveManager));
       SeanState.Add("Main",new MainState(moveManager));
+      SeanState.Add("MapMove",new MapMoveState(moveManager));
       
     }
 

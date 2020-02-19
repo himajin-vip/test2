@@ -1,18 +1,15 @@
 using UnityEngine;
 public class CameraMove:Move
 {
-    Transform PlayerTransform;
     CameraMoveValue CameraMoveValue = new CameraMoveValue();
+    PlayerPosCheck PlayerPosCheck;
     public CameraMove(Transform playertransform){
         transform = Camera.main.gameObject.transform;
-        PlayerTransform = playertransform;
+        PlayerPosCheck = new PlayerPosCheck(playertransform,CameraMoveValue);
         movespeed = new IntValue(10);
     }
     public override void Check(){
-        if(!CameraMoveValue.On()){
-            PlayerPosCheck();
-        }
-        if(CameraMoveValue.On()){
+        if(PlayerPosCheck.Check()){
             CameraMoveValue.Count();
             CountMove();
         }
@@ -31,37 +28,6 @@ public class CameraMove:Move
             case 3:
             Left();
             break;
-        }
-    }
-    public void PlayerPosCheck(){
-        float cameraposx = transform.position.x;
-        float cameraposy = transform.position.y;
-        float playerposx = PlayerTransform.position.x;
-        float playerposy = PlayerTransform.position.y;
-        float CameraSizeRight = cameraposx+320;
-        float CameraSizeLeft = cameraposx-320;
-        float CameraSizeUp = cameraposy+240;
-        float CameraSizeDown = cameraposy-240;
-        
-        if(CameraSizeRight<playerposx){
-            CameraMoveValue.Set(2,64);
-            PlayerTransform.Translate(20,0,0);
-            return;
-        }
-        if(CameraSizeLeft>playerposx){
-            CameraMoveValue.Set(3,64);
-            PlayerTransform.Translate(-20,0,0);
-            return;
-        }
-        if(CameraSizeUp < playerposy){
-            CameraMoveValue.Set(1,48);
-            PlayerTransform.Translate(0,30,0);
-            return;
-        }
-        if(CameraSizeDown > playerposy){
-            CameraMoveValue.Set(0,48);
-            PlayerTransform.Translate(0,-20,0);
-            return;
         }
     }
 }

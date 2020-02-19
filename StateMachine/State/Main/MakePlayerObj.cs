@@ -13,8 +13,9 @@ public class MakePlayerObj : IState
         GameObject Object = GameManager.Instantiate(obj, new Vector3(0,0,0), Quaternion.identity);
         Move move = new ContorolerMove(Object.transform,Object.GetComponent<Animator>(),new IntValue(3));
         Move CameraMove = new CameraMove(Object.transform);
-        MoveManager.Add(Object,move);
-        MoveManager.Add(Camera.main.gameObject,CameraMove);
+        MoveManager.Add(MoveState.Main,Object,move);
+        MoveManager.Add(MoveState.MapMove,Camera.main.gameObject,CameraMove);
+        MoveManager.Add(MoveState.Main,Camera.main.gameObject,CameraMove);
     }
     public void Update(){
         GameManager.SetState("Main");
