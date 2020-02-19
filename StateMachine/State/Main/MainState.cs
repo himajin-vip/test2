@@ -6,10 +6,12 @@ public class MainState : IState
 {
     Controler controler ;
     CameraManager cameraManager;
+    Player player;
     public void Start()
     {
         controler= new MainControler();
         cameraManager = new CameraManager();
+        player = new GetPlayerComponent().Get();
     }
 
     // Update is called once per frame

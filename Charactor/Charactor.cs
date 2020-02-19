@@ -1,4 +1,5 @@
-public abstract class Charactor
+using UnityEngine;
+public abstract class Charactor: MonoBehaviour
 {
     protected DataCounterService DataCounter = new DataCounterService();
     public Value GetStatus(Statuss status){

@@ -11,11 +11,9 @@ public class GameManager : MonoBehaviour
 
     public GameManager()
     {
-      InventoryCounter inventory = new InventoryCounter();
       ItemLibrary itemLibrary = new ItemLibrary();
       new ItemDataSetUper(itemLibrary);
       LogMaker log = new LogMaker();
- 
       //////タイトルシーン
       SeanState.Add("ToTitle",new ToTitleState());
       SeanState.Add("Title",new TitleState());
