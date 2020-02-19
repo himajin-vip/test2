@@ -26,7 +26,7 @@ public class Direction
     Animator.SetInteger("Direction", 3);
     Value = new IntValue(3);
   }
-  public Value Get(){
-    return  Value.Copy();
+  public int Get(){
+    return  Value.GetIntValue();
   }
 }

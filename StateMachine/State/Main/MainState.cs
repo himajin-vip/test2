@@ -5,13 +5,16 @@ using UnityEngine;
 public class MainState : IState
 {
     MoveManager MoveManager;
+    SpaceContoroler Space;
     Player player;
-    public MainState(MoveManager moveManager){
+    public MainState(MoveManager moveManager,SpaceContoroler space){
         MoveManager = moveManager;
+        Space = space;
     }
     public void Start()
     {
         MoveManager.SetState(MoveState.Main);
+        Space.SetState(SpaceStates.Atack);
         player = new GetPlayerComponent().Get();
     }
 
@@ -19,6 +22,7 @@ public class MainState : IState
     public void Update()
     {
         MoveManager.Check();
+        Space.Check();
     }
 
     public void End()

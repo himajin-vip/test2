@@ -16,10 +16,15 @@ public class GameManager : MonoBehaviour
 
       MoveManager moveManager = new MoveManager();
 
-      SeanState.Add(States.MakePlayerObj,new MakePlayerObj(moveManager));
+      SpaceContoroler space = new SpaceContoroler();
+      SkillControler skill = new SkillControler();
+      PlayerObjectManager player = new PlayerObjectManager();
+
+      SeanState.Add(States.MakePlayerObj,new MakePlayerObj(moveManager,player));
       SeanState.Add(States.CameraSetUp, new CameraMoveSetState(moveManager));
-      SeanState.Add(States.Main,new MainState(moveManager));
+      SeanState.Add(States.Main,new MainState(moveManager,space));
       SeanState.Add(States.MapMove,new MapMoveState(moveManager));
+      SeanState.Add(States.AtackState,new AtackState(skill,player));
       
     }
 

@@ -12,15 +12,8 @@ public class WeaponObject : MonoBehaviour
 
   private Playerp Playerp;
 
-  public void SetUp(Playerp Playerp){
-    HitEnemyList.Clear();
-    // Playerp = Playerp;
-  }
 
   public void OnEnd(){
-    // Playerp.Skill.Damage(HitEnemyList);
-    HitEnemyList.Clear();
-    Playerp.Atack.Off();
     Destroy (this.gameObject);
   }
 

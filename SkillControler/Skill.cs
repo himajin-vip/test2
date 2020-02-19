@@ -4,9 +4,8 @@ using UnityEngine;
 
 public interface Skill{
 
-  void Damage(Dictionary<int,Enemy> EnemyList);
-  void AtackOn();
+  void On(PlayerObjectManager player);
 
-  int returnMp();
+  // int returnMp();
 
 }

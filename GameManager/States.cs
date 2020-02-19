@@ -3,5 +3,6 @@ public enum States{
     MapMove,
     CameraSetUp,
     MakePlayerObj,
+    AtackState,
     
 }

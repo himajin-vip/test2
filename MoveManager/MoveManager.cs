@@ -21,8 +21,6 @@ public class MoveManager
             return;
         }
         moves.Change(obj,move);
-
-       
     }
     public void Check(){
         moves.Check();
