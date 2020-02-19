@@ -5,18 +5,11 @@ using UnityEngine;
 public class MapMoveState : IState
 {
     Controler controler;
-    CameraManager cameraManager;
     public void Start()
     {
-        controler = new MapMoveControler();
-        cameraManager = new CameraManager();
     }
     public void Update()
     {
-        cameraManager.PlayerpPosCheck();
-        controler.Check();
-        UI_Manager.StatusUpdate();
-        ShortcutManager.AllPiecesReset();
     }
     public void End()
     {

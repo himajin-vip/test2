@@ -47,7 +47,6 @@ public class SougenMap : Map
 
   public void Start(int LastMap)
   {
-    CameraManager cameraManager = new CameraManager();
     GameManager.SetState("Main");
     GameObject PlayerpObj = GameObject.FindGameObjectWithTag("Playerp").gameObject;
     GameObject obj;
@@ -58,7 +57,7 @@ public class SougenMap : Map
         obj = (GameObject)Resources.Load("Map/草原Map");
         MapObject = GameManager.Instantiate(obj, new Vector3(PlayerpObj.transform.position.x,PlayerpObj.transform.position.y+664,0), Quaternion.identity);
         //////カメラサイズの半分-キャラサイズの半分-タイルチップのサイズ-タイルチップの半分
-        cameraManager.PotisionSet(PlayerpObj.transform.position.x,PlayerpObj.transform.position.y+(240-24-32-16));
+        // cameraManager.PotisionSet(PlayerpObj.transform.position.x,PlayerpObj.transform.position.y+(240-24-32-16));
       break;
     }
     EnemyManager.MapEnemyDataSet();
