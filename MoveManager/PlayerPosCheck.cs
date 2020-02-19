@@ -22,25 +22,25 @@ public class PlayerPosCheck{
             if(CameraSizeRight<playerposx){
                 CameraMoveValue.Set(2,64);
                 PlayerTransform.Translate(20,0,0);
-                GameManager.SetState("MapMove");
+                GameManager.SetState(States.MapMove);
                 return true;
             }
             if(CameraSizeLeft>playerposx){
                 CameraMoveValue.Set(3,64);
                 PlayerTransform.Translate(-20,0,0);
-                GameManager.SetState("MapMove");
+                GameManager.SetState(States.MapMove);
                 return true;
             }
             if(CameraSizeUp < playerposy){
                 CameraMoveValue.Set(1,48);
                 PlayerTransform.Translate(0,30,0);
-                GameManager.SetState("MapMove");
+                GameManager.SetState(States.MapMove);
                 return true;
             }
             if(CameraSizeDown > playerposy){
                 CameraMoveValue.Set(0,48);
                 PlayerTransform.Translate(0,-20,0);
-                GameManager.SetState("MapMove");
+                GameManager.SetState(States.MapMove);
                 return true;
             }
         }

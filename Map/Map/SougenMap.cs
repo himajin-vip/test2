@@ -47,7 +47,7 @@ public class SougenMap : Map
 
   public void Start(int LastMap)
   {
-    GameManager.SetState("Main");
+    // GameManager.SetState("Main");
     GameObject PlayerpObj = GameObject.FindGameObjectWithTag("Playerp").gameObject;
     GameObject obj;
     switch(LastMap){
@@ -66,7 +66,7 @@ public class SougenMap : Map
     switch(EventNo){
       case 0:
         MapManager.MapChange(0);
-        GameManager.SetState("Town");
+        // GameManager.SetState("Town");
       break;
     }
   }

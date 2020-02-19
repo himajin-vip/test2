@@ -16,11 +16,11 @@ public class TitleState:IState
     {
         if(TitleButton.newGameOn){
             TitleButton.NewGameOff();
-            GameManager.SetState("NewGame");
+            // GameManager.SetState("NewGame");
         }
         if(TitleButton.loadGameOn){
             TitleButton.LoadGameOff();
-            GameManager.SetState("Load");
+            // GameManager.SetState("Load");
         }
     }
 

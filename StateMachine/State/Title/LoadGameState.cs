@@ -25,7 +25,7 @@ public class LoadGameState : IState
             LoadAccount loadAccount = new LoadAccount();
             if(loadAccount.LoadGame(LoadNameText.text, LoadPassWordText.text)){
                 TitleButton.LoadGameStartOff();
-                GameManager.SetState("MakeLoadCharactor");
+                // GameManager.SetState("MakeLoadCharactor");
             }else{
                 TitleButton.LoadGameStartOff();
                 LoadGameError.SetActive(true);
@@ -33,7 +33,7 @@ public class LoadGameState : IState
         }
         if(TitleButton.returnTitleOn){
             TitleButton.ReturnTitleOff();
-            GameManager.SetState("Title");
+            // GameManager.SetState("Title");
         }
 
     }

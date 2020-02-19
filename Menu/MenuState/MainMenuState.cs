@@ -59,7 +59,7 @@ public class MainMenuState : IMenuState
           MenuManager.SetMenuState("Null");
         break;
         case 6:
-          GameManager.SetState("ToEnd");
+          // GameManager.SetState("ToEnd");
         break;
       }
     }

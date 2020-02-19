@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
   private static StateMachine SeanState = new StateMachine();
-  public static string NowState{get; private set;}
-  public static string LastState{get; private set;}
+  private static States NowState;
+  private static States LastState;
 
     static GameManager()
     {
@@ -16,14 +16,15 @@ public class GameManager : MonoBehaviour
 
       MoveManager moveManager = new MoveManager();
 
-      SeanState.Add("MakePlayerObject",new MakePlayerObj(moveManager));
-      SeanState.Add("Main",new MainState(moveManager));
-      SeanState.Add("MapMove",new MapMoveState(moveManager));
+      SeanState.Add(States.MakePlayerObj,new MakePlayerObj(moveManager));
+      SeanState.Add(States.CameraSetUp, new CameraMoveSetState(moveManager));
+      SeanState.Add(States.Main,new MainState(moveManager));
+      SeanState.Add(States.MapMove,new MapMoveState(moveManager));
       
     }
 
     void Start(){
-      SeanState.Start("MakePlayerObject");
+      SeanState.Start(States.MakePlayerObj);
     }
 
     void Update()
@@ -32,7 +33,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public static void SetState(string NextState){
+    public static void SetState(States NextState){
       LastState = NowState;
       NowState = NextState;
       SeanState.Set(NextState);

@@ -9,7 +9,7 @@ public class EndState : IState
    public void Update()
    {
        if(endbutton.toTItle){
-        GameManager.SetState("ToTitle");
+        // GameManager.SetState("ToTitle");
        }
        
    }

@@ -10,7 +10,7 @@ public class ShopEndState : IState
     {
        ShopWindow = GameObject.Find("ShopPanel").gameObject;
        ShopWindow.SetActive(false);
-       GameManager.SetState(GameManager.LastState);
+    //    GameManager.SetState(GameManager.LastState);
         
     }
 

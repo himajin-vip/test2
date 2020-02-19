@@ -6,11 +6,11 @@ public class NullState : IMenuState
 {
   public void SetUp(){}
   public void Start(){
-    GameManager.SetState(GameManager.LastState);
+    // GameManager.SetState(GameManager.LastState);
   }
   public void CursolMove(int direction){}
   public void CursolOn(){}
   public void End(){
-    GameManager.SetState("Menu");
+    // GameManager.SetState("Menu");
   }
 }

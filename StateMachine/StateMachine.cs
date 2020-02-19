@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class StateMachine
 {
-    private Dictionary<string,IState> StateList = new Dictionary<string, IState>();
+    private Dictionary<States,IState> StateList = new Dictionary<States, IState>();
     private IState State = new nullState();
 
     public void Update(){
         State.Update();
     }
-    public void Start(string nextstate){
+    public void Start(States nextstate){
         State = StateList[nextstate];
         State.Start();
     }
 
-    public void Set(string nextstate){
+    public void Set(States nextstate){
         State.End();
         State = StateList[nextstate];
         State.Start();
     }
-    public void Add(string statename,IState newstate){
+    public void Add(States statename,IState newstate){
         StateList.Add(statename,newstate);
     }
 }

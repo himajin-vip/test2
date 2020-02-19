@@ -15,7 +15,7 @@ public class Npc : MonoBehaviour
             MessageCount++;
         }else{
             if(HaveShop){
-                GameManager.SetState("Shop");
+                // GameManager.SetState("Shop");
             }
             End();
         }

@@ -23,7 +23,7 @@ public class NewGameState : IState
             MakeNewAccount makeNewAccount = new MakeNewAccount();
             if(makeNewAccount.Make(NewNameText.text,NewPassWordText.text)){
                 TitleButton.NewGameStartOff();
-                GameManager.SetState("MakeNewCharactor");
+                // GameManager.SetState("MakeNewCharactor");
             }else{
                 TitleButton.NewGameStartOff();
                 NewGameError.SetActive(true);
@@ -31,7 +31,7 @@ public class NewGameState : IState
         }
         if(TitleButton.returnTitleOn){
             TitleButton.ReturnTitleOff();
-            GameManager.SetState("Title");
+            // GameManager.SetState("Title");
         }
         
     }

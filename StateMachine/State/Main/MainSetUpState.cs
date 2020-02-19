@@ -16,7 +16,7 @@ public class MainSetUpState : IState
 
         
         
-        GameManager.SetState("Town");
+        // GameManager.SetState("Town");
         MapManager.StartMap();
     }
     public void End()

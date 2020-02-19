@@ -12,7 +12,7 @@ public class ToEndState : IState
     // Update is called once per frame
     public void Update()
     {
-        GameManager.SetState("End");
+        // GameManager.SetState("End");
     }
     public void End(){
 

@@ -88,7 +88,7 @@ public class MenuManager
     MenuStateList["Equip"].End();
     MenuStateList["EquipComand"].End();
 
-    GameManager.SetState(GameManager.LastState);
+    // GameManager.SetState(GameManager.LastState);
 
   }
 

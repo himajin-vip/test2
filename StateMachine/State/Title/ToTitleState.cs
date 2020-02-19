@@ -10,7 +10,7 @@ public class ToTitleState : IState
     // Update is called once per frame
     public void Update()
     {
-        GameManager.SetState("Title");
+        // GameManager.SetState("Title");
     }
 
     public void End(){

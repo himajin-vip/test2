@@ -11,7 +11,6 @@ public class MapMoveState : IState
     public void Start()
     {
         MoveManager.SetState(MoveState.MapMove);
-        Debug.Log("a");
     }
     public void Update()
     {
