@@ -5,25 +5,28 @@ using UnityEngine;
 public class Direction
 {
   Animator Animator;
-  public int Value{get; private set;} = 0;
-
+  IntValue Value;
   public Direction(Animator animator){
+    Value = new IntValue(0);
     Animator = animator;
   }
   public void Down(){
     Animator.SetInteger("Direction", 0);
-    Value = 0;
+    Value = new IntValue(0);
   }
   public void Up(){
     Animator.SetInteger("Direction", 1);
-    Value = 1;
+    Value = new IntValue(1);
   }
   public void Right(){
     Animator.SetInteger("Direction", 2);
-    Value = 2;
+    Value = new IntValue(2);
   }
   public void Left(){
     Animator.SetInteger("Direction", 3);
-    Value = 3;
+    Value = new IntValue(3);
+  }
+  public Value Get(){
+    return  Value.Copy();
   }
 }

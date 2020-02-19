@@ -2,31 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Move
+public abstract class Move
 {
-  private GameObject Object;
-  private Direction Direction;
+  protected Transform transform;
+  protected Value movespeed;
+  public abstract void Check();
 
-  public Move(GameObject obj,Direction direction){
-    Object = obj;
-    Direction = direction;
+  public void Down(){
+      transform.Translate (0,-movespeed.GetIntValue(),0);
   }
-
-  public void Down(int movespeed){
-      Object.transform.Translate (0,-movespeed,0);
-      Direction.Down();
+  public void Up(){
+      transform.Translate (0,movespeed.GetIntValue(),0);
   }
-  public void Up(int movespeed){
-      Object.transform.Translate (0,movespeed,0);
-      Direction.Up();
+  public void Right(){
+      transform.Translate (movespeed.GetIntValue(),0,0);
   }
-  public void Right(int movespeed){
-      Object.transform.Translate (movespeed,0,0);
-      Direction.Right();
-  }
-  public void Left(int movespeed){
-      Object.transform.Translate (-movespeed,0,0);
-      Direction.Left();
+  public void Left(){
+      transform.Translate (-movespeed.GetIntValue(),0,0);
   }
 
 }

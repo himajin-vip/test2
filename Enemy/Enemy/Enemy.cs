@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
 
   public void SetUp(){
     Direction = new Direction(this.GetComponent<Animator>());
-    move = new Move(this.gameObject,Direction);
+    // move = new Move(this.gameObject,Direction);
   }
   public virtual void Atack(GameObject Playerpobj){
     // DamageCheck DamageCheck = new DamageCheck();

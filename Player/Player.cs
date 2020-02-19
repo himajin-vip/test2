@@ -23,8 +23,8 @@ public class Playerp : MonoBehaviour
 
     public void SetUp(){
       // MoveSpeed = new StatusMoveSpeed(3,1);
-      Direction = new Direction(this.gameObject.GetComponent<Animator>());
-      move = new Move(this.gameObject,Direction);
+      // Direction = new Direction(this.gameObject.GetComponent<Animator>());
+      // move = new Move(this.gameObject,Direction);
       Atack = new Atack(this);
       // normalAtack = new SwordNomalAtack(this,this.gameObject);
       // Skill = normalAtack;
