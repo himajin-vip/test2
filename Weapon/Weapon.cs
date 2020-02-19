@@ -13,6 +13,7 @@ public class Weapon : MonoBehaviour
         new HitEnemyCheck(HitList,enemy);
     }
     public void OnEnd(){
+        GameManager.SetState(States.EnemyDamage);
         Destroy (this.gameObject);
     }
 }

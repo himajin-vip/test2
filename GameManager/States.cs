@@ -4,5 +4,6 @@ public enum States{
     CameraSetUp,
     MakePlayerObj,
     AtackState,
+    EnemyDamage,
     
 }

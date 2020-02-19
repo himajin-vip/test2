@@ -66,6 +66,11 @@ public class SwordNomalAtack:Skill
       }
 
     }
+    public void DamageCheck(Player player,List<Enemy> enemylist){
+      foreach(Enemy enemy in enemylist){
+        Debug.Log(player.GetStatus(Statuss.MaxHp).GetIntValue());
+      }
+    }
 
 
 }

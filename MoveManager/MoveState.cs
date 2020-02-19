@@ -2,5 +2,6 @@ public enum MoveState{
     Main,
     MapMove,
     Town,
-    Menu
+    Menu,
+    Atack,
 }

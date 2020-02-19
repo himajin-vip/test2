@@ -14,5 +14,8 @@ public class SkillControler
     public void SetSkill(Skills setskill){
         skillChenger.SetSkill(setskill);
     }
+    public void DamageCheck(Player player){
+        skillChenger.DamageCheck(player,hitList);
+    }
 
 }

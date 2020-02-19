@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
       ItemLibrary itemLibrary = new ItemLibrary();
       new ItemDataSetUper(itemLibrary);
 
-      MoveManager moveManager = new MoveManager();
+      MoveManager move = new MoveManager();
 
       SpaceContoroler space = new SpaceContoroler();
 
@@ -23,11 +23,12 @@ public class GameManager : MonoBehaviour
       
       PlayerObjectManager player = new PlayerObjectManager();
 
-      SeanState.Add(States.MakePlayerObj,new MakePlayerObj(moveManager,player));
-      SeanState.Add(States.CameraSetUp, new CameraMoveSetState(moveManager));
-      SeanState.Add(States.Main,new MainState(moveManager,space));
-      SeanState.Add(States.MapMove,new MapMoveState(moveManager));
-      SeanState.Add(States.AtackState,new AtackState(skill,player));
+      SeanState.Add(States.MakePlayerObj,new MakePlayerObj(move,player));
+      SeanState.Add(States.CameraSetUp, new CameraMoveSetState(move));
+      SeanState.Add(States.Main,new MainState(move,space));
+      SeanState.Add(States.MapMove,new MapMoveState(move));
+      SeanState.Add(States.AtackState,new AtackState(skill,player,move));
+      SeanState.Add(States.EnemyDamage,new EnemyDamageState(skill,player));
       
     }
 

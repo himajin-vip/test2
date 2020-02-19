@@ -15,4 +15,7 @@ public class SkillChenger
     public void SetSkill(Skills setskill){
         skill = SkillList[setskill];
     }
+    public void DamageCheck(Player player,List<Enemy> list){
+        skill.DamageCheck(player,list);
+    }
 }

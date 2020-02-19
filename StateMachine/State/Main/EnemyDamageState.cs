@@ -1,20 +1,18 @@
 using UnityEngine;
 using System.Collections.Generic;
-public class AtackState : IState
+public class EnemyDamageState : IState
 {
     SkillControler SkillControler;
     PlayerObjectManager player;
-    MoveManager Move;
-    public AtackState(SkillControler skill, PlayerObjectManager p,MoveManager m){
+    public EnemyDamageState(SkillControler skill, PlayerObjectManager p){
         SkillControler = skill;
         player = p;
-        Move = m;
     }
 
     public void Start()
     {
-        SkillControler.SkillOn(player);
-        Move.SetState(MoveState.Atack);
+        SkillControler.DamageCheck(player.GetPlayer());
+        GameManager.SetState(States.Main);
     }
 
     public void Update()
