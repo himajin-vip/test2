@@ -2,9 +2,10 @@ using UnityEngine;
 public class ContorolerMove:Move
 {
     Direction direction;
-    public ContorolerMove(Transform t,Animator animator){
+    public ContorolerMove(Transform t,Animator animator,Value moveSpeed){
         transform = t;
         direction = new Direction(animator);
+        movespeed = moveSpeed;
     }
 
     public override void Check(){

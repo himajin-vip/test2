@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     {
       ItemLibrary itemLibrary = new ItemLibrary();
       new ItemDataSetUper(itemLibrary);
-      LogMaker log = new LogMaker();
+      MoveManager moveManager = new MoveManager();
       //////タイトルシーン
       SeanState.Add("ToTitle",new ToTitleState());
       SeanState.Add("Title",new TitleState());

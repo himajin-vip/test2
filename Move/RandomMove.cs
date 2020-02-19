@@ -6,11 +6,13 @@ public class RandomMove:Move
 {
     RandomMoveValue RandomMoveValue;
     Direction direction;
-    public RandomMove(Transform t,Animator animator){
+    public RandomMove(Transform t,Animator animator,Value moveSpeed){
         transform = t;
         direction = new Direction(animator);
+        movespeed = moveSpeed;
     }
     public override void Check(){
+        RandomMoveValue.Count();
         if(!RandomMoveValue.On()){
             RandomMoveValue.Set();
         }
@@ -20,7 +22,6 @@ public class RandomMove:Move
     
     }
     private void move(){
-        RandomMoveValue.Count();
         switch(RandomMoveValue.GetIntValue()){
             case 1:
                 direction.Right();
