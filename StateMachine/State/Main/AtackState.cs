@@ -11,7 +11,7 @@ public class AtackState : IState
         Move = m;
     }
 
-    public void Start()
+    public void Start(StateData state)
     {
         SkillControler.SkillOn(player);
         Move.SetState(MoveState.Atack);
@@ -25,8 +25,7 @@ public class AtackState : IState
 
     }
 
-    public void End()
-    {
-
+    public StateData End(){
+        return new StateData();
     }
 }

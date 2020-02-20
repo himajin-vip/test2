@@ -10,7 +10,7 @@ public class BuySellSelectState : IState
     int CursolPos;
     ShopState shopState = new ShopState();
 
-    public void Start()
+    public void Start(StateData stateData)
     {
         ShopWindow = GameObject.Find("ShopPanel").gameObject;
         CursolObj = GameObject.Find("ShopPanel").transform.Find("SelectWindow").transform.Find("SelectCursol").gameObject;
@@ -28,9 +28,10 @@ public class BuySellSelectState : IState
         KeyCheck();
         
     }
-    public void End()
+    public StateData End()
     {
         CursolObj.SetActive(false);
+        return new StateData();
     }
 
     public void KeyCheck(){

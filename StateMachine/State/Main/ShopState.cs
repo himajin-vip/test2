@@ -21,7 +21,7 @@ public class ShopState : IState
         SceneList.Add("ShopEnd",new ShopEndState());
 
     }
-    public void Start()
+    public void Start(StateData stateData)
     {
         Playerp Playerp;
         GameObject ShopWindow = GameObject.Find("ShopCanvas").transform.Find("ShopPanel").gameObject;
@@ -31,7 +31,7 @@ public class ShopState : IState
         new SetGoldText().Set(GoldText);
 
         ShopScene = SceneList["BuySellSelect"];
-        ShopScene.Start();
+        ShopScene.Start(new StateData());
     }
 
     // Update is called once per frame
@@ -40,14 +40,15 @@ public class ShopState : IState
         ShopScene.Update();
     }
 
-    public void End(){
-    
+
+    public StateData End(){
+        return new StateData();
     }
 
     public void SetState(string NextScene){
         ShopScene.End();
         ShopScene = SceneList[NextScene];
-        ShopScene.Start();    
+        ShopScene.Start(new StateData());    
     }
 
     public void getSelectItem(int itemid , int itemnumber){

@@ -1,8 +1,8 @@
 ﻿
 public interface IState
 {
-    void Start();
+    void Start(StateData stateData);
     void Update();
-    void End();
+    StateData End();
 
 }

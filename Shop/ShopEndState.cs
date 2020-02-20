@@ -6,7 +6,7 @@ public class ShopEndState : IState
 {
     GameObject ShopWindow;
     // Start is called before the first frame update
-    public void Start()
+    public void Start(StateData stateData)
     {
        ShopWindow = GameObject.Find("ShopPanel").gameObject;
        ShopWindow.SetActive(false);
@@ -19,8 +19,8 @@ public class ShopEndState : IState
     {
         
     }
-    public void End()
+    public StateData End()
     {
-
+        return new StateData();
     }
 }

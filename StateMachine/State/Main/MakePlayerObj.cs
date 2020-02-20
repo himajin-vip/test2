@@ -10,7 +10,7 @@ public class MakePlayerObj : IState
         Player = player;
     }
     
-    public void Start(){
+    public void Start(StateData stateData){
         GameObject obj = (GameObject)Resources.Load("prefab/Player/Player");
         GameObject Object = GameManager.Instantiate(obj, new Vector3(0,0,0), Quaternion.identity);
         Move move = new ContorolerMove(Object.transform,Object.GetComponent<Animator>(),new IntValue(3));
@@ -23,7 +23,7 @@ public class MakePlayerObj : IState
         GameManager.SetState(States.CameraSetUp);
 
     }
-    public void End(){
-
+    public StateData End(){
+        return new StateData();
     }
 }

@@ -12,7 +12,7 @@ public class MapMoveState : IState
         enemyManager = enemy;
         mapManager = map;
     }
-    public void Start()
+    public void Start(StateData stateData)
     {
         MoveManager.SetState(MoveState.MapMove);
         enemyManager.MapMove(MoveManager);
@@ -21,8 +21,8 @@ public class MapMoveState : IState
     {
         MoveManager.Check();
     }
-    public void End()
-    {
+    public StateData End(){
         enemyManager.MakeEnemy(mapManager.GetEnemys(),MoveManager);
+        return new StateData();
     }
 }

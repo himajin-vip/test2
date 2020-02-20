@@ -12,13 +12,13 @@ public class StateMachine
     }
     public void Start(States nextstate){
         State = StateList[nextstate];
-        State.Start();
+        State.Start(new StateData());
     }
 
     public void Set(States nextstate){
-        State.End();
+        StateData stateData = State.End();
         State = StateList[nextstate];
-        State.Start();
+        State.Start(stateData);
     }
     public void Add(States statename,IState newstate){
         StateList.Add(statename,newstate);

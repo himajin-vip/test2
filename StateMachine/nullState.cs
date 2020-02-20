@@ -1,12 +1,12 @@
 ﻿public class nullState : IState
 {
-    public void Start(){
+    public void Start(StateData stateData){
 
     }
     public void Update(){
 
     }
-    public void End(){
-
+    public StateData End(){
+        return new StateData();
     }
 }

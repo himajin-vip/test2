@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerpSearch : MonoBehaviour
+public class PlayerSearch : MonoBehaviour
 {
-  void OnTriggerEnter2D(Collider2D collision){//プレイヤーを発見したらMoveStatusを変更
+  void OnTriggerEnter2D(Collider2D collision){
       if(collision.gameObject.GetComponent<Player>()){
         Enemy enemy = transform.root.gameObject.GetComponent<Enemy>();
-
+        enemy.FindPlayer(collision.gameObject.GetComponent<Player>());
       }
   }
 }

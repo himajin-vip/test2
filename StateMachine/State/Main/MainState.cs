@@ -7,13 +7,14 @@ public class MainState : IState
     MoveManager MoveManager;
     SpaceContoroler Space;
     SkillControler SkillControler;
-    EnemyLibrary EnemyLibrary;
+    EnemyManager EnemyManager;
     Player player;
-    public MainState(MoveManager moveManager,SpaceContoroler space){
+    public MainState(MoveManager moveManager,SpaceContoroler space,EnemyManager enemy){
         MoveManager = moveManager;
         Space = space;
+        EnemyManager = enemy;
     }
-    public void Start()
+    public void Start(StateData stateData)
     {
         MoveManager.SetState(MoveState.Main);
         Space.SetState(SpaceStates.Atack);
@@ -24,13 +25,13 @@ public class MainState : IState
     // Update is called once per frame
     public void Update()
     {
+        new MakeFindMove().Check(EnemyManager.FindCheck(),MoveManager);
         MoveManager.Check();
         Space.Check();
         player.EfectCount();
     }
 
-    public void End()
-    {
-
+    public StateData End(){
+        return new StateData();
     }
 }

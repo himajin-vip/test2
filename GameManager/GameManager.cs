@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
 
 
       ////////メインシーン
-      SeanState.Add(States.Main,new MainState(move,space));
+      SeanState.Add(States.Main,new MainState(move,space,enemy));
       SeanState.Add(States.MapMove,new MapMoveState(move,enemy,map));
       SeanState.Add(States.AtackState,new AtackState(skill,player,move));
       SeanState.Add(States.EnemyDamage,new EnemyDamageState(skill,player));

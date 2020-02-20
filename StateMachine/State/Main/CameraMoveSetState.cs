@@ -9,7 +9,7 @@ public class CameraMoveSetState : IState
     public CameraMoveSetState(MoveManager move){
         MoveManager = move;
     }
-    public void Start()
+    public void Start(StateData statedata)
     {
         GameObject Object = GameObject.FindGameObjectWithTag("Player").gameObject;
         Move CameraMove = new CameraMove(Object.transform);
@@ -23,8 +23,7 @@ public class CameraMoveSetState : IState
         
     }
 
-    public void End()
-    {
-
+    public StateData End(){
+        return new StateData();
     }
 }

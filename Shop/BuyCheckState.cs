@@ -10,7 +10,7 @@ public class BuyCheckState : IState
     int CursolPos;
     ShopState shopState = new ShopState();
     Playerp Playerp;
-    public void Start()
+    public void Start(StateData stateData)
     {
         BuyComandWindow = GameObject.Find("ShopPanel").transform.Find("BuyComandWindow").gameObject;
         BuyComandWindow.SetActive(true);
@@ -32,9 +32,10 @@ public class BuyCheckState : IState
     {
         KeyCheck();
     }
-    public void End(){
+    public StateData End(){
         BuyComandWindow.SetActive(false);
         CursolObj.SetActive(false);
+        return new StateData();
     }
     public void KeyCheck(){
         if(Input.GetKeyDown(KeyCode.W)&&(CursolPos>0)){

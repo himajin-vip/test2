@@ -16,7 +16,7 @@ public class BuyState : IState
 
     int BuyNumber;
     ShopState shopState = new ShopState();
-    public void Start()
+    public void Start(StateData stateData)
     {
         TextList.Clear();
         Playerp Playerp = GameObject.FindGameObjectWithTag("Playerp").GetComponent<Playerp>();
@@ -52,7 +52,7 @@ public class BuyState : IState
     {
         KeyCheck();
     }
-    public void End(){
+    public StateData End(){
         if(CursolPos == 0){
             ItemWindow.SetActive(false);
             InfoWindow.SetActive(false);
@@ -60,6 +60,7 @@ public class BuyState : IState
         }else{
            CursolObj.SetActive(false); 
         }
+        return new StateData();
     }
 
     public void KeyCheck(){

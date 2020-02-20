@@ -4,14 +4,15 @@ public class SetEnemyLibrary: IState
     public SetEnemyLibrary(EnemyManager e){
         enemyManager = e;
     }
-    public void Start(){
+    public void Start(StateData stateData){
         enemyManager.SetUp();
         GameManager.SetState(States.Main);
     }
     public void Update(){
 
     }
-    public void End(){
 
+    public StateData End(){
+        return new StateData();
     }
 }

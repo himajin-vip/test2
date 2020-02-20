@@ -9,7 +9,7 @@ public class ChargeSetState : IState
         player = p;
     }
 
-    public void Start()
+    public void Start(StateData stateData)
     {
         Player Player = player.GetPlayer();
         Player.SetEfect(Efects.tame);
@@ -21,8 +21,7 @@ public class ChargeSetState : IState
 
     }
 
-    public void End()
-    {
-
+    public StateData End(){
+        return new StateData();
     }
 }
