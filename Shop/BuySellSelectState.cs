@@ -28,10 +28,9 @@ public class BuySellSelectState : IState
         KeyCheck();
         
     }
-    public StateData End()
+    public void End()
     {
         CursolObj.SetActive(false);
-        return new StateData();
     }
 
     public void KeyCheck(){

@@ -20,12 +20,11 @@ public class AtackState : IState
     public void Update()
     {
         if(Input.GetKeyDown(KeyCode.Space)){
-            GameManager.SetState(States.ChargeSetState);
+            GameManager.SetState(States.ChargeSetState,new StateData());
         }
 
     }
 
-    public StateData End(){
-        return new StateData();
+    public void End(){
     }
 }

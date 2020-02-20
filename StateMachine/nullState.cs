@@ -6,7 +6,6 @@
     public void Update(){
 
     }
-    public StateData End(){
-        return new StateData();
+    public void End(){
     }
 }

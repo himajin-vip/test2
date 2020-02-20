@@ -21,8 +21,8 @@ public class MapMoveState : IState
     {
         MoveManager.Check();
     }
-    public StateData End(){
+    public void End(){
         enemyManager.MakeEnemy(mapManager.GetEnemys(),MoveManager);
-        return new StateData();
+
     }
 }

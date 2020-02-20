@@ -31,7 +31,7 @@ public class MainState : IState
         player.EfectCount();
     }
 
-    public StateData End(){
-        return new StateData();
+    public void End(){
+
     }
 }

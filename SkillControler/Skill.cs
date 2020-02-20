@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface Skill{
 
-  void On(PlayerObjectManager player,List<Enemy> hitList);
+  void On(PlayerObjectManager player);
   void DamageCheck(Player player,List<Enemy> list);
 
   // int returnMp();

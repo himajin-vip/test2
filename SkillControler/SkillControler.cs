@@ -3,14 +3,10 @@ using System.Collections.Generic;
 public class SkillControler
 {
     SkillChenger skillChenger = new SkillChenger();
-    List<Enemy> hitList;
     bool On = false;
-    public SkillControler(List<Enemy> list){
-        hitList = list;
-    }
     public void SkillOn(PlayerObjectManager player){
         if(!On){
-            skillChenger.SkillOn(player,hitList);
+            skillChenger.SkillOn(player);
             player.GetPlayer().EfectOff(Efects.tame);
             On = true;
         }
@@ -19,7 +15,7 @@ public class SkillControler
     public void SetSkill(Skills setskill){
         skillChenger.SetSkill(setskill);
     }
-    public void DamageCheck(Player player){
+    public void DamageCheck(Player player,List<Enemy> hitList){
         skillChenger.DamageCheck(player,hitList);
         On = false;
     }

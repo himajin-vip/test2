@@ -15,7 +15,7 @@ public class CameraMoveSetState : IState
         Move CameraMove = new CameraMove(Object.transform);
         MoveManager.Add(MoveState.MapMove,Camera.main.gameObject,CameraMove);
         MoveManager.Add(MoveState.Main,Camera.main.gameObject,CameraMove);
-        GameManager.SetState(States.SetEnemyLibrary);
+        GameManager.SetState(States.SetEnemyLibrary,new StateData());
     }
 
     public void Update()
@@ -23,7 +23,7 @@ public class CameraMoveSetState : IState
         
     }
 
-    public StateData End(){
-        return new StateData();
+    public void End(){
+
     }
 }

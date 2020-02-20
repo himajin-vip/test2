@@ -17,8 +17,7 @@ public class GameManager : MonoBehaviour
 
       SpaceContoroler space = new SpaceContoroler();
 
-      List<Enemy> HitList = new List<Enemy>();
-      SkillControler skill = new SkillControler(HitList);
+      SkillControler skill = new SkillControler();
       
       PlayerObjectManager player = new PlayerObjectManager();
 
@@ -51,16 +50,16 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public static void SetState(States NextState){
+    public static void SetState(States NextState,StateData stateData){
       LastState = NowState;
       NowState = NextState;
-      SeanState.Set(NextState);
+      SeanState.Set(NextState,stateData);
     }
-    public static void ReturnState(){
+    public static void ReturnState(StateData stateData){
       States NextState = LastState;
       LastState = NowState;
       NowState = NextState;
-      SeanState.Set(NextState);
+      SeanState.Set(NextState,stateData);
     }
 
 }

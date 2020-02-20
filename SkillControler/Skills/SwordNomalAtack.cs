@@ -9,7 +9,7 @@ public class SwordNomalAtack:Skill
   int ymargin = 30;
   bool SetUp = false;
 
-    public void On(PlayerObjectManager player,List<Enemy> hitList){
+    public void On(PlayerObjectManager player){
       if(!SetUp){
         Weapon = (GameObject)Resources.Load("prefab/Weapon/Sword");
       }
@@ -27,7 +27,7 @@ public class SwordNomalAtack:Skill
           WeaponPositionx = playerposx+xmargin;
           WeaponPositiony = playerposy-ymargin;
 
-          WeaponObject = new WeaponInstantiate().Get(Weapon,WeaponPositionx,WeaponPositiony,hitList);
+          WeaponObject = new WeaponInstantiate().Get(Weapon,WeaponPositionx,WeaponPositiony);
           WeaponObject.transform.Rotate (0, 0,20);
           WeaponObject.transform.Find("Sword0").gameObject.SetActive(true);
           WeaponAnimator = WeaponObject.GetComponent<Animator>();
@@ -37,7 +37,7 @@ public class SwordNomalAtack:Skill
           WeaponPositionx = playerposx-xmargin;
           WeaponPositiony = playerposy+ymargin;
 
-          WeaponObject = new WeaponInstantiate().Get(Weapon,WeaponPositionx,WeaponPositiony,hitList);
+          WeaponObject = new WeaponInstantiate().Get(Weapon,WeaponPositionx,WeaponPositiony);
           WeaponObject.transform.Rotate (0, 0,20);
           WeaponObject.transform.Find("Sword1").gameObject.SetActive(true);
           WeaponAnimator = WeaponObject.GetComponent<Animator>();
@@ -47,7 +47,7 @@ public class SwordNomalAtack:Skill
           WeaponPositionx = playerposx+xmargin;
           WeaponPositiony = playerposy+ymargin;
 
-          WeaponObject = new WeaponInstantiate().Get(Weapon,WeaponPositionx,WeaponPositiony,hitList);
+          WeaponObject = new WeaponInstantiate().Get(Weapon,WeaponPositionx,WeaponPositiony);
           WeaponObject.transform.Rotate (0, 0,20);
           WeaponObject.transform.Find("Sword2").gameObject.SetActive(true);
           WeaponAnimator = WeaponObject.GetComponent<Animator>();
@@ -57,7 +57,7 @@ public class SwordNomalAtack:Skill
           WeaponPositionx = playerposx-xmargin;
           WeaponPositiony = playerposy+ymargin;
 
-          WeaponObject = new WeaponInstantiate().Get(Weapon,WeaponPositionx,WeaponPositiony,hitList);
+          WeaponObject = new WeaponInstantiate().Get(Weapon,WeaponPositionx,WeaponPositiony);
           WeaponObject.transform.Rotate (0, 0,-20);
           WeaponObject.transform.Find("Sword3").gameObject.SetActive(true);
           WeaponAnimator = WeaponObject.GetComponent<Animator>();

@@ -8,8 +8,8 @@ public class SkillChenger
         SkillList.Add(Skills.SwordNomalAtack,new SwordNomalAtack());
         skill = SkillList[Skills.SwordNomalAtack];
     }
-    public void SkillOn(PlayerObjectManager player,List<Enemy> hitList){
-        skill.On(player,hitList);
+    public void SkillOn(PlayerObjectManager player){
+        skill.On(player);
     }
 
     public void SetSkill(Skills setskill){

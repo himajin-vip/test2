@@ -41,8 +41,8 @@ public class ShopState : IState
     }
 
 
-    public StateData End(){
-        return new StateData();
+    public void End(){
+
     }
 
     public void SetState(string NextScene){

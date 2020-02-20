@@ -6,13 +6,13 @@ public class SetEnemyLibrary: IState
     }
     public void Start(StateData stateData){
         enemyManager.SetUp();
-        GameManager.SetState(States.Main);
+        GameManager.SetState(States.Main,new StateData());
     }
     public void Update(){
 
     }
 
-    public StateData End(){
-        return new StateData();
+    public void End(){
+
     }
 }

@@ -20,10 +20,10 @@ public class MakePlayerObj : IState
 
     }
     public void Update(){
-        GameManager.SetState(States.CameraSetUp);
+        GameManager.SetState(States.CameraSetUp,new StateData());
 
     }
-    public StateData End(){
-        return new StateData();
+    public void End(){
+
     }
 }

@@ -13,7 +13,7 @@ public class ChargeSetState : IState
     {
         Player Player = player.GetPlayer();
         Player.SetEfect(Efects.tame);
-        GameManager.SetState(States.Main);
+        GameManager.SetState(States.Main,new StateData());
     }
 
     public void Update()
@@ -21,7 +21,7 @@ public class ChargeSetState : IState
 
     }
 
-    public StateData End(){
-        return new StateData();
+    public void End(){
+
     }
 }

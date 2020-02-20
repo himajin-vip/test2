@@ -52,7 +52,7 @@ public class BuyState : IState
     {
         KeyCheck();
     }
-    public StateData End(){
+    public void End(){
         if(CursolPos == 0){
             ItemWindow.SetActive(false);
             InfoWindow.SetActive(false);
@@ -60,7 +60,6 @@ public class BuyState : IState
         }else{
            CursolObj.SetActive(false); 
         }
-        return new StateData();
     }
 
     public void KeyCheck(){

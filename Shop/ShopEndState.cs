@@ -19,8 +19,7 @@ public class ShopEndState : IState
     {
         
     }
-    public StateData End()
+    public void End()
     {
-        return new StateData();
     }
 }

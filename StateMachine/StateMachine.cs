@@ -15,8 +15,8 @@ public class StateMachine
         State.Start(new StateData());
     }
 
-    public void Set(States nextstate){
-        StateData stateData = State.End();
+    public void Set(States nextstate,StateData stateData){
+        State.End();
         State = StateList[nextstate];
         State.Start(stateData);
     }

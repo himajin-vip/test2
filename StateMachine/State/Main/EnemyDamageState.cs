@@ -11,8 +11,8 @@ public class EnemyDamageState : IState
 
     public void Start(StateData stateData)
     {
-        SkillControler.DamageCheck(player.GetPlayer());
-        GameManager.SetState(States.Main);
+        SkillControler.DamageCheck(player.GetPlayer(),stateData.Hitlist);
+        GameManager.SetState(States.Main,new StateData());
     }
 
     public void Update()
@@ -20,7 +20,7 @@ public class EnemyDamageState : IState
 
     }
 
-     public StateData End(){
-        return new StateData();
+    public void End(){
+
     }
 }

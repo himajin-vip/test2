@@ -32,10 +32,9 @@ public class BuyCheckState : IState
     {
         KeyCheck();
     }
-    public StateData End(){
+    public void End(){
         BuyComandWindow.SetActive(false);
         CursolObj.SetActive(false);
-        return new StateData();
     }
     public void KeyCheck(){
         if(Input.GetKeyDown(KeyCode.W)&&(CursolPos>0)){

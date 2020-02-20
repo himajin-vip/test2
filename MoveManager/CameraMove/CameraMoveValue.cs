@@ -19,7 +19,7 @@ public class CameraMoveValue:IntClass
     }
     public void Count(){
         if(!CountChecker.CountUp()){
-            GameManager.SetState(States.Main);
+            GameManager.SetState(States.Main,new StateData());
             on = false;
         }
     }
