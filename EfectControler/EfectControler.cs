@@ -10,8 +10,10 @@ public class EfectControler
     }
 
     public void On(Efects efects){
-        OnEfects.Add(EfectList[efects]);
-        EfectList[efects].On();
+        if(!OnEfects.Contains(EfectList[efects])){
+            OnEfects.Add(EfectList[efects]);
+            EfectList[efects].On();
+        }
     }
     public void Count(){
         foreach(IEfect efect in OnEfects){

@@ -11,10 +11,9 @@ public class ChargeSetState : IState
 
     public void Start()
     {
-        Debug.Log("Charge");
         Player Player = player.GetPlayer();
         Player.SetEfect(Efects.tame);
-        GameManager.ReturnState();
+        GameManager.SetState(States.Main);
     }
 
     public void Update()
