@@ -19,6 +19,9 @@ public class AtackState : IState
 
     public void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Space)){
+            GameManager.SetState(States.ChargeSetState);
+        }
 
     }
 

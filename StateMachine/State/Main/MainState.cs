@@ -6,6 +6,8 @@ public class MainState : IState
 {
     MoveManager MoveManager;
     SpaceContoroler Space;
+    SkillControler SkillControler;
+    EnemyLibrary EnemyLibrary;
     Player player;
     public MainState(MoveManager moveManager,SpaceContoroler space){
         MoveManager = moveManager;
@@ -16,6 +18,7 @@ public class MainState : IState
         MoveManager.SetState(MoveState.Main);
         Space.SetState(SpaceStates.Atack);
         player = new GetPlayerComponent().Get();
+
     }
 
     // Update is called once per frame
@@ -23,6 +26,7 @@ public class MainState : IState
     {
         MoveManager.Check();
         Space.Check();
+        player.EfectCount();
     }
 
     public void End()

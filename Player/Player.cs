@@ -9,11 +9,6 @@ public class Playerp : MonoBehaviour
     public string Name{get; private set;}
     public PlayerpStatus Status {get; protected set;} = new PlayerpStatus();
     public  Equip Equip{get; protected set;}
-    private Move move;
-    // public StatusMoveSpeed MoveSpeed{get; private set;}
-    public Direction Direction{get; private set;}
-    public GameObject Weapon{get; protected set;}
-    public Charge Charge{get; protected set;}
     // public Skill Skill{get; protected set;}
     // private Skill normalAtack;
     // public Skill ChargeSkill{get; protected set;}
@@ -28,9 +23,6 @@ public class Playerp : MonoBehaviour
       // normalAtack = new SwordNomalAtack(this,this.gameObject);
       // Skill = normalAtack;
       // ChargeSkill = new SwordChargeAtack(this,this.gameObject);
-      Charge = this. transform.Find("tame").GetComponent<Charge>();
-      Charge.SetUp(this,this.gameObject);
-      Weapon = (GameObject)Resources.Load("prefab/Weapon/Sword");
       Equip = new Equip(this);
     }
     ///////Action

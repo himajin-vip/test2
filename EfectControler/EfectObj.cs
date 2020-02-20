@@ -5,7 +5,7 @@ using UnityEngine;
 public class EfectObj : MonoBehaviour
 {
   public void OnEnd(){
-    Destroy(this.gameObject);
+    this.gameObject.SetActive(false);
   }
 
 }

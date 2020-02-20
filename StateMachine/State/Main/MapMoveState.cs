@@ -5,12 +5,17 @@ using UnityEngine;
 public class MapMoveState : IState
 {
     MoveManager MoveManager;
-    public MapMoveState(MoveManager moveManager){
+    EnemyManager enemyManager;
+    MapManager mapManager;
+    public MapMoveState(MoveManager moveManager,EnemyManager enemy,MapManager map){
         MoveManager = moveManager;
+        enemyManager = enemy;
+        mapManager = map;
     }
     public void Start()
     {
         MoveManager.SetState(MoveState.MapMove);
+        enemyManager.MapMove(MoveManager);
     }
     public void Update()
     {
@@ -18,6 +23,6 @@ public class MapMoveState : IState
     }
     public void End()
     {
-
+        enemyManager.MakeEnemy(mapManager.GetEnemys(),MoveManager);
     }
 }

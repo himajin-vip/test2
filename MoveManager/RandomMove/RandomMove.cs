@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RandomMove:Move
 {
-    RandomMoveValue RandomMoveValue;
+    RandomMoveValue RandomMoveValue = new RandomMoveValue();
     Direction direction;
     public RandomMove(Transform t,Animator animator,Value moveSpeed){
         transform = t;

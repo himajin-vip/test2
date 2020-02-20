@@ -2,12 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface Map
+public interface MapData
 {
-  void SetUp();
-  void Start(int LastMap);
-  void Event(int EventNo);
-  void MapMove(int Direction);
-  MapEnemyList ReturnEnemyList();
-  void End();
+  Dictionary<Enemys,Value> GetEnemys();
+  void MapMove(Value value);
+  
 }

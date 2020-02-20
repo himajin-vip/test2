@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KingSlime : Enemy
-{
-    KingSlime(){
-
-    }
+public interface IEfect{
+    void On();
+    void End();
+    void Count();
 }

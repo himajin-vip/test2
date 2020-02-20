@@ -5,25 +5,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
   public int EnemyId;
-  public List<DropItemData> DropItemList = new List<DropItemData>();
-  public Move move;
-  public Direction Direction;
-  public int MoveSpeed;
-  public int MoveStatus;
-  public float AtackWaitTime;
-  public bool DeathCheck;
-  public bool AtackOn;
-  public bool MoveOn;
-  public int MoveOnX;
-  public int MoveOnY;
   
-  public GameObject PlayerpObj;
-  public Playerp Playerp;
 
-  public void SetUp(){
-    Direction = new Direction(this.GetComponent<Animator>());
-    // move = new Move(this.gameObject,Direction);
-  }
   public virtual void Atack(GameObject Playerpobj){
     // DamageCheck DamageCheck = new DamageCheck();
     // DamageCheck.Playerp(PlayerpObj,Name,Lv,Str.Value);
@@ -94,18 +77,7 @@ public class Enemy : MonoBehaviour
   //   //  MoveOn = false;
   // }
   void OnCollisionStay2D(Collision2D collision2){
-    if(!DeathCheck){
-      if(collision2.gameObject.GetComponent<Playerp>()&&!AtackOn){
-        PlayerpObj = collision2.gameObject;
-        AtackOn = true;
-        StartCoroutine(AtackWait());
-        Atack(collision2.gameObject);
-      }
-    }
-  }
-  private IEnumerator AtackWait(){
-    yield return new WaitForSeconds(AtackWaitTime);
-    AtackOn = false;
+
   }
   private IEnumerator DestroyEnemy(){
     yield return new WaitForSeconds(0.5f);
@@ -113,7 +85,6 @@ public class Enemy : MonoBehaviour
   }
 
   public void DestroyMapMove(){
-    Debug.Log("Destroy");
     Destroy(this.gameObject);
   }
 }

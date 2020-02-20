@@ -9,7 +9,6 @@ public class Timer
         SetCount = setCount;
     }
     public bool CountUp(){
-        Debug.Log(count);
         if(SetCount>count){
             count += 1 * Time.deltaTime;
             return true;

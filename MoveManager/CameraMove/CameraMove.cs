@@ -9,7 +9,11 @@ public class CameraMove:Move
         movespeed = new IntValue(10);
     }
     public override void Check(){
-        if(PlayerPosCheck.Check()){
+        if(PlayerPosCheck.Check()&&!CameraMoveValue.On()){
+            GameManager.SetState(States.MapMove);
+            CameraMoveValue.SetOn();
+        }
+        if(CameraMoveValue.On()){
             CameraMoveValue.Count();
             CountMove();
         }

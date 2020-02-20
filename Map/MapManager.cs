@@ -2,45 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class MapManager
+public class MapManager
 {
-  private static Dictionary<int,Map> MapList = new Dictionary<int,Map>();
-  private static Map Map;
-  private static int LastMap;
+  MapSelector MapSelector = new MapSelector();
+  Dictionary<Maps,GameObject> MapObjects = new Dictionary<Maps, GameObject>();
 
-  public static void SetUp(){
-    MapList.Clear();
-    MapList.Add(0,new TownMap());
-    MapList.Add(1,new SougenMap());
-    MapList[1].SetUp();
-    Map = MapList[0];
-    LastMap = 0;
+  public void Load(){
   }
-
-  public static void StartMap(){
-     Map.Start(LastMap);
+  public Dictionary<Enemys,Value> GetEnemys(){
+    return MapSelector.GetEnemys();
   }
-
-  public static void MapChange(int NextMapNo){
-    Map.End();
-    Map = MapList[NextMapNo];
-    Map.Start(LastMap);
-    LastMap = NextMapNo;
+  public void SetMapData(Maps nextmap){
+    MapSelector.SetMapData(nextmap);
+    SetMapObject(nextmap);
   }
-
-  public static void MapEvent(int EventNo){
-    Map.Event(EventNo);
-  }
-
-  public static int ReturnLastMap(){
-    return LastMap;
-  }
-  public static void MapMove(int Direction){
-    Map.MapMove(Direction);
-  }
-
-  public static MapEnemyList ReturnEnemyList(){
-    return Map.ReturnEnemyList();
+  private void SetMapObject(Maps nextmap){
+    // GameObject.Instantiate(MapObjects[nextmap],new Vector3(0,0,0),Quaternion.identity);
   }
 
 }

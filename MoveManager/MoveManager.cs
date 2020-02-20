@@ -7,6 +7,7 @@ public class MoveManager
 {
     Dictionary<MoveState,MoveList> MovesList = new Dictionary<MoveState, MoveList>();
     MoveList moves;
+    
     public MoveManager(){
         foreach(MoveState state in Enum.GetValues(typeof(MoveState))){
             MovesList.Add(state,new MoveList());
@@ -21,6 +22,13 @@ public class MoveManager
             return;
         }
         moves.Change(obj,move);
+    }
+    public void Remove(GameObject obj){
+        foreach(MoveList move in MovesList.Values){
+            if(move.Find(obj)){
+                move.Remove(obj);
+            }
+        }
     }
     public void Check(){
         moves.Check();

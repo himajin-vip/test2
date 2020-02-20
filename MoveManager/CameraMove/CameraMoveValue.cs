@@ -10,6 +10,8 @@ public class CameraMoveValue:IntClass
     public void Set(int Direction,int MapSizeXY){
         Value = Direction;
         CountChecker = new CountChecker(MapSizeXY);
+    }
+    public void SetOn(){
         on = true;
     }
     public bool On(){

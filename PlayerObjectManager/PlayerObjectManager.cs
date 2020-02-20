@@ -9,6 +9,7 @@ public class PlayerObjectManager
         PlayerObject = GameObject.FindGameObjectWithTag("Player").gameObject;
         PlayerAnimator = PlayerObject.GetComponent<Animator>();
         player = PlayerObject.GetComponent<Player>();
+        player.Set();
     }
     public int GetDirection(){
         return PlayerAnimator.GetInteger("Direction");

@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
     static GameManager()
     {
       ItemLibrary itemLibrary = new ItemLibrary();
-      new ItemDataSetUper(itemLibrary);
 
       MoveManager move = new MoveManager();
 
@@ -23,12 +22,22 @@ public class GameManager : MonoBehaviour
       
       PlayerObjectManager player = new PlayerObjectManager();
 
+      EnemyManager enemy = new EnemyManager();
+      MapManager map = new MapManager();
+      ///////セットアップ
       SeanState.Add(States.MakePlayerObj,new MakePlayerObj(move,player));
       SeanState.Add(States.CameraSetUp, new CameraMoveSetState(move));
+      SeanState.Add(States.SetEnemyLibrary ,new SetEnemyLibrary(enemy));
+
+
+
+
+      ////////メインシーン
       SeanState.Add(States.Main,new MainState(move,space));
-      SeanState.Add(States.MapMove,new MapMoveState(move));
+      SeanState.Add(States.MapMove,new MapMoveState(move,enemy,map));
       SeanState.Add(States.AtackState,new AtackState(skill,player,move));
       SeanState.Add(States.EnemyDamage,new EnemyDamageState(skill,player));
+      SeanState.Add(States.ChargeSetState,new ChargeSetState(skill,player));
       
     }
 
@@ -43,6 +52,12 @@ public class GameManager : MonoBehaviour
 
 
     public static void SetState(States NextState){
+      LastState = NowState;
+      NowState = NextState;
+      SeanState.Set(NextState);
+    }
+    public static void ReturnState(){
+      States NextState = LastState;
       LastState = NowState;
       NowState = NextState;
       SeanState.Set(NextState);

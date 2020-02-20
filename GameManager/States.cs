@@ -5,5 +5,7 @@ public enum States{
     MakePlayerObj,
     AtackState,
     EnemyDamage,
+    ChargeSetState,
+    SetEnemyLibrary,
     
 }
