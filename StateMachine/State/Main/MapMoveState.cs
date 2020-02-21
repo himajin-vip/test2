@@ -16,6 +16,7 @@ public class MapMoveState : IState
     {
         MoveManager.SetState(MoveState.MapMove);
         enemyManager.MapMove(MoveManager);
+        mapManager.MapMove(stateData);
     }
     public void Update()
     {

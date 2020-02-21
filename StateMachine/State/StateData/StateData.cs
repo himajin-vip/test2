@@ -9,5 +9,6 @@ public class StateData
     public List<Enemy> Hitlist;
     public Player player;
     public Enemy enemy;
+    public CameraMoveValue cameraMoveValue;
 
 }

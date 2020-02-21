@@ -11,11 +11,7 @@ public class EnemyManager
         enemyLibrary.SetUp();
     }
 
-    public void MakeEnemy(Dictionary<Enemys,Value> enemylist,MoveManager moveManager){
-       foreach(Enemys enemy in enemylist.Keys){
-            GetValue(enemylist,enemy,moveManager);
-       }
-    }
+
     public void MapMove(MoveManager move){
         foreach(Enemy enemy in Enemys){
             move.Remove(enemy.GetObj());
@@ -23,18 +19,17 @@ public class EnemyManager
         }
         Enemys.Clear();
     }
-    ////////////////////////////////////////////////////////////
-    private void GetValue(Dictionary<Enemys,Value> enemylist ,Enemys enemy,MoveManager moveManager){
-        foreach(Value value in enemylist.Values){
-            make(enemy,value,moveManager);
-        }
+    public void MakeEnemy(Dictionary<Enemys,Value> enemylist,MoveManager moveManager){
+       foreach(KeyValuePair<Enemys,Value> enems in enemylist){
+           make(enems,moveManager);
+       }
     }
-    private void make(Enemys enemy ,Value value,MoveManager moveManager){
+    private void make(KeyValuePair<Enemys,Value> enems,MoveManager moveManager){
         GameObject newEnemy;
-        for(int i= 0;i<value.GetIntValue();i++){
-            newEnemy = enemyLibrary.MakeEnemy(enemy);
+        for(int i= 0;i<enems.Value.GetIntValue();i++){
+            newEnemy = enemyLibrary.MakeEnemy(enems.Key);
             Charactor Enemy = newEnemy.GetComponent<Enemy>();
-            Enemy.LoadStatus(Statuss.Name,new StringValue(enemy.ToString()));
+            Enemy.LoadStatus(Statuss.Name,new StringValue(enems.Key.ToString()));
             new CSVLoader().EnemyLoad(Enemy);
             Enemys.Add(Enemy);
             MakeMove(newEnemy,moveManager);

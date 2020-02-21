@@ -10,7 +10,8 @@ public class CameraMove:Move
     }
     public override void Check(){
         if(PlayerPosCheck.Check()&&!CameraMoveValue.On()){
-            GameManager.SetState(States.MapMove,new StateData());
+            CameraMoveValue value = PlayerPosCheck.GetValue();
+            GameManager.SetState(States.MapMove,new MapMoveData(value));
             CameraMoveValue.SetOn();
         }
         if(CameraMoveValue.On()){

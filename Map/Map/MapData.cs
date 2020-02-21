@@ -5,6 +5,6 @@ using UnityEngine;
 public interface MapData
 {
   Dictionary<Enemys,Value> GetEnemys();
-  void MapMove(Value value);
+  void MapMove(StateData stateData);
   
 }

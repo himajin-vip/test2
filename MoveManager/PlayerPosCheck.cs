@@ -8,6 +8,9 @@ public class PlayerPosCheck{
         CameraTransform = Camera.main.gameObject.transform;
         CameraMoveValue = cameraMove;
     }
+    public CameraMoveValue GetValue(){
+        return CameraMoveValue;
+    }
     public bool Check(){
         if(!CameraMoveValue.On()){
             float cameraposx = CameraTransform.position.x;

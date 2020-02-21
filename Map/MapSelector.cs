@@ -13,8 +13,8 @@ public class MapSelector
     public Dictionary<Enemys,Value> GetEnemys(){
         return NowMapData.GetEnemys();
     }
-    public void MapMove(Value value){
-        NowMapData.MapMove(value);
+    public void MapMove(StateData stateData){
+        NowMapData.MapMove(stateData);
     }
     public void SetMapData(Maps Nextmap){
         NowMapData = MapDatas[Nextmap];

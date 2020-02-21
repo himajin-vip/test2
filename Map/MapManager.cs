@@ -19,5 +19,8 @@ public class MapManager
   private void SetMapObject(Maps nextmap){
     // GameObject.Instantiate(MapObjects[nextmap],new Vector3(0,0,0),Quaternion.identity);
   }
+  public void MapMove(StateData statedata){
+    MapSelector.MapMove(statedata);
+  }
 
 }
