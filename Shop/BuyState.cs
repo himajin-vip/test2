@@ -32,7 +32,7 @@ public class BuyState : IState
         CursolTransform = CursolObj.GetComponent<RectTransform>();
 
         Text GoldText = GameObject.Find("ShopPanel").transform.Find("GoldWindow").transform.Find("Text").GetComponent<Text>();
-        new SetGoldText().Set(GoldText);
+        // new SetGoldText().Set(GoldText);
 
         ItemWindow.SetActive(true);
         InfoWindow.SetActive(true);

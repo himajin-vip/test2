@@ -22,22 +22,32 @@ public class RandomMove:Move
     
     }
     private void move(){
+        float myx = transform.position.x;
+        float myy = transform.position.y;
         switch(RandomMoveValue.GetIntValue()){
             case 1:
-                direction.Right();
-                Right();
+                if(new MapPosition().MaxX>myx+32){
+                    direction.Right();
+                    Right();
+                }
             break;
             case -1:
-                direction.Left();
-                Left();
+                if(new MapPosition().MinX<myx-32){
+                    direction.Left();
+                    Left();
+                }
             break;
             case 2:
-                direction.Up();
-                Up();
+                if(new MapPosition().MaxY>myy+32){
+                    direction.Up();
+                    Up();
+                }
             break;
             case -2:
-                direction.Down();
-                Down();
+                if(new MapPosition().MinY<myy-32){
+                    direction.Down();
+                    Down();
+                }
             break;
         }
     }

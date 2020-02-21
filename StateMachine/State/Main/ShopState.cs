@@ -28,7 +28,7 @@ public class ShopState : IState
         ShopWindow.SetActive(true);
         Text GoldText = ShopWindow.transform.Find("GoldWindow").transform.Find("Text").GetComponent<Text>();
         Playerp  = GameObject.FindGameObjectWithTag("Playerp").GetComponent<Playerp>();
-        new SetGoldText().Set(GoldText);
+        // new SetGoldText().Set(GoldText);
 
         ShopScene = SceneList["BuySellSelect"];
         ShopScene.Start(new StateData());

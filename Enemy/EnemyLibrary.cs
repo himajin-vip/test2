@@ -14,17 +14,8 @@ public class EnemyLibrary
 
   }
   public GameObject MakeEnemy(Enemys enemy){
-    int MapSizex = 640;
-    int MapSizey = 384;
-    int objectSize = 32;
-    float Camerax = Camera.main.transform.position.x;
-    float Cameray = Camera.main.transform.position.y;
-    float Max_x = Camerax+(MapSizex/2)-objectSize;
-    float Min_x = Camerax-(MapSizex/2)+objectSize;
-    float Max_y = Cameray+(MapSizey/2)-objectSize;
-    float Min_y = Cameray-(MapSizey/2)+objectSize;
-    float Randomx = UnityEngine.Random.Range(Min_x,Max_x);
-    float Randomy = UnityEngine.Random.Range(Min_y,Max_y);
+    float Randomx = UnityEngine.Random.Range(new MapPosition().MinX,new MapPosition().MaxX);
+    float Randomy = UnityEngine.Random.Range(new MapPosition().MinY,new MapPosition().MaxY);
     return GameManager.Instantiate(EnemyList[enemy],new Vector3(Randomx,Randomy,0),Quaternion.identity);
   }
 

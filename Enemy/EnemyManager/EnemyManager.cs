@@ -16,6 +16,14 @@ public class EnemyManager
             GetValue(enemylist,enemy,moveManager);
        }
     }
+    public void MapMove(MoveManager move){
+        foreach(Enemy enemy in Enemys){
+            move.Remove(enemy.GetObj());
+            GameManager.Destroy(enemy.GetObj());
+        }
+        Enemys.Clear();
+    }
+    ////////////////////////////////////////////////////////////
     private void GetValue(Dictionary<Enemys,Value> enemylist ,Enemys enemy,MoveManager moveManager){
         foreach(Value value in enemylist.Values){
             make(enemy,value,moveManager);
@@ -36,13 +44,6 @@ public class EnemyManager
         Move move = new RandomMove(enemy.transform,enemy.GetComponent<Animator>(),new IntValue(1));
         moveManager.Add(MoveState.Main,enemy,move);
         moveManager.Add(MoveState.Atack,enemy,move);
-    }
-    public void MapMove(MoveManager move){
-        foreach(Enemy enemy in Enemys){
-            move.Remove(enemy.GetObj());
-            GameManager.Destroy(enemy.GetObj());
-        }
-        Enemys.Clear();
     }
 
 }
