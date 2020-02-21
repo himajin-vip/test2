@@ -15,6 +15,8 @@ public class CameraMove:Move
         }
         if(CameraMoveValue.On()){
             CameraMoveValue.Count();
+        }
+        if(CameraMoveValue.On()){
             CountMove();
         }
     }

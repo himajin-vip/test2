@@ -17,10 +17,12 @@ public class CameraMoveValue:IntClass
     public bool On(){
         return on;
     }
-    public void Count(){
+    public bool Count(){
         if(!CountChecker.CountUp()){
-            GameManager.SetState(States.Main,new StateData());
             on = false;
+            GameManager.SetState(States.Main,new StateData());
+            return false;
         }
+        return true;
     }
 }
