@@ -8,5 +8,7 @@ public enum States{
     ChargeSet,
     SetEnemyLibrary,
     PlayerFind,
+    DethCheck,
+    
     
 }

@@ -7,6 +7,7 @@ public class StateData
     public Data Data;
     public GameObject Object;
     public List<Enemy> Hitlist;
+    public Charactor Charactor;
     public Player player;
     public Enemy enemy;
     public CameraMoveValue cameraMoveValue;

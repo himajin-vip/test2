@@ -10,6 +10,10 @@ public class EnemyManager
     public void SetUp(){
         enemyLibrary.SetUp();
     }
+    public void Remove(Charactor enemy){
+        Enemys.Remove(enemy);
+        GameManager.Destroy(enemy.GetObj());
+    }
 
 
     public void MapMove(MoveManager move){

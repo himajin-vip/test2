@@ -27,7 +27,7 @@ public class CSVLoader
         }
         foreach(Statuss status in Enum.GetValues(typeof(Statuss))){
             if(status != Statuss.Name){
-                chara.LoadStatus(status,new IntValue(int.Parse(line[(int)status])));
+                chara.LoadStatus(status,new StatusValue(int.Parse(line[(int)status])));
             }
         }
     }

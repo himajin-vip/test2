@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
       SeanState.Add(States.EnemyDamage,new EnemyDamageState(skill,player));
       SeanState.Add(States.ChargeSet,new ChargeSetState(skill,player));
       SeanState.Add(States.PlayerFind,new PlayerFindState(move));
+      SeanState.Add(States.DethCheck,new DethCheckState(move,enemy));
       
     }
 

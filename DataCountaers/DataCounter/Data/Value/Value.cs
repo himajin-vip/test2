@@ -17,7 +17,7 @@ public abstract class Value:FirstClass
     public void Add(Value val){
         IntValue += val.GetIntValue();
     }
-    public bool Reduce(Value val){
+    public virtual bool Reduce(Value val){
         if(ReduceCheck(val)){
             IntValue -= val.GetIntValue();
             return true;

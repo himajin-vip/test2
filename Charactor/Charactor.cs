@@ -25,13 +25,11 @@ public abstract class Charactor: MonoBehaviour
         Key key = new StringKey(status.ToString(),DataType_Charactor.Status.ToString());
         return DataCounter.Reduce(key,value);
     }
-    public bool DethCheck(){
-        Key key = new StringKey(Statuss.CurrentHp.ToString(),DataType_Charactor.Status.ToString());
-        Value Hp = DataCounter.GetValue(key);
+    public void DethCheck(){
+        Value Hp = GetStatus(Statuss.CurrentHp);
         if(Hp.GetIntValue()==0){
-            return true;
+            GameManager.SetState(States.DethCheck,new DethCheckData(this));
         }
-        return false;
     }
 
 }

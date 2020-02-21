@@ -5,6 +5,7 @@ using UnityEngine;
 public class SwordNomalAtack:Skill
 {
   GameObject Weapon;
+  int SkillBonas = 1;
   int xmargin = 20;
   int ymargin = 30;
   bool SetUp = false;
@@ -68,7 +69,7 @@ public class SwordNomalAtack:Skill
     }
     public void DamageCheck(Player player,List<Enemy> enemylist){
       foreach(Enemy enemy in enemylist){
-        Debug.Log(player.GetStatus(Statuss.MaxHp).GetIntValue());
+        new Damage(player,enemy,SkillBonas);
       }
     }
 

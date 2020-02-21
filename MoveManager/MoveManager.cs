@@ -25,13 +25,16 @@ public class MoveManager
     }
     public void Remove(GameObject obj){
         foreach(MoveList move in MovesList.Values){
-            if(move.Find(obj)){
+            if(move.Find(obj)){       
                 move.Remove(obj);
             }
         }
     }
     public void Check(){
         moves.Check();
+        RemoveCheck();
+    }
+    public void RemoveCheck(){
         foreach(MoveList move in MovesList.Values){
             move.RemoveCheck();
         }
