@@ -32,11 +32,12 @@ public class GameManager : MonoBehaviour
 
 
       ////////メインシーン
-      SeanState.Add(States.Main,new MainState(move,space,enemy));
+      SeanState.Add(States.Main,new MainState(move,space));
       SeanState.Add(States.MapMove,new MapMoveState(move,enemy,map));
       SeanState.Add(States.AtackState,new AtackState(skill,player,move));
       SeanState.Add(States.EnemyDamage,new EnemyDamageState(skill,player));
-      SeanState.Add(States.ChargeSetState,new ChargeSetState(skill,player));
+      SeanState.Add(States.ChargeSet,new ChargeSetState(skill,player));
+      SeanState.Add(States.PlayerFind,new PlayerFindState(move));
       
     }
 

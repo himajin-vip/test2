@@ -22,8 +22,11 @@ public class MoveList
         foreach(Move move in Moves.Values){
             move.Check();
         }
+    }
+    public void RemoveCheck(){
         foreach(GameObject obj in RemoveList){
             Moves.Remove(obj);
         }
+        RemoveList.Clear();
     }
 }

@@ -10,18 +10,6 @@ public class EnemyManager
     public void SetUp(){
         enemyLibrary.SetUp();
     }
-    public Dictionary<Enemy,Player> FindCheck(){
-        Dictionary<Enemy,Player> FindList = new Dictionary<Enemy, Player>();
-        foreach(Enemy enemy in Enemys){
-            MoveChange(FindList,enemy);
-        }
-        return FindList;
-    }
-    public void MoveChange(Dictionary<Enemy,Player> FindList,Enemy enemy){
-        if(enemy.FindCheck()){
-            FindList.Add(enemy,enemy.GetFindPlayer());
-        }
-    }
 
     public void MakeEnemy(Dictionary<Enemys,Value> enemylist,MoveManager moveManager){
        foreach(Enemys enemy in enemylist.Keys){

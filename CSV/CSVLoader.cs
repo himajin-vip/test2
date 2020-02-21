@@ -30,9 +30,6 @@ public class CSVLoader
                 chara.LoadStatus(status,new IntValue(int.Parse(line[(int)status])));
             }
         }
-        foreach(Statuss status in Enum.GetValues(typeof(Statuss))){
-            Debug.Log(chara.GetStatus(status).GetStringValue());
-        }
     }
     public void EnemyLoad(Charactor chara){
         StatusLoad(chara);

@@ -18,6 +18,7 @@ public class MoveManager
     public void Add(MoveState moveState,GameObject obj,Move move){
          MoveList moves = MovesList[moveState];
         if(!moves.Find(obj)){
+            Debug.Log("Add");
             moves.Add(obj,move);
             return;
         }
@@ -32,6 +33,9 @@ public class MoveManager
     }
     public void Check(){
         moves.Check();
+        foreach(MoveList move in MovesList.Values){
+            move.RemoveCheck();
+        }
     }
     public void SetState(MoveState state){
         moves = MovesList[state];
