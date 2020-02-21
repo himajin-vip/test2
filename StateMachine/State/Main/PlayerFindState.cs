@@ -9,6 +9,7 @@ public class PlayerFindState : IState
         GameObject enemy = stateData.enemy.GetObj();
         GameObject player = stateData.player.GetObj();
         moveManager.Add(MoveState.Main,enemy,new MakeFindMove().Make(enemy,player));
+        moveManager.Add(MoveState.Atack,enemy,new MakeFindMove().Make(enemy,player));
         GameManager.SetState(States.Main,new StateData());
     }
     public void Update(){

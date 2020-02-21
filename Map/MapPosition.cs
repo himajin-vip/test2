@@ -3,7 +3,7 @@ public class MapPosition
 {       
         float camerax;
         float cameray;
-        float objectsize = 32;
+        float objectsize = 64;
         float Mapsizex = 640;
         float Mapsizey = 384;
         public float MaxX;
