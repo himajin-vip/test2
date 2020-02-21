@@ -6,6 +6,9 @@ public class Enemy : Charactor
 {
   Player Player;
   bool FindMove = false;
+  public Enemy(){
+    DataCounter.AddCounters(new StatusCounter());
+  }
 
   public void FindPlayer(Player player){
     Player = player;

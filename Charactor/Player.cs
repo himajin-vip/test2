@@ -3,7 +3,7 @@ public class Player:Charactor
 {
     
     public Player(){
-        DataCounter.AddCounters(new MakeNewPlayerStatus().Make());
+        DataCounter.AddCounters(new StatusCounter());
     }
     public void Set(){
         EfectControler = new EfectControler(this.gameObject);

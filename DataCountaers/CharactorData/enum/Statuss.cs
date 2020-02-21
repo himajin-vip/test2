@@ -1,6 +1,6 @@
 public enum Statuss{
-    Lv,
     Name,
+    Lv,
     CurrentHp,
     MaxHp,
     CurrentMp,
@@ -11,6 +11,6 @@ public enum Statuss{
     Dex,
     CurrentExp,
     NextExp,
-    Gold,
+    Gold
 
 }

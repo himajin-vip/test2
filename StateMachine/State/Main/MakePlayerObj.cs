@@ -16,6 +16,8 @@ public class MakePlayerObj : IState
         Move move = new ContorolerMove(Object.transform,Object.GetComponent<Animator>(),new IntValue(3));
         MoveManager.Add(MoveState.Main,Object,move);
         Player.SetObject();
+        Player.GetPlayer().LoadStatus(Statuss.Name,new StringValue("FirstPlayer"));
+        new CSVLoader().StatusLoad(Player.GetPlayer());
         
 
     }

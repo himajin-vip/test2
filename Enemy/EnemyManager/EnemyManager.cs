@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemyManager
 {
     EnemyLibrary enemyLibrary = new EnemyLibrary();
-    private List<Enemy> Enemys = new List<Enemy>();
+    private List<Charactor> Enemys = new List<Charactor>();
 
 
     public void SetUp(){
@@ -37,7 +37,10 @@ public class EnemyManager
         GameObject newEnemy;
         for(int i= 0;i<value.GetIntValue();i++){
             newEnemy = enemyLibrary.MakeEnemy(enemy);
-            Enemys.Add(newEnemy.GetComponent<Enemy>());
+            Charactor Enemy = newEnemy.GetComponent<Enemy>();
+            Enemy.LoadStatus(Statuss.Name,new StringValue(enemy.ToString()));
+            new CSVLoader().EnemyLoad(Enemy);
+            Enemys.Add(Enemy);
             MakeMove(newEnemy,moveManager);
         }
     }

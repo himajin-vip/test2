@@ -6,6 +6,9 @@ public abstract class Charactor: MonoBehaviour
     public Value GetStatus(Statuss status){
         return DataCounter.GetValue(new StringKey(status.ToString(),DataType_Charactor.Status.ToString()));
     }
+    public void LoadStatus(Statuss status,Value value){
+        DataCounter.Add(new StringKey(status.ToString(),DataType_Charactor.Status.ToString()),value);
+    }
     public GameObject GetObj(){
         return this.gameObject;
     }
